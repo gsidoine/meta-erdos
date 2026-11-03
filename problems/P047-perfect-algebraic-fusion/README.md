@@ -3,7 +3,7 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does F_4[[T]] contain a compact perfect set of Hausdorff dimension one with no four distinct elements satisfying either a+b=c+d or ab=cd?  
 > **Formulation:** candidate. **Novelty:** unverified; close to Mycielski perfect-set fusion and quantitative pattern avoidance in local fields.  
-> **Verified/known progress:** An explicit compact perfect, 1/2-Ahlfors-regular simultaneous additive/multiplicative four-point Sidon set is proved below. Fraser's local-field theorem already supplies the dimension-1/2 existence bound.  
+> **Verified/known progress:** Explicit 1/2-Ahlfors-regular simultaneous Sidon set (Fraser's 1/2 existence bound is known); sharp 1/2 dimension bound for locally Lipschitz pair-sum-to-product maps; proper closed subfields have dimension at most 1/2.  
 > **Finite evidence:** Exact symbolic argument and finite polynomial checks of up to 64 elements; dimension-one existence is not established.  
 > **Symbolic prize:** A bottle of wine — A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
@@ -34,6 +34,8 @@ $$
 
 The additive and multiplicative two-point maps are injective on unordered pairs from this set. The complete argument is in [the proof](proofs/half-dimensional-construction.md).
 
+A valuation-theoretic bound shows that every proper closed subfield of $\mathbb F_4((T))$ has Hausdorff dimension at most $1/2$. Hence the affine-subfield method cannot improve the exponent using a different proper closed subfield. Independently, a finite-quotient counting argument shows that any set of Hausdorff dimension greater than $1/2$ must exhibit four-point additive collisions modulo $T^{n+h}$ for every fixed $h$ and all sufficiently large $n$ (and multiplicative collisions as well when restricted to units). Neither statement rules out a higher-dimensional exact avoiding set. Moreover, the Vieta map $(a,b)\mapsto(a+b,ab)$ is locally bi-Lipschitz away from the diagonal. For any compact four-point additive Sidon set $P$ of dimension $s>1/2$, its pair-sum-to-product map cannot be locally Lipschitz, and any positive global Hölder exponent $\alpha$ must satisfy $\alpha\le2(1-s)$. In particular, at $s=1$ no positive Hölder exponent is possible. The cubic example has a locally Lipschitz pair-sum-to-product map, so $1/2$ is the exact maximal Hausdorff dimension in this regularity-constrained class. This does not resolve the unrestricted dimension-one question.
+
 Fraser's local-field polynomial-avoidance theorem (Theorem 1.1 of *Large Subsets of Local Fields Not Containing Configurations*) already proves the existence of sets of Hausdorff dimension $1/2$ avoiding both displayed equations, since their degrees are at most two. Applied only to the additive equation, the same theorem yields a set of Hausdorff dimension $1$. Thus the quantitative $1/2$ existence bound is **known**; the construction above is a self-contained explicit and regular example, not an improvement of that bound.
 
 ## Context
@@ -46,6 +48,9 @@ Closely related work on algebraically pattern-free sets with large Hausdorff dim
 
 - [Explicit construction and proof](proofs/half-dimensional-construction.md)
 - [Affine subfield separation lemma](proofs/affine-subfield-separation.md)
+- [Dimension bound for proper closed subfields](proofs/closed-subfield-dimension.md)
+- [Necessary finite-scale collisions above dimension one-half](proofs/finite-scale-collisions.md)
+- [Vieta graph dimension and Hölder regularity obstruction](proofs/sidon-vieta-graph.md)
 - [Baire-category formulation and a disproved initial cardinal question](exploration/README.md)
 - [Comparison with relevant literature](references/prior-art.md)
 - [Reproducible finite polynomial checks](verification/P047_sidon.py)
