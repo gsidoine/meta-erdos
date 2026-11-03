@@ -5,11 +5,12 @@
 > **Formulation:** candidate. **Novelty:** high overlap risk: colored triangulation flip graphs.  
 > **Verified/known progress:** Odd doubled area iff the triangle has three different mod-2 vertex classes; flips require all four classes.  
 > **Finite evidence:** Exhaustive parity color patterns through n=9 (zero disconnected four-class cases); six-vertex three-color obstruction.  
+> **Symbolic prize:** A small black coffee — A general proof of four-class odd-area flip connectivity, or a finite counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
-**Subject:** discrete geometry · **Collection:** The Seedbed  
-**Reward:** none offered · **Formal proof:** not yet verified in Lean
+**Subject:** discrete geometry  
+**Formal proof:** not yet verified in Lean
 
 ## Problem
 

@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** Exact triangle expectation matches Erdős–Rényi; four-clique expectation has an additive-parallelogram correction.  
 > **Finite evidence:** Exact enumeration of K4 motif moments for odd cyclic orders 5, 7, 9.  
+> **Symbolic prize:** A bottle of whisky of positive measure — A proof or disproof that the specified Cayley-sum flag-complex homology thresholds match the independent-edge model.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
