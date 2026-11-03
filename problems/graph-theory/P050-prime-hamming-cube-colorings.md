@@ -52,7 +52,7 @@ Vectors differing in an odd prime number of coordinates have opposite first coor
 
 In particular, the proposed equality holds for $k=2$. No assertion is made for $k\ge3$.
 
-The first-order asymptotic $\chi(H_n)\sim2n$ already follows from the clique lower bound and the established asymptotic chromatic number $(2+o(1))n$ for the graph joining all pairs at Hamming distance at most three: the latter has proper colorings that can be chosen with distinct parity palettes, thereby avoiding all odd prime distances as well. The contribution of the present question, if any, lies at **additive constant scale**.
+The first-order asymptotic $\chi(H_n)\sim2n$ is already a consequence of existing hypercube coloring theory. Indeed, the chromatic number of the distance-at-most-two hypercube graph is $(1+o(1))n$ (Östergård, 2004). Color each of the two parity classes independently using disjoint palettes of this size. The only prime distance within a parity class is two, so the resulting $(2+o(1))n$-coloring is proper for $H_n$. The clique bound gives the matching lower-order term. The present question concerns **the exact additive constant at dyadic dimensions**, not this known asymptotic.
 
 ## Prior art
 
