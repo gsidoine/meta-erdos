@@ -34,7 +34,7 @@ $$
 
 The additive and multiplicative two-point maps are injective on unordered pairs from this set. The complete argument is in [the proof](proofs/half-dimensional-construction.md).
 
-A valuation-theoretic bound shows that every proper closed subfield of $\mathbb F_4((T))$ has Hausdorff dimension at most $1/2$. Hence the affine-subfield method cannot improve the exponent using a different proper closed subfield. Independently, a finite-quotient counting argument shows that any set of Hausdorff dimension greater than $1/2$ must exhibit four-point additive collisions modulo $T^{n+h}$ for every fixed $h$ and all sufficiently large $n$ (and multiplicative collisions as well when restricted to units). Neither statement rules out a higher-dimensional exact avoiding set.
+A valuation-theoretic bound shows that every proper closed subfield of $\mathbb F_4((T))$ has Hausdorff dimension at most $1/2$. Hence the affine-subfield method cannot improve the exponent using a different proper closed subfield. Independently, a finite-quotient counting argument shows that any set of Hausdorff dimension greater than $1/2$ must exhibit four-point additive collisions modulo $T^{n+h}$ for every fixed $h$ and all sufficiently large $n$ (and multiplicative collisions as well when restricted to units). Neither statement rules out a higher-dimensional exact avoiding set. Moreover, the Vieta map $(a,b)\mapsto(a+b,ab)$ is locally bi-Lipschitz away from the diagonal. For any compact four-point additive Sidon set $P$ of dimension $s>1/2$, its pair-sum-to-product map cannot be locally Lipschitz, and a global Hölder exponent $\alpha$ must satisfy $\alpha\le1/(2s)$. This gives an additional regularity obstruction without resolving existence.
 
 Fraser's local-field polynomial-avoidance theorem (Theorem 1.1 of *Large Subsets of Local Fields Not Containing Configurations*) already proves the existence of sets of Hausdorff dimension $1/2$ avoiding both displayed equations, since their degrees are at most two. Applied only to the additive equation, the same theorem yields a set of Hausdorff dimension $1$. Thus the quantitative $1/2$ existence bound is **known**; the construction above is a self-contained explicit and regular example, not an improvement of that bound.
 
@@ -50,6 +50,7 @@ Closely related work on algebraically pattern-free sets with large Hausdorff dim
 - [Affine subfield separation lemma](proofs/affine-subfield-separation.md)
 - [Dimension bound for proper closed subfields](proofs/closed-subfield-dimension.md)
 - [Necessary finite-scale collisions above dimension one-half](proofs/finite-scale-collisions.md)
+- [Vieta graph dimension and Hölder regularity obstruction](proofs/sidon-vieta-graph.md)
 - [Baire-category formulation and a disproved initial cardinal question](exploration/README.md)
 - [Comparison with relevant literature](references/prior-art.md)
 - [Reproducible finite polynomial checks](verification/P047_sidon.py)
