@@ -193,8 +193,131 @@ which forces $Q_P(f\mid S_7)>5/12$. This proves the lower bound on the infimum. 
 
 The proposition establishes **sharpness only for symmetric profiles supported on these three primes**. Neither asymmetric pairs $f\ne g$ nor additional prime supports nor arbitrary arithmetic Hall cuts are covered. In particular, it is not a lower bound for the full graph resilience $\rho_n$. The optimization is an elementary refinement of the existing certificate, without a historical priority claim.
 
+## Theorem 4 — Unrestricted asymmetry on three primes
+
+Let $P=\{3,5,7\}$. Then
+
+$
+\boxed{
+\inf_{\substack{f,g:2^P\to[0,1]\\m_P(f)+m_P(g)>1}}
+R_P(f,g)=\frac5{12}.
+}
+$
+
+In fact, every admissible pair has $R_P(f,g)>5/12$. No symmetry assumption $f=g$ is required.
+
+**Proof.** Write $m(h)=m_P(h)$, $Q(h\mid S)=Q_P(h\mid S)$ and $t=5/12$. Let
+
+$
+D(S)=\prod_{p\in S}\left(1-\frac1p\right).
+$
+
+For any $h:2^P\to[0,1]$,
+
+$
+m(h)\le 1-D(S)+D(S)Q(h\mid S).
+$
+
+Consequently, $Q(h\mid S)\le t$ implies
+
+$
+m(h)\le u(S):=1-(1-t)D(S).
+$
+
+In particular,
+
+$
+\begin{aligned}
+u(\varnothing)&=\frac5{12},&
+u(\{3\})&=\frac{11}{18},&
+u(\{5\})&=\frac8{15},\\
+u(\{7\})&=\frac12,&
+u(P)&=\frac{11}{15}.
+\end{aligned}
+$
+
+Since $D(S)\ge D(P)$, one also has $u(S)\le u(P)$ for all $S\subseteq P$. The exact weights relevant to the argument are
+
+$
+\begin{aligned}
+\mu_P(\varnothing)&=\frac{48}{105},&
+\mu_P(\{3\})&=\frac{24}{105},&
+\mu_P(\{5\})&=\frac{12}{105},\\
+\mu_P(\{7\})&=\frac8{105},&
+\mu_P(2^P\setminus\{\varnothing,\{3\},\{5\},\{7\}\})&=\frac{13}{105}.
+\end{aligned}
+$
+
+Suppose for a contradiction that $m(f)+m(g)>1$ but $R_P(f,g)\le t$.
+
+**Case 1: at least one empty support is selected.** By exchanging the two profiles, assume $f(\varnothing)>0$. Then $m(g)\le u(\varnothing)=t$ and hence $m(f)>7/12$. Since $u(\varnothing),u(\{7\}),u(\{5\})$ are all smaller than $7/12$, the support of $g$ contains none of $\varnothing,\{7\},\{5\}$. Thus
+
+$
+m(g)\le\frac{37}{105},
+\qquad m(f)>\frac{68}{105}>\frac{11}{18}.
+$
+
+It follows that $g(\{3\})=0$ as well. Hence $m(g)\le13/105$ and $m(f)>92/105$. But $g$ is not identically zero, since $m(f)\le1$ and $m(f)+m(g)>1$. Choose $S$ with $g(S)>0$. The conditional inequality gives $m(f)\le u(S)\le u(P)=11/15<92/105$, a contradiction.
+
+**Case 2: neither empty support is selected.** Here $m(f),m(g)\le57/105$. After exchanging the two profiles, $m(f)>1/2$. Since omitting the singleton $\{7\}$ would leave mass at most $49/105<1/2$, one has $f(\{7\})>0$. Thus $m(g)\le u(\{7\})=1/2$. Moreover $g(\{7\})=0$, since otherwise $m(f)\le1/2$. Therefore $m(g)\le49/105$, giving $m(f)>56/105=8/15$.
+
+If $g(\{5\})=0$, then $m(g)\le(49-12)/105=37/105$ and $m(f)+m(g)\le(57+37)/105<1$, another contradiction. Hence $g(\{5\})>0$, which implies $m(f)\le u(\{5\})=8/15$, the final contradiction.
+
+Every admissible $f,g$ therefore has $R_P(f,g)>5/12$. Proposition 2 supplies admissible symmetric profiles $f=g=f_\delta$ with $R_P(f_\delta,f_\delta)\le5/12+\delta$ for arbitrarily small $\delta>0$. Thus the infimum is $5/12$. $\square$
+
+The theorem eliminates **asymmetric as well as symmetric improvements using only the three primes $3,5,7$**. It does not prove $\alpha_{\mathrm{frac}}\ge5/12$ when arbitrary additional primes are allowed, and it does not bound the unrestricted graph resilience from below by $5/12$.
+
+## Theorem 5 — Monotone compression of fractional Hall profiles
+
+More generally, let $P$ be any finite coordinate set, with product measure $\mu_P$ whose coordinate inclusion probabilities $q_p$ satisfy $0<q_p<1$. Define $m_P$, $Q_P$ and $R_P$ as above, using this product measure.
+
+**Theorem.** For any admissible $f,g:2^P\to[0,1]$, there are coordinatewise increasing functions $f^\uparrow,g^\uparrow:2^P\to[0,1]$ such that
+
+$
+m_P(f^\uparrow)=m_P(f),\qquad
+m_P(g^\uparrow)=m_P(g),\qquad
+R_P(f^\uparrow,g^\uparrow)\le R_P(f,g).
+$
+
+Consequently, the finite-prime infimum $\alpha_{\mathrm{frac}}$ can be taken over **increasing** fractional profiles on each finite prime set.
+
+**Proof.** Fix $p\in P$, write $q=q_p$, and let $U\subseteq P\setminus\{p\}$. For a profile $h$, put
+
+$
+a_U=(1-q)h(U)+q h(U\cup\{p\})
+$
+
+and define a new profile $\widehat h$ by
+
+$
+\widehat h(U\cup\{p\})=\min\{1,a_U/q\},\qquad
+\widehat h(U)=\frac{a_U-q\widehat h(U\cup\{p\})}{1-q}.
+$
+
+Then $0\le\widehat h(U)\le\widehat h(U\cup\{p\})\le1$; the weighted mean $a_U$ is unchanged; and $\widehat h(U)\le h(U)$.
+
+Apply this operation simultaneously to $f$ and $g$. Their masses are preserved. For any $S$ not containing $p$, the conditional quantity $Q_P(\widehat h\mid S)$ equals $Q_P(h\mid S)$ because it averages over the unchanged $p$-coordinate mean. For $S$ containing $p$, conditioning forces the $p$-coordinate to be absent, so
+
+$
+Q_P(\widehat h\mid S)\le Q_P(h\mid S).
+$
+
+Consider a support $S$ for which $\widehat f(S)>0$. If $p\notin S$, then $f(S)>0$, and the conditional constraint for $g$ is unchanged. If $p\in S$, then either $f(S)>0$ or $f(S\setminus\{p\})>0$. In the former case the conditional cost does not increase. In the latter case, since $\widehat g(U)\le\widehat g(U\cup\{p\})$,
+
+$
+Q_P(\widehat g\mid S)
+\le Q_P(\widehat g\mid S\setminus\{p\})
+=Q_P(g\mid S\setminus\{p\}).
+$
+
+The right side was constrained by the original support of $f$. Thus the largest conditional cost from $f$ to $g$ does not increase. The same argument with the profiles exchanged proves the claim for the other direction.
+
+Repeat this operation for every $p\in P$. Compression in a later coordinate preserves earlier monotonicity: both output values for a coordinate are nondecreasing functions of the weighted mean of its two input values. Thus the resulting profiles are coordinatewise increasing, have the original masses, and have no larger value of $R_P$. $\square$
+
+This is a measure-preserving form of upward compression, related to the classical shifting and monotonicity techniques for biased intersecting families. The lemma reduces the **search space** of the unrestricted finite-prime variational problem; it does not evaluate its infimum. Historical priority for this particular formulation is unverified.
+
 ## Scope and references
 
-The equality in Theorem 1 concerns two infima of **finite-prime conditional-density Hall parameters**. It does not assert that these infima equal $\liminf_n\rho_n$ or $\limsup_n\rho_n$, nor that $\rho_n$ converges. The upper constant $5/12$ is not asserted to be optimal.
+The equality in Theorem 1 concerns two infima of **finite-prime conditional-density Hall parameters**. It does not assert that these infima equal $\liminf_n\rho_n$ or $\limsup_n\rho_n$, nor that $\rho_n$ converges. The upper constant $5/12$ is optimal for all fractional profiles on the three-prime support $\{3,5,7\}$, but is not asserted optimal for larger finite prime sets or for the full graph resilience.
 
 The argument uses elementary product-measure coupling and large-prime auxiliary coordinates. Such purification and mixed-colouring principles have general precedents; compare the graphon-partition framework of [Janson, Lo, McDiarmid, Skeja and Skerman (2026)](https://arxiv.org/abs/2610.38599). The finite-prime disjointness measure is closely related to nonuniform biased intersecting-family problems; see [Wu and Feng (2026)](https://arxiv.org/abs/2607.26871). The particular arithmetic resilience inequality has not been independently checked for historical priority.
