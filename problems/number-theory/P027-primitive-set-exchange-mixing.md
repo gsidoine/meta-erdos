@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].  
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
-> **Verified/known progress:** Exact exchange diameter and isolated 23-state factors; certified full mixing lower bound (121926/66083)n log n−O(n) and 23-adic divisibility; full mixing unresolved.  
-> **Finite evidence:** Exact 23-state enumeration; improved rational Rayleigh 66083/243852 (older 101/363); five-block isolation proved and finitely checked.  
+> **Verified/known progress:** Exact diameter and improved 23-state mixing obstruction (121926/66083)n log n; arbitrary fixed maximum primitive-set spaces occur as positive-density independent factors, implying linear divisibility and spectral transfer.  
+> **Finite evidence:** Exact 23-state Rayleigh certificate; independent finite counts F(20)=26, F(24)=34 and factor-isolation checks; full-chain mixing and priority remain unresolved.  
 > **Symbolic prize:** One hundred grams of caviar — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -77,6 +77,23 @@ k_n=\frac{16}{63063}n+O(1),
 $$
 
 where $f(n)$ counts maximum primitive sets. Independently isolated three-state pairs also imply a 3-adic valuation lower bound. Exact arithmetic certificates and finite isolation checks appear in the [verification script](../../experiments/P027_five_site_mixing_obstruction.py). The underlying counting framework is established work and the precise historical originality remains unverified.
+
+## Universal finite-pattern factors
+
+The [finite-pattern factor theorem](../../theorems/P027-universal-finite-pattern-factorization.md) shows that, for every fixed $C\ge2$, the state space contains a positive density of independent copies of the maximum primitive-set configuration space on $[C]$. If $F(C)$ counts those configurations, then for an explicitly defined $k_{n,C}=c_Cn+O_C(1)$,
+
+$$
+F(C)^{k_{n,C}}\mid F(2n).
+$$
+
+For example, $F(20)=26$ by a short exact enumeration, giving $\nu_{13}(F(2n))\gg n$. More generally the factorization transfers every nontrivial finite heat-bath spectral gap $\lambda_C$ into a full-chain mixing lower bound
+
+$$
+t_{\mathrm{mix}}(n,\varepsilon)\ge
+\frac{n}{2\lambda_C}\log n-O_{C,\varepsilon}(n).
+$$
+
+The exact [finite-pattern verifier](../../experiments/P027_universal_finite_pattern_factors.py) checks sample factors and state counts. This generalization does **not** establish a bound better than the existing 23-state certificate, or prove that the finite-factor gaps approach zero. The counting-component viewpoint has established precedents in Liu–Pach–Palincza and McNew.
 
 ## Existing literature and novelty caveat
 

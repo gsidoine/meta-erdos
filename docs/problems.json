@@ -812,9 +812,9 @@
       "question": "Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].",
       "status": "candidate",
       "novelty": "not certified; closely related to counting primitive sets and distributive-lattice walks",
-      "result": "Exact exchange diameter and isolated 23-state factors; certified full mixing lower bound (121926/66083)n log n−O(n) and 23-adic divisibility; full mixing unresolved",
-      "verification": "Exact 23-state enumeration; improved rational Rayleigh 66083/243852 (older 101/363); five-block isolation proved and finitely checked",
-      "priority": "theorem-building — improved sharp-scale lower obstruction; full interacting-core mixing upper bound and historical novelty remain open",
+      "result": "Exact diameter and improved 23-state mixing obstruction (121926/66083)n log n; arbitrary fixed maximum primitive-set spaces occur as positive-density independent factors, implying linear divisibility and spectral transfer",
+      "verification": "Exact 23-state Rayleigh certificate; independent finite counts F(20)=26, F(24)=34 and factor-isolation checks; full-chain mixing and priority remain unresolved",
+      "priority": "determine whether finite-pattern spectral gaps approach zero and whether full interacting-core mixing is O(n log n)",
       "sources": [
         {
           "name": "Liu–Pach–Palincza (2021), maximum primitive sets",
@@ -827,6 +827,10 @@
         {
           "name": "Propp (1997), Generating Random Elements of Finite Distributive Lattices",
           "url": "https://doi.org/10.37236/1330"
+        },
+        {
+          "name": "McNew (2021), Counting primitive subsets and divisor graph components",
+          "url": "https://doi.org/10.1016/j.ejc.2020.103237"
         }
       ],
       "portfolio_tier": "A",
