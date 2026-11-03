@@ -1,11 +1,11 @@
 name: "Propose a mathematical problem"
-description: "Submit a candidate question to The Problem Café; no Git experience required."
+description: "Submit a candidate question to The Scottish Book; no Git experience required."
 title: "[Problem proposal] "
 body:
   - type: markdown
     attributes:
       value: |
-        Welcome to The Problem Café. A submission becomes a public issue first; after editorial screening it can be converted into a draft pull request. New questions are not automatically certified novel or assigned permanent numbers.
+        Welcome to The Scottish Book. A submission becomes a public issue first; after editorial screening it can be converted into a draft pull request. New questions are not automatically certified novel or assigned permanent numbers.
   - type: input
     id: title
     attributes:

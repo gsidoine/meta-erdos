@@ -61,7 +61,7 @@ Additional random precolorings at $n=10$ and $11$ yielded no disconnected exampl
 
 This problem links lattice determinants to a constrained associahedron (a subgraph of the ordinary flip graph). A positive theorem would classify when an arithmetically defined family of planar triangulations remains locally reconfigurable, potentially with a canonical-form or shellability argument. A negative theorem would exhibit a new parity-driven obstruction and could suggest new invariants of constrained triangulations.
 
-It is also a test of the general Meta Erdős theme that a feasible combinatorial state space may not be connected by natural local moves.
+It also tests whether a combinatorially feasible state space remains connected under natural local moves.
 
 ## Direct and potentially subsuming prior art
 

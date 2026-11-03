@@ -65,4 +65,4 @@ The manuscript must transparently disclose AI involvement according to the targe
 
 ## Recommendation
 
-**Preserve P010 as an internally resolved problem and a potential short paper.** Do not promote it to "certified novel" or invest heavily in extending it until an independent specialist has (a) reproduced the proof in their own reasoning and (b) carried out a citation-chain priority audit. The Meta Erdős project's immediate emphasis can remain on posing and screening new high-impact questions.
+**Preserve P010 as an internally resolved problem and a potential short paper.** Do not promote it to "certified novel" or invest heavily in extending it until an independent specialist has (a) reproduced the proof in their own reasoning and (b) carried out a citation-chain priority audit. The collection's immediate emphasis can remain on posing and screening new high-impact questions.

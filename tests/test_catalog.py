@@ -60,11 +60,11 @@ class CatalogueTests(unittest.TestCase):
 
     def test_current_public_links_use_renamed_repository(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertTrue(readme.startswith("# The Problem Café"))
+        self.assertTrue(readme.startswith("# The Scottish Book"))
         for path in [ROOT / "docs" / "index.html", ROOT / "docs" / "README.md"]:
             text = path.read_text(encoding="utf-8")
-            self.assertIn("meta-erdos", text)
-            self.assertNotIn("beyond-erdos", text)
+            self.assertIn("the-scottish-book", text)
+            self.assertNotIn("meta-erdos", text)
 
     def test_single_contiguous_table(self):
         readme = README.read_text(encoding="utf-8")

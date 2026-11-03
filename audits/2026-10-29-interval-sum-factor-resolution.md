@@ -1,7 +1,7 @@
 # Incubator resolution and research decision — interval-sum factor theorem
 
 **Date:** 2026-10-29  
-**Repository:** `gsidoine/meta-erdos` (formerly `beyond-erdos`)  
+**Repository:** `gsidoine/the-scottish-book`  
 **Category:** unnumbered theorem, derived from P003's factor-packing research. **No P011 was created.**
 
 ## What was proved

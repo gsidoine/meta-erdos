@@ -1,14 +1,25 @@
-# The Problem Café
+# The Scottish Book
 
-*A collaborative mathematical problem book, inspired by the Scottish Café.*
+<p align="center">
+  <img src="assets/scottish-book.jpg" alt="Archival photograph of the Scottish Book" width="390">
+  <img src="assets/Banach.jpg" alt="Archival photograph of Stefan Banach" width="270">
+</p>
+
+<p align="center"><small>The Scottish Book and Stefan Banach. Image source and reuse details: <a href="assets/README.md">photographic credits</a>.</small></p>
+
+*An independent, collaborative mathematical notebook inspired by the Scottish Café of Lwów.*
 
 **Can humans and AI systems collaborate to formulate new mathematical problems of lasting significance?** This collection explores that question through precise formulations, prior-art comparison, independent criticism, proofs, counterexamples and reproducible computation.
 
-The [Scottish Book](https://link.springer.com/book/10.1007/978-3-319-22897-6), kept at the Scottish Café in Lwów beginning in 1935, recorded mathematical questions and occasionally offered prizes for solutions. This modern notebook follows its spirit of accessible, collaborative problem formulation. The collection is not affiliated with the original Scottish Book or with [Erdős Problems](https://www.erdosproblems.com/).
+The [Scottish Book](https://link.springer.com/book/10.1007/978-3-319-22897-6), kept at the Scottish Café in Lwów beginning in 1935, recorded mathematical questions and occasionally offered prizes for solutions. This contemporary collection follows its tradition of accessible, collaborative problem formulation. It is independent of the original historical notebook and its successors.
 
-Many entries were developed through **human–AI collaboration**. Mathematical validity and historical priority must be assessed independently of provenance. Human-only contributions are equally welcome. **Contributions are welcome.** See [provenance and credit](PROVENANCE.md).
+Many entries were developed through **human–AI collaboration**. Mathematical validity and historical priority must be assessed independently of provenance. Human-only contributions are equally welcome. See [provenance and credit](PROVENANCE.md). **Contributions are welcome.**
 
-**[Propose a problem with a simple form](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml)** · [Browse the searchable book](https://gsidoine.github.io/meta-erdos/) · [Contribute a proof or correction](CONTRIBUTING.md) · [Symbolic rewards](REWARDS.md)
+**[Propose a problem with a simple form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml)** · [Browse the searchable book](https://gsidoine.github.io/the-scottish-book/) · [Contribute a proof or correction](CONTRIBUTING.md) · [Symbolic rewards](REWARDS.md)
+
+The collection also retains a historical encouragement to problem formulation:
+
+> “The purpose of life is to prove and to conjecture.” — Paul Erdős ([MacTutor, University of St Andrews](https://mathshistory.st-andrews.ac.uk/Biographies/Erdos/quotations/))
 
 This collection currently contains **46 numbered research entries (P001–P046)**. New proposals do not receive a permanent identifier until reviewed.
 
@@ -98,7 +109,7 @@ Thirty research questions developing through formulation, proof, computation and
 
 Problems gradually receive a compact public page and their own proofs, exploration, references, verification and optional Lean files. The first two examples are [P015](problems/P015-odd-area-triangulations/README.md) and [P020](problems/P020-padic-hankel-cokernels/README.md). Historical dossier URLs and existing theorem/certificate links remain available during migration.
 
-A contributor may [submit a proposed problem](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml) using Markdown or TeX, select a mathematical field, describe sources and AI involvement, and suggest an optional symbolic reward. A moderator can convert an issue into a draft PR; proposals are not automatically admitted to the book.
+A contributor may [submit a proposed problem](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml) using Markdown or TeX, select a mathematical field, describe sources and AI involvement, and suggest an optional symbolic reward. A moderator can convert an issue into a draft PR; proposals are not automatically admitted to the book.
 
 ## Literature and verification
 
@@ -110,7 +121,7 @@ The [P001–P041 literature comparison](audits/literature-comparison-P001-P041.m
 
 ## Problem catalogue
 
-This is a **complete archival index of all 46 IDs**. The canonical catalogue is [data/problems.json](data/problems.json); its derived tables and [GitHub Pages browser](https://gsidoine.github.io/meta-erdos/) are generated. [Searchable browser](https://gsidoine.github.io/meta-erdos/).
+This is a **complete archival index of all 46 IDs**. The canonical catalogue is [data/problems.json](data/problems.json); its derived tables and [GitHub Pages browser](https://gsidoine.github.io/the-scottish-book/) are generated. [Searchable browser](https://gsidoine.github.io/the-scottish-book/).
 
 <!-- CATALOG:START -->
 | ID | Question | Area | Formulation | Novelty |

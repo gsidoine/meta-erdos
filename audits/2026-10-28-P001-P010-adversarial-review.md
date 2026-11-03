@@ -1,4 +1,4 @@
-# Meta Erdős — Adversarial proof, computation, and novelty audit of P001–P010
+# Mathematical problem collection — Adversarial proof, computation, and novelty audit of P001–P010
 
 **Date:** 2026-10-28  
 **Audited baseline:** The initial P001–P010 repository snapshot (PR #5 merged; PR #4's comprehensive earlier literature audit was still pending at audit start).  

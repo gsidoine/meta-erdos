@@ -1,10 +1,10 @@
-# Contributing to The Problem Café
+# Contributing to The Scottish Book
 
 This is an open mathematical problem book for human-only and human–AI collaborative work. The mathematics must stand independently of how it was formulated.
 
 ## Propose a new problem — no Git knowledge required
 
-Open the [structured proposal form](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml), then:
+Open the [structured proposal form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml), then:
 
 1. Enter a concise title and choose a mathematical field.
 2. Select Markdown or LaTeX and supply the exact problem statement.

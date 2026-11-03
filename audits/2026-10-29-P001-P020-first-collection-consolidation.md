@@ -1,13 +1,13 @@
-# Meta Erdős — First collection consolidation (P001–P020)
+# Mathematical problem collection — First collection consolidation (P001–P020)
 
 **Audit date:** 29 October 2026  
-**Scope:** all 20 permanent IDs in the first Meta Erdős collection.  
+**Scope:** the first twenty permanent problem identifiers.  
 **Scope:** The twenty entries P001–P020 were examined without additions to the catalogue.  
 **Status:** first comprehensive editorial and targeted-literature audit; **not** twenty peer reviews, formal proof verification, or exhaustive MathSciNet/zbMATH coverage.
 
 ## Executive summary
 
-Meta Erdős is not presently a list of **20 certified novel open problems**. It is a curated *research portfolio* containing:
+The collection is not presently a list of **20 certified novel open problems**. It is a curated *research portfolio* containing:
 - **17 mathematical candidates** (several with important direct historical overlap);
 - **one candidate requiring reformulation** (P007: a previously established subtheorem);
 - **one ill-specified remaining question** (P008: what counts as an admissible explicit threshold center);

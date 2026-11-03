@@ -1,4 +1,4 @@
-# Meta Erdős — Source-comparison gate and four-flagship shortlist
+# Mathematical problem collection — Source-comparison gate and four-flagship shortlist
 
 **Date:** 29 October 2026  
 **Starting point:** merged [first 20-entry consolidation](../audits/2026-10-29-P001-P020-first-collection-consolidation.md).  

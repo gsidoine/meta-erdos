@@ -90,20 +90,29 @@ class PublicEditorialIntegrityTests(unittest.TestCase):
         self.assertIn(f"Complete archive ({len(ids)})", docs)
         self.assertIn(f"**{len(ids)} numbered research entries", readme)
         self.assertIn(f"complete archival index of all {len(ids)} IDs", readme)
-        self.assertIn("[Searchable browser](https://gsidoine.github.io/meta-erdos/)", readme)
+        self.assertIn("[Searchable browser](https://gsidoine.github.io/the-scottish-book/)", readme)
         self.assertIn("literature-comparison-P001-P041.md", readme)
 
 
     def test_scottish_book_and_submission_links(self):
         page = (ROOT / "docs/index.html").read_text(encoding="utf-8")
-        self.assertIn("<h1>The Problem Café</h1>", page)
+        self.assertIn("<h1>The Scottish Book</h1>", page)
         self.assertIn("The Scottish Book", page)
-        self.assertIn("human and AI collaboration", page)
+        self.assertIn("human–AI collaboration", page)
         self.assertIn("issues/new?template=propose-problem.yml", page)
         self.assertIn("The Acorns (15)", page)
         self.assertIn("The Seedbed (30)", page)
-        self.assertNotIn('src="./assets/erdos-portrait.jpg"', page)
-        self.assertTrue((ROOT / "docs/assets/erdos-portrait.jpg").is_file())
+        self.assertIn('src="./assets/scottish-book.jpg"', page)
+        self.assertIn('src="./assets/Banach.jpg"', page)
+        self.assertIn("The purpose of life is to prove and to conjecture.", page)
+        self.assertEqual((ROOT / "docs/assets/scottish-book.jpg").read_bytes(),
+                         (ROOT / "assets/scottish book.jpg").read_bytes())
+        self.assertEqual((ROOT / "docs/assets/Banach.jpg").read_bytes(),
+                         (ROOT / "assets/Banach.jpg").read_bytes())
+        self.assertFalse((ROOT / "docs/assets/erdos-portrait.jpg").exists())
+        self.assertFalse((ROOT / "assets/erdos-portrait.jpg").exists())
+        self.assertNotIn("The Problem Café", page)
+        self.assertNotIn("meta-erdos", page)
 
 
 
