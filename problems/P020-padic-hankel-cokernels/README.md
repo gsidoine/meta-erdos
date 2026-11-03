@@ -22,6 +22,8 @@ Fix a prime $p$. Let $H_n=(X_{i+j})_{0\le i,j<n}$ with independent Haar-uniform 
 
 The classical finite-field Hankel corank distribution is known. The repository contains internally proved formulas for cyclic, two-generator, and all elementary-abelian cokernel probabilities. The *complete* limiting distribution, including higher-exponent groups with at least three generators, remains unresolved. The kernel classification imported from Yiasemides is explicitly attributed.
 
+The known invertibility probability also gives an exact obstruction to the **ordinary Cohen–Lenstra limit**: for every $n$, the total-variation distance from the ordinary Cohen–Lenstra law is at least $(1-p^{-1})-\prod_{j\ge1}(1-p^{-j})>0$; see [the proof](../../theorems/P020-padic-hankel-cyclic-and-rank-two-laws.md). This is a consequence of classical rank counts, not a novel limiting-distribution theorem.
+
 ## Supporting material
 
 - [Known theorems and exact proof references](proofs/README.md)
