@@ -20,6 +20,8 @@ The comparison below treats **historical priority**, **mathematical validity**, 
 
 **Sharpened spectral certificate.** The same 23-state heat-bath factor has an independently checked rational Rayleigh value $66083/243852$ and yields the full-chain mixing lower coefficient $121926/66083$, improving the earlier $363/202$. This does not determine the full-chain mixing time. [Propp (1997)](https://doi.org/10.37236/1330) develops sampling on finite distributive lattices, a closer general conceptual predecessor.
 
+**Finite-pattern extension.** A direct rough-root argument now embeds a linearly growing number of independent copies of the complete maximum-primitive-set state space on every fixed interval $[C]$. It gives $F(C)^{c_C n+O_C(1)}\mid F(2n)$ and transfers each finite heat-bath gap $\lambda_C$ to a full-chain lower mixing coefficient $1/(2\lambda_C)$. For example $F(20)=26$ implies $\nu_{13}(F(2n))\gg n$. This factorization is closely related to the divisibility-lattice decomposition in **Section 2 and Claim 2.1 of Liu–Pach–Palincza (2021)** and to McNew's divisor-graph component enumeration. Whether it is already an immediate known corollary requires theorem-level comparison; no historical originality is asserted. No decay of the $\lambda_C$ is proved.
+
 **Gate.** Identify whether a known general mixing/spectral theorem specializes to the exact coordinate-selection measure and arithmetic poset. Preserve the distinction between the projected product cutoff and a cutoff for the full chain. Status remains *candidate*.
 
 ## P031 — Pairwise-coprime Sidon extremum
