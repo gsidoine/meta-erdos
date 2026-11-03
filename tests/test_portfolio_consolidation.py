@@ -49,8 +49,11 @@ class PortfolioConsolidationTests(unittest.TestCase):
         docs = (ROOT / "docs/README.md").read_text(encoding="utf-8")
         self.assertIn("(audits/portfolio-consolidation-P001-P030.md)", readme)
         self.assertIn("portfolio-consolidation-P001-P030.md", html)
-        self.assertIn('id="tier"', html)
-        self.assertIn("p.portfolio_tier", html)
+        # The portfolio tiers are an archival assessment, not a public filter.
+        self.assertNotIn('id="tier"', html)
+        self.assertNotIn("p.portfolio_tier", html)
+        self.assertIn('id="reward"', html)
+        self.assertIn('<th scope="col">Reward</th>', html)
         self.assertIn("portfolio-consolidation-P001-P030.md", docs)
         self.assertNotIn("discovery freeze remains active", readme.lower())
         self.assertNotIn("pdf binary is not included", readme.lower())
