@@ -1,6 +1,6 @@
 # Problem folders
 
-Every accepted question has a permanent identifier. The canonical catalogue still records all 47 existing IDs and their mathematical status. The problem-folder layout is being introduced incrementally, beginning with [P015](P015-odd-area-triangulations/README.md) and [P020](P020-padic-hankel-cokernels/README.md).
+Every accepted question has a permanent identifier. The canonical catalogue still records all 50 existing IDs and their mathematical status. The problem-folder layout is being introduced incrementally, beginning with [P015](P015-odd-area-triangulations/README.md) and [P020](P020-padic-hankel-cokernels/README.md).
 
 The primary README should fit on approximately one screen: exact question, best known result, nearest literature, reward (if offered), and links to supporting files.
 
