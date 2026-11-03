@@ -7,3 +7,5 @@
 5. Cheong and Kaplan (2022), *Generalizations of results of Friedman and Washington on cokernels of random $p$-adic matrices* ([DOI](https://doi.org/10.1016/j.jalgebra.2022.03.035)). These results concern polynomial transforms of entrywise Haar-random matrices rather than the Hankel ensemble.
 
 **Historical novelty and unresolved-status certification are outstanding.** The existing exact theorem notes attribute imported results in their proofs.
+
+The full P020 limiting law remains unknown by this comparison. The classical invertibility probability alone excludes the ordinary Cohen–Lenstra limit: its trivial-group mass differs from the Hankel mass 1-1/p by a strictly positive amount. See the exact total-variation bound in the supporting cyclic/two-generator theorem.
