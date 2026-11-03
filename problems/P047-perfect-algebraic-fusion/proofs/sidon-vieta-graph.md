@@ -23,10 +23,10 @@ $$
 where $P\times P$ carries the maximum product metric and $R^2$ the maximum coordinate metric. In particular, if $F_P$ is $\alpha$-Hölder for $0<\alpha\le1$, then
 
 $$
-2s\le\frac1\alpha.
+2s\le 2-\alpha.
 $$
 
-Thus a four-point additive Sidon set of dimension $s>1/2$ cannot have a locally Lipschitz pair-sum-to-product map. If $s=1$, this map cannot be $\alpha$-Hölder for any $\alpha>1/2$.
+Thus a four-point additive Sidon set of dimension $s>1/2$ cannot have a locally Lipschitz pair-sum-to-product map. If $s=1$, this map cannot be $\alpha$-Hölder for **any** positive $\alpha$.
 
 **Proof.** Let
 
@@ -58,11 +58,13 @@ $$
 
 The standard product lower bound $\dim_H(P\times P)\ge2\dim_H P=2s$ follows, for example, by taking products of Frostman measures with exponent arbitrarily close to $s$. The diagonal has dimension $s$, whereas the product has dimension at least $2s>s$. Removing the diagonal therefore preserves product dimension and proves the equality above.
 
-If $F_P$ is $\alpha$-Hölder, the graph embedding $t\mapsto(t,F_P(t))$ from $S_P\subset R$ to $R^2$ is also $\alpha$-Hölder, since $S_P$ is bounded. Hence
+Suppose $F_P$ is $\alpha$-Hölder with constant $C$. At scale $4^{-n}$, there are at most $4^n$ residue balls meeting the domain $S_P$. Over any one such ball, the image under $F_P$ has diameter at most $C4^{-\alpha n}$, so the corresponding part of the graph can be covered by at most $C'4^{(1-\alpha)n}$ balls of radius $4^{-n}$ in the product metric, for a constant $C'$ independent of $n$. Thus
 
-$$
-\dim_H\Gamma_P\le\frac{\dim_H S_P}{\alpha}\le\frac1\alpha.
-$$
+$
+\dim_H\Gamma_P\le\overline{\dim}_{\mathrm B}\Gamma_P\le2-\alpha.
+$
+
+Combining this estimate with the lower bound gives $2s\le2-\alpha$. The alternate general Hölder-image estimate $\dim_H\Gamma_P\le\dim_H S_P/\alpha$ is also valid, but is weaker here.
 
 Finally, a locally Lipschitz map on the separable metric domain $S_P$ has a countable cover by Lipschitz restrictions. Its graph therefore has Hausdorff dimension at most one. This contradicts $\dim_H\Gamma_P\ge2s>1$ when $s>1/2$. $\square$
 
