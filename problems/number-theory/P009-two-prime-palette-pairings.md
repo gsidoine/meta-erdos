@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can 1,…,2n always be paired using at most two distinct prime sums?  
-> **Formulation:** candidate. **Novelty:** high overlap risk: Maillet-type prime differences.  
+> **Formulation:** reframe. **Novelty:** high overlap: Maillet-type prime differences and OEIS A202472; distinct pairing statement not shown equivalent.  
 > **Verified/known progress:** One-color iff 2n+1 prime; two-color certificate from short prime difference.  
 > **Finite evidence:** Sieve certificates through n=1,000,000 (finite only).  
 > **Symbolic prize:** A bottle of wine — A proof that two prime sums suffice for every positive integer n, or an explicit counterexample.  
@@ -11,7 +11,7 @@
 
 
 **Area:** additive number theory, extremal arithmetic matchings  
-**Status:** candidate problem, **unresolved and originality status unverified**  
+**Status:** reframe; the distinct pairing question remains unresolved, while its principal sufficient certificate belongs to the classical prime-difference literature.  
 **Relationship:** quantitative dual to P001 (maximize the number of colors vs. minimize the number).
 
 ## Statement
