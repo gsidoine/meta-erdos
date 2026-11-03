@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does a universal bound exist on the number of points that must be simultaneously replaced to connect all maximum-size no-three-in-line subsets of an n×n grid?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** When the maximum size is 2n, single-point exchanges are impossible and two-point exchanges are rectangle switches.  
 > **Finite evidence:** Exact optimal configuration exchange graphs through n=7; minimal connecting move sizes 2,4,3,5,6 for n=3,...,7.  
 > **Symbolic prize:** A bottle of wine — A universal bound on simultaneous replacements in optimal no-three-in-line configurations, or a proof of unboundedness.  
