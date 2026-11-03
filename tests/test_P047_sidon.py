@@ -25,7 +25,7 @@ class P047FiniteChecks(unittest.TestCase):
     def test_problem_and_proof_record_scope(self):
         problem = (ROOT / "problems/P047-perfect-algebraic-fusion/README.md").read_text(encoding="utf-8")
         proof = (ROOT / "problems/P047-perfect-algebraic-fusion/proofs/half-dimensional-construction.md").read_text(encoding="utf-8")
-        self.assertIn("dimension \\(1/2\\)", problem)
+        self.assertIn("dimension $1/2$", problem)
         self.assertIn("compact perfect", proof)
         self.assertIn("unverified", problem)
 
