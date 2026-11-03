@@ -7,3 +7,5 @@ Canonical records are [data/problems.json](../data/problems.json) and [data/cura
 Use the [structured submission form](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml) to propose a question, or see [Contributing](../CONTRIBUTING.md) for proofs, experiments and Lean contributions.
 
 The [P001–P041 literature comparison](../audits/literature-comparison-P001-P041.md) records historical source comparisons, not a verified novelty certificate.
+
+The earlier [P001–P030 portfolio consolidation](../audits/portfolio-consolidation-P001-P030.md) remains an archived research review.
