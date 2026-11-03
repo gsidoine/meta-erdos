@@ -33,19 +33,19 @@ The exact $\rho_2$ at $n=2$ is instead $p^{-3}$.
 
 Let $\mu_{\mathrm{CL},p}$ denote the usual Cohen–Lenstra distribution arising as the limiting cokernel law of a square matrix with independent Haar $\mathbb Z_p$ entries. Its trivial-group mass is
 
-$
+$$
 \mu_{\mathrm{CL},p}(\{0\})=
 \prod_{j=1}^{\infty}(1-p^{-j}).
-$
+$$
 
 **Proposition (known-input consequence).** For every $n\ge1$,
 
-$
+$$
 \boxed{
 d_{\mathrm{TV}}\bigl(\mathcal L(C_n),\mu_{\mathrm{CL},p}\bigr)
 \ge (1-p^{-1})-\prod_{j=1}^{\infty}(1-p^{-j})>0.
 }
-$
+$$
 
 **Proof.** A matrix over $\mathbb Z_p$ has zero cokernel precisely when its reduction modulo $p$ is invertible. The classical finite-field Hankel count gives $\Pr(C_n=0)=1-p^{-1}$ for every $n$. Total variation dominates the difference of two measures on the event of trivial cokernel, and the infinite product is strictly smaller than $1-p^{-1}$. $\square$
 
