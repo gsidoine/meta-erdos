@@ -60,9 +60,9 @@ The standard product lower bound $\dim_H(P\times P)\ge2\dim_H P=2s$ follows, for
 
 Suppose $F_P$ is $\alpha$-Hölder with constant $C$. At scale $4^{-n}$, there are at most $4^n$ residue balls meeting the domain $S_P$. Over any one such ball, the image under $F_P$ has diameter at most $C4^{-\alpha n}$, so the corresponding part of the graph can be covered by at most $C'4^{(1-\alpha)n}$ balls of radius $4^{-n}$ in the product metric, for a constant $C'$ independent of $n$. Thus
 
-$
+$$
 \dim_H\Gamma_P\le\overline{\dim}_{\mathrm B}\Gamma_P\le2-\alpha.
-$
+$$
 
 Combining this estimate with the lower bound gives $2s\le2-\alpha$. The alternate general Hölder-image estimate $\dim_H\Gamma_P\le\dim_H S_P/\alpha$ is also valid, but is weaker here.
 
@@ -70,27 +70,27 @@ Finally, a locally Lipschitz map on the separable metric domain $S_P$ has a coun
 
 **Sharpness under local Lipschitz regularity.** The dimension bound $1/2$ is attained in the locally Lipschitz class. Consider the simultaneous Sidon set
 
-$
+$$
 P_0=\{x+\alpha x^3:x\in T+T^2\mathbb F_2[[T]]\},
 \qquad \alpha^2+\alpha+1=0.
-$
+$$
 
 It is compact, $1/2$-Ahlfors regular, and has the pair-uniqueness properties proved in [the explicit construction](half-dimensional-construction.md). For an unordered distinct pair $x,y$, put $s=x+y\ne0$ and $u=xy$. Its sum in $P_0$ is $w=s+\alpha t$, with $t=s^3+us$, so
 
-$
+$$
 u=\frac{t+s^3}{s},
 \qquad
 F_{P_0}(w)=(u+u^3)+\alpha(us^2+u^3).
-$
+$$
 
 The coordinate projections $w\mapsto s,t$ from $\mathbb F_4[[T]]=\mathbb F_2[[T]]\oplus\alpha\mathbb F_2[[T]]$ are Lipschitz. On any sufficiently small neighborhood of a point with $s\ne0$, the inverse $s\mapsto s^{-1}$ is Lipschitz. The displayed rational formula therefore makes $F_{P_0}$ locally Lipschitz on its domain.
 
 Consequently,
 
-$
+$$
 \sup\{\dim_H P:P\subset R\text{ compact four-point additive Sidon and }
 F_P\text{ locally Lipschitz}\}=\frac12.
-$
+$$
 
 This is an exact extremal statement for the regularity-constrained class, not an upper bound for unrestricted P047.
 
