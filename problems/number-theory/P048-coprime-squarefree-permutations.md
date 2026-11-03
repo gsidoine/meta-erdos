@@ -11,52 +11,47 @@
 
 **Area:** arithmetic combinatorics.
 
-## Problem
+**Status:** known result. The original universal existence question has a complete elementary solution inherited from classical prime-sum pairing; it is not an open problem.
 
-For every positive integer $n$, does there exist a permutation $\sigma$ of $\{1,\ldots,n\}$ such that
+## Problem and resolution
+
+Let $\mu$ denote the Möbius function. For every integer $n\ge1$, does there exist a permutation $\sigma$ of $[n]$ satisfying
 
 $$
 \gcd(i,\sigma(i))=1,\qquad
 \mu^2(i+\sigma(i))=1
-\quad (1\le i\le n)?
+\quad(1\le i\le n)?
 $$
 
-Here $\mu$ denotes the Möbius function, so $\mu^2(m)=1$ precisely when $m$ is squarefree.
+**Theorem.** Such a permutation exists for every positive integer $n$. In fact, every sum $i+\sigma(i)$ can be prime.
 
-Equivalently, does the bipartite graph with two vertex classes $[n]$ and edges $(i,j)$ whenever $\gcd(i,j)=1$ and $i+j$ is squarefree always have a perfect matching?
+**Proof.** For $n=1$, take $\sigma(1)=1$. Assume the assertion for all smaller positive integers. For $n\ge2$, Bertrand's postulate gives a prime $p$ with $n<p<2n$. Put $a=p-n$, so that $1\le a\le n-1$.
 
-## An infinite family
+On the interval $[a,n]$ set
 
-**Proposition.** If $n+1$ is prime, the required permutation exists.
+$$
+\sigma(i)=p-i.
+$$
 
-**Proof.** Put $p=n+1$ and define $\sigma(i)=p-i$ for $1\le i\le n$. This is a permutation of $[n]$ with
+This reflection permutes $[a,n]$ and satisfies
 
 $$
 i+\sigma(i)=p,\qquad
-\gcd(i,\sigma(i))=\gcd(i,p)=1.
+\gcd(i,\sigma(i))=\gcd(i,p)=1,
 $$
 
-Since $p$ is prime, it is squarefree. $\square$
+because $1\le i<p$. On the shorter interval $[1,a-1]$, use the inductive permutation if the interval is nonempty. The two pieces form a permutation of $[n]$, with every index sum prime. Each prime is squarefree. $\square$
 
-This provides infinitely many orders, but it does not settle the case of composite $n+1$.
+The prime-sum reflection argument is a standard application of Bertrand's postulate, closely related to the explicit construction of Greenfield and Greenfield (1998). The additional coprimality and squarefree-sum requirements are automatic; they impose **no additional obstruction** in this existence problem.
 
-## Known facts and finite verification
+## Historical comparison
 
-The coprimality-only condition is classical; the squarefree-sum-only condition is a separate permanent/matching problem. A positive answer to either problem alone does not imply a matching for their intersection. The prime-$n+1$ reflection above proves an infinite subfamily, not the full conjecture.
+1. L. E. Greenfield and S. J. Greenfield, [*Some Problems of Combinatorial Number Theory Related to Bertrand's Postulate*](https://cs.uwaterloo.ca/journals/JIS/green.html), *Journal of Integer Sequences* **1** (1998), Article 98.1.2. Theorem 1 gives the classical prime-sum pairing of initial even intervals, using prime reflections.
+2. A. Sah, [*Enumerating coprime permutations*](https://doi.org/10.1112/mtk.12159), *Mathematika* **68** (2022). Studies the enumeration of coprime permutations, a different question.
+3. [OEIS A398305](https://oeis.org/A398305) records the squarefree-sum permutation permanent.
 
-A deterministic Hopcroft–Karp implementation confirms the combined perfect matching condition for every $1\le n\le750$, and separately at $n=1000$ and $n=1100$. The result is **finite evidence only**, not an existence proof for arbitrary $n$. The [verification program](../../experiments/P048_coprime_squarefree_permutations.py) can repeat this check.
+The original P048 formulation is therefore closed. Its former symbolic reward condition is already satisfied by known methods, and the reward has been withdrawn. The permanent identifier is retained for accurate historical accounting. No new open question is asserted in its place.
 
-There are no diagonal edges except $(1,1)$, since $\gcd(i,i)=i$. For $n\ge2$, the evident involutive matching construction is obstructed by square divisors of the prescribed pair sums, which is why the intersection condition requires separate treatment.
+## Finite verification
 
-## Prior art
-
-1. A. Sah, *Enumerating coprime permutations*, **Mathematika** 68 (2022), [doi:10.1112/mtk.12159](https://doi.org/10.1112/mtk.12159). Enumerates permutations under the coprimality condition.
-2. [OEIS A398305](https://oeis.org/A398305), permutations satisfying the squarefree-sum condition alone.
-3. S. Hathi and D. R. Johnston, *On the sum of a prime and a square-free number with divisibility conditions*, **Journal of Number Theory** 256 (2024), 354–372, [doi:10.1016/j.jnt.2023.10.002](https://doi.org/10.1016/j.jnt.2023.10.002). Related additive-squarefree sieve constraints.
-4. [Hall's marriage theorem](https://doi.org/10.1112/jlms/s1-10.37.26) gives the exact graph-theoretic criterion in terms of neighbor-set inequalities, but does not by itself establish them for this graph.
-
-The exact simultaneous condition has not been established as historically new or open. A specialist comparison with arithmetic-permutation and sieve matching results remains necessary.
-
-## Verification
-
-[Exact bipartite matching search](../../experiments/P048_coprime_squarefree_permutations.py).
+[Exact bipartite matching search](../../experiments/P048_coprime_squarefree_permutations.py) independently checks finite instances, but is not needed for the universal theorem.
