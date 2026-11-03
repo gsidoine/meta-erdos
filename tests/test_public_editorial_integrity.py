@@ -98,7 +98,7 @@ class PublicEditorialIntegrityTests(unittest.TestCase):
         page = (ROOT / "docs/index.html").read_text(encoding="utf-8")
         self.assertIn("<h1>The Problem Café</h1>", page)
         self.assertIn("The Scottish Book", page)
-        self.assertIn("human and AI collaboration", page)
+        self.assertIn("human–AI collaboration", page)
         self.assertIn("issues/new?template=propose-problem.yml", page)
         self.assertIn("The Acorns (15)", page)
         self.assertIn("The Seedbed (30)", page)

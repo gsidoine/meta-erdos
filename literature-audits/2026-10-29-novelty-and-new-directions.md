@@ -77,7 +77,7 @@ A specialist's full bibliography audit is still required before labels such as *
 
 ## Search integrity and an instructive warning
 
-A [2026 PNAS paper by Alexeev and Mixon](https://doi.org/10.1073/pnas.2531760123) reports finding that Marshall Hall, Jr. had published a counterexample decades before a supposedly longstanding open Erdős question was posed. This is a concrete reminder that even historical *open-problem status* can be misleading. Meta Erdős therefore uses **apparent novelty — targeted audit**, not "new/open certified", for unresolved entries without external bibliography review.
+A [2026 PNAS paper by Alexeev and Mixon](https://doi.org/10.1073/pnas.2531760123) reports finding that Marshall Hall, Jr. had published a counterexample decades before a supposedly longstanding open Erdős question was posed. This is a concrete reminder that even historical *open-problem status* can be misleading. the collection therefore uses **apparent novelty — targeted audit**, not "new/open certified", for unresolved entries without external bibliography review.
 
 **Decision:** do not resume trying to prove all 13 entries. Focus the next passes on generating, filtering and clearly stating mathematically consequential problems. P010 and the interval-sum factor lemma remain preserved as internally proved results with external priority still to be checked.
 

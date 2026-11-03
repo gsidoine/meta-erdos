@@ -1,4 +1,4 @@
-"""Check the first two Problem Café folders and their preserved legacy links."""
+"""Check the first two Scottish Book folders and their preserved legacy links."""
 import json
 import unittest
 from pathlib import Path

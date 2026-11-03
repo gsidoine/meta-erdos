@@ -35,7 +35,7 @@ This statement asks for the phase diagram **without asserting that the connectiv
 
 ## Why a separate problem?
 
-Perfect-matching existence is a property of the base graph. Connectedness of its **space of certificates** is a strictly higher-level property and can differ strongly between hosts with similar minimum degree and matching counts. This tests the proposed Meta Erdős theme of *local-to-global certificate coordination* and links the fixed-host coprime model (P005) to arithmetic random graph behavior (P008).
+Perfect-matching existence is a property of the base graph. Connectedness of its **space of certificates** is a strictly higher-level property and can differ strongly between hosts with similar minimum degree and matching counts. This tests the local-to-global phenomenon of *certificate coordination* and links the fixed-host coprime model (P005) to arithmetic random graph behavior (P008).
 
 ## Important elementary obstruction
 

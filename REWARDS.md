@@ -1,6 +1,6 @@
 # Symbolic mathematical prizes
 
-The Scottish Book included playful rewards for some mathematical problems. The Problem Café adopts the idea as an invitation to collaborate, not as a payment scheme. For historical context see [The Scottish Book, ed. R. Daniel Mauldin](https://link.springer.com/book/10.1007/978-3-319-22897-6).
+The Scottish Book included playful rewards for some mathematical problems. This contemporary collection adopts the idea as an invitation to collaborate, not as a payment scheme. For historical context see [The Scottish Book, ed. R. Daniel Mauldin](https://link.springer.com/book/10.1007/978-3-319-22897-6).
 
 Possible symbolic rewards include:
 

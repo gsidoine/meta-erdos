@@ -1,6 +1,6 @@
 # Interval-sum bipartite graphs always have minimum-degree factors
 
-**Status:** Full constructive proof developed within the Meta Erdős project, 2026-10-29. **Novelty is unverified.** This is a resolved incubator theorem, not a new numbered problem and **not** a proof of P003.
+**Status:** Full constructive proof recorded in this collection, 2026-10-29. **Novelty is unverified.** This is a resolved incubator theorem, not a new numbered problem and **not** a proof of P003.
 
 ## Theorem
 

@@ -1,6 +1,6 @@
 # Human–AI collaboration and mathematical credit
 
-The Problem Café explicitly studies whether collaboration between humans and modern AI systems can help **formulate** mathematical problems of lasting significance. Problem generation, verification and historical originality are separate questions.
+This independent, contemporary Scottish Book project studies whether collaboration between humans and modern AI systems can help **formulate** mathematical problems of lasting significance. Problem generation, verification and historical originality are separate questions.
 
 Contributions may involve human-only formulation, human–AI discussion, AI-assisted exploratory computation, formal proof assistants, or human proofs subsequently checked with tools. Human participants and useful AI assistance should be documented according to their actual role, rather than inferred from a polished final text.
 

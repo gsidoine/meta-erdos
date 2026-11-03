@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "source": "Meta Erdős: independently proposed candidate questions; not posed by Erdős",
+  "source": "The Scottish Book: independently curated mathematical questions, proofs, and research candidates",
   "problems": [
     {
       "id": "P001",
@@ -846,8 +846,8 @@
           "url": "https://doi.org/10.1007/s00373-025-02999-2"
         },
         {
-          "name": "Meta Erdős P033",
-          "url": "https://github.com/gsidoine/meta-erdos/blob/main/problems/graph-theory/P033-prime-sum-three-palette.md"
+          "name": "The Scottish Book P033",
+          "url": "https://github.com/gsidoine/the-scottish-book/blob/main/problems/graph-theory/P033-prime-sum-three-palette.md"
         }
       ],
       "portfolio_tier": "C"

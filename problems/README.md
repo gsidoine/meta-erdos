@@ -8,4 +8,4 @@ Files are grouped by purpose: proofs, exploration, references, verification, for
 
 Earlier dossier URLs remain available as historical detailed views. Existing theorem and experiment archives are not silently deleted or duplicated as canonical sources. Later migrations may move supporting files with compatibility links and accompanying tests.
 
-To propose a new problem, use the [submission form](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml).
+To propose a new problem, use the [submission form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml).

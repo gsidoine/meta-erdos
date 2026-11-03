@@ -1,4 +1,4 @@
-"""Consistency checks for Meta Erdős's original twenty-entry audit and expanded 25-entry collection.
+"""Consistency checks for the original twenty-entry audit and expanded 25-entry collection.
 
 This checks editorial coverage, not mathematical correctness or historical
 novelty. Source files and external literature still need expert scrutiny.

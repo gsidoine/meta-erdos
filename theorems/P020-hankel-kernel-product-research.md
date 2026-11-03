@@ -1,6 +1,6 @@
 # P020 — Exact Hankel kernel-product structure (a corollary of existing finite-field theory)
 
-**29 October 2026; mathematical status: proved using Yiasemides (2024), Theorem 2.4.4 and Remark 2.4.6.** The kernel classification itself and the finite-field rank laws are **previously published**, not original to Meta Erdős. The extension to first-order p-adic lifting and elementary abelian cokernels is treated separately in [the elementary-cokernel note](P020-elementary-abelian-cokernel-laws.md).
+**29 October 2026; mathematical status: proved using Yiasemides (2024), Theorem 2.4.4 and Remark 2.4.6.** The kernel classification itself and the finite-field rank laws are **previously published**, not original to this collection. The extension to first-order p-adic lifting and elementary abelian cokernels is treated separately in [the elementary-cokernel note](P020-elementary-abelian-cokernel-laws.md).
 
 ## Known finite-field kernel classification, specialized to square Hankel matrices
 
