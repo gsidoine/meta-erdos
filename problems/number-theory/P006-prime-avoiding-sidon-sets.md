@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** What is the asymptotic maximum size of a Sidon set whose positive differences avoid all primes?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Asymptotic lower constant at least 1/√2 and upper at most 1.  
 > **Finite evidence:** Small exact MILP optima through N=60.  
 > **Symbolic prize:** One kilogram of bacon — The sharp leading constant in the maximum size of a prime-difference-free Sidon set.  
