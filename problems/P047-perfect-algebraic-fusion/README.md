@@ -16,9 +16,9 @@
 
 Let $R=\mathbb F_4[[T]]$, equipped with $d(x,y)=4^{-v_T(x-y)}$ for $x\ne y$. Does there exist a compact perfect set $P\subset R$ of Hausdorff dimension $1$ such that, whenever $a,b,c,d\in P$ are pairwise distinct,
 
-$
+$$
 a+b\ne c+d,\qquad ab\ne cd?
-$
+$$
 
 The requirement concerns **four distinct elements**; it is not the usual additive $B_2$ condition with repeated entries, which degenerates in characteristic two.
 
@@ -26,9 +26,9 @@ The requirement concerns **four distinct elements**; it is not the usual additiv
 
 There exists such a compact perfect set of Hausdorff dimension $1/2$. A direct construction takes $\alpha\in\mathbb F_4\setminus\mathbb F_2$ with $\alpha^2+\alpha+1=0$, and
 
-$
+$$
 P=\{x+\alpha x^3:x\in T+T^2\mathbb F_2[[T]]\}.
-$
+$$
 
 The additive and multiplicative two-point maps are injective on unordered pairs from this set. The complete argument is in [the proof](proofs/half-dimensional-construction.md).
 
