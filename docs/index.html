@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Search mathematical research questions and results, with evidence and source references.">
-  <title>Meta Erdős — Research problem catalogue</title>
+  <meta name="description" content="An open mathematical problem book for human–AI collaboration, proofs and symbolic prizes.">
+  <title>The Problem Café — Mathematical problem book</title>
   <style>
     :root { color-scheme: light dark; --ink:#18212d;--muted:#5b6674;--line:#d8dfe6;--bg:#f8f9fb;--paper:#fff;--accent:#235ba8 }
     * {box-sizing:border-box}
@@ -17,6 +17,8 @@
     header p {color:var(--muted);max-width:850px;margin:10px 0}
     .hero {display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:32px;align-items:start;margin-top:12px}
     .hero-copy {min-width:0}
+    .hero-note {padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+    .hero-note p {margin:7px 0 12px;font-size:.9rem;color:var(--muted)}
     .erdos-figure {margin:0}
     .erdos-figure img {display:block;width:100%;height:auto;border-radius:4px}
     .erdos-figure figcaption {padding-top:12px}
@@ -47,22 +49,21 @@
 <body>
   <main>
     <header>
-      <div class="eyebrow">Acorns · Seedbed · Harvest · P001–P046</div>
+      <div class="eyebrow">The Acorns · The Seedbed · The Harvest · P001–P046</div>
       <div class="hero">
         <div class="hero-copy">
-          <h1>Meta Erdős</h1>
-          <p>Questions in graph theory, number theory, additive combinatorics and probability. Browse precise statements, tested evidence, and the nearest established mathematics.</p>
-          <div class="notice"><strong>Not certified new open problems.</strong> These are independently proposed research candidates inspired by the tradition of Paul Erdős. Not affiliated with Erdős Problems or teorth/erdosproblems.</div>
-          <p><strong>15 Acorns · 30 Seedbed questions · 1 Harvest result:</strong> 42 candidates, two requiring reformulation, one requiring specification, and one internally proved result. <a href="https://github.com/gsidoine/meta-erdos/blob/main/manuscripts/P010/README.md">P010 has been submitted to <em>Integers</em></a> (not accepted or published). <a href="https://github.com/gsidoine/meta-erdos/blob/main/CONTRIBUTING.md">Contributions welcome</a>; see the <a href="https://github.com/gsidoine/meta-erdos/blob/main/data/curation.json">current curated allocation</a>, the <a href="https://github.com/gsidoine/meta-erdos/blob/main/audits/literature-comparison-P001-P041.md">P001–P041 literature comparison</a>, the <a href="https://github.com/gsidoine/meta-erdos/blob/main/audits/primary-secondary-catalogue-P001-P035.md">historical 35-entry curation review</a>, and the <a href="https://github.com/gsidoine/meta-erdos/blob/main/audits/portfolio-consolidation-P001-P030.md">historical 30-entry consolidation</a> for documented editorial assessments.</p>
+          <h1>The Problem Café</h1>
+          <p>A living mathematical notebook for questions, proofs, counterexamples and criticism, developed through human and AI collaboration.</p>
+          <p><a href="https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml"><strong>Propose a mathematical problem</strong></a> · <a href="https://github.com/gsidoine/meta-erdos/blob/main/CONTRIBUTING.md">Contribute to a problem</a> · <a href="https://github.com/gsidoine/meta-erdos/blob/main/REWARDS.md">Symbolic prizes</a></p>
+          <div class="notice"><strong>No automatic claim of originality.</strong> Mathematical claims, AI contributions, computations and formal verifications have distinct evidence requirements.</div>
+          <p><strong>15 Acorns · 30 Seedbed questions · 1 Harvest result:</strong> 42 candidates, two requiring reformulation, one requiring specification, and one internally proved result. <a href="https://github.com/gsidoine/meta-erdos/blob/main/manuscripts/P010/README.md">P010 was submitted to <em>Integers</em></a> (not accepted or published). <a href="https://github.com/gsidoine/meta-erdos/blob/main/data/curation.json">Current curation</a> · <a href="https://github.com/gsidoine/meta-erdos/blob/main/audits/literature-comparison-P001-P041.md">Historical literature comparison</a>.</p>
         </div>
-        <figure class="erdos-figure">
-          <img src="./assets/erdos-portrait.jpg" alt="Portrait of Paul Erdős" width="420" loading="eager" decoding="async">
-          <figcaption>
-            <blockquote>“The purpose of life is to prove and to conjecture.”</blockquote>
-            <cite>Paul Erdős · <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Erdos/quotations/">MacTutor, University of St Andrews</a></cite>
-            <cite>Photograph: George Csicsery / Zala Films. © George Csicsery / Zala Films.</cite>
-          </figcaption>
-        </figure>
+        <aside class="hero-note">
+          <h2>The Scottish Book</h2>
+          <p>At the Scottish Café in Lwów, mathematicians recorded problems in a common notebook and sometimes offered small prizes. The Problem Café follows this tradition of shared questions.</p>
+          <p><a href="https://link.springer.com/book/10.1007/978-3-319-22897-6">Historical source: <em>The Scottish Book</em></a></p>
+          <p>Rewards are symbolic unless an identified sponsor explicitly commits to a material prize.</p>
+        </aside>
       </div>
     </header>
     <section aria-label="Research collections"><div class="bar"><label for="collection">Collection</label><select id="collection" aria-label="Choose research collection"><option value="primary">The Acorns (15)</option><option value="secondary">The Seedbed (30)</option><option value="resolved">The Harvest (1)</option><option value="all">Complete archive (46)</option></select></div></section>
@@ -77,7 +78,7 @@
     </section>
     <section id="catalogue" class="cards" aria-label="Mathematical problems"></section>
     <noscript>This search interface requires JavaScript. See the catalogue in the <a href="https://github.com/gsidoine/meta-erdos#problem-catalogue">GitHub README</a>.</noscript>
-    <div class="footer">Data source: <a href="https://github.com/gsidoine/meta-erdos/blob/main/data/problems.json">data/problems.json</a>. For proofs, computational certificates and literature notes, open each dossier. Exact status is subject to review.</div>
+    <div class="footer">Inspired by the Scottish Book, without affiliation. Data source: <a href="https://github.com/gsidoine/meta-erdos/blob/main/data/problems.json">data/problems.json</a>. For proofs, computational certificates and literature notes, open each dossier. Exact status is subject to review.</div>
   </main>
   <script>
     "use strict";

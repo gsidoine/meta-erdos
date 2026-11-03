@@ -2,8 +2,8 @@
 
 Supporting results were prepared before the per-problem folder structure existed. The linked theorem notes remain the authoritative proof sources during this initial migration, rather than maintaining divergent copies.
 
-- [Exact cyclic and two-generator \(p\)-adic Hankel cokernel laws](../../../theorems/P020-padic-hankel-cyclic-and-rank-two-laws.md).
-- [Elementary abelian cokernel probabilities for all \(k\)](../../../theorems/P020-elementary-abelian-cokernel-laws.md).
+- [Exact cyclic and two-generator $p$-adic Hankel cokernel laws](../../../theorems/P020-padic-hankel-cyclic-and-rank-two-laws.md).
+- [Elementary abelian cokernel probabilities for all $k$](../../../theorems/P020-elementary-abelian-cokernel-laws.md).
 - [Classical finite-field kernel classification and its corollary](../../../theorems/P020-hankel-kernel-product-research.md).
 - [Second-order all-exponent-two obstruction](../../../audits/P020-second-order-full-radical-obstruction.md).
 

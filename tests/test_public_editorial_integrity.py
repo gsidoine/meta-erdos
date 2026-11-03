@@ -94,21 +94,17 @@ class PublicEditorialIntegrityTests(unittest.TestCase):
         self.assertIn("literature-comparison-P001-P041.md", readme)
 
 
-    def test_published_erdos_portrait_and_quotation(self):
+    def test_scottish_book_and_submission_links(self):
         page = (ROOT / "docs/index.html").read_text(encoding="utf-8")
-        published = ROOT / "docs/assets/erdos-portrait.jpg"
-        original = ROOT / "assets/erdos-portrait.jpg"
-        self.assertTrue(published.is_file())
-        self.assertEqual(published.read_bytes(), original.read_bytes())
-        self.assertIn('src="./assets/erdos-portrait.jpg"', page)
-        self.assertIn("The purpose of life is to prove and to conjecture.", page)
-        self.assertIn("George Csicsery / Zala Films", page)
-        self.assertIn(
-            "https://mathshistory.st-andrews.ac.uk/Biographies/Erdos/quotations/",
-            page,
-        )
+        self.assertIn("<h1>The Problem Café</h1>", page)
+        self.assertIn("The Scottish Book", page)
+        self.assertIn("human and AI collaboration", page)
+        self.assertIn("issues/new?template=propose-problem.yml", page)
         self.assertIn("The Acorns (15)", page)
         self.assertIn("The Seedbed (30)", page)
+        self.assertNotIn('src="./assets/erdos-portrait.jpg"', page)
+        self.assertTrue((ROOT / "docs/assets/erdos-portrait.jpg").is_file())
+
 
 
 if __name__ == "__main__":

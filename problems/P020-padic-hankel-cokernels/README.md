@@ -1,4 +1,4 @@
-# P020 — Cokernels of random \(p\)-adic Hankel matrices
+# P020 — Cokernels of random $p$-adic Hankel matrices
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the cokernel of an n×n Haar-random p-adic Hankel matrix converge in distribution to a describable measure on finite abelian p-groups?  
@@ -13,9 +13,9 @@
 
 ## Problem
 
-Fix a prime \(p\). Let \(H_n=(X_{i+j})_{0\le i,j<n}\) with independent Haar-uniform \(p\)-adic coefficients \(X_0,\ldots,X_{2n-2}\), and let \(C_n=\mathrm{coker}(H_n)\).
+Fix a prime $p$. Let $H_n=(X_{i+j})_{0\le i,j<n}$ with independent Haar-uniform $p$-adic coefficients $X_0,\ldots,X_{2n-2}$, and let $C_n=\mathrm{coker}(H_n)$.
 
-**Question.** Does the distribution of \(C_n\), as \(n\to\infty\), converge to an explicit probability measure on finite abelian \(p\)-groups?
+**Question.** Does the distribution of $C_n$, as $n\to\infty$, converge to an explicit probability measure on finite abelian $p$-groups?
 
 ## Established progress
 

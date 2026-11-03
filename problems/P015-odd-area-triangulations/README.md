@@ -13,13 +13,13 @@
 
 ## Problem
 
-Let \(P\) be a strictly convex lattice polygon with vertices representing all four classes of \((\mathbb Z/2\mathbb Z)^2\). A triangulation is *odd-area* when every triangle has odd normalized area (twice its Euclidean area).
+Let $P$ be a strictly convex lattice polygon with vertices representing all four classes of $(\mathbb Z/2\mathbb Z)^2$. A triangulation is *odd-area* when every triangle has odd normalized area (twice its Euclidean area).
 
-**Question.** If there are at least two odd-area triangulations of \(P\), is the graph of odd-area-preserving diagonal flips connected?
+**Question.** If there are at least two odd-area triangulations of $P$, is the graph of odd-area-preserving diagonal flips connected?
 
 ## Established progress
 
-A triangle has odd normalized area exactly when its three vertices represent distinct residue classes modulo \(2\). An admissible flip requires all four residues in its quadrilateral. Four-class instances with at least two admissible triangulations were checked through nine vertices; none were disconnected. These finite checks do not prove connectivity in general.
+A triangle has odd normalized area exactly when its three vertices represent distinct residue classes modulo $2$. An admissible flip requires all four residues in its quadrilateral. Four-class instances with at least two admissible triangulations were checked through nine vertices; none were disconnected. These finite checks do not prove connectivity in general.
 
 ## Context
 
