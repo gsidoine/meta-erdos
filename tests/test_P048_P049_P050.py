@@ -35,7 +35,7 @@ class NewCandidatesFiniteTests(unittest.TestCase):
             self.assertLessEqual(rank, size)
 
     def test_P050_prime_cube_coloring_and_clique(self):
-        for n in range(4, 8):
+        for n in range(4, 9):
             P050.check(n)
 
 
