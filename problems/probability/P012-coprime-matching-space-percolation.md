@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** At what densities do the perfect matchings of a thinned coprime graph form one four-cycle reconfiguration component?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Connects P005 matching switches to P008 arithmetic thinning; phase diagram not yet determined.  
 > **Finite evidence:** Frozen-edge obstruction identified; unique-matching and nonmonotonicity caveats.  
 > **Symbolic prize:** Five small beers — A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning.  
