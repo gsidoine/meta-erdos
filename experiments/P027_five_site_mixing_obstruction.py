@@ -16,6 +16,8 @@ GADGET_LIMITS = ((3, 5), (2, 4), (2, 3), (1, 2), (0, 1))
 GADGET_EDGES = {(0, 1), (0, 2), (1, 3), (3, 4)}
 WITNESS = (-8, -5, -4, -2, 1, 3, -2, 1, 3,
            -4, -3, -1, 2, 4, -1, 2, 4, -1, 2, 4, -1, 2, 4)
+WITNESS_SHARP = (-102, -65, -53, -25, 17, 45, -21, 19, 45,
+                 -56, -44, -16, 21, 47, -13, 22, 48, -11, 25, 50, -9, 26, 50)
 
 
 def cap(N, u, base):
@@ -32,28 +34,34 @@ def states():
             if all(x[a] > x[b] for a, b in GADGET_EDGES)]
 
 
-def exact_rayleigh():
+def exact_rayleigh(witness=WITNESS):
+    """Compute exact uniform variance and heat-bath Dirichlet energy."""
     space = states()
     assert len(space) == 23
-    assert len(WITNESS) == len(space)
-    position = {s: j for j, s in enumerate(space)}
-    mean = Fraction(sum(WITNESS), 23)
-    variance = sum((Fraction(y) - mean) ** 2 for y in WITNESS) / 23
+    assert len(witness) == len(space)
+    position = {state: j for j, state in enumerate(space)}
+    mean = Fraction(sum(witness), 23)
+    variance = sum((Fraction(y) - mean) ** 2 for y in witness) / 23
     energy = Fraction(0)
-    for i, s in enumerate(space):
+    for i, state in enumerate(space):
         for coordinate in range(5):
             matches = [position[t] for t in space
-                       if all(t[k] == s[k] for k in range(5)
+                       if all(t[k] == state[k] for k in range(5)
                               if k != coordinate)]
             for j in matches:
-                energy += Fraction((WITNESS[i] - WITNESS[j]) ** 2,
+                energy += Fraction((witness[i] - witness[j]) ** 2,
                                    2 * 23 * len(matches))
     ratio = energy / variance
-    assert energy == Fraction(202, 69)
-    assert variance == Fraction(242, 23)
-    assert ratio == Fraction(101, 363)
+    if witness == WITNESS:
+        assert energy == Fraction(202, 69)
+        assert variance == Fraction(242, 23)
+        assert ratio == Fraction(101, 363)
+    elif witness == WITNESS_SHARP:
+        assert sum(witness) == 0
+        assert variance == Fraction(40642, 23)
+        assert energy == Fraction(66083, 138)
+        assert ratio == Fraction(66083, 243852)
     return ratio
-
 
 def five_roots(N):
     return [u for u in range(1, N + 1, 2)
@@ -132,6 +140,11 @@ def main():
     print("Exact five-site state count: 23")
     print(f"Exact Rayleigh certificate: {ratio}; mixing coefficient >= {1/(2*ratio)}")
     assert Fraction(1, 2*ratio) == Fraction(363, 202)
+    improved = exact_rayleigh(WITNESS_SHARP)
+    print(f"Improved exact Rayleigh bound: {improved}; "
+          f"mixing coefficient >= {1/(2*improved)}")
+    assert improved < ratio
+    assert Fraction(1, 2*improved) == Fraction(121926, 66083)
 
     # Periodicity gives the limiting density exactly, independently of this
     # finite sample. The samples test classification and non-interaction.

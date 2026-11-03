@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?  
 > **Formulation:** candidate. **Novelty:** unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown.  
-> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; sharp limit and finite-prime variational equality remain open.  
-> **Finite evidence:** Full Hall-cut lower-bound proof using coprime density and fourth reciprocal-degree moment; exact modular and fractional-sieve certificates and finite values n≤10.  
+> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; symmetric {3,5,7}-profile bound 5/12 sharp, full resilience limit open.  
+> **Finite evidence:** Full Hall-cut lower-bound proof; exact fractional-sieve certificate and elementary sharp symmetric three-prime bound; finite rho_n for n≤10.  
 > **Symbolic prize:** One hundred grams of caviar — Existence and exact value of the limiting coprime-matching local resilience.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -47,6 +47,8 @@ $$
 $$
 
 The certificate uses the primes $3,5,7$, an exact half-mass fractional profile, and a perturbation with strictly more than half the mass on each side. Its conditional coprime-neighbor fractions and the purification argument appear in the supporting theorem and [exact verifier](../../experiments/P040_fractional_sieve_certificate.py).
+
+A further [sharpness proposition](../../theorems/P040-fractional-sieve-variational.md) proves that $5/12$ is the **exact infimum for symmetric fractional profiles $f=g$ on $P=\{3,5,7\}$** with selected support mass greater than $1/2$. This is not a lower bound for the unrestricted resilience: asymmetric profiles or additional primes may improve it.
 
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 

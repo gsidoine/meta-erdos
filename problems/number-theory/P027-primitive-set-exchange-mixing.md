@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].  
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
-> **Verified/known progress:** Exact exchange diameter and binary projection; new isolated positive-density 23-state components yield full mixing lower bound (363/202)n log n−O(n) and 23-adic divisibility, while full mixing remains unresolved.  
-> **Finite evidence:** Exact 23-state enumeration and rational Rayleigh quotient 101/363; five-block isolation checked arithmetically and by finite samples; earlier binary factor checked n≤1000.  
+> **Verified/known progress:** Exact exchange diameter and isolated 23-state factors; certified full mixing lower bound (121926/66083)n log n−O(n) and 23-adic divisibility; full mixing unresolved.  
+> **Finite evidence:** Exact 23-state enumeration; improved rational Rayleigh 66083/243852 (older 101/363); five-block isolation proved and finitely checked.  
 > **Symbolic prize:** One hundred grams of caviar — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -62,11 +62,11 @@ The full transition operator splits into a hypercube refresh and a **residual co
 
 ## New 23-state mixing obstruction
 
-The [isolated arithmetic-block theorem](../../theorems/P027-five-site-arithmetic-blocks-and-mixing-lower-bound.md) identifies a positive density of mutually independent **five-site factors with 23 configurations**. Their exact 23-state heat-bath generator has a certified rational Rayleigh quotient $101/363$, giving the stronger full-chain lower bound
+The [isolated arithmetic-block theorem](../../theorems/P027-five-site-arithmetic-blocks-and-mixing-lower-bound.md) identifies a positive density of mutually independent **five-site factors with 23 configurations**. Their exact 23-state heat-bath generator has an improved certified rational Rayleigh quotient $66083/243852$ (sharpening the previous $101/363$ certificate). Consequently the full-chain lower bound is
 
 $$
 \boxed{t_{\mathrm{mix}}(n,\varepsilon)\ge
-\frac{363}{202}n\log n-O_\varepsilon(n).}
+\frac{121926}{66083}n\log n-O_\varepsilon(n).}
 $$
 
 The projection onto these factors has total-variation cutoff; **the entire P027 walk has no proved cutoff or matching upper bound**. The factorization also implies
@@ -82,6 +82,7 @@ where $f(n)$ counts maximum primitive sets. Independently isolated three-state p
 
 - [Liu–Pach–Palincza, *The number of maximum primitive sets of integers* (2021)](https://doi.org/10.1017/S0963548321000018): crucial primary predecessor. They prove the exponential counting constant exists; **the family M_n and dyadic chain decomposition are known**. Do not present either as original.
 - [Heat-bath random walks with Markov bases (2018)](https://doi.org/10.1016/j.aam.2017.08.002): general heat-bath dynamics on integer fibers.
+- [Propp (1997), *Generating Random Elements of Finite Distributive Lattices*](https://doi.org/10.37236/1330): general lattice-based perfect sampling predates the arithmetic heat bath. It does not supply the 23-state spectral value or full-chain mixing time.
 - [Propp–Wilson, *Exact sampling with coupled Markov chains* (1996)](https://doi.org/10.1002/(SICI)1098-2418(199608/09)9:1/2%3C223::AID-RSA14%3E3.0.CO;2-O): establishes general monotone exact sampling and supplies examples with exponentially slow mixing; **distributivity is insufficient to guarantee rapid mixing**.
 - [Alexeev et al., *Primitive sets and von Mangoldt chains* (2026)](https://arxiv.org/abs/2605.00301): uses a different chain to bound weighted primitive-set sums; not the finite uniform heat-bath process.
 - [Rowmotion Markov chains (2024)](https://www.sciencedirect.com/science/article/pii/S0196885823001847): random walks on distributive lattices; closely related abstract machinery.
