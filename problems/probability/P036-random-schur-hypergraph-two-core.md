@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; Schur Ramsey thresholds are close but the peeling observable is different.  
 > **Verified/known progress:** A six-vertex four-edge 2-core has three free parameters and expected count of order N^3 p^6.  
 > **Finite evidence:** Explicit four-edge incidence witness and exact small-N enumerations.  
+> **Symbolic prize:** A bottle of whisky of positive measure — The critical scale and limiting law for the first nonempty two-core in a random Schur hypergraph.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

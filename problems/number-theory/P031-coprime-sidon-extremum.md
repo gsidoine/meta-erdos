@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; Sidon sets of primes and additive-multiplicative restrictions require a specialist search.  
 > **Verified/known progress:** Classical Sidon bound gives upper (1+o(1))sqrt(N); Sidon-subsets-of-primes results give a lower bound of order sqrt(N/log N).  
 > **Finite evidence:** Exact strong-Sidon and pairwise gcd enumeration for N≤30.  
+> **Symbolic prize:** A bottle of wine — A sharp asymptotic for the maximum size of a pairwise-coprime Sidon subset of an initial interval.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

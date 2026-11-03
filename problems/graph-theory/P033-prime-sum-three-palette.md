@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; Chen–Fu–Guo (2021) established three-color Hamiltonian-prime-set phenomena for some orders, not this stated eventual connectivity theorem.  
 > **Verified/known progress:** New quantified theorem: for any fixed 0<δ<1/5, asymptotically (3/4)C₂≈49.5121% of prime triples p<q<n<r in δ-relative intervals connect [n]. Sharper reflection criterion n≥5D; two colors characterized by twin primes; all-n remains unproved.  
 > **Finite evidence:** Exact three-reflection sufficient condition tested on 77,795 artificial triples; prime-triple fractions checked through n=20,000; certified three-color witnesses for every 3≤n≤1,000,000 (existing n≤120 test and new n≥60 test).  
+> **Symbolic prize:** A live goose — A proof that three prime sums always connect the graph on an initial interval, or a counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

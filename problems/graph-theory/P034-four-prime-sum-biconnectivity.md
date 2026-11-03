@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; prime-sum connectivity predecessor.  
 > **Verified/known progress:** For odd n≥5, at least four odd-prime labels are necessary for minimum degree two; the bound is attained in tested odd cases 7≤n≤39.  
 > **Finite evidence:** Exhaustive four-label search for odd n=7,9,...,39; n=5 impossible even with all prime sums.  
+> **Symbolic prize:** One small beer — A construction using four prime sums for every odd order at least seven, or an exceptional order.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
