@@ -2,7 +2,7 @@
 
 The Scottish Book recorded prizes offered for solutions to particular problems. The collection preserves this convention as an optional annotation. All prizes in the present catalogue are **symbolic**, unless a named sponsor separately makes and documents an actual offer.
 
-No prize is a measure of difficulty, priority, originality or mathematical importance. The presence, absence or choice of prize has no bearing on the editorial assessment. A prize may be assigned to a complete solution, a specified partial result, an exact calculation, or a counterexample, provided the condition is stated in advance.
+A prize is not a measure of difficulty, priority, originality or mathematical importance. The presence, absence or choice of prize has no bearing on the editorial assessment. A prize may be assigned to a complete solution, a specified partial result, an exact calculation, or a counterexample, provided the condition is stated in advance.
 
 ## Historical vocabulary
 
