@@ -48,6 +48,8 @@ $$
 
 The certificate uses the primes $3,5,7$, an exact half-mass fractional profile, and a perturbation with strictly more than half the mass on each side. Its conditional coprime-neighbor fractions and the purification argument appear in the supporting theorem and [exact verifier](../../experiments/P040_fractional_sieve_certificate.py).
 
+A further [sharpness proposition](../../theorems/P040-fractional-sieve-variational.md) proves that $5/12$ is the **exact infimum for symmetric fractional profiles $f=g$ on $P=\{3,5,7\}$** with selected support mass greater than $1/2$. This is not a lower bound for the unrestricted resilience: asymmetric profiles or additional primes may improve it.
+
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 
 ## A proved universal lower bound
