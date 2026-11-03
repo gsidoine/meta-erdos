@@ -19,9 +19,9 @@ This register distinguishes the existence of a mathematical predecessor from ide
 - **P031/P035:** classical Sidon extremal and coloring theorems cannot be counted as new results. The simultaneous coprimality or divisibility-antichain constraints are the remaining objects.
 - **P037:** the leading induced-cycle asymptotic and unboundedness of the prime-gap deficit are not open objectives. The retained question is the maximal growth order of the deficit.
 - **P047:** Mycielski and [Fraser](https://arxiv.org/abs/1612.08231) establish qualitative and half-dimensional avoidance baselines. [Pach–Zakharov (2025)](https://doi.org/10.1007/s00493-025-00151-5) is a direct predecessor for simultaneous Sidon constraints. Full dimension one over $\mathbb F_4[[T]]$ remains unverified against all specialist sources.
-- **P048:** the isolated squarefree-sum matching is recorded as [OEIS A398305](https://oeis.org/A398305); the combined coprimality restriction requires additional proof. Reflection supplies an infinite family when $n+1$ is prime.
+- **P048 (resolved):** the combined coprimality and squarefree-sum existence assertion follows for every $n$ by reflecting successive terminal intervals across primes provided by Bertrand's postulate. This is a direct application of [Greenfield–Greenfield's classical prime-sum reflection](https://cs.uwaterloo.ca/journals/JIS/green.html) (1998), not a novel open problem. The original reward is withdrawn; the permanent identifier is retained.
 - **P049:** [OEIS A013928](https://oeis.org/A013928) explicitly records the full coprimality-matrix rank as a squarefree-count function. The question concerns Bernoulli-induced principal submatrices, not that known identity.
-- **P050:** the leading-order chromatic problem already follows from [Östergård's hypercube coloring](https://doi.org/10.1016/j.jcta.2004.06.010). The exact dyadic constant has a substantial coding-theoretic priority risk and cannot be presented as a new asymptotic.
+- **P050:** the leading-order chromatic problem already follows from [Östergård's hypercube coloring](https://doi.org/10.1016/j.jcta.2004.06.010). Exact calculations now prove $\chi(H_4)=8$ and $\chi(H_8)=16$; the remaining dyadic case starts at dimension $16$. The small-case arguments have no certified historical priority.
 
 ## Comparison register
 
@@ -76,9 +76,9 @@ The table gives a starting reference for every permanent identifier, not a claim
 | P045 | [Bors and Wang (2023), compositions of complete mappings](https://doi.org/10.1016/j.jcta.2022.105723) | related literature | Complete mappings classical; near-injective multiplicative image additional |
 | P046 | [Czerwinski and Pott (2026), On large Sidon sets](https://doi.org/10.1016/j.jcta.2025.106129) | related literature | Binary Sidon/APN constructions classical; prime-restricted density differs |
 | P047 | [Mycielski (1964), Independent sets in topological algebras](https://doi.org/10.4064/fm-55-2-139-147) | strong overlap | Mycielski and Fraser provide existence baseline; dimension one unresolved |
-| P048 | [Sah (2022), Enumerating coprime permutations](https://doi.org/10.1112/mtk.12159) | related literature | Squarefree-sum and coprime permutations separate; intersection additional |
+| P048 | [Greenfield–Greenfield (1998), prime-sum reflections](https://cs.uwaterloo.ca/journals/JIS/green.html) | known result | Recursive prime reflections solve the original simultaneous matching assertion for every $n$ |
 | P049 | [OEIS A013928, full coprimality-matrix rank](https://oeis.org/A013928) | related literature | Full coprimality matrix rank recorded in OEIS; random thinning new target |
-| P050 | [Östergård (2004), On a hypercube coloring problem](https://doi.org/10.1016/j.jcta.2004.06.010) | strong overlap | Hypercube coloring asymptotics known; exact dyadic additive gap target |
+| P050 | [Östergård (2004), On a hypercube coloring problem](https://doi.org/10.1016/j.jcta.2004.06.010) | strong overlap | Leading asymptotic known; the exact $n=8$ case is resolved, and $n=16$ is the first remaining dyadic case |
 
 ## Status and limits
 
@@ -86,4 +86,4 @@ The source-facing reclassification changes P009, P029, and P032 from *candidate*
 
 Labels asserting *apparent novelty* on the basis of a targeted search are replaced with *not certified; targeted literature comparison only*. Lack of an exact-title match cannot establish newness; only comparison with equivalent theorems and known open formulations can justify a stronger statement.
 
-The catalogue contains **50 numbered entries**: 43 candidates, five requiring reformulation, one needing specification, and one internally proved result. This is a classification of mathematical documentation, not a count of historically novel open problems.
+The catalogue contains **50 numbered entries**: 42 candidates, five requiring reformulation, one needing specification, one internally proved result and one known result (P048). This is a classification of mathematical documentation, not a count of historically novel open problems.
