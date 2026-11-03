@@ -314,7 +314,7 @@ The right side was constrained by the original support of $f$. Thus the largest 
 
 Repeat this operation for every $p\in P$. Compression in a later coordinate preserves earlier monotonicity: both output values for a coordinate are nondecreasing functions of the weighted mean of its two input values. Thus the resulting profiles are coordinatewise increasing, have the original masses, and have no larger value of $R_P$. $\square$
 
-This is a measure-preserving form of upward compression, related to the classical shifting and monotonicity techniques for biased intersecting families. The lemma reduces the **search space** of the unrestricted finite-prime variational problem; it does not evaluate its infimum. Historical priority for this particular formulation is unverified.
+This is a measure-preserving form of upward compression, related to classical shifting for biased intersecting families; compare Keevash, Lifshitz, Long and Minzer, [*Forbidden intersections for codes*](https://doi.org/10.1112/jlms.12801), *J. London Math. Soc.* **108** (2023), 2037–2083. That source is a methodological predecessor, not an assertion that it proves this precise conditional-deletion lemma. The compression reduces the **search space** of the unrestricted finite-prime variational problem; it does not evaluate its infimum. Historical priority for this formulation remains unverified.
 
 ## Scope and references
 
