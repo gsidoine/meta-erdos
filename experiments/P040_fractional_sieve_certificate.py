@@ -50,6 +50,13 @@ def verify():
     values = {s: conditional(F, w, s) for s in range(8) if F[s] > 0}
     assert values == EXPECTED, (values, EXPECTED)
     assert max(values.values()) == Fraction(5, 12)
+    # Structural optimality within symmetric fractional profiles for {3,5,7}.
+    assert 1 - w[0] == Fraction(19, 35)
+    assert w[4] == Fraction(8, 105)   # exact support {7}
+    assert 1 - w[0] - w[4] == Fraction(7, 15) < Fraction(1, 2)
+    assert sum(w[t] for t in range(8) if t & 4) == Fraction(1, 7)
+    assert conditional(F, w, 4) == Fraction(5, 12)
+
     delta = Fraction(1, 1000)
     perturbed = list(F)
     perturbed[1] += delta
