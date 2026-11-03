@@ -197,36 +197,36 @@ The proposition establishes **sharpness only for symmetric profiles supported on
 
 Let $P=\{3,5,7\}$. Then
 
-$
+$$
 \boxed{
 \inf_{\substack{f,g:2^P\to[0,1]\\m_P(f)+m_P(g)>1}}
 R_P(f,g)=\frac5{12}.
 }
-$
+$$
 
 In fact, every admissible pair has $R_P(f,g)>5/12$. No symmetry assumption $f=g$ is required.
 
 **Proof.** Write $m(h)=m_P(h)$, $Q(h\mid S)=Q_P(h\mid S)$ and $t=5/12$. Let
 
-$
+$$
 D(S)=\prod_{p\in S}\left(1-\frac1p\right).
-$
+$$
 
 For any $h:2^P\to[0,1]$,
 
-$
+$$
 m(h)\le 1-D(S)+D(S)Q(h\mid S).
-$
+$$
 
 Consequently, $Q(h\mid S)\le t$ implies
 
-$
+$$
 m(h)\le u(S):=1-(1-t)D(S).
-$
+$$
 
 In particular,
 
-$
+$$
 \begin{aligned}
 u(\varnothing)&=\frac5{12},&
 u(\{3\})&=\frac{11}{18},&
@@ -234,11 +234,11 @@ u(\{5\})&=\frac8{15},\\
 u(\{7\})&=\frac12,&
 u(P)&=\frac{11}{15}.
 \end{aligned}
-$
+$$
 
 Since $D(S)\ge D(P)$, one also has $u(S)\le u(P)$ for all $S\subseteq P$. The exact weights relevant to the argument are
 
-$
+$$
 \begin{aligned}
 \mu_P(\varnothing)&=\frac{48}{105},&
 \mu_P(\{3\})&=\frac{24}{105},&
@@ -246,16 +246,16 @@ $
 \mu_P(\{7\})&=\frac8{105},&
 \mu_P(2^P\setminus\{\varnothing,\{3\},\{5\},\{7\}\})&=\frac{13}{105}.
 \end{aligned}
-$
+$$
 
 Suppose for a contradiction that $m(f)+m(g)>1$ but $R_P(f,g)\le t$.
 
 **Case 1: at least one empty support is selected.** By exchanging the two profiles, assume $f(\varnothing)>0$. Then $m(g)\le u(\varnothing)=t$ and hence $m(f)>7/12$. Since $u(\varnothing),u(\{7\}),u(\{5\})$ are all smaller than $7/12$, the support of $g$ contains none of $\varnothing,\{7\},\{5\}$. Thus
 
-$
+$$
 m(g)\le\frac{37}{105},
 \qquad m(f)>\frac{68}{105}>\frac{11}{18}.
-$
+$$
 
 It follows that $g(\{3\})=0$ as well. Hence $m(g)\le13/105$ and $m(f)>92/105$. But $g$ is not identically zero, since $m(f)\le1$ and $m(f)+m(g)>1$. Choose $S$ with $g(S)>0$. The conditional inequality gives $m(f)\le u(S)\le u(P)=11/15<92/105$, a contradiction.
 
@@ -273,42 +273,42 @@ More generally, let $P$ be any finite coordinate set, with product measure $\mu_
 
 **Theorem.** For any admissible $f,g:2^P\to[0,1]$, there are coordinatewise increasing functions $f^\uparrow,g^\uparrow:2^P\to[0,1]$ such that
 
-$
+$$
 m_P(f^\uparrow)=m_P(f),\qquad
 m_P(g^\uparrow)=m_P(g),\qquad
 R_P(f^\uparrow,g^\uparrow)\le R_P(f,g).
-$
+$$
 
 Consequently, the finite-prime infimum $\alpha_{\mathrm{frac}}$ can be taken over **increasing** fractional profiles on each finite prime set.
 
 **Proof.** Fix $p\in P$, write $q=q_p$, and let $U\subseteq P\setminus\{p\}$. For a profile $h$, put
 
-$
+$$
 a_U=(1-q)h(U)+q h(U\cup\{p\})
-$
+$$
 
 and define a new profile $\widehat h$ by
 
-$
+$$
 \widehat h(U\cup\{p\})=\min\{1,a_U/q\},\qquad
 \widehat h(U)=\frac{a_U-q\widehat h(U\cup\{p\})}{1-q}.
-$
+$$
 
 Then $0\le\widehat h(U)\le\widehat h(U\cup\{p\})\le1$; the weighted mean $a_U$ is unchanged; and $\widehat h(U)\le h(U)$.
 
 Apply this operation simultaneously to $f$ and $g$. Their masses are preserved. For any $S$ not containing $p$, the conditional quantity $Q_P(\widehat h\mid S)$ equals $Q_P(h\mid S)$ because it averages over the unchanged $p$-coordinate mean. For $S$ containing $p$, conditioning forces the $p$-coordinate to be absent, so
 
-$
+$$
 Q_P(\widehat h\mid S)\le Q_P(h\mid S).
-$
+$$
 
 Consider a support $S$ for which $\widehat f(S)>0$. If $p\notin S$, then $f(S)>0$, and the conditional constraint for $g$ is unchanged. If $p\in S$, then either $f(S)>0$ or $f(S\setminus\{p\})>0$. In the former case the conditional cost does not increase. In the latter case, since $\widehat g(U)\le\widehat g(U\cup\{p\})$,
 
-$
+$$
 Q_P(\widehat g\mid S)
 \le Q_P(\widehat g\mid S\setminus\{p\})
 =Q_P(g\mid S\setminus\{p\}).
-$
+$$
 
 The right side was constrained by the original support of $f$. Thus the largest conditional cost from $f$ to $g$ does not increase. The same argument with the profiles exchanged proves the claim for the other direction.
 
