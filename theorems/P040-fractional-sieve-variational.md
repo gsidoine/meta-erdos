@@ -164,30 +164,30 @@ Thus $\alpha_{\mathrm{frac}}\le5/12$ by letting $\delta\downarrow0$. Theorem 1 g
 
 Fix $P=\{3,5,7\}$. Consider **symmetric** fractional Hall cuts, meaning $f=g:2^P\to[0,1]$ with $m_P(f)>1/2$. Then
 
-$
+$$
 \boxed{\inf_{f:m_P(f)>1/2}
 \max_{S:f(S)>0}Q_P(f\mid S)=\frac5{12}.}
-$
+$$
 
 **Proof.** If $f(\varnothing)>0$, the maximum is at least
 
-$
+$$
 Q_P(f\mid\varnothing)=m_P(f)>\frac12.
-$
+$$
 
 Suppose $f(\varnothing)=0$. The $\mu_P$-measure of all nonempty supports is $19/35$, and the single support $S_7=\{7\}$ has weight $8/105$. If $f(S_7)=0$, the selected mass is at most
 
-$
+$$
 \frac{19}{35}-\frac8{105}=\frac7{15}<\frac12,
-$
+$$
 
 a contradiction. Hence $f(S_7)>0$ and $Q_P(f\mid S_7)$ is among the values in the maximum.
 
 Under the prime-support product measure, the chance of divisibility by $7$ is $1/7$. The contribution of all support types divisible by $7$ to $m_P(f)$ is at most $1/7$; on the complementary event, the selected mass is $(6/7)Q_P(f\mid S_7)$. Therefore
 
-$
+$$
 \frac12<m_P(f)\le\frac17+\frac67Q_P(f\mid S_7),
-$
+$$
 
 which forces $Q_P(f\mid S_7)>5/12$. This proves the lower bound on the infimum. The fractional profile in Proposition 2 has $m_P(f_\delta)>1/2$ and maximum at most $5/12+\delta$ for arbitrarily small $\delta>0$, giving the matching upper bound. $\square$
 
