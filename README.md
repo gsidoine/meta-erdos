@@ -66,6 +66,8 @@ Stefan Banach was one of the mathematicians associated with the Scottish Café i
 
 The [P001–P050 literature comparison](audits/P001-P050-literature-comparison.md) records the principal known predecessors and the remaining uncertainty in historical priority. It does not certify novelty or unresolved status.
 
+The [specialist scrutiny of P020–P050](audits/P020-P050-specialist-priority-gates.md) distinguishes proved resolutions from adjacent literature for the principal current candidates. In particular, P048 is resolved by classical prime-reflection pairing and is not an open prize question.
+
 ### Historical source reviews
 
 The [P001–P020 consolidation](audits/2026-10-29-P001-P020-first-collection-consolidation.md), [P001–P025 literature gate](audits/2026-10-29-P001-P025-literature-source-gate.md), and [P001–P030 portfolio consolidation](audits/portfolio-consolidation-P001-P030.md) are historical audits, not the current curation. Their mathematical and bibliographic conclusions are retained as research records.
