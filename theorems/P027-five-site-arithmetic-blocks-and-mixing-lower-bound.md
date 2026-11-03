@@ -152,6 +152,40 @@ The finite state space bounds $\mathrm{Var}(S_t)\le C'k_n$; in stationarity, $S_
 
 Total variation cannot increase under projection. Since $\log k_n=\log n+O(1)$, the variational bound $\lambda_*\le101/363$ gives the displayed certified lower bound for the full chain. **No upper bound or cutoff for the full chain is asserted.** □
 
+## Sharper exact spectral certificate
+
+The preceding Rayleigh quotient is not optimal for this finite 23-state generator. The following improved integer-valued test function requires no floating-point or spectral approximation.
+
+Enumerate the same 23 exponent vectors in lexicographic order and put
+
+$
+g_1=(-102,-65,-53,-25,17,45,-21,19,45,
+-56,-44,-16,21,47,-13,22,48,-11,25,50,-9,26,50).
+$
+
+The entries sum to zero. Direct exact enumeration of the five conditional heat-bath updates gives
+
+$
+\operatorname{Var}_{\pi_*}(g_1)=\frac{40642}{23},
+\qquad
+\langle g_1,-Qg_1\rangle_{\pi_*}=\frac{66083}{138}.
+$
+
+Thus the Rayleigh principle improves the certified bound to
+
+$
+\boxed{\lambda_*\le\frac{66083}{243852}<\frac{101}{363}.}
+$
+
+The proof of Theorem C, which uses only an upper bound on $\lambda_*$ to obtain a full-chain **lower** mixing bound, now yields
+
+$
+\boxed{t_{\mathrm{mix}}(n,\varepsilon)\ge
+\frac{121926}{66083}\,n\log n-O_\varepsilon(n).}
+$
+
+Here $121926/66083\approx1.84504335$, improving the earlier coefficient $363/202\approx1.79702970$. The proof of a cutoff for the projected 23-state product still uses the **true** eigenvalue $\lambda_*$ and is unchanged; no cutoff for the full chain follows. All arithmetic is independently reproducible in the updated exact-fraction verification program. The improvement is an explicit spectral certificate, not a claim that the spectral gap is exactly the displayed fraction.
+
 ## Corollary — Linear 23-adic and 3-adic divisibility
 
 Because the state space contains $k_n$ completely independent 23-state factors,
