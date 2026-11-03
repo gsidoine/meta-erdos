@@ -82,16 +82,16 @@ where $f(n)$ counts maximum primitive sets. Independently isolated three-state p
 
 The [finite-pattern factor theorem](../../theorems/P027-universal-finite-pattern-factorization.md) shows that, for every fixed $C\ge2$, the state space contains a positive density of independent copies of the maximum primitive-set configuration space on $[C]$. If $F(C)$ counts those configurations, then for an explicitly defined $k_{n,C}=c_Cn+O_C(1)$,
 
-$
+$$
 F(C)^{k_{n,C}}\mid F(2n).
-$
+$$
 
 For example, $F(20)=26$ by a short exact enumeration, giving $\nu_{13}(F(2n))\gg n$. More generally the factorization transfers every nontrivial finite heat-bath spectral gap $\lambda_C$ into a full-chain mixing lower bound
 
-$
+$$
 t_{\mathrm{mix}}(n,\varepsilon)\ge
 \frac{n}{2\lambda_C}\log n-O_{C,\varepsilon}(n).
-$
+$$
 
 The exact [finite-pattern verifier](../../experiments/P027_universal_finite_pattern_factors.py) checks sample factors and state counts. This generalization does **not** establish a bound better than the existing 23-state certificate, or prove that the finite-factor gaps approach zero. The counting-component viewpoint has established precedents in Liu–Pach–Palincza and McNew.
 
