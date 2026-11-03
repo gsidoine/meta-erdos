@@ -1471,6 +1471,102 @@
           "condition": "A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists."
         }
       ]
+    },
+    {
+      "id": "P048",
+      "title": "Coprime permutations with squarefree sums",
+      "area": "arithmetic combinatorics",
+      "file": "problems/number-theory/P048-coprime-squarefree-permutations.md",
+      "question": "For every n, is there a permutation sigma of [n] such that gcd(i,sigma(i))=1 and i+sigma(i) is squarefree for every i?",
+      "status": "candidate",
+      "novelty": "unverified; simultaneous constraint not settled by known coprime permutation or squarefree-sum matching results",
+      "result": "Exact perfect-matching witnesses checked for all n<=750 and n=1000,1100; no infinite existence theorem established",
+      "verification": "Deterministic Hopcroft–Karp verification; finite computation is not an all-n proof",
+      "priority": "prove Hall expansion for the coprime-squarefree bipartite graph or find a counterexample",
+      "sources": [
+        {
+          "name": "Sah (2022), Enumerating coprime permutations",
+          "url": "https://doi.org/10.1112/mtk.12159"
+        },
+        {
+          "name": "OEIS A398305, squarefree-sum permutations",
+          "url": "https://oeis.org/A398305"
+        },
+        {
+          "name": "Hathi and Johnston (2024), prime plus squarefree with divisibility conditions",
+          "url": "https://doi.org/10.1016/j.jnt.2023.10.002"
+        }
+      ],
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "An all-order coprime-squarefree permutation construction, or a concrete order admitting none."
+        }
+      ]
+    },
+    {
+      "id": "P049",
+      "title": "Rank of a randomly thinned coprimality matrix",
+      "area": "probability",
+      "file": "problems/probability/P049-random-coprimality-matrix-rank.md",
+      "question": "When each integer of [n] is retained independently with probability p, does the F_2 rank of the induced coprimality matrix divided by n converge, for every fixed 0<p<1?",
+      "status": "candidate",
+      "novelty": "unverified; full-matrix rank classical, random principal-submatrix limit needs a targeted specialist comparison",
+      "result": "Known exact full rank equals the squarefree count; bounded-differences concentration and an expected-rank radical-occupancy upper bound are proved",
+      "verification": "Exact binary Gaussian elimination for finite Bernoulli subsets with fixed seeds; simulations do not prove convergence",
+      "priority": "determine existence and possible form of the normalized mean-rank limit",
+      "sources": [
+        {
+          "name": "OEIS A013928, full coprimality-matrix rank",
+          "url": "https://oeis.org/A013928"
+        },
+        {
+          "name": "Hilberdink (2014), group of squarefree integers and arithmetical matrices",
+          "url": "https://doi.org/10.1016/j.laa.2014.05.037"
+        },
+        {
+          "name": "Coja-Oghlan et al. (2023), The rank of sparse random matrices",
+          "url": "https://doi.org/10.1002/rsa.21085"
+        }
+      ],
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "A proved limit and explicit characterization of the rank density for every fixed retention probability."
+        }
+      ]
+    },
+    {
+      "id": "P050",
+      "title": "Prime-Hamming cube colorings at dyadic dimensions",
+      "area": "graph theory",
+      "file": "problems/graph-theory/P050-prime-hamming-cube-colorings.md",
+      "question": "If H_n joins binary n-vectors at prime Hamming distance, is chi(H_{2^k})=2^{k+1} for every k>=2?",
+      "status": "candidate",
+      "novelty": "high overlap risk: hypercube distance colorings; first-order asymptotics already follow from established coding theory",
+      "result": "Proved 2n-3<=chi(H_n)<=2^(1+ceil(log2 n)) for n>=5 and exact chi(H_4)=8; asymptotic 2n is known from neighboring coloring results",
+      "verification": "Algebraic color construction and clique certificate; independent finite verifier supplied",
+      "priority": "resolve the additive-constant gap for dyadic dimensions; search exact hypercube coloring literature",
+      "sources": [
+        {
+          "name": "Östergård (2004), On a hypercube coloring problem",
+          "url": "https://doi.org/10.1016/j.jcta.2004.06.010"
+        },
+        {
+          "name": "Kokkala and Östergård (2015), A coloring of the square of the 8-cube",
+          "url": "https://arxiv.org/abs/1509.06913"
+        },
+        {
+          "name": "Chromatic number of prime distance graphs (1994)",
+          "url": "https://doi.org/10.1016/0166-218X(94)90109-0"
+        }
+      ],
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A proof or counterexample to the exact dyadic prime-Hamming cube coloring formula."
+        }
+      ]
     }
   ],
   "catalogue_policy": "Open to community contributions; proposed additions and status changes require source review"
