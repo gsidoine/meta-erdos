@@ -79,7 +79,7 @@ These results establish a nontrivial arithmetic constraint and probabilistic con
 
 ## Prior art
 
-1. [OEIS A013928](https://oeis.org/A013928), records the exact full coprimality-matrix rank as the number of squarefree integers.
+1. [OEIS A013928](https://oeis.org/A013928), comment by Sharon Sela (2002), records the exact full coprimality-matrix rank. The sequence uses the convention $a(n)=\#\{d<n: \mu^2(d)=1\}$, so the rank of the matrix indexed by $[n]$ equals **$a(n+1)$**, not $a(n)$. The factorization above proves the same statement over $\mathbb F_2$.
 2. T. Hilberdink, *The group of squarefree integers*, **Linear Algebra and its Applications** 457 (2014), 383–399, [doi:10.1016/j.laa.2014.05.037](https://doi.org/10.1016/j.laa.2014.05.037). Arithmetic matrix factorizations.
 3. A. Coja-Oghlan et al., *The rank of sparse random matrices*, **Random Structures & Algorithms** (2023), [doi:10.1002/rsa.21085](https://doi.org/10.1002/rsa.21085). Random rank limits in a different, sparsely generated matrix model.
 

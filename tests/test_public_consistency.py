@@ -40,6 +40,7 @@ class PublicCatalogueConsistencyTests(unittest.TestCase):
             "Reframe": counts["reframe"],
             "Needs specification": counts["needs specification"],
             "Proved internally": counts["proved internally"],
+            "Known result": counts["known result"],
         }
         for name, count in expected.items():
             with self.subTest(status=name):
