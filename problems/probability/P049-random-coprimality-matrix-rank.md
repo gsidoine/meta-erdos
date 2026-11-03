@@ -46,7 +46,7 @@ $$
 =\sum_{d\mid i,\ d\mid j}\mu(d)
 $$
 
-gives $C([n])=E\,\operatorname{diag}(\mu(1),\ldots,\mu(n))E^\mathsf T$ over $\mathbb F_2$. Since $E$ is lower triangular with diagonal ones, the rank is exactly the number of nonzero Möbius values. The asymptotic is the classical squarefree-density theorem. $\square$
+gives $C([n])=E\,\mathrm{diag}(\mu(1),\ldots,\mu(n))E^\mathsf T$ over $\mathbb F_2$. Since $E$ is lower triangular with diagonal ones, the rank is exactly the number of nonzero Möbius values. The asymptotic is the classical squarefree-density theorem. $\square$
 
 **Proposition 2 (concentration).** For every $t>0$,
 
