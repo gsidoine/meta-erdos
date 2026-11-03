@@ -1,6 +1,12 @@
 # P050 — Coloring the Boolean cube at prime distances
 
 <!-- DOSSIER-SUMMARY -->
+> **Research question:** If H_n joins binary n-vectors at prime Hamming distance, is chi(H_{2^k})=2^{k+1} for every k>=2?  
+> **Formulation:** candidate. **Novelty:** high overlap risk: hypercube distance colorings; first-order asymptotics already follow from established coding theory.  
+> **Verified/known progress:** Proved 2n-3<=chi(H_n)<=2^(1+ceil(log2 n)) for n>=5 and exact chi(H_4)=8; asymptotic 2n is known from neighboring coloring results.  
+> **Finite evidence:** Algebraic color construction and clique certificate; independent finite verifier supplied.  
+> **Symbolic prize:** One small beer — A proof or counterexample to the exact dyadic prime-Hamming cube coloring formula.  
+> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Area:** graph theory and coding theory.
