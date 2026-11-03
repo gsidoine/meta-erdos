@@ -6,7 +6,7 @@
 
 The [Scottish Book](https://link.springer.com/book/10.1007/978-3-319-22897-6), kept at the Scottish Café in Lwów beginning in 1935, recorded mathematical questions and occasionally offered prizes for solutions. This modern notebook follows its spirit of accessible, collaborative problem formulation. The collection is not affiliated with the original Scottish Book or with [Erdős Problems](https://www.erdosproblems.com/).
 
-Many entries were developed through **human–AI collaboration**. Mathematical validity and historical priority must be assessed independently of provenance. Human-only contributions are equally welcome. See [provenance and credit](PROVENANCE.md).
+Many entries were developed through **human–AI collaboration**. Mathematical validity and historical priority must be assessed independently of provenance. Human-only contributions are equally welcome. **Contributions are welcome.** See [provenance and credit](PROVENANCE.md).
 
 **[Propose a problem with a simple form](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml)** · [Browse the searchable book](https://gsidoine.github.io/meta-erdos/) · [Contribute a proof or correction](CONTRIBUTING.md) · [Symbolic rewards](REWARDS.md)
 
@@ -16,7 +16,7 @@ This collection currently contains **46 numbered research entries (P001–P046)*
 
 [The Acorns](#the-acorns) · [The Seedbed](#the-seedbed) · [The Harvest](#the-harvest) · [Complete index](#problem-catalogue) · [Contributing](CONTRIBUTING.md)
 
-### Mathematical status
+## Status and scope
 
 | Status | Entries | Meaning |
 |---|---:|---|
@@ -92,7 +92,7 @@ Thirty research questions developing through formulation, proof, computation and
 
 ## The Harvest
 
-**[P010 — Minimum coprime adjacencies](problems/graph-theory/P010-minimum-coprime-adjacencies.md)** has a complete internally checked construction. Its [submitted manuscript](manuscripts/P010/coprime_adjacencies.pdf) was submitted to the journal _Integers_; submission does not establish acceptance or publication. The submitted PDF and its factual AI-use disclosure remain an archival record.
+**[P010 — Minimum coprime adjacencies](problems/graph-theory/P010-minimum-coprime-adjacencies.md)** has a complete internally checked construction. Its [submitted manuscript](manuscripts/P010/coprime_adjacencies.pdf) was submitted to the journal _Integers_; submission does not establish acceptance or publication. The submitted PDF and its factual AI-use disclosure remain an archival record. The journal [permits supporting AI-tool use](https://math.colgate.edu/~integers/submit.html), subject to its authorship, accuracy and disclosure requirements; later repository changes do not alter the submitted declaration.
 
 ## Problem folders
 
@@ -101,6 +101,10 @@ Problems gradually receive a compact public page and their own proofs, explorati
 A contributor may [submit a proposed problem](https://github.com/gsidoine/meta-erdos/issues/new?template=propose-problem.yml) using Markdown or TeX, select a mathematical field, describe sources and AI involvement, and suggest an optional symbolic reward. A moderator can convert an issue into a draft PR; proposals are not automatically admitted to the book.
 
 ## Literature and verification
+
+### Historical source reviews
+
+The [P001–P020 consolidation](audits/2026-10-29-P001-P020-first-collection-consolidation.md), [P001–P025 literature gate](audits/2026-10-29-P001-P025-literature-source-gate.md), and [P001–P030 portfolio consolidation](audits/portfolio-consolidation-P001-P030.md) are historical audits, not the current curation. Their mathematical and bibliographic conclusions are retained as research records.
 
 The [P001–P041 literature comparison](audits/literature-comparison-P001-P041.md) is a historical review, not a current certification of the full catalogue. Individual entries carry their own closest sources and verification links. [P010's manuscript information](manuscripts/P010/README.md) preserves its submission status and archival checksum.
 
