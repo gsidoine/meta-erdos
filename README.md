@@ -45,7 +45,7 @@ The original Scottish Book included prizes associated with particular questions,
 
 ## Manuscript record
 
-**[P010 — Minimum coprime adjacencies](problems/graph-theory/P010-minimum-coprime-adjacencies.md)** has a complete internally checked proof. The [submitted manuscript](manuscripts/P010/coprime_adjacencies.pdf) was submitted to *Integers*; submission does not imply acceptance or publication. The archived PDF, the accompanying manuscript record, and its factual AI-use statement are preserved. The journal [permits supporting AI-tool use](https://math.colgate.edu/~integers/submit.html), subject to its stated rules.
+**[P010 — Minimum coprime adjacencies](problems/graph-theory/P010-minimum-coprime-adjacencies.md)** has a complete internally checked proof. The [submitted manuscript](manuscripts/P010/coprime_adjacencies.pdf) was submitted to the journal _Integers_; submission does not imply acceptance or publication. The archived PDF, the accompanying manuscript record, and its factual AI-use statement are preserved. The journal [permits supporting AI-tool use](https://math.colgate.edu/~integers/submit.html), subject to its stated rules.
 
 ## Problem folders
 
