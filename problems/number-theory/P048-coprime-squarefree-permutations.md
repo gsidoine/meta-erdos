@@ -31,10 +31,10 @@ Equivalently, does the bipartite graph with two vertex classes $[n]$ and edges $
 
 **Proof.** Put $p=n+1$ and define $\sigma(i)=p-i$ for $1\le i\le n$. This is a permutation of $[n]$ with
 
-$
+$$
 i+\sigma(i)=p,\qquad
 \gcd(i,\sigma(i))=\gcd(i,p)=1.
-$
+$$
 
 Since $p$ is prime, it is squarefree. $\square$
 
