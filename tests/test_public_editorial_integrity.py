@@ -104,6 +104,16 @@ class PublicEditorialIntegrityTests(unittest.TestCase):
         self.assertIn("The Seedbed (30)", page)
         self.assertIn('src="./assets/scottish-book.jpg"', page)
         self.assertIn('src="./assets/Banach.jpg"', page)
+        self.assertIn('<figure class="hero-cover">', page)
+        self.assertIn('<section class="history"', page)
+        self.assertIn('<figure class="history-portrait">', page)
+        self.assertLess(page.index('src="./assets/scottish-book.jpg"'),
+                        page.index('<section class="history"'))
+        self.assertGreater(page.index('src="./assets/Banach.jpg"'),
+                           page.index('<section class="history"'))
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn('width="560"', readme)
+        self.assertIn('width="350"', readme)
         self.assertIn("The purpose of life is to prove and to conjecture.", page)
         self.assertEqual((ROOT / "docs/assets/scottish-book.jpg").read_bytes(),
                          (ROOT / "assets/scottish book.jpg").read_bytes())
