@@ -1233,9 +1233,9 @@
       "question": "Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?",
       "status": "candidate",
       "novelty": "unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown",
-      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; symmetric {3,5,7}-profile bound 5/12 sharp, full resilience limit open",
-      "verification": "Full Hall-cut lower-bound proof; exact fractional-sieve certificate and elementary sharp symmetric three-prime bound; finite rho_n for n≤10",
-      "priority": "high consequence; identify limiting resilience and characterize minimizing arithmetic Hall cuts",
+      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; the 5/12 sieve threshold is exact for all asymmetric profiles on {3,5,7}, and finite-prime optimization reduces to increasing profiles",
+      "verification": "Hall-cut lower bound; complete asymmetric three-prime proof and general compression; exact rational sieve and 32,434 integral profile-pair checks; n≤10 finite resilience",
+      "priority": "determine whether additional primes lower the finite-prime infimum, or whether general Hall cuts beat the finite-prime bound",
       "sources": [
         {
           "name": "Pomerance (2021), Coprime Matchings",
@@ -1248,6 +1248,10 @@
         {
           "name": "Wu and Feng (2026), nonuniform biased intersecting families",
           "url": "https://arxiv.org/abs/2606.26521"
+        },
+        {
+          "name": "Keevash–Lifshitz–Long–Minzer (2023), biased compression precedent",
+          "url": "https://doi.org/10.1112/jlms.12801"
         }
       ],
       "portfolio_tier": "A",
