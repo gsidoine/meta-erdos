@@ -66,6 +66,32 @@ $$
 
 Finally, a locally Lipschitz map on the separable metric domain $S_P$ has a countable cover by Lipschitz restrictions. Its graph therefore has Hausdorff dimension at most one. This contradicts $\dim_H\Gamma_P\ge2s>1$ when $s>1/2$. $\square$
 
+**Sharpness under local Lipschitz regularity.** The dimension bound $1/2$ is attained in the locally Lipschitz class. Consider the simultaneous Sidon set
+
+$
+P_0=\{x+\alpha x^3:x\in T+T^2\mathbb F_2[[T]]\},
+\qquad \alpha^2+\alpha+1=0.
+$
+
+It is compact, $1/2$-Ahlfors regular, and has the pair-uniqueness properties proved in [the explicit construction](half-dimensional-construction.md). For an unordered distinct pair $x,y$, put $s=x+y\ne0$ and $u=xy$. Its sum in $P_0$ is $w=s+\alpha t$, with $t=s^3+us$, so
+
+$
+u=\frac{t+s^3}{s},
+\qquad
+F_{P_0}(w)=(u+u^3)+\alpha(us^2+u^3).
+$
+
+The coordinate projections $w\mapsto s,t$ from $\mathbb F_4[[T]]=\mathbb F_2[[T]]\oplus\alpha\mathbb F_2[[T]]$ are Lipschitz. On any sufficiently small neighborhood of a point with $s\ne0$, the inverse $s\mapsto s^{-1}$ is Lipschitz. The displayed rational formula therefore makes $F_{P_0}$ locally Lipschitz on its domain.
+
+Consequently,
+
+$
+\sup\{\dim_H P:P\subset R\text{ compact four-point additive Sidon and }
+F_P\text{ locally Lipschitz}\}=\frac12.
+$
+
+This is an exact extremal statement for the regularity-constrained class, not an upper bound for unrestricted P047.
+
 **Further consequence.** If $P$ is also four-point multiplicative Sidon and contains no zero, the map $F_P:S_P\to\{ab:a,b\in P,\ a\ne b\}$ is bijective. The same graph-dimension obstruction applies to Hölder regularity of its inverse (viewed as a map from product values to pair sums).
 
 The proposition is a regularity obstruction, not an upper bound for $\dim_H P$. A higher-dimensional construction must allow a sufficiently irregular correspondence between pair sums and pair products. No priority claim is made for the elementary Vieta-map argument.
