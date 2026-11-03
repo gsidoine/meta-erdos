@@ -1,6 +1,12 @@
 # P049 — Rank of a randomly thinned coprimality matrix
 
 <!-- DOSSIER-SUMMARY -->
+> **Research question:** When each integer of [n] is retained independently with probability p, does the F_2 rank of the induced coprimality matrix divided by n converge, for every fixed 0<p<1?  
+> **Formulation:** candidate. **Novelty:** unverified; full-matrix rank classical, random principal-submatrix limit needs a targeted specialist comparison.  
+> **Verified/known progress:** Known exact full rank equals the squarefree count; bounded-differences concentration and an expected-rank radical-occupancy upper bound are proved.  
+> **Finite evidence:** Exact binary Gaussian elimination for finite Bernoulli subsets with fixed seeds; simulations do not prove convergence.  
+> **Symbolic prize:** One hundred grams of caviar — A proved limit and explicit characterization of the rank density for every fixed retention probability.  
+> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Area:** probabilistic number theory and linear algebra.
