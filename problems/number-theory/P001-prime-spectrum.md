@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** Interior prime sums realized by a partial matching; completion is open in this study.  
 > **Finite evidence:** Exact small matching optimization.  
+> **Symbolic prize:** A small black coffee — A proof of bounded prime-sum deficit, or an unbounded sequence of deficits.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

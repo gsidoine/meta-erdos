@@ -33,6 +33,7 @@ def dossier_summary(p):
         f"> **Formulation:** {p['status']}. **Novelty:** {p['novelty']}.  ",
         f"> **Verified/known progress:** {p['result']}.  ",
         f"> **Finite evidence:** {p['verification']}.  ",
+        f"> **Symbolic prize:** {reward_text(p, {r['id']: r['label'] for r in json.loads(REWARD_TYPES.read_text(encoding='utf-8'))['rewards']})}  ",
         "> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · "
         "[Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)",
         DOSSIER_END,

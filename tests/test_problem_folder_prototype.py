@@ -23,7 +23,7 @@ class ProblemFolderPrototypeTests(unittest.TestCase):
                     self.assertTrue((base / part).exists(), (pid, part))
                 meta = (base / "metadata.yaml").read_text(encoding="utf-8")
                 self.assertIn(f"id: {pid}", meta)
-                self.assertIn("kind: none", meta)
+                self.assertNotIn("\nreward:", meta)
                 self.assertIn("human-ai-collaboration", meta)
                 self.assertIn("formal_status: unformalized", meta)
         self.assertTrue((ROOT / "problems/geometry/P015-odd-area-lattice-triangulations.md").exists())

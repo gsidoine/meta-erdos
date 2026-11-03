@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** Equivalent to a min-cut condition for an arithmetic bipartite factor.  
 > **Finite evidence:** Integral max flow tested to n=3,000 (finite only).  
+> **Symbolic prize:** A bottle of wine — A proof of matching-packing equality for every order, or a counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

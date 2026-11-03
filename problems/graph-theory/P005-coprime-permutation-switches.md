@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** No universal-row/column shortcut; arithmetic structure is essential.  
 > **Finite evidence:** 3,459,600 states at n=14, one component.  
+> **Symbolic prize:** A live goose — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
