@@ -50,7 +50,23 @@ Vectors differing in an odd prime number of coordinates have opposite first coor
 
 **Small case.** $\chi(H_4)=8$. The upper bound is eight. For the lower bound, an independent set in $H_4$ has size at most two: after translating one of its vertices to $0$, any other independent vertex must have Hamming weight one or four; two distinct weight-one vertices have distance two, and a weight-one vertex and the unique weight-four vertex have distance three. Thus $16/2=8$ colors are required.
 
-In particular, the proposed equality holds for $k=2$. No assertion is made for $k\ge3$.
+The identity also holds for $k=3$.
+
+**Proposition.** The prime-distance graph of the eight-dimensional binary cube satisfies
+
+$
+\chi(H_8)=16.
+$
+
+**Proof.** The syndrome coloring above gives $\chi(H_8)\le16$. To prove the reverse inequality, consider an independent set $A\subseteq\{0,1\}^8$.
+
+If $A$ meets both parity classes, the distance between any opposite-parity pair in $A$ must be one, since the other possible odd distances $3,5,7$ are prime. Two distinct same-parity vertices cannot both lie at distance one from the same opposite-parity vertex: their mutual distance would then be two, which is also prime. Consequently $|A|\le2$ in this case.
+
+Otherwise $A$ is contained in one parity class. Distinct elements of $A$ have even Hamming distance different from two, hence distance at least four. Their radius-one Hamming neighborhoods are pairwise disjoint. Each such neighborhood consists of eight elements of the other parity class, which contains $2^7=128$ vertices. Therefore $8|A|\le128$, so $|A|\le16$.
+
+Thus $\alpha(H_8)\le16$, and $\chi(H_8)\ge2^8/16=16$. $\square$
+
+The equality $\chi(H_{2^k})=2^{k+1}$ has consequently been proved here for $k=2,3$. No claim of historical priority for either small-case calculation is made. The first unresolved case in the proposed family is $k=4$, corresponding to $H_{16}$.
 
 The first-order asymptotic $\chi(H_n)\sim2n$ is already a consequence of existing hypercube coloring theory. Indeed, the chromatic number of the distance-at-most-two hypercube graph is $(1+o(1))n$ (Östergård, 2004). Color each of the two parity classes independently using disjoint palettes of this size. The only prime distance within a parity class is two, so the resulting $(2+o(1))n$-coloring is proper for $H_n$. The clique bound gives the matching lower-order term. The present question concerns **the exact additive constant at dyadic dimensions**, not this known asymptotic.
 
