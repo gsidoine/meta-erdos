@@ -72,11 +72,17 @@ body:
     id: reward
     attributes:
       label: Suggested reward
-      description: "Rewards are symbolic by default and require editorial review."
+      description: "Optional symbolic designation, independent of difficulty. No material prize is offered without an approved sponsor and terms."
       options:
         - None
-        - Virtual coffee (symbolic)
-        - Virtual goose (symbolic)
+        - A small black coffee (symbolic)
+        - One small beer (symbolic)
+        - Five small beers (symbolic)
+        - A bottle of wine (symbolic)
+        - A bottle of whisky of positive measure (symbolic)
+        - One hundred grams of caviar (symbolic)
+        - One kilogram of bacon (symbolic)
+        - A live goose (symbolic)
         - Other symbolic reward
         - Material reward proposal (requires named willing sponsor)
     validations:
@@ -85,7 +91,7 @@ body:
     id: reward_details
     attributes:
       label: Reward details and proposed sponsor
-      description: "Only for custom or material proposals. A material reward is not offered until the sponsor and terms are confirmed."
+      description: "Specify the mathematical condition, or any proposed sponsor. Symbolic prizes do not imply a material offer."
     validations:
       required: false
   - type: dropdown

@@ -9,7 +9,7 @@ Open the [structured proposal form](https://github.com/gsidoine/the-scottish-boo
 1. Enter a concise title and choose a mathematical field.
 2. Select Markdown or LaTeX and supply the exact problem statement.
 3. Describe mathematical motivation, nearby literature, and any known evidence.
-4. Choose no reward, a **symbolic** coffee or virtual goose, or a proposed reward subject to separate sponsorship approval.
+4. Choose no reward or suggest a historically named **symbolic** prize; any material proposal requires separate sponsorship approval.
 5. Report AI involvement and contributor attribution. Submit the form.
 
 The submission creates a **GitHub issue**, not an automatically accepted problem. After initial moderation, a maintainer applies the `prepare-draft-pr` label; the [conversion workflow](.github/workflows/issue-to-draft-pr.yml) treats the text as data and opens a **draft PR** containing the proposal. GitHub's repository settings must allow Actions to create PRs. If this permission is unavailable, the issue remains intact for a maintainer to prepare the PR manually.
@@ -38,11 +38,11 @@ Human contributors should be credited for their documented mathematical contribu
 
 ## Rewards
 
-All default prizes are symbolic. A material reward requires a named, willing sponsor, verified terms, and a separate explicit commitment; the collection does not fund or guarantee any material award. See [Rewards](REWARDS.md).
+All displayed prize designations are symbolic unless an independently documented sponsor makes an explicit material offer. Prizes do not rank mathematical difficulty or significance. A material reward requires a named, willing sponsor, verified terms, and a separate explicit commitment; the collection does not fund or guarantee any material award. See [Rewards](REWARDS.md).
 
 ## Catalogue and tests
 
-The existing canonical catalogue remains in [data/problems.json](data/problems.json) and current allocation in [data/curation.json](data/curation.json). The new per-problem metadata documents rewards, provenance and formal status during migration; canonical IDs and mathematical statuses are not separately editable in those files.
+The canonical numbered catalogue is [data/problems.json](data/problems.json). The controlled [reward vocabulary](data/rewards.json) defines admissible symbolic designations; each problem's `rewards` array contains only editorially approved prizes with specific conditions. The earlier editorial allocation in [data/curation.json](data/curation.json) is an archival record and is not displayed as a public ranking. The pilot per-problem metadata contains additional provenance and formalization information; canonical IDs, mathematical statuses and public prizes are edited in the catalogue.
 
 Regenerate derived views and run checks:
 

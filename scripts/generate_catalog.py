@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Generate all catalogue views from data/problems.json (standard library only).
+"""Regenerate the single public catalogue and derived browser data.
+
+The previous editorial partition remains an archival data file; it is not a
+public ranking and does not govern the publication of individual problems.
 
 Usage:
     python scripts/generate_catalog.py
@@ -11,16 +14,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "problems.json"
+REWARD_TYPES = ROOT / "data" / "rewards.json"
 README = ROOT / "README.md"
 BROWSER_DATA = ROOT / "docs" / "problems.json"
+BROWSER_REWARDS = ROOT / "docs" / "rewards.json"
+CURATION = ROOT / "data" / "curation.json"
+BROWSER_CURATION = ROOT / "docs" / "curation.json"  # retained for historical links
 START = "<!-- CATALOG:START -->"
 END = "<!-- CATALOG:END -->"
-CURATION = ROOT / "data" / "curation.json"
-BROWSER_CURATION = ROOT / "docs" / "curation.json"
-ACORNS_START = "<!-- ACORNS:START -->"
-ACORNS_END = "<!-- ACORNS:END -->"
-SEEDBED_START = "<!-- SEEDBED:START -->"
-SEEDBED_END = "<!-- SEEDBED:END -->"
 DOSSIER_START = "<!-- DOSSIER-SUMMARY -->"
 DOSSIER_END = "<!-- /DOSSIER-SUMMARY -->"
 
@@ -48,50 +49,67 @@ def replace_marked(text, start, end, replacement):
     return text[:a] + replacement + text[b:]
 
 
+def reward_text(problem, menu):
+    prizes = problem["rewards"]
+    if not isinstance(prizes, list):
+        raise ValueError(f"{problem['id']}: rewards must be a list")
+    descriptions = []
+    used = set()
+    for prize in prizes:
+        if not isinstance(prize, dict) or set(prize) != {"kind", "condition"}:
+            raise ValueError(f"{problem['id']}: reward requires kind and condition")
+        kind, condition = prize["kind"], prize["condition"]
+        if kind not in menu:
+            raise ValueError(f"{problem['id']}: unknown reward {kind!r}")
+        if not isinstance(condition, str) or not condition.strip() or len(condition) > 300:
+            raise ValueError(f"{problem['id']}: reward needs a precise condition")
+        if (kind, condition) in used:
+            raise ValueError(f"{problem['id']}: duplicate reward")
+        used.add((kind, condition))
+        label = menu[kind]
+        descriptions.append(f"{label} — {condition.strip()}")
+    return "; ".join(descriptions) if descriptions else "—"
+
+
 def generate():
     obj = json.loads(DATA.read_text(encoding="utf-8"))
     records = obj["problems"]
-    allocation = json.loads(CURATION.read_text(encoding="utf-8"))
     ids = [r["id"] for r in records]
-    buckets = [allocation[k] for k in ("primary", "secondary", "resolved")]
-    combined = [id for bucket in buckets for id in bucket]
-    if len(combined) != len(set(combined)) or sorted(combined) != sorted(ids):
-        raise ValueError("Curated catalogues must partition the canonical IDs exactly once")
-    by_id = {r["id"]: r for r in records}
-    def curated_table(group):
-        return "\n".join(["| ID | Problem | Area |", "|---|---|---|", *(
-            f"| [{id}]({by_id[id]['file']}) | {by_id[id]['title']} | {by_id[id]['area']} |"
-            for id in allocation[group]
-        )])
+    if ids != [f"P{i:03d}" for i in range(1, len(ids) + 1)]:
+        raise ValueError("Problem identifiers must remain permanent and consecutive")
+    catalog = json.loads(REWARD_TYPES.read_text(encoding="utf-8"))
+    labels = {r["id"]: r["label"] for r in catalog["rewards"]}
+    if len(labels) != len(catalog["rewards"]):
+        raise ValueError("Duplicate reward names in the symbolic menu")
+    old_allocation = json.loads(CURATION.read_text(encoding="utf-8"))
+    archived_ids = [id for key in ("primary", "secondary", "resolved")
+                    for id in old_allocation[key]]
+    if len(archived_ids) != len(set(archived_ids)) or sorted(archived_ids) != sorted(ids):
+        raise ValueError("Historical editorial allocation must still cover all IDs")
     lines = [
-        "| ID | Question | Area | Formulation | Novelty |",
-        "|---|---|---|---|---|",
+        "| ID | Question | Area | Formulation | Novelty | Reward |",
+        "|---|---|---|---|---|---|",
     ]
     for r in records:
+        reward = reward_text(r, labels).replace("|", r"\|").replace("\n", " ")
         lines.append(
             f"| [{r['id']}]({r['file']}) | {r['title']} | "
-            f"{r['area']} | {r['status']} | {r['novelty']} |"
+            f"{r['area']} | {r['status']} | {r['novelty']} | {reward} |"
         )
     old = README.read_text(encoding="utf-8")
-    readme = replace_marked(
-        old, START, END,
-        START + "\n" + "\n".join(lines) + "\n" + END
-    )
-    readme = replace_marked(readme, ACORNS_START, ACORNS_END,
-        ACORNS_START + "\n" + curated_table("primary") + "\n" + ACORNS_END)
-    readme = replace_marked(readme, SEEDBED_START, SEEDBED_END,
-        SEEDBED_START + "\n" + curated_table("secondary") + "\n" + SEEDBED_END)
+    readme = replace_marked(old, START, END,
+                            START + "\n" + "\n".join(lines) + "\n" + END)
     browser = json.dumps(obj, ensure_ascii=False, indent=2) + "\n"
-    curation_view = json.dumps(allocation, ensure_ascii=False, indent=2) + "\n"
-    return readme, browser, curation_view
+    historical = json.dumps(old_allocation, ensure_ascii=False, indent=2) + "\n"
+    return readme, browser, historical
 
 
 def dossier_views():
-    for r in json.loads(DATA.read_text(encoding="utf-8"))["problems"]:
-        path = ROOT / r["file"]
+    for record in json.loads(DATA.read_text(encoding="utf-8"))["problems"]:
+        path = ROOT / record["file"]
         original = path.read_text(encoding="utf-8")
         desired = replace_marked(original, DOSSIER_START, DOSSIER_END,
-                                 dossier_summary(r))
+                                 dossier_summary(record))
         yield path, desired
 
 
@@ -100,15 +118,21 @@ if __name__ == "__main__":
     parser.add_argument("--check", action="store_true",
                         help="Exit nonzero if generated content is stale")
     args = parser.parse_args()
-    readme, browser, curation_view = generate()
-    views = [(README, readme), (BROWSER_DATA, browser), (BROWSER_CURATION, curation_view)] + list(dossier_views())
+    readme, browser, historical = generate()
+    menu_view = json.dumps(
+        json.loads(REWARD_TYPES.read_text(encoding="utf-8")),
+        ensure_ascii=False, indent=2
+    ) + "\n"
+    views = [(README, readme), (BROWSER_DATA, browser),
+             (BROWSER_CURATION, historical),
+             (BROWSER_REWARDS, menu_view)] + list(dossier_views())
     if args.check:
         stale = [str(p.relative_to(ROOT)) for p, expected in views
                  if p.read_text(encoding="utf-8") != expected]
         if stale:
             parser.exit(1, "Outdated generated file(s): " + ", ".join(stale) + "\n")
-        print("Catalogue, browser data and all dossier summaries are current.")
+        print("The catalogue, reward menu and dossier summaries are current.")
     else:
-        for p, expected in views:
-            p.write_text(expected, encoding="utf-8")
-        print("Regenerated README, browser data and dossier summaries.")
+        for path, expected in views:
+            path.write_text(expected, encoding="utf-8")
+        print("Regenerated public catalogue and browser data.")

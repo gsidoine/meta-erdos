@@ -2,7 +2,7 @@
 
 **Field:** number theory / combinatorics / graph theory / other  
 **Mathematical status:** candidate; novelty not certified  
-**Reward:** none offered (symbolic rewards optional)  
+**Symbolic prize:** none assigned (an optional designation and precise condition may be recorded after review)  
 **Provenance:** record actual human and AI contributions
 
 ## Problem

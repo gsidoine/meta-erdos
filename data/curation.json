@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "freeze": "P001–P046",
-  "policy": "Curated two-catalogue view: The Acorns (high consequence) and The Seedbed (exploration); The Harvest holds internally resolved results. Symbolic stakes, not cash awards.",
+  "policy": "Historical editorial allocation for P001–P046. Preserved as archival metadata; no public collection or difficulty ranking is derived from it.",
   "primary": [
     "P003",
     "P005",
@@ -54,7 +54,7 @@
   "resolved": [
     "P010"
   ],
-  "note": "Editorial triage preserving all existing canonical IDs and proofs. Acorn selection reflects mathematical potential, not novelty certification.",
+  "note": "This partition records an earlier editorial judgment only. The public book presents one numbered catalogue; symbolic prizes are independent of this classification.",
   "catalogue_names": {
     "primary": "The Acorns",
     "secondary": "The Seedbed",

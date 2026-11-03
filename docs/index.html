@@ -30,16 +30,17 @@
     input,select {font:inherit;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:11px 12px;min-width:190px}
     input {flex:2 1 280px} select{flex:1 1 190px}
     #count {color:var(--muted);font-size:.9rem;margin-bottom:13px}
-    .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:13px}
-    article {background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:19px 20px}
-    article h2{font-size:1.13rem;line-height:1.3;margin:8px 0}
-    article p{margin:9px 0}
-    .meta {display:flex;gap:8px;flex-wrap:wrap}
-    .tag {border:1px solid var(--line);font-size:.75rem;padding:2px 7px;border-radius:6px;color:var(--muted)}
-    .question {font-weight:500}
-    .detail {font-size:.88rem;color:var(--muted)}
-    .refs {font-size:.83rem;margin-top:13px;border-top:1px solid var(--line);padding-top:10px}
-    .refs a {display:inline-block;margin-right:14px;margin-bottom:5px}
+    .catalogue-wrap {overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+    .catalogue-table {width:100%;border-collapse:collapse;text-align:left;font-size:.91rem}
+    .catalogue-table th,.catalogue-table td {padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+    .catalogue-table th {font-weight:650;background:var(--paper);white-space:nowrap}
+    .catalogue-table tbody tr:last-child td {border-bottom:0}
+    .catalogue-table th:first-child,.catalogue-table td:first-child {white-space:nowrap}
+    .catalogue-table td:nth-child(2) {min-width:220px}
+    .catalogue-table td:nth-child(5) {min-width:170px}
+    .catalogue-table td:last-child {min-width:120px}
+    .catalogue-table a {text-decoration:underline;text-underline-offset:2px}
+    .note {color:var(--muted);font-size:.89rem;line-height:1.5;margin:12px 0}
     .footer {margin-top:30px;color:var(--muted);font-size:.9rem}
     :focus-visible {outline:3px solid var(--accent);outline-offset:2px}
     @media (prefers-color-scheme:dark){:root{--ink:#f0f3f7;--muted:#aab5c4;--line:#3e4b59;--bg:#121923;--paper:#1d2633;--accent:#89b9ff}}
@@ -48,7 +49,7 @@
 <body>
   <main>
     <header>
-      <div class="eyebrow">The Acorns · The Seedbed · The Harvest · P001–P046</div>
+      <div class="eyebrow">Mathematical problems · P001–P046</div>
       <div class="hero">
         <div class="hero-copy">
           <h1>The Scottish Book</h1>
@@ -56,7 +57,7 @@
           <p><a href="https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml"><strong>Propose a mathematical problem</strong></a> · <a href="https://github.com/gsidoine/the-scottish-book/blob/main/CONTRIBUTING.md">Contribute to a problem</a> · <a href="https://github.com/gsidoine/the-scottish-book/blob/main/REWARDS.md">Symbolic prizes</a></p>
           <p class="historical-quotation">“The purpose of life is to prove and to conjecture.” — Paul Erdős (<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Erdos/quotations/">MacTutor</a>)</p>
           <div class="notice"><strong>No automatic claim of originality.</strong> Mathematical claims, AI contributions, computations and formal verifications have distinct evidence requirements.</div>
-          <p><strong>15 Acorns · 30 Seedbed questions · 1 Harvest result:</strong> 42 candidates, two requiring reformulation, one requiring specification, and one internally proved result. <a href="https://github.com/gsidoine/the-scottish-book/blob/main/manuscripts/P010/README.md">P010 was submitted to <em>Integers</em></a> (not accepted or published). <a href="https://github.com/gsidoine/the-scottish-book/blob/main/data/curation.json">Current curation</a> · <a href="https://github.com/gsidoine/the-scottish-book/blob/main/audits/literature-comparison-P001-P041.md">Historical literature comparison</a>.</p>
+          <p><strong>46 numbered entries:</strong> 42 candidates, two requiring reformulation, one requiring specification, and one internally proved result. <a href="https://github.com/gsidoine/the-scottish-book/blob/main/manuscripts/P010/README.md">P010 was submitted to <em>Integers</em></a> (not accepted or published). <a href="https://github.com/gsidoine/the-scottish-book/blob/main/REWARDS.md">Historical prizes</a> · <a href="https://github.com/gsidoine/the-scottish-book/blob/main/audits/literature-comparison-P001-P041.md">Literature review</a>.</p>
         </div>
         <figure class="hero-cover">
           <img src="./assets/scottish-book.jpg" alt="Photograph of the original Scottish Book notebook" loading="eager" decoding="async">
@@ -75,17 +76,23 @@
         <figcaption>Stefan Banach · <a href="https://github.com/gsidoine/the-scottish-book/blob/main/assets/README.md">Image provenance</a></figcaption>
       </figure>
     </section>
-    <section aria-label="Research collections"><div class="bar"><label for="collection">Collection</label><select id="collection" aria-label="Choose research collection"><option value="primary">The Acorns (15)</option><option value="secondary">The Seedbed (30)</option><option value="resolved">The Harvest (1)</option><option value="all">Complete archive (46)</option></select></div></section>
-    <section aria-label="Catalogue filters">
-      <div class="bar">
-        <input id="search" type="search" placeholder="Search questions, IDs, results…" aria-label="Search problems">
-        <select id="area" aria-label="Filter by area"><option value="">All fields</option></select>
-        <select id="status" aria-label="Filter by formulation"><option value="">All statuses</option></select>
-        <select id="tier" aria-label="Filter by editorial research priority"><option value="">All research tiers</option></select>
+    <section aria-labelledby="catalogue-heading">
+      <h2 id="catalogue-heading">Problem catalogue</h2>
+      <p class="note">All numbered problems appear in one sequence. Formulation, historical novelty, and symbolic rewards are separate attributes. Rewards do not rank difficulty or importance. <a href="https://github.com/gsidoine/the-scottish-book/blob/main/REWARDS.md">Sources and reward conditions</a>.</p>
+      <div class="bar" role="search">
+        <input id="search" type="search" placeholder="Search problems…" aria-label="Search problems">
+        <select id="area" aria-label="Filter by area"><option value="">All areas</option></select>
+        <select id="status" aria-label="Filter by formulation"><option value="">All formulations</option></select>
+        <select id="reward" aria-label="Filter by symbolic reward"><option value="">All rewards</option></select>
       </div>
-      <div id="count" aria-live="polite">Loading problem catalogue…</div>
+      <p id="count" aria-live="polite">Loading problem catalogue…</p>
+      <div class="catalogue-wrap">
+        <table class="catalogue-table">
+          <thead><tr><th scope="col">ID</th><th scope="col">Question</th><th scope="col">Area</th><th scope="col">Formulation</th><th scope="col">Novelty</th><th scope="col">Reward</th></tr></thead>
+          <tbody id="catalogue"></tbody>
+        </table>
+      </div>
     </section>
-    <section id="catalogue" class="cards" aria-label="Mathematical problems"></section>
     <noscript>This search interface requires JavaScript. See the catalogue in the <a href="https://github.com/gsidoine/the-scottish-book#problem-catalogue">GitHub README</a>.</noscript>
     <div class="footer">Inspired by the historical Scottish Book; independently maintained. Historical <a href="https://github.com/gsidoine/the-scottish-book/blob/main/audits/portfolio-consolidation-P001-P030.md">P001–P030 review</a>. Data source: <a href="https://github.com/gsidoine/the-scottish-book/blob/main/data/problems.json">data/problems.json</a>. For proofs, computational certificates and literature notes, open each dossier. Exact status is subject to review.</div>
   </main>
@@ -93,72 +100,61 @@
     "use strict";
     const base="https://github.com/gsidoine/the-scottish-book/blob/main/";
     const $=id=>document.getElementById(id);
-    let problems=[];
-    let curation=null;
-    const asText=(tag,value,cls)=>{
-      const el=document.createElement(tag);
-      el.textContent=value;
-      if(cls)el.className=cls;
-      return el;
-    };
-    function sourceLink(s) {
-      const a=document.createElement("a");
-      a.textContent=s.name;
-      a.href=s.url;
-      a.target="_blank";
-      a.rel="noopener noreferrer";
-      return a;
-    }
-    function draw() {
+    let problems=[],labels=new Map();
+    const prizeText=p=>(p.rewards||[]).map(r=>
+      (labels.get(r.kind)||r.kind)+" — "+r.condition).join("; ")||"—";
+    function draw(){
       const term=$("search").value.trim().toLowerCase();
-      const area=$("area").value;
-      const status=$("status").value;
-      const tier=$("tier").value;
-      const collection=$("collection").value;
-      const allowed = collection==="all" ? null : new Set(curation?.[collection] || []);
-      const filtered=problems.filter(p=>
-        (!allowed||allowed.has(p.id))&&(!area||p.area===area)&&(!status||p.status===status)&&(!tier||p.portfolio_tier===tier)&&
-        (!term||[p.id,p.title,p.area,p.question,p.result,p.verification,p.novelty].join(" ").toLowerCase().includes(term))
+      const area=$("area").value,status=$("status").value,reward=$("reward").value;
+      const chosen=problems.filter(p=>
+        (!area||p.area===area)&&(!status||p.status===status)&&
+        (!reward||(reward==="none"?(p.rewards||[]).length===0:
+          (p.rewards||[]).some(r=>r.kind===reward)))&&
+        (!term||[p.id,p.title,p.area,p.status,p.novelty,p.question,prizeText(p)]
+          .join(" ").toLowerCase().includes(term))
       );
-      $("count").textContent=filtered.length+" shown in "+$("collection").selectedOptions[0].textContent;
-      $("catalogue").replaceChildren();
-      for(const p of filtered){
-        const card=document.createElement("article");
-        const meta=asText("div","", "meta");
-        for(const v of [p.id,p.area,p.status,"Tier "+p.portfolio_tier,p.novelty])
-          meta.append(asText("span",v,"tag"));
-        const h=asText("h2","");
-        const link=document.createElement("a");
-        link.href=base+p.file;
-        link.textContent=p.title;
-        h.append(link);
-        card.append(meta,h,asText("p",p.question,"question"));
-        card.append(asText("p","Result/partial progress: "+p.result,"detail"));
-        card.append(asText("p","Checked evidence: "+p.verification,"detail"));
-        const refs=asText("div","","refs");
-        refs.append(asText("span","Closest sources: ",""));
-        for(const s of p.sources)refs.append(sourceLink(s));
-        card.append(refs);
-        $("catalogue").append(card);
+      $("count").textContent=chosen.length+" of "+problems.length+" entries";
+      const tbody=$("catalogue");tbody.replaceChildren();
+      for(const p of chosen){
+        const tr=document.createElement("tr");
+        for(const [index,value] of [p.id,p.title,p.area,p.status,p.novelty,prizeText(p)].entries()){
+          const cell=document.createElement(index===0?"th":"td");
+          if(index===0)cell.scope="row";
+          if(index<2){
+            const link=document.createElement("a");link.href=base+p.file;
+            link.textContent=value;cell.append(link);
+          }else cell.textContent=value;
+          tr.append(cell);
+        }
+        tbody.append(tr);
       }
     }
-    Promise.all([fetch("./problems.json"),fetch("./curation.json")]).then(async ([r,c])=>{
-      if(!c.ok)throw Error("Curation HTTP "+c.status);
-      curation=await c.json();
-      if(!r.ok)throw Error("HTTP "+r.status);
-      return r.json();
-    }).then(data=>{
+    Promise.all([fetch("./problems.json"),fetch("./rewards.json")]).then(async ([p,r])=>{
+      if(!p.ok||!r.ok)throw Error("Catalogue source unavailable");
+      return Promise.all([p.json(),r.json()]);
+    }).then(([data,menu])=>{
       problems=data.problems;
-      const areas=[...new Set(problems.map(p=>p.area))].sort();
-      const statuses=[...new Set(problems.map(p=>p.status))].sort();
-      const tiers=[...new Set(problems.map(p=>p.portfolio_tier))].sort();
-      for(const v of areas){const o=document.createElement("option");o.value=v;o.textContent=v;$("area").append(o)}
-      for(const v of statuses){const o=document.createElement("option");o.value=v;o.textContent=v;$("status").append(o)}
-      for(const v of tiers){const o=document.createElement("option");o.value=v;o.textContent=v;$("tier").append(o)}
-      for(const id of ["collection","search","area","status","tier"])$(id).addEventListener("input",draw);
+      labels=new Map(menu.rewards.map(r=>[r.id,r.label]));
+      for(const [id,values] of [
+        ["area",[...new Set(problems.map(p=>p.area))].sort()],
+        ["status",[...new Set(problems.map(p=>p.status))].sort()]
+      ]){
+        for(const v of values){
+          const option=document.createElement("option");
+          option.value=v;option.textContent=v;$(id).append(option);
+        }
+      }
+      const none=document.createElement("option");none.value="none";
+      none.textContent="No assigned reward";$("reward").append(none);
+      for(const r of menu.rewards){
+        const option=document.createElement("option");
+        option.value=r.id;option.textContent=r.label;$("reward").append(option);
+      }
+      for(const id of ["search","area","status","reward"])
+        $(id).addEventListener("input",draw);
       draw();
-    }).catch(err=>{
-      $("count").textContent="Unable to load catalogue: "+err.message+". Open the repository README instead.";
+    }).catch(e=>{
+      $("count").textContent="Catalogue unavailable: "+e.message+". See the repository README.";
     });
   </script>
 </body>
