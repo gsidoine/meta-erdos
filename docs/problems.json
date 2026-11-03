@@ -593,7 +593,7 @@
       "question": "Does the cokernel of an n×n Haar-random p-adic Hankel matrix converge in distribution to a describable measure on finite abelian p-groups?",
       "status": "candidate",
       "novelty": "not certified; targeted literature comparison only",
-      "result": "Classical Hankel corank law; internally proved cyclic/two-generator probabilities and all-k elementary-abelian cokernel probabilities",
+      "result": "Classical Hankel corank and exact cyclic/two-generator/elementary-abelian laws; uniform positive TV separation from ordinary Cohen–Lenstra law; full limit unresolved",
       "verification": "Exact modular group counts at p=2 (n≤4), p=3 (n≤3); kernel-product rank proved from Yiasemides (2024)",
       "priority": "theorem-building — higher-exponent three-generator group laws",
       "sources": [
@@ -812,8 +812,8 @@
       "question": "Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].",
       "status": "candidate",
       "novelty": "not certified; closely related to counting primitive sets and distributive-lattice walks",
-      "result": "Exact exchange diameter and binary projection; new isolated positive-density 23-state components yield full mixing lower bound (363/202)n log n−O(n) and 23-adic divisibility, while full mixing remains unresolved",
-      "verification": "Exact 23-state enumeration and rational Rayleigh quotient 101/363; five-block isolation checked arithmetically and by finite samples; earlier binary factor checked n≤1000",
+      "result": "Exact exchange diameter and isolated 23-state factors; certified full mixing lower bound (121926/66083)n log n−O(n) and 23-adic divisibility; full mixing unresolved",
+      "verification": "Exact 23-state enumeration; improved rational Rayleigh 66083/243852 (older 101/363); five-block isolation proved and finitely checked",
       "priority": "theorem-building — improved sharp-scale lower obstruction; full interacting-core mixing upper bound and historical novelty remain open",
       "sources": [
         {
@@ -823,6 +823,10 @@
         {
           "name": "Heat-bath random walks with Markov bases (2018)",
           "url": "https://doi.org/10.1016/j.aam.2017.08.002"
+        },
+        {
+          "name": "Propp (1997), Generating Random Elements of Finite Distributive Lattices",
+          "url": "https://doi.org/10.37236/1330"
         }
       ],
       "portfolio_tier": "A",
@@ -1229,8 +1233,8 @@
       "question": "Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?",
       "status": "candidate",
       "novelty": "unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown",
-      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; sharp limit and finite-prime variational equality remain open",
-      "verification": "Full Hall-cut lower-bound proof using coprime density and fourth reciprocal-degree moment; exact modular and fractional-sieve certificates and finite values n≤10",
+      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; symmetric {3,5,7}-profile bound 5/12 sharp, full resilience limit open",
+      "verification": "Full Hall-cut lower-bound proof; exact fractional-sieve certificate and elementary sharp symmetric three-prime bound; finite rho_n for n≤10",
       "priority": "high consequence; identify limiting resilience and characterize minimizing arithmetic Hall cuts",
       "sources": [
         {
