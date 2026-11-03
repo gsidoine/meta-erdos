@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the maximum distinct-prime-sum deficit of a prime-sum perfect matching stay bounded?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Interior prime sums realized by a partial matching; completion is open in this study.  
 > **Finite evidence:** Exact small matching optimization.  
 > **Symbolic prize:** A small black coffee — A proof of bounded prime-sum deficit, or an unbounded sequence of deficits.  

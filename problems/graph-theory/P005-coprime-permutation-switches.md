@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** No universal-row/column shortcut; arithmetic structure is essential.  
 > **Finite evidence:** 3,459,600 states at n=14, one component.  
 > **Symbolic prize:** A live goose — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  

@@ -3,7 +3,7 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** For every n, is there a permutation sigma of [n] such that gcd(i,sigma(i))=1 and i+sigma(i) is squarefree for every i?  
 > **Formulation:** candidate. **Novelty:** unverified; simultaneous constraint not settled by known coprime permutation or squarefree-sum matching results.  
-> **Verified/known progress:** Exact perfect-matching witnesses checked for all n<=750 and n=1000,1100; no infinite existence theorem established.  
+> **Verified/known progress:** Explicit all-n matching when n+1 is prime (reflection i↦n+1−i); exact matchings checked for n<=750 and n=1000,1100.  
 > **Finite evidence:** Deterministic Hopcroft–Karp verification; finite computation is not an all-n proof.  
 > **Symbolic prize:** A bottle of wine — An all-order coprime-squarefree permutation construction, or a concrete order admitting none.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
@@ -25,9 +25,24 @@ Here $\mu$ denotes the Möbius function, so $\mu^2(m)=1$ precisely when $m$ is s
 
 Equivalently, does the bipartite graph with two vertex classes $[n]$ and edges $(i,j)$ whenever $\gcd(i,j)=1$ and $i+j$ is squarefree always have a perfect matching?
 
+## An infinite family
+
+**Proposition.** If $n+1$ is prime, the required permutation exists.
+
+**Proof.** Put $p=n+1$ and define $\sigma(i)=p-i$ for $1\le i\le n$. This is a permutation of $[n]$ with
+
+$$
+i+\sigma(i)=p,\qquad
+\gcd(i,\sigma(i))=\gcd(i,p)=1.
+$$
+
+Since $p$ is prime, it is squarefree. $\square$
+
+This provides infinitely many orders, but it does not settle the case of composite $n+1$.
+
 ## Known facts and finite verification
 
-The coprimality-only condition is classical; the squarefree-sum-only condition is a separate permanent/matching problem. A positive answer to either problem alone does not imply a matching for their intersection.
+The coprimality-only condition is classical; the squarefree-sum-only condition is a separate permanent/matching problem. A positive answer to either problem alone does not imply a matching for their intersection. The prime-$n+1$ reflection above proves an infinite subfamily, not the full conjecture.
 
 A deterministic Hopcroft–Karp implementation confirms the combined perfect matching condition for every $1\le n\le750$, and separately at $n=1000$ and $n=1100$. The result is **finite evidence only**, not an existence proof for arbitrary $n$. The [verification program](../../experiments/P048_coprime_squarefree_permutations.py) can repeat this check.
 

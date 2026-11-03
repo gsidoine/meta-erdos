@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** In random sum-diagonal bipartite graphs, how do perfect matchings and min-degree factor saturation emerge?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Random sum-graphs are known; matching and factor phase behavior not located; factor saturation not monotone.  
 > **Finite evidence:** Explicit three-by-three obstruction to monotonicity; no asymptotic claims.  
 > **Symbolic prize:** One hundred grams of caviar — A rigorous threshold law for perfect matchings in the random sum-diagonal graph model.  

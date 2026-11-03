@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does each fixed-dimensional reduced homology group of the simplicial complex of all Sidon subsets of [N] vanish for all sufficiently large N?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Minimal nonfaces have size 3 or 4; exact F2 Betti numbers exhibit migration from lower to higher dimensions.  
 > **Finite evidence:** Exact augmented boundary-rank computations through N=23; no asymptotic vanishing claim.  
 > **Symbolic prize:** One kilogram of bacon — A proof of eventual vanishing for each fixed homological degree, or an infinite nonvanishing family.  

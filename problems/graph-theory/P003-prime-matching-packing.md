@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Is the maximum perfect-matching packing equal to the host graph's minimum degree?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Equivalent to a min-cut condition for an arithmetic bipartite factor.  
 > **Finite evidence:** Integral max flow tested to n=3,000 (finite only).  
 > **Symbolic prize:** A bottle of wine — A proof of matching-packing equality for every order, or a counterexample.  

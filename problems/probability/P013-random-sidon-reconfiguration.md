@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can Sidon-set existence and feasible one-element-exchange connectivity have different transition regimes inside a random subset of [N]?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Random Sidon decision phase behavior is known; feasible exchange components form a distinct proposed observable.  
 > **Finite evidence:** k=2 degenerate connectivity checked conceptually; no large-case claim.  
 > **Symbolic prize:** A small black coffee — A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability.  

@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the longest divisibility chain in a Bernoulli random subset of [N] have a deterministic limiting length after division by log₂ N?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** For fixed 0<p<1, the normalized height is asymptotically between p and 1 in probability; convergence to a constant is unproved.  
 > **Finite evidence:** Exact dynamic program cross-checked against all subsets for N≤9; exploratory sampling at larger N.  
 > **Symbolic prize:** One small beer — Existence or nonexistence of the normalized longest-chain limit for a fixed site density strictly between zero and one.  
