@@ -1,0 +1,9 @@
+id: P015
+reward:
+  kind: none
+  description: ""
+  offered_by: ""
+provenance:
+  process: human-ai-collaboration
+  note: "Research developed through human–AI collaboration; particular authorship or AI role should follow documented evidence."
+formal_status: unformalized

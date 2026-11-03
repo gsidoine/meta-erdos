@@ -1,38 +1,30 @@
-# PXXX — Mathematical title
+# PXXX — Short mathematical title
 
-**Subject:** [area]  
-**Status:** [candidate / reframe / needs specification / proved internally]
+**Field:** number theory / combinatorics / graph theory / other  
+**Mathematical status:** candidate; novelty not certified  
+**Reward:** none offered (symbolic rewards optional)  
+**Provenance:** record actual human and AI contributions
 
 ## Problem
 
-Let [definitions and hypotheses].
+State the definitions and quantifiers briefly.
 
-**Question.** [Precise mathematical statement.]
+**Question.** Formulate one precise, independently intelligible mathematical question.
 
-## Known results
+## Known progress
 
-**Proposition.** [Statement.]
+Summarize only the strongest established proposition or counterexample and provide a link to its full proof. Say explicitly what remains unproved.
 
-**Proof.** [Argument, including conditions and exceptional cases.]
+## Prior art
 
-Include established theorems with attribution and exact references. Distinguish consequences of known results from independent arguments.
+Cite the closest primary reference and distinguish its precise theorem from the question here. Historical originality is not automatically certified.
 
-## Examples and obstructions
+## Supporting material
 
-[Small cases, counterexamples, necessary conditions, reductions, or useful negative results.]
+- proofs/ — mathematically checked proofs and dependencies
+- exploration/ — instructive reductions, obstructions and meaningful failed approaches
+- references/ — bibliographic comparisons
+- verification/ — reproducible finite experiments and exact certificates
+- formal/ — Lean statements or formally checked proofs (only when genuinely available)
 
-## Computation
-
-[Finite parameters, method, implementation, exact certificates or numerical error bounds, and reproducibility instructions. Omit if not applicable.]
-
-## Relation to earlier work
-
-[The closest mathematical statements in the literature, with a description of their scope and the unresolved distinction.]
-
-## Open cases
-
-[Remaining precise questions.]
-
-## References
-
-[Bibliographic entries and stable links.]
+A new folder should contain only material that exists. A proposed question enters through the [submission form](.github/ISSUE_TEMPLATE/propose-problem.yml) and does not receive a permanent ID before acceptance.

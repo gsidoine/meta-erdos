@@ -60,7 +60,7 @@ class CatalogueTests(unittest.TestCase):
 
     def test_current_public_links_use_renamed_repository(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertTrue(readme.startswith("# Meta Erdős"))
+        self.assertTrue(readme.startswith("# The Problem Café"))
         for path in [ROOT / "docs" / "index.html", ROOT / "docs" / "README.md"]:
             text = path.read_text(encoding="utf-8")
             self.assertIn("meta-erdos", text)
