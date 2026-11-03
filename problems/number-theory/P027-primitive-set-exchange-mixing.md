@@ -82,6 +82,7 @@ where $f(n)$ counts maximum primitive sets. Independently isolated three-state p
 
 - [Liu–Pach–Palincza, *The number of maximum primitive sets of integers* (2021)](https://doi.org/10.1017/S0963548321000018): crucial primary predecessor. They prove the exponential counting constant exists; **the family M_n and dyadic chain decomposition are known**. Do not present either as original.
 - [Heat-bath random walks with Markov bases (2018)](https://doi.org/10.1016/j.aam.2017.08.002): general heat-bath dynamics on integer fibers.
+- [Propp (1997), *Generating Random Elements of Finite Distributive Lattices*](https://doi.org/10.37236/1330): general lattice-based perfect sampling predates the arithmetic heat bath. It does not supply the 23-state spectral value or full-chain mixing time.
 - [Propp–Wilson, *Exact sampling with coupled Markov chains* (1996)](https://doi.org/10.1002/(SICI)1098-2418(199608/09)9:1/2%3C223::AID-RSA14%3E3.0.CO;2-O): establishes general monotone exact sampling and supplies examples with exponentially slow mixing; **distributivity is insufficient to guarantee rapid mixing**.
 - [Alexeev et al., *Primitive sets and von Mangoldt chains* (2026)](https://arxiv.org/abs/2605.00301): uses a different chain to bound weighted primitive-set sums; not the finite uniform heat-bath process.
 - [Rowmotion Markov chains (2024)](https://www.sciencedirect.com/science/article/pii/S0196885823001847): random walks on distributive lattices; closely related abstract machinery.
