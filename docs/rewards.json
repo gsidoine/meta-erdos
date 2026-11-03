@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "material_status": "Historical names used only as symbolic designations. No physical prize is offered by default.",
+  "references": [
+    {
+      "name": "R. Daniel Mauldin (ed.), The Scottish Book, 2nd ed. (Springer, 2015)",
+      "url": "https://link.springer.com/book/10.1007/978-3-319-22897-6"
+    },
+    {
+      "name": "University of St Andrews, MacTutor, Stanisław Mazur",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Mazur/"
+    }
+  ],
+  "rewards": [
+    {
+      "id": "coffee",
+      "label": "A small black coffee",
+      "historical_note": "A small black coffee appears among the rewards specified by Hugo Steinhaus for Problem 152."
+    },
+    {
+      "id": "small-beer",
+      "label": "One small beer",
+      "historical_note": "Small beer was a recorded Scottish Book prize, including one outcome of Problem 152."
+    },
+    {
+      "id": "five-beers",
+      "label": "Five small beers",
+      "historical_note": "Five small beers appear among the historical Scottish Book prizes."
+    },
+    {
+      "id": "wine",
+      "label": "A bottle of wine",
+      "historical_note": "A bottle of wine was offered for several Scottish Book problems, including Problem 6."
+    },
+    {
+      "id": "whisky",
+      "label": "A bottle of whisky of positive measure",
+      "historical_note": "The whisky prize is mentioned in the preface of Mauldin's edition."
+    },
+    {
+      "id": "caviar",
+      "label": "One hundred grams of caviar",
+      "historical_note": "Hugo Steinhaus's Problem 152 offered caviar for an explicit numerical determination."
+    },
+    {
+      "id": "bacon",
+      "label": "One kilogram of bacon",
+      "historical_note": "One kilogram of bacon is among the prizes in the Scottish Book."
+    },
+    {
+      "id": "goose",
+      "label": "A live goose",
+      "historical_note": "Stanisław Mazur offered a live goose for Problem 153, awarded to Per Enflo in 1972."
+    }
+  ]
+}

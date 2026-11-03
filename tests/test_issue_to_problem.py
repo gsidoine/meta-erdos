@@ -18,7 +18,7 @@ def example(statement="Let $n$ be an integer. Does ...?", fmt="Markdown"):
         "Mathematical motivation": "Connects multiplicative and additive structure.",
         "Closest existing literature": "_No response_",
         "Known evidence or examples": "_No response_",
-        "Suggested reward": "Virtual goose (symbolic)",
+        "Suggested reward": "A live goose (symbolic)",
         "Reward details and proposed sponsor": "_No response_",
         "AI involvement": "Human-AI collaboration",
         "Contributor attribution": "Contributor",

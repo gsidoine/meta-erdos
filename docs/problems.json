@@ -23,7 +23,8 @@
           "url": "https://oeis.org/A000341"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P002",
@@ -46,7 +47,8 @@
           "url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.80"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P003",
@@ -69,7 +71,8 @@
           "url": "https://doi.org/10.1007/s00373-020-02241-1"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P004",
@@ -92,7 +95,8 @@
           "url": "https://cs.brown.edu/research/pubs/pdfs/2005/Dotu-2005-SHE.pdf"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P005",
@@ -119,7 +123,8 @@
           "url": "https://doi.org/10.1145/2822322"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P006",
@@ -142,7 +147,8 @@
           "url": "https://doi.org/10.1007/s10474-024-01499-8"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P007",
@@ -165,7 +171,8 @@
           "url": "https://arxiv.org/abs/2511.11331"
         }
       ],
-      "portfolio_tier": "D"
+      "portfolio_tier": "D",
+      "rewards": []
     },
     {
       "id": "P008",
@@ -192,7 +199,8 @@
           "url": "https://doi.org/10.1002/rsa.70098"
         }
       ],
-      "portfolio_tier": "D"
+      "portfolio_tier": "D",
+      "rewards": []
     },
     {
       "id": "P009",
@@ -215,7 +223,8 @@
           "url": "https://oeis.org/A202472"
         }
       ],
-      "portfolio_tier": "D"
+      "portfolio_tier": "D",
+      "rewards": []
     },
     {
       "id": "P010",
@@ -242,7 +251,8 @@
           "url": "https://oeis.org/A060208"
         }
       ],
-      "portfolio_tier": "R"
+      "portfolio_tier": "R",
+      "rewards": []
     },
     {
       "id": "P011",
@@ -265,7 +275,8 @@
           "url": "https://doi.org/10.37236/9148"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P012",
@@ -288,7 +299,8 @@
           "url": "https://doi.org/10.1112/mtk.12159"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P013",
@@ -311,7 +323,8 @@
           "url": "https://cs.brown.edu/research/pubs/pdfs/2005/Dotu-2005-SHE.pdf"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P014",
@@ -338,7 +351,8 @@
           "url": "https://doi.org/10.1112/jlms.12872"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P015",
@@ -365,7 +379,8 @@
           "url": "https://arxiv.org/abs/2608.26006"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P016",
@@ -392,7 +407,8 @@
           "url": "https://doi.org/10.5070/C62156880"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P017",
@@ -415,7 +431,8 @@
           "url": "https://www.sciencedirect.com/science/article/pii/S0097316520301837"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P018",
@@ -442,7 +459,8 @@
           "url": "https://doi.org/10.1016/j.jctb.2025.10.009"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P019",
@@ -469,7 +487,8 @@
           "url": "https://wwwhomes.uni-bielefeld.de/achim/no3in/readme.html"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P020",
@@ -500,7 +519,8 @@
           "url": "https://doi.org/10.1007/s40687-023-00418-7"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P021",
@@ -523,7 +543,8 @@
           "url": "https://doi.org/10.1080/00927872.2024.2347582"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P022",
@@ -546,7 +567,8 @@
           "url": "https://doi.org/10.1007/s00454-017-9938-z"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P023",
@@ -569,7 +591,8 @@
           "url": "https://doi.org/10.1137/16M1098140"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P024",
@@ -592,7 +615,8 @@
           "url": "https://www.sciencedirect.com/science/article/pii/S0097316520301837"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P025",
@@ -619,7 +643,8 @@
           "url": "https://doi.org/10.1112/mtk.12177"
         }
       ],
-      "portfolio_tier": "D"
+      "portfolio_tier": "D",
+      "rewards": []
     },
     {
       "id": "P026",
@@ -642,7 +667,8 @@
           "url": "https://doi.org/10.1006/jabr.1999.7918"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P027",
@@ -665,7 +691,8 @@
           "url": "https://doi.org/10.1016/j.aam.2017.08.002"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P028",
@@ -692,7 +719,8 @@
           "url": "https://doi.org/10.1007/s11139-018-0093-9"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P029",
@@ -715,7 +743,8 @@
           "url": "https://doi.org/10.1016/S0304-3975(02)00015-4"
         }
       ],
-      "portfolio_tier": "D"
+      "portfolio_tier": "D",
+      "rewards": []
     },
     {
       "id": "P030",
@@ -738,7 +767,8 @@
           "url": "https://doi.org/10.1007/s00373-025-02999-2"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P031",
@@ -765,7 +795,8 @@
           "name": "Carter–O'Bryant–Tao, Sidon diameter and distribution (2026)",
           "url": "https://arxiv.org/abs/2610.36207"
         }
-      ]
+      ],
+      "rewards": []
     },
     {
       "id": "P032",
@@ -788,7 +819,8 @@
           "name": "Croot–Jin, prime sum graphs and induced trees",
           "url": "https://doi.org/10.1007/s00373-025-02999-2"
         }
-      ]
+      ],
+      "rewards": []
     },
     {
       "id": "P033",
@@ -823,7 +855,8 @@
           "name": "Montgomery–Vaughan Brun–Titchmarsh inequality for short intervals (cited in JTNB)",
           "url": "https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1024.pdf"
         }
-      ]
+      ],
+      "rewards": []
     },
     {
       "id": "P034",
@@ -850,7 +883,8 @@
           "url": "https://github.com/gsidoine/the-scottish-book/blob/main/problems/graph-theory/P033-prime-sum-three-palette.md"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P035",
@@ -877,7 +911,8 @@
           "url": "https://www.erdosproblems.com/tags/sidon%20sets"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P036",
@@ -904,7 +939,8 @@
           "url": "https://doi.org/10.37236/10794"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P037",
@@ -935,7 +971,8 @@
           "url": "https://doi.org/10.1007/978-3-319-22240-0_17"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P038",
@@ -958,7 +995,8 @@
           "url": "https://doi.org/10.1016/j.ejc.2024.103983"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P039",
@@ -981,7 +1019,8 @@
           "url": "https://cs.uwaterloo.ca/journals/JIS/green.html"
         }
       ],
-      "portfolio_tier": "C"
+      "portfolio_tier": "C",
+      "rewards": []
     },
     {
       "id": "P040",
@@ -1008,7 +1047,8 @@
           "url": "https://arxiv.org/abs/2606.26521"
         }
       ],
-      "portfolio_tier": "A"
+      "portfolio_tier": "A",
+      "rewards": []
     },
     {
       "id": "P041",
@@ -1035,7 +1075,8 @@
           "url": "https://doi.org/10.1016/j.jcta.2020.105391"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P042",
@@ -1058,7 +1099,8 @@
           "url": "https://www.cecm.sfu.ca/organics/papers/granville/paper/binomial/html/node3-an.shtml"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P043",
@@ -1081,7 +1123,8 @@
           "url": "https://arxiv.org/abs/2106.14856"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P044",
@@ -1104,7 +1147,8 @@
           "url": "https://web.math.princeton.edu/~nalon/PDFS/hypcube11.pdf"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P045",
@@ -1127,7 +1171,8 @@
           "url": "https://doi.org/10.5644/SJM.16.01.10"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     },
     {
       "id": "P046",
@@ -1150,7 +1195,8 @@
           "url": "https://doi.org/10.1016/j.jcta.2024.106001"
         }
       ],
-      "portfolio_tier": "B"
+      "portfolio_tier": "B",
+      "rewards": []
     }
   ],
   "catalogue_policy": "Open to community contributions; proposed additions and status changes require source review"
