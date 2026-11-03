@@ -20,7 +20,7 @@ The collection also retains a historical encouragement to problem formulation:
 
 > “The purpose of life is to prove and to conjecture.” — Paul Erdős ([MacTutor, University of St Andrews](https://mathshistory.st-andrews.ac.uk/Biographies/Erdos/quotations/))
 
-This collection currently contains **46 numbered research entries (P001–P046)**. New proposals do not receive a permanent identifier until reviewed.
+This collection currently contains **47 numbered research entries (P001–P047)**. New proposals do not receive a permanent identifier until reviewed.
 
 ## Catalogue
 
@@ -32,7 +32,7 @@ The catalogue contains all numbered entries in a single sequence. Mathematical f
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| Candidate | 42 | Research question under investigation; novelty and unresolved status are not certified |
+| Candidate | 43 | Research question under investigation; novelty and unresolved status are not certified |
 | Reframe | 2 (P007, P025) | A known predecessor requires the remaining question to be narrowed |
 | Needs specification | 1 (P008) | The open objective requires a sharper formulation |
 | Proved internally | 1 (P010) | A complete proof is supplied; external review and historical priority remain separate |
@@ -71,7 +71,7 @@ The [P001–P041 literature comparison](audits/literature-comparison-P001-P041.m
 
 ## Problem catalogue
 
-This is the **single numbered catalogue of all 46 entries**. The canonical catalogue is [data/problems.json](data/problems.json); its derived tables and [GitHub Pages browser](https://gsidoine.github.io/the-scottish-book/) are generated. [Searchable browser](https://gsidoine.github.io/the-scottish-book/).
+This is the **single numbered catalogue of all 47 entries**. The canonical catalogue is [data/problems.json](data/problems.json); its derived tables and [GitHub Pages browser](https://gsidoine.github.io/the-scottish-book/) are generated. [Searchable browser](https://gsidoine.github.io/the-scottish-book/).
 
 <!-- CATALOG:START -->
 | ID | Question | Area | Formulation | Novelty | Reward |
@@ -122,4 +122,5 @@ This is the **single numbered catalogue of all 46 entries**. The canonical catal
 | [P044](problems/probability/P044-squarefree-displacement-permutations.md) | Squarefree displacement permutations | probability | candidate | unverified; related squarefree-sum permanents and classical permanent bounds are known | One hundred grams of caviar — The optimal order of the error in the squarefree-displacement permanent asymptotic. |
 | [P045](problems/number-theory/P045-additive-multiplicative-complete-mappings.md) | Additive complete mappings with almost distinct products | number theory | candidate | unverified; additive and multiplicative complete mappings have extensive literature | A small black coffee — A complete construction of almost-distinct-product additive complete mappings for all primes at least five, or a counterexample. |
 | [P046](problems/number-theory/P046-prime-xor-sidon-sets.md) | Sidon sets of primes under binary XOR | number theory | candidate | unverified; binary Sidon sets and APN functions are classical, prime-restricted extremal size needs comparison | Five small beers — A constant-factor square-root lower bound for XOR-Sidon sets of primes in all sufficiently large dyadic intervals.; One small beer — An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound. |
+| [P047](problems/P047-perfect-algebraic-fusion/README.md) | Full-dimensional simultaneous Sidon sets in a local field | topological combinatorics | candidate | unverified; close to Mycielski perfect-set fusion and quantitative pattern avoidance in local fields | A bottle of wine — A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists. |
 <!-- CATALOG:END -->

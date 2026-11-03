@@ -58,7 +58,7 @@ class ActiveProjectIdentityTests(unittest.TestCase):
         self.assertEqual(data, browser)
         entries = data["problems"]
         self.assertEqual([p["id"] for p in entries],
-                         [f"P{i:03d}" for i in range(1, 47)])
+                         [f"P{i:03d}" for i in range(1, len(entries) + 1)])
         self.assertTrue((ROOT / "manuscripts/P010/coprime_adjacencies.pdf").is_file())
         self.assertEqual(
             data["source"],
