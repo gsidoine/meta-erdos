@@ -1,6 +1,12 @@
 # P048 — Coprime permutations with squarefree sums
 
 <!-- DOSSIER-SUMMARY -->
+> **Research question:** For every n, is there a permutation sigma of [n] such that gcd(i,sigma(i))=1 and i+sigma(i) is squarefree for every i?  
+> **Formulation:** candidate. **Novelty:** unverified; simultaneous constraint not settled by known coprime permutation or squarefree-sum matching results.  
+> **Verified/known progress:** Exact perfect-matching witnesses checked for all n<=750 and n=1000,1100; no infinite existence theorem established.  
+> **Finite evidence:** Deterministic Hopcroft–Karp verification; finite computation is not an all-n proof.  
+> **Symbolic prize:** A bottle of wine — An all-order coprime-squarefree permutation construction, or a concrete order admitting none.  
+> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Area:** arithmetic combinatorics.
