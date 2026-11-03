@@ -22,7 +22,7 @@ $$
 Does the ratio
 
 $$
-\frac{\operatorname{rank}_{\mathbb F_2} C(S_n)}{n}
+\frac{\mathrm{rank}_{\mathbb F_2} C(S_n)}{n}
 $$
 
 converge in probability to a deterministic function $\rho(p)$? If so, determine $\rho(p)$.
@@ -34,7 +34,7 @@ The assertion of convergence is the question. No particular formula for $\rho(p)
 **Proposition 1 (full matrix).** For $S_n=[n]$,
 
 $$
-\operatorname{rank}_{\mathbb F_2}C([n])
+\mathrm{rank}_{\mathbb F_2}C([n])
 =\sum_{d\le n}\mu^2(d)
 =\left(\frac6{\pi^2}+o(1)\right)n.
 $$
@@ -51,7 +51,7 @@ gives $C([n])=E\,\operatorname{diag}(\mu(1),\ldots,\mu(n))E^\mathsf T$ over $\ma
 **Proposition 2 (concentration).** For every $t>0$,
 
 $$
-\Pr\left(\left|\operatorname{rank} C(S_n)-\mathbb E\operatorname{rank} C(S_n)\right|\ge t\right)
+\Pr\left(\left|\mathrm{rank} C(S_n)-\mathbb E\mathrm{rank} C(S_n)\right|\ge t\right)
 \le2\exp\left(-\frac{t^2}{2n}\right).
 $$
 
@@ -59,16 +59,16 @@ $$
 
 Consequently, existence of the proposed probabilistic limit is equivalent to convergence of the deterministic normalized expectations.
 
-**Proposition 3 (arithmetic upper bound).** Let $\operatorname{rad}(m)$ denote the product of the distinct prime divisors of $m$, with $\operatorname{rad}(1)=1$. Put
+**Proposition 3 (arithmetic upper bound).** Let $\mathrm{rad}(m)$ denote the product of the distinct prime divisors of $m$, with $\mathrm{rad}(1)=1$. Put
 
 $$
-m_n(d)=\#\{a\le n:\operatorname{rad}(a)=d\}.
+m_n(d)=\#\{a\le n:\mathrm{rad}(a)=d\}.
 $$
 
 Then
 
 $$
-\mathbb E\operatorname{rank}C(S_n)
+\mathbb E\mathrm{rank}C(S_n)
 \le \sum_{\substack{d\le n\\\mu^2(d)=1}}
 \bigl(1-(1-p)^{m_n(d)}\bigr).
 $$
