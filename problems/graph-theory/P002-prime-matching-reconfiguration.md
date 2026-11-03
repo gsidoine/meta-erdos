@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Are all prime-sum perfect matchings joined by four-cycle switches?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** One connected component through n=12 in exhaustive tests.  
 > **Finite evidence:** Enumerated 423,884 matchings at n=12 in initial exploration.  
 > **Symbolic prize:** One small beer — A classification of four-cycle-switch components for all prime-sum perfect matchings.  
