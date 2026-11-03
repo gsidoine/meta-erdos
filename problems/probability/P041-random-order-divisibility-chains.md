@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; related arithmetic-subsequence and hypercube accessibility results are established.  
 > **Verified/known progress:** Internally proved D_N and S_N have common leading scale log N/log log N; their difference is between (1-o(1)) and (2+o(1)) times log N log log log N/(log log N)^2 with high probability.  
 > **Finite evidence:** Exact finite dynamic-programming checks and seeded samples; asymptotic bounds proved using divisor-chain counting, prime asymptotics, and the Hegarty–Martinsson accessible-cube theorem.  
+> **Symbolic prize:** A bottle of wine — A limiting constant for the second-order gap between unrestricted and squarefree random divisibility chains.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
