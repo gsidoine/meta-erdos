@@ -1,0 +1,116 @@
+name: "Propose a mathematical problem"
+description: "Submit a candidate question to The Problem Café; no Git experience required."
+title: "[Problem proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to The Problem Café. A submission becomes a public issue first; after editorial screening it can be converted into a draft pull request. New questions are not automatically certified novel or assigned permanent numbers.
+  - type: input
+    id: title
+    attributes:
+      label: Problem title
+      placeholder: "A short mathematical title"
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: Mathematical field
+      options:
+        - Number theory
+        - Combinatorics
+        - Graph theory
+        - Probability
+        - Geometry
+        - Topology
+        - Algebra
+        - Analysis
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: Statement format
+      description: "Use GitHub Markdown with $...$ and $$...$$, or provide raw LaTeX."
+      options:
+        - Markdown
+        - LaTeX
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Problem statement
+      description: "State definitions, quantifiers and the question precisely. Markdown or raw TeX is accepted."
+      placeholder: "Let ... . Is it true that ... ?"
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Mathematical motivation
+      description: "What does an answer clarify or connect? A few sentences are enough."
+    validations:
+      required: true
+  - type: textarea
+    id: prior_art
+    attributes:
+      label: Closest existing literature
+      description: "Include links or citations if known. Uncertainty is acceptable; an absent search hit is not evidence of originality."
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Known evidence or examples
+      description: "Optional proofs, counterexamples, finite checks, or reductions. Do not present finite tests as proofs."
+    validations:
+      required: false
+  - type: dropdown
+    id: reward
+    attributes:
+      label: Suggested reward
+      description: "Rewards are symbolic by default and require editorial review."
+      options:
+        - None
+        - Virtual coffee (symbolic)
+        - Virtual goose (symbolic)
+        - Other symbolic reward
+        - Material reward proposal (requires named willing sponsor)
+    validations:
+      required: true
+  - type: input
+    id: reward_details
+    attributes:
+      label: Reward details and proposed sponsor
+      description: "Only for custom or material proposals. A material reward is not offered until the sponsor and terms are confirmed."
+    validations:
+      required: false
+  - type: dropdown
+    id: ai
+    attributes:
+      label: AI involvement
+      description: "Describe the role of AI in formulation; it does not establish authorship or validity."
+      options:
+        - Human-only
+        - Human-AI collaboration
+        - AI-generated candidate, human reviewed
+        - Other or not specified
+    validations:
+      required: true
+  - type: input
+    id: attribution
+    attributes:
+      label: Contributor attribution
+      description: "Name or pseudonym to credit; optional."
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Submission understanding
+      options:
+        - label: "I understand that submissions are unreviewed, and any reward requires separate approval."
+          required: true

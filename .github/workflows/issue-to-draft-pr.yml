@@ -1,0 +1,47 @@
+name: Prepare problem proposal draft PR
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    if: >-
+      github.event.label.name == 'prepare-draft-pr' &&
+      startsWith(github.event.issue.title, '[Problem proposal]')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Render proposal from structured issue (data only)
+        env:
+          EVENT_FILE: ${{ github.event_path }}
+        run: python scripts/issue_to_problem.py --event "$EVENT_FILE" --root .
+      - name: Create a draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          set -eu
+          branch="proposal/issue-${ISSUE_NUMBER}"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "Proposal branch already exists: $branch"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -- "submissions/issue-${ISSUE_NUMBER}"
+          git commit -m "Prepare unreviewed mathematical proposal from issue #${ISSUE_NUMBER}"
+          git push origin "$branch"
+          gh pr create --draft --base main --head "$branch"             --title "Mathematical proposal from issue #${ISSUE_NUMBER}"             --body "Unreviewed proposal derived from #${ISSUE_NUMBER}. The issue body is treated as data. No permanent ID, historical novelty, mathematical solution, reward, or formal-verification claim is accepted yet. Review this PR before admitting the problem to the collection."
