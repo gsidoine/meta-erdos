@@ -24,9 +24,9 @@ $$
 
 so $f$ is an isometry from $B$ into $R$. At level $T^n$, $n\ge2$, the set $B$ has exactly $2^{n-2}$ residue classes of diameter $4^{-n}$. The uniform measure on $B$ gives these classes mass $2^{-(n-2)}$. The elementary covering and mass-distribution bounds therefore give $\dim_H P=\log_4 2=1/2$. Compactness and perfection follow. More precisely, push forward the uniform probability measure on $B$ under $f$. For each $x\in B$ and integer $n\ge2$, the closed ball of radius $4^{-n}$ about $f(x)$ has measure
 
-$
+$$
 \mu\bigl(\overline B_R(f(x),4^{-n})\bigr)=2^{-(n-2)}=4(4^{-n})^{1/2}.
-$
+$$
 
 Comparison with neighboring discrete radii shows that $P$ is $1/2$-Ahlfors regular. In particular, $0<\mathcal H^{1/2}(P)<\infty$.
 
