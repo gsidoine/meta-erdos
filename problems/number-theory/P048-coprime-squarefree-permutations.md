@@ -23,7 +23,7 @@ Equivalently, does the bipartite graph with two vertex classes $[n]$ and edges $
 
 The coprimality-only condition is classical; the squarefree-sum-only condition is a separate permanent/matching problem. A positive answer to either problem alone does not imply a matching for their intersection.
 
-A deterministic Hopcroft–Karp implementation confirms the combined perfect matching condition for every $1\le n\le1100$. The result is **finite evidence only**, not an existence proof for arbitrary $n$. The [verification program](../../experiments/P048_coprime_squarefree_permutations.py) can repeat this check.
+A deterministic Hopcroft–Karp implementation confirms the combined perfect matching condition for every $1\le n\le750$, and separately at $n=1000$ and $n=1100$. The result is **finite evidence only**, not an existence proof for arbitrary $n$. The [verification program](../../experiments/P048_coprime_squarefree_permutations.py) can repeat this check.
 
 There are no diagonal edges except $(1,1)$, since $\gcd(i,i)=i$. For $n\ge2$, the evident involutive matching construction is obstructed by square divisors of the prescribed pair sums, which is why the intersection condition requires separate treatment.
 
