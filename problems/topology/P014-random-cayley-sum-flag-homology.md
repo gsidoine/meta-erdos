@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Do clique complexes of random Cayley sum graphs over cyclic prime groups have the same homology-vanishing exponents as Erdős–Rényi flag complexes?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Exact triangle expectation matches Erdős–Rényi; four-clique expectation has an additive-parallelogram correction.  
 > **Finite evidence:** Exact enumeration of K4 motif moments for odd cyclic orders 5, 7, 9.  
 > **Symbolic prize:** A bottle of whisky of positive measure — A proof or disproof that the specified Cayley-sum flag-complex homology thresholds match the independent-edge model.  
