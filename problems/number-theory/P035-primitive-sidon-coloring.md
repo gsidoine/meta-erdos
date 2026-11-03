@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** high overlap risk: Sidon–Ramsey coloring and primitive sets.  
 > **Verified/known progress:** (1-o(1))sqrt(N) <= chi_PS(N) <= (1+sqrt(2)+o(1))sqrt(N), using dyadic bands.  
 > **Finite evidence:** Elementary proof from classical Sidon coloring; no finite exhaustive claim.  
+> **Symbolic prize:** One hundred grams of caviar — An asymptotically optimal Sidon and divisibility-antichain coloring, or a larger lower bound.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

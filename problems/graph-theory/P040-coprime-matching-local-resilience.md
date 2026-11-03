@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown.  
 > **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; sharp limit and finite-prime variational equality remain open.  
 > **Finite evidence:** Full Hall-cut lower-bound proof using coprime density and fourth reciprocal-degree moment; exact modular and fractional-sieve certificates and finite values n≤10.  
+> **Symbolic prize:** One hundred grams of caviar — Existence and exact value of the limiting coprime-matching local resilience.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

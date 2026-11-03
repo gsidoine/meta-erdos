@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; arithmetic Dirichlet convolution and order-complex Möbius theory are classical.  
 > **Verified/known progress:** Internally derived exact Euler-characteristic expectation with Dirichlet series p(zeta−1)/(1+p(zeta−1)); p=1 recovers the Mertens function.  
 > **Finite evidence:** Exact enumerative small-N checks and independent coefficient recurrence.  
+> **Symbolic prize:** A bottle of whisky of positive measure — A nondegenerate fluctuation law for the random Euler characteristic after explicit centering and scaling.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

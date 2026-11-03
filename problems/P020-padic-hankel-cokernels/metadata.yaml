@@ -1,8 +1,4 @@
 id: P020
-reward:
-  kind: none
-  description: ""
-  offered_by: ""
 provenance:
   process: human-ai-collaboration
   note: "Research developed through human–AI collaboration; individual mathematical authorship and externally established inputs require accurate attribution."

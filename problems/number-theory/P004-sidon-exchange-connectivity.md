@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** Elementary connectivity theorem for N > 2(2k-1)^3.  
 > **Finite evidence:** Small disconnected/connected cases enumerated.  
+> **Symbolic prize:** One hundred grams of caviar — An asymptotic determination of the connectivity threshold for one-mark Sidon exchanges.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

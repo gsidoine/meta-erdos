@@ -5,6 +5,7 @@
 > **Formulation:** proved internally. **Novelty:** internal proof; priority unverified.  
 > **Verified/known progress:** Exact path-cover formula and asymptotic proved in the repository; manuscript submitted to Integers.  
 > **Finite evidence:** Constructive proof with prime-factor paths; explicit witnesses checked n≤10,000.  
+> **Symbolic prize:** A small black coffee — An independently checked Lean formalization of the exact coprime-adjacency theorem.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

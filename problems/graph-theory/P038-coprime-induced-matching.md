@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; classical Bollobás set-pair extremality is the main predecessor.  
 > **Verified/known progress:** Internally proved log M(N)=T(N) log 2 + O(sqrt(T(N) log T(N))), where T is the inverse N² primorial cutoff.  
 > **Finite evidence:** Explicit complementary-prime induced matching construction checked for finite prime blocks.  
+> **Symbolic prize:** One small beer — A sharpened asymptotic error term for the logarithm of the coprime-graph induced-matching number.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

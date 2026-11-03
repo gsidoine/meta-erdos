@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** high overlap risk: Maillet-type prime differences.  
 > **Verified/known progress:** One-color iff 2n+1 prime; two-color certificate from short prime difference.  
 > **Finite evidence:** Sieve certificates through n=1,000,000 (finite only).  
+> **Symbolic prize:** A bottle of wine — A proof that two prime sums suffice for every positive integer n, or an explicit counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

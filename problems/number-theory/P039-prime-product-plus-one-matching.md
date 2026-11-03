@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** high overlap: closely related 2020 MathOverflow bilinear prime pairing with two intervals and either sign.  
 > **Verified/known progress:** Perfect matching verified for even N≤200 and N=250,300,400; general Hall condition unproved.  
 > **Finite evidence:** Exact sieve-backed bipartite matching certificates.  
+> **Symbolic prize:** Five small beers — A proof that prime-product-plus-one pairings exist for every n at least one, or an infinite obstruction family.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

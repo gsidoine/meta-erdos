@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** One connected component through n=12 in exhaustive tests.  
 > **Finite evidence:** Enumerated 423,884 matchings at n=12 in initial exploration.  
+> **Symbolic prize:** One small beer — A classification of four-cycle-switch components for all prime-sum perfect matchings.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

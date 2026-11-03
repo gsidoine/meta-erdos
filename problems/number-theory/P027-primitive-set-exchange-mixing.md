@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
 > **Verified/known progress:** Exact exchange diameter and binary projection; new isolated positive-density 23-state components yield full mixing lower bound (363/202)n log n−O(n) and 23-adic divisibility, while full mixing remains unresolved.  
 > **Finite evidence:** Exact 23-state enumeration and rational Rayleigh quotient 101/363; five-block isolation checked arithmetically and by finite samples; earlier binary factor checked n≤1000.  
+> **Symbolic prize:** One hundred grams of caviar — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

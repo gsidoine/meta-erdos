@@ -5,11 +5,12 @@
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
 > **Verified/known progress:** Classical Hankel corank law; internally proved cyclic/two-generator probabilities and all-k elementary-abelian cokernel probabilities.  
 > **Finite evidence:** Exact modular group counts at p=2 (n≤4), p=3 (n≤3); kernel-product rank proved from Yiasemides (2024).  
+> **Symbolic prize:** A live goose — An explicit limiting distribution for random p-adic Hankel cokernels, or a proof that it does not exist.; A small black coffee — An exact probability for a previously untreated three-generator higher-exponent cokernel class.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
-**Subject:** algebraic probability · **Collection:** The Acorns  
-**Reward:** none offered · **Formal proof:** not yet verified in Lean
+**Subject:** algebraic probability  
+**Formal proof:** not yet verified in Lean
 
 ## Problem
 
