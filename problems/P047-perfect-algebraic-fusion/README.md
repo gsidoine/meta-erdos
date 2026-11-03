@@ -45,6 +45,7 @@ Closely related work on algebraically pattern-free sets with large Hausdorff dim
 ## Supporting material
 
 - [Explicit construction and proof](proofs/half-dimensional-construction.md)
+- [Affine subfield separation lemma](proofs/affine-subfield-separation.md)
 - [Baire-category formulation and a disproved initial cardinal question](exploration/README.md)
 - [Comparison with relevant literature](references/prior-art.md)
 - [Reproducible finite polynomial checks](verification/P047_sidon.py)
