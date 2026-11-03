@@ -1478,12 +1478,16 @@
       "area": "arithmetic combinatorics",
       "file": "problems/number-theory/P048-coprime-squarefree-permutations.md",
       "question": "For every n, is there a permutation sigma of [n] such that gcd(i,sigma(i))=1 and i+sigma(i) is squarefree for every i?",
-      "status": "candidate",
-      "novelty": "unverified; simultaneous constraint not settled by known coprime permutation or squarefree-sum matching results",
-      "result": "Explicit all-n matching when n+1 is prime (reflection i↦n+1−i); exact matchings checked for n<=750 and n=1000,1100",
-      "verification": "Deterministic Hopcroft–Karp verification; finite computation is not an all-n proof",
-      "priority": "prove the Hall conditions for composite n+1 or construct a counterexample",
+      "status": "known result",
+      "novelty": "resolved by the classical Bertrand prime-reflection construction; not an open problem",
+      "result": "For every n, a permutation with prime pair sums exists by recursive reflection; primality automatically implies coprimality and squarefree sums",
+      "verification": "Complete elementary proof; the prime-sum reflection construction is classical (Greenfield–Greenfield 1998)",
+      "priority": "archival known result; no unresolved prize attached to the original question",
       "sources": [
+        {
+          "name": "L. E. and S. J. Greenfield (1998), Some Problems of Combinatorial Number Theory Related to Bertrand's Postulate",
+          "url": "https://cs.uwaterloo.ca/journals/JIS/green.html"
+        },
         {
           "name": "Sah (2022), Enumerating coprime permutations",
           "url": "https://doi.org/10.1112/mtk.12159"
@@ -1497,12 +1501,7 @@
           "url": "https://doi.org/10.1016/j.jnt.2023.10.002"
         }
       ],
-      "rewards": [
-        {
-          "kind": "wine",
-          "condition": "An all-order coprime-squarefree permutation construction, or a concrete order admitting none."
-        }
-      ]
+      "rewards": []
     },
     {
       "id": "P049",
@@ -1544,8 +1543,8 @@
       "question": "If H_n joins binary n-vectors at prime Hamming distance, is chi(H_{2^k})=2^{k+1} for every k>=2?",
       "status": "candidate",
       "novelty": "high overlap risk: hypercube distance colorings; first-order asymptotics already follow from established coding theory",
-      "result": "Proved 2n-3<=chi(H_n)<=2^(1+ceil(log2 n)) for n>=5 and exact chi(H_4)=8; asymptotic 2n is known from neighboring coloring results",
-      "verification": "Algebraic color construction and clique certificate; independent finite verifier supplied",
+      "result": "Proved 2n-3<=chi(H_n)<=2^(1+ceil(log2 n)) for n>=5, with chi(H_4)=8 and chi(H_8)=16; the first-order asymptotic is known",
+      "verification": "Algebraic coloring and clique construction, independent-set/sphere-packing proof at n=8; finite verifier supplied",
       "priority": "resolve the additive-constant gap for dyadic dimensions; search exact hypercube coloring literature",
       "sources": [
         {
