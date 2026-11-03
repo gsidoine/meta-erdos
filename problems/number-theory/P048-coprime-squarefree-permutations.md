@@ -2,10 +2,10 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** For every n, is there a permutation sigma of [n] such that gcd(i,sigma(i))=1 and i+sigma(i) is squarefree for every i?  
-> **Formulation:** candidate. **Novelty:** unverified; simultaneous constraint not settled by known coprime permutation or squarefree-sum matching results.  
-> **Verified/known progress:** Explicit all-n matching when n+1 is prime (reflection i↦n+1−i); exact matchings checked for n<=750 and n=1000,1100.  
-> **Finite evidence:** Deterministic Hopcroft–Karp verification; finite computation is not an all-n proof.  
-> **Symbolic prize:** A bottle of wine — An all-order coprime-squarefree permutation construction, or a concrete order admitting none.  
+> **Formulation:** known result. **Novelty:** resolved by the classical Bertrand prime-reflection construction; not an open problem.  
+> **Verified/known progress:** For every n, a permutation with prime pair sums exists by recursive reflection; primality automatically implies coprimality and squarefree sums.  
+> **Finite evidence:** Complete elementary proof; the prime-sum reflection construction is classical (Greenfield–Greenfield 1998).  
+> **Symbolic prize:** —  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
