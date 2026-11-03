@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Are size-k Sidon sets connected by feasible one-mark exchanges below the square-root scale?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Elementary connectivity theorem for N > 2(2k-1)^3.  
 > **Finite evidence:** Small disconnected/connected cases enumerated.  
 > **Symbolic prize:** One hundred grams of caviar — An asymptotic determination of the connectivity threshold for one-mark Sidon exchanges.  
