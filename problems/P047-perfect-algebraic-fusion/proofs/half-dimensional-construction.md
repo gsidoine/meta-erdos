@@ -4,45 +4,45 @@ Let $A=\mathbb F_2[[T]]$ and $\mathbb F_4=\mathbb F_2(\alpha)$, where $\alpha^2+
 
 **Proposition.** The set
 
-$
+$$
 P=\{f(x)=x+\alpha x^3:x\in T+T^2A\}\subset R
-$
+$$
 
 is compact, perfect, has Hausdorff dimension $1/2$, and contains no four pairwise distinct elements $a,b,c,d$ satisfying either $a+b=c+d$ or $ab=cd$.
 
 **Proof.** Write $B=T+T^2A$. It is a compact perfect coset of the ideal $T^2A$; every $x\in B$ is nonzero. The decomposition $R=A\oplus\alpha A$ is unique. Moreover,
 
-$
+$$
 f(x)+f(y)=(x+y)+\alpha(x^3+y^3),
-$
+$$
 
 and $x^3+y^3$ is divisible by $x+y$. Consequently
 
-$
+$$
 v_T(f(x)-f(y))=v_T(x-y),
-$
+$$
 
 so $f$ is an isometry from $B$ into $R$. At level $T^n$, $n\ge2$, the set $B$ has exactly $2^{n-2}$ residue classes of diameter $4^{-n}$. The uniform measure on $B$ gives these classes mass $2^{-(n-2)}$. The elementary covering and mass-distribution bounds therefore give $\dim_H P=\log_4 2=1/2$. Compactness and perfection follow.
 
 For distinct $x,y\in B$, put $s=x+y\ne0$ and $u=xy\ne0$. In characteristic two,
 
-$
+$$
 f(x)+f(y)=s+\alpha(s^3+us).
-$
+$$
 
 The two coefficients determine $s$, and then $u$. The unordered pair $\{x,y\}$ is the root multiset of $Z^2+sZ+u$, so it is uniquely determined by its image sum.
 
 For products, use $\alpha^2=\alpha+1$ to obtain
 
-$
+$$
 f(x)f(y)=(u+u^3)+\alpha(us^2+u^3).
-$
+$$
 
 The map $u\mapsto u+u^3$ is injective on $T^2A$: if $u+u^3=v+v^3$, then
 
-$
+$$
 (u+v)(1+u^2+uv+v^2)=0.
-$
+$$
 
 The second factor is a unit, since its constant term is $1$. Hence $u=v$. Equality of the second coefficients now gives $u(s^2+t^2)=0$. Since $u\ne0$ and Frobenius is injective on the integral domain $A$, one obtains $s=t$. The unordered pair is again determined by its sum and product $s,u$. Thus both maps on unordered distinct pairs are injective, proving the assertion. $\square$
 
