@@ -51,7 +51,7 @@ $$
 =(1+\sqrt2)\sqrt N.
 $$
 
-To justify summing the asymptotic error terms, split the bands where the band length is at least $(\\log N)^4$ from the remaining tail. For the long bands, the asymptotic Sidon-coloring bound is uniform because their lengths all tend to infinity. The short bands contain altogether $O((\\log N)^4)$ integers and may be colored with singleton classes, which contribute $o(\\sqrt N)$. This proves the stated $1+\\sqrt2$ upper constant.
+To justify summing the asymptotic error terms, split the bands where the band length is at least $(\log N)^4$ from the remaining tail. For the long bands, the asymptotic Sidon-coloring bound is uniform because their lengths all tend to infinity. The short bands contain altogether $O((\log N)^4)$ integers and may be colored with singleton classes, which contribute $o(\sqrt N)$. This proves the stated $1+\sqrt2$ upper constant.
 
 ## Why the question is not settled by the baseline
 
