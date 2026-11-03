@@ -166,7 +166,7 @@ $
 The entries sum to zero. Direct exact enumeration of the five conditional heat-bath updates gives
 
 $
-\operatorname{Var}_{\pi_*}(g_1)=\frac{40642}{23},
+\mathrm{Var}_{\pi_*}(g_1)=\frac{40642}{23},
 \qquad
 \langle g_1,-Qg_1\rangle_{\pi_*}=\frac{66083}{138}.
 $
