@@ -54,9 +54,9 @@ The identity also holds for $k=3$.
 
 **Proposition.** The prime-distance graph of the eight-dimensional binary cube satisfies
 
-$
+$$
 \chi(H_8)=16.
-$
+$$
 
 **Proof.** The syndrome coloring above gives $\chi(H_8)\le16$. To prove the reverse inequality, consider an independent set $A\subseteq\{0,1\}^8$.
 
