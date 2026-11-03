@@ -1,6 +1,6 @@
 # The Scottish Book — numbered catalogue
 
-The [online book](https://gsidoine.github.io/the-scottish-book/) contains **46 current research entries**, P001–P046. All entries appear in a single catalogue, ordered by identifier; filtering is by mathematical subject, formulation status and optional symbolic prize.
+The [online book](https://gsidoine.github.io/the-scottish-book/) contains **47 current research entries**, P001–P047. All entries appear in a single catalogue, ordered by identifier; filtering is by mathematical subject, formulation status and optional symbolic prize.
 
 Canonical problem records are in [data/problems.json](../data/problems.json), with the historical symbolic reward vocabulary in [data/rewards.json](../data/rewards.json). Derived copies are generated in this directory. The previous editorial partition in [data/curation.json](../data/curation.json) is retained as an **archival record**, not a current public classification or a statement of relative difficulty.
 

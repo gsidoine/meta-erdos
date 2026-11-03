@@ -1435,6 +1435,42 @@
           "condition": "An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound."
         }
       ]
+    },
+    {
+      "id": "P047",
+      "title": "Full-dimensional simultaneous Sidon sets in a local field",
+      "area": "topological combinatorics",
+      "file": "problems/P047-perfect-algebraic-fusion/README.md",
+      "question": "Does F_4[[T]] contain a compact perfect set of Hausdorff dimension one with no four distinct elements satisfying either a+b=c+d or ab=cd?",
+      "status": "candidate",
+      "novelty": "unverified; close to Mycielski perfect-set fusion and quantitative pattern avoidance in local fields",
+      "result": "Proved an explicit compact perfect simultaneous additive/multiplicative four-point Sidon set of Hausdorff dimension 1/2 over F_4[[T]]",
+      "verification": "Exact symbolic argument and finite polynomial checks of up to 64 elements; dimension-one existence is not established",
+      "priority": "watch; investigate full-dimensional simultaneous algebraic independence",
+      "sources": [
+        {
+          "name": "Mycielski (1964), Independent sets in topological algebras",
+          "url": "https://doi.org/10.4064/fm-55-2-139-147"
+        },
+        {
+          "name": "Fraser (2016), Large subsets of local fields not containing configurations",
+          "url": "https://arxiv.org/abs/1612.08231"
+        },
+        {
+          "name": "Máthé (2017), Sets of large dimension not containing polynomial configurations",
+          "url": "https://doi.org/10.1016/j.aim.2017.01.002"
+        },
+        {
+          "name": "Jing and Mudgal (2025), Additive and multiplicative Sidon sets",
+          "url": "https://doi.org/10.1007/s00208-024-02932-7"
+        }
+      ],
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists."
+        }
+      ]
     }
   ],
   "catalogue_policy": "Open to community contributions; proposed additions and status changes require source review"

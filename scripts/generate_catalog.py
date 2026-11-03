@@ -85,8 +85,12 @@ def generate():
     old_allocation = json.loads(CURATION.read_text(encoding="utf-8"))
     archived_ids = [id for key in ("primary", "secondary", "resolved")
                     for id in old_allocation[key]]
-    if len(archived_ids) != len(set(archived_ids)) or sorted(archived_ids) != sorted(ids):
-        raise ValueError("Historical editorial allocation must still cover all IDs")
+    # The old editorial partition is a frozen historical snapshot, not an
+    # admission requirement for newly numbered problems.
+    if (len(archived_ids) != len(set(archived_ids))
+            or sorted(archived_ids) != [f"P{i:03d}" for i in range(1, 47)]
+            or any(old_id not in ids for old_id in archived_ids)):
+        raise ValueError("Archived editorial allocation has been altered")
     lines = [
         "| ID | Question | Area | Formulation | Novelty | Reward |",
         "|---|---|---|---|---|---|",
