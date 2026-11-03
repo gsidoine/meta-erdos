@@ -1,11 +1,10 @@
 # The Scottish Book
 
 <p align="center">
-  <img src="assets/scottish-book.jpg" alt="Archival photograph of the Scottish Book" width="390">
-  <img src="assets/Banach.jpg" alt="Archival photograph of Stefan Banach" width="270">
+  <img src="assets/scottish-book.jpg" alt="Photograph of the original Scottish Book notebook" width="560">
 </p>
 
-<p align="center"><small>The Scottish Book and Stefan Banach. Image source and reuse details: <a href="assets/README.md">photographic credits</a>.</small></p>
+<p align="center"><small>The Scottish Book. <a href="assets/README.md">Image provenance and reuse information</a>.</small></p>
 
 *An independent, collaborative mathematical notebook inspired by the Scottish Café of Lwów.*
 
@@ -110,6 +109,14 @@ Thirty research questions developing through formulation, proof, computation and
 Problems gradually receive a compact public page and their own proofs, exploration, references, verification and optional Lean files. The first two examples are [P015](problems/P015-odd-area-triangulations/README.md) and [P020](problems/P020-padic-hankel-cokernels/README.md). Historical dossier URLs and existing theorem/certificate links remain available during migration.
 
 A contributor may [submit a proposed problem](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml) using Markdown or TeX, select a mathematical field, describe sources and AI involvement, and suggest an optional symbolic reward. A moderator can convert an issue into a draft PR; proposals are not automatically admitted to the book.
+
+## Historical inspiration
+
+<p align="center">
+  <img src="assets/Banach.jpg" alt="Historical portrait of mathematician Stefan Banach" width="350">
+</p>
+
+Stefan Banach was one of the mathematicians associated with the Scottish Café in Lwów, where mathematical problems were recorded in a shared notebook. This contemporary collection takes its name from that tradition; it is not an edition of the original book or its official continuation. See [the historical Scottish Book](https://link.springer.com/book/10.1007/978-3-319-22897-6) and the [image provenance notes](assets/README.md).
 
 ## Literature and verification
 
