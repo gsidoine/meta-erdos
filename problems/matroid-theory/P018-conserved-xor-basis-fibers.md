@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** What exchange size is necessary to connect vector-space bases with a fixed XOR total, and how does connectivity change under random deletion of available vectors?  
-> **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  
+> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Single-element moves cannot preserve XOR; two-exchange fibers are connected for all W at d=4 but can be disconnected at d=5.  
 > **Finite evidence:** All 32,768 available sets at d=4 checked, plus explicit ten-vector d=5 counterexample with components 4 and 2.  
 > **Symbolic prize:** One hundred grams of caviar — The least uniform exchange size connecting every feasible conserved-XOR basis fiber.  
