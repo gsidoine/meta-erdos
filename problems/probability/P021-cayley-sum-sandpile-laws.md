@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified (targeted audit).  
 > **Verified/known progress:** Precisely defined correlated graph-Laplacian cokernel; no limiting group law yet proved.  
 > **Finite evidence:** Model and connectivity-conditioning requirements specified; exact Smith-form experiments pending.  
+> **Symbolic prize:** A bottle of whisky of positive measure — An explicit limiting Sylow-group distribution for the correlated Cayley-sum sandpile model.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

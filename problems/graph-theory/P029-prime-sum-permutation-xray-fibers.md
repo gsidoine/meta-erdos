@@ -5,6 +5,7 @@
 > **Formulation:** candidate. **Novelty:** high overlap risk: discrete tomography X-ray fibers.  
 > **Verified/known progress:** No two-position swap can preserve a nontrivial exact sum multiset; an explicit prime-supported fiber with two members differs at four positions.  
 > **Finite evidence:** Exhaustive prime-sum matching fiber enumeration for n≤13; dependency-free script.  
+> **Symbolic prize:** Five small beers — A universal bounded-size exchange theorem for nontrivial prime-sum X-ray fibers, or counterexamples with unbounded exchange size.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
