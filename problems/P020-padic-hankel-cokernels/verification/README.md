@@ -7,4 +7,4 @@ The [local finite-field Hankel rank verifier](P020_hankel_finite_field_ranks.py)
 - [Kernel-product dimension checks](../../../experiments/P020_kernel_product_dimension.py)
 - [Rank-two lifting verification](../../../experiments/P020_padic_rank_two_lifts.py)
 
-These programs verify finite statements; they do not prove the complete limiting \(p\)-adic group law.
+These programs verify finite statements; they do not prove the complete limiting $p$-adic group law.
