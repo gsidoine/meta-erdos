@@ -6,4 +6,6 @@ Canonical problem records are in [data/problems.json](../data/problems.json), wi
 
 Use the [structured submission form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml) to propose a new question, or [Contributing](../CONTRIBUTING.md) for proofs, counterexamples, references and Lean formalizations. No proposed prize is an actual material offer without an independently documented sponsor.
 
+P048 is retained as a **known result** after its universal statement was proved by the classical prime-reflection construction.
+
 [P001–P050 literature comparison](../audits/P001-P050-literature-comparison.md) records current source comparisons and the status of historical-priority uncertainty. The [P001–P041 literature comparison](../audits/literature-comparison-P001-P041.md) and [P001–P030 portfolio consolidation](../audits/portfolio-consolidation-P001-P030.md) are historical research reviews, not certified originality assessments for the whole current catalogue.
