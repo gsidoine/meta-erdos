@@ -1783,7 +1783,7 @@ theorem classConcat_nodup (n : ℕ) (ps : List ℕ) (hps : ps.Nodup) :
   refine ⟨?_, ?_⟩
   · intro p hp
     exact Finset.nodup_toList _
-  · exact hps.imp (fun p q hpq => primeClass_toList_disjoint n p q hpq)
+  · exact hps.imp (fun {_ _} hpq => primeClass_toList_disjoint n _ _ hpq)
 
 /-- Reordering the indices merely permutes the concatenated class
 catalog. -/
@@ -1800,9 +1800,7 @@ theorem classConcat_toFinset (n : ℕ) (ps : List ℕ) :
       ps.toFinset.biUnion (primeClass n) := by
   classical
   ext m
-  simp only [List.mem_toFinset, Finset.mem_biUnion, Finset.mem_toFinset,
-    mem_classConcat]
-  exact Iff.rfl
+  simp only [List.mem_toFinset, Finset.mem_biUnion, mem_classConcat]
 
 
 /-- Small and intermediate primes partition the primes at most n/3. -/
