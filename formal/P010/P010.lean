@@ -1109,4 +1109,90 @@ theorem three_class_bridge_vertices (n : ℕ) (hn : 12 ≤ n) :
   · simpa using three_mul_prime_mem_class n 3 hp (by omega) (by omega)
   · norm_num
 
+
+/-!
+## Paths with prescribed endpoints in a prime class
+-/
+
+/-- List every member of a prime class exactly once, placing two
+distinct prescribed members at the beginning and end. -/
+noncomputable def orderedPrimeClass (n p u v : ℕ) : List ℕ := by
+  classical
+  exact u :: (((primeClass n p).erase u).erase v).toList ++ [v]
+
+theorem orderedPrimeClass_mem (n p u v m : ℕ)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p)
+    (hm : m ∈ orderedPrimeClass n p u v) :
+    m ∈ primeClass n p := by
+  classical
+  simp only [orderedPrimeClass, List.mem_cons, List.mem_append,
+    Finset.mem_toList, List.mem_singleton] at hm
+  rcases hm with heq | heq | heq
+  · simpa [heq] using hu
+  · exact (Finset.mem_erase.mp (Finset.mem_erase.mp heq).2).2
+  · simpa [heq] using hv
+
+/-- The prescribed-endpoint ordering covers precisely its class. -/
+theorem orderedPrimeClass_toFinset (n p u v : ℕ)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p) :
+    (orderedPrimeClass n p u v).toFinset = primeClass n p := by
+  classical
+  ext m
+  simp only [List.mem_toFinset]
+  constructor
+  · exact orderedPrimeClass_mem n p u v m hu hv
+  · intro hm
+    by_cases hmu : m = u
+    · subst m
+      simp [orderedPrimeClass]
+    by_cases hmv : m = v
+    · subst m
+      simp [orderedPrimeClass]
+    · simp [orderedPrimeClass, hm, hmu, hmv]
+
+/-- The ordering has no repeated vertex when endpoints are distinct. -/
+theorem orderedPrimeClass_nodup (n p u v : ℕ) (huv : u ≠ v) :
+    (orderedPrimeClass n p u v).Nodup := by
+  classical
+  unfold orderedPrimeClass
+  apply List.nodup_cons.mpr
+  constructor
+  · simp [Finset.mem_erase, huv]
+  · apply List.nodup_append'.mpr
+    refine ⟨Finset.nodup_toList _, by simp, ?_⟩
+    intro m hm hv
+    have hnot : m ≠ v :=
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hm)).1
+    exact hnot (by simpa using hv)
+
+/-- The prescribed-endpoint class ordering is a noncoprime chain. -/
+theorem orderedPrimeClass_chain (n p u v : ℕ)
+    (hp : Nat.Prime p)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p) :
+    NonCoprimeChain (orderedPrimeClass n p u v) := by
+  apply primeClass_chain n p hp
+  intro m hm
+  exact orderedPrimeClass_mem n p u v m hu hv hm
+
+/-- The prescribed path starts at u. -/
+theorem orderedPrimeClass_head (n p u v : ℕ) :
+    (orderedPrimeClass n p u v).head? = some u := by
+  simp [orderedPrimeClass]
+
+/-- The prescribed path ends at v. -/
+theorem orderedPrimeClass_last (n p u v : ℕ) :
+    (orderedPrimeClass n p u v).getLast? = some v := by
+  simp [orderedPrimeClass]
+
+/-- A prescribed-endpoint ordering is a permutation of the class list. -/
+theorem orderedPrimeClass_perm (n p u v : ℕ)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p)
+    (huv : u ≠ v) :
+    (orderedPrimeClass n p u v).Perm (primeClass n p).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (orderedPrimeClass_nodup n p u v huv)
+    (Finset.nodup_toList _)
+  simpa using orderedPrimeClass_toFinset n p u v hu hv
+
 end P010
