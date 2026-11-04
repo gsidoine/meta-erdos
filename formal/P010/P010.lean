@@ -1804,4 +1804,85 @@ theorem classConcat_toFinset (n : ℕ) (ps : List ℕ) :
     mem_classConcat]
   exact Iff.rfl
 
+
+/-- Small and intermediate primes partition the primes at most n/3. -/
+theorem small_intermediate_partition (n : ℕ) :
+    (n / 4).primesLE ∪ intermediatePrimes n =
+      (n / 3).primesLE := by
+  ext p
+  simp only [Finset.mem_union, Nat.mem_primesLE, mem_intermediatePrimes]
+  constructor
+  · rintro (⟨hle, hp⟩ | ⟨hp, _, hle⟩)
+    · exact ⟨by omega, hp⟩
+    · exact ⟨hle, hp⟩
+  · rintro ⟨hle, hp⟩
+    by_cases hs : p ≤ n / 4
+    · exact Or.inl ⟨hs, hp⟩
+    · exact Or.inr ⟨hp, by omega, hle⟩
+
+/-- The three disjoint arithmetic prime ranges partition all
+primes up to n. -/
+theorem prime_segments_partition (n : ℕ) :
+    (n / 3).primesLE ∪ middlePrimes n ∪ largePrimes n =
+      n.primesLE := by
+  ext p
+  simp only [Finset.mem_union, Nat.mem_primesLE,
+    mem_middlePrimes, mem_largePrimes]
+  constructor
+  · rintro ((⟨hle, hp⟩ | ⟨hp, _, hle⟩) | ⟨hp, _, hle⟩)
+    · exact ⟨by omega, hp⟩
+    · exact ⟨by omega, hp⟩
+    · exact ⟨hle, hp⟩
+  · rintro ⟨hle, hp⟩
+    by_cases ht : p ≤ n / 3
+    · exact Or.inl (Or.inl ⟨ht, hp⟩)
+    by_cases hh : p ≤ n / 2
+    · exact Or.inl (Or.inr ⟨hp, by omega, hh⟩)
+    · exact Or.inr ⟨hp, by omega, hle⟩
+
+/-- The canonical list of prime indices represented in the core. -/
+noncomputable def coreIndices (n : ℕ) : List ℕ :=
+  3 :: (((n / 4).primesLE.erase 3).toList ++
+    (intermediatePrimes n).toList)
+
+theorem coreIndices_nodup (n : ℕ) :
+    (coreIndices n).Nodup := by
+  classical
+  unfold coreIndices
+  apply List.nodup_cons.mpr
+  constructor
+  · simp
+  · apply List.nodup_append'.mpr
+    refine ⟨Finset.nodup_toList _, Finset.nodup_toList _, ?_⟩
+    apply List.disjoint_left.mpr
+    intro p hp hq
+    have hsmall : p ≤ n / 4 :=
+      (Nat.mem_primesLE.mp
+        (Finset.mem_erase.mp (Finset.mem_toList.mp hp)).2).1
+    have hlarge : n / 4 < p :=
+      (mem_intermediatePrimes.mp (Finset.mem_toList.mp hq)).2.1
+    omega
+
+theorem coreIndices_toFinset (n : ℕ) (hn : 12 ≤ n) :
+    (coreIndices n).toFinset = (n / 3).primesLE := by
+  classical
+  have hthree : 3 ∈ (n / 4).primesLE :=
+    Nat.mem_primesLE.mpr ⟨by omega, by norm_num⟩
+  have hclean : insert 3 ((n / 4).primesLE.erase 3) =
+      (n / 4).primesLE := Finset.insert_erase hthree
+  rw [coreIndices]
+  simp only [List.toFinset_cons, List.toFinset_append,
+    Finset.toList_toFinset]
+  rw [← Finset.insert_union]
+  rw [hclean]
+  exact small_intermediate_partition n
+
+/-- The core prime-index list is a permutation of all primes ≤ n/3. -/
+theorem coreIndices_perm (n : ℕ) (hn : 12 ≤ n) :
+    (coreIndices n).Perm (n / 3).primesLE.toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (coreIndices_nodup n) (Finset.nodup_toList _)
+  simpa using coreIndices_toFinset n hn
+
 end P010
