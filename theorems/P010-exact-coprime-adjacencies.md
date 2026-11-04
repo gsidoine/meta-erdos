@@ -121,16 +121,8 @@ form a path in $H_n$: the first and last edges are multiples-of-prime edges, whi
 There are three cases.
 
 * **$\ell=0$.** Retain $U$ as one path.
-* **$\ell=2k>0$.** Partition $L$ into $k$ pairs. For $k-1$ pairs use the four-vertex paths above. For the last pair $\{q,q'\}$ use
-  $$
-  q,\ 2q,\ U,\ 2q',\ q'.
-  $$
-  Here $U$ denotes its full vertex sequence, inserted between the two even vertices. The two new connecting edges are even–even. This gives exactly $k$ paths.
-* **$\ell=2k+1$.** Partition $2k$ leaf primes into $k$ pairs, and let $q$ be the remaining prime. Use the $k$ four-vertex paths and one path
-  $$
-  q,\ 2q,\ U.
-  $$
-  The final connection is even–even. This gives exactly $k+1$ paths.
+* **$\ell=2k>0$.** Partition $L$ into $k$ pairs. For $k-1$ pairs use the four-vertex paths above. For the last pair $\{q,q'\}$ use the path $q,2q,U,2q',q'$. Here $U$ denotes its full vertex sequence, inserted between the two even vertices. The two new connecting edges are even–even. This gives exactly $k$ paths.
+* **$\ell=2k+1$.** Partition $2k$ leaf primes into $k$ pairs, and let $q$ be the remaining prime. Use the $k$ four-vertex paths and one path $q,2q,U$. The final connection is even–even. This gives exactly $k+1$ paths.
 
 In each case, every class with largest prime factor at most $n/2$ is covered exactly once by **$r$ vertex-disjoint paths**. The remaining classes are the $A_n$ isolated large primes and the singleton vertex $1$. Consequently,
 
