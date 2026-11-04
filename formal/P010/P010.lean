@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import P010Statement
 
 /-!
 # P010: minimum number of coprime adjacencies
@@ -13,36 +15,9 @@ The submitted manuscript PDF is unchanged. The final theorem's
 assumptions are audited by `#print axioms P010_exact`.
 -/
 
+@[expose] public section
+
 namespace P010
-
-/-- The list contains every integer in `[1, n]` exactly once. -/
-def IsPermutation (n : ℕ) (a : List ℕ) : Prop :=
-  a.Perm (List.range' 1 n)
-
-/-- The number of adjacent coprime pairs in a list. -/
-def adjacentCount (a : List ℕ) : ℕ :=
-  (a.zip a.tail).countP (fun z => decide (Nat.Coprime z.1 z.2))
-
-/-- The number of primes not exceeding `n`. -/
-def pi (n : ℕ) : ℕ := Nat.primeCounting n
-
-/-- The exact expression in the submitted manuscript, for `n ≥ 4`. -/
-def target (n : ℕ) : ℕ :=
-  (pi n - pi (n / 2)) +
-    max 1 (((pi (n / 2) - pi (n / 3)) + 1) / 2)
-
-/-- The nonempty set of possible adjacency counts. -/
-def Attained (n k : ℕ) : Prop :=
-  ∃ a : List ℕ, IsPermutation n a ∧ adjacentCount a = k
-
-theorem attainable (n : ℕ) : ∃ k : ℕ, Attained n k := by
-  refine ⟨adjacentCount (List.range' 1 n), List.range' 1 n, ?_, rfl⟩
-  exact List.Perm.refl _
-
-/-- The extremal quantity, defined as the least realized score. -/
-noncomputable def h (n : ℕ) : ℕ := by
-  classical
-  exact Nat.find (attainable n)
 
 theorem h_attained (n : ℕ) : Attained n (h n) := by
   classical
@@ -2340,6 +2315,12 @@ theorem P010_exact (n : ℕ) (hn : 4 ≤ n) :
       exact (h_le_of_permutation n a ha).trans hscore.le
   · exact P010_h_lower_bound n hn
 
+/-- The isolated statement module precisely matches the proved P010 theorem. -/
+theorem P010_statement_valid (n : ℕ) : ExactStatement n := by
+  intro hn
+  exact P010_exact n hn
+
 #print axioms P010_exact
+#print axioms P010_statement_valid
 
 end P010

@@ -20,7 +20,7 @@ c(a)=\sum_{i=1}^{n-1}\mathbf{1}_{\gcd(a_i,a_{i+1})=1},
 \qquad h(n)=\min_{a\in S_n}c(a).
 $$
 
-The [Lean source](P010.lean) establishes, for every $n\ge4$,
+The independently readable [statement definitions](P010Statement.lean) and [Lean proof](P010.lean) establish, for every $n\ge4$,
 
 $$
 h(n)=\pi(n)-\pi(\lfloor n/2\rfloor)
@@ -29,16 +29,14 @@ h(n)=\pi(n)-\pi(\lfloor n/2\rfloor)
 \right\}.
 $$
 
-The exact declaration is:
+The exact declaration, in the proof module, is:
 
 ```lean
 theorem P010_exact (n : ℕ) (hn : 4 ≤ n) :
     h n = target n
 ```
 
-The definitions `IsPermutation`, `adjacentCount`, `h`, and `target`
-encode the original extremal problem; `h` is the least attained
-coprime-adjacency count.
+The definitions `IsPermutation`, `adjacentCount`, `h`, and `target` are in the separate `P010Statement.lean` module; `h` is the least attained coprime-adjacency count. The [statement-fidelity audit](STATEMENT_AUDIT.md) and [project-local verification metadata](metadata.yaml) relate each definition to the mathematical statement. The proof also establishes `P010_statement_valid` for the exact independent proposition `ExactStatement`.
 
 ## Proof structure
 
@@ -74,16 +72,23 @@ These are Lean's standard foundational axioms. There is no
 `sorryAx`, unproved mathematical hypothesis, or finite-enumeration
 assumption in the exact theorem.
 
-To reproduce:
+Reproducibility is pinned by the committed [Lake manifest](lake-manifest.json), `lean-toolchain` and `lakefile.lean`. To verify the existing lockfile without updating dependencies:
 
 ```sh
 cd formal/P010
-lake update
 lake exe cache get
 lake build P010
+lake env lean P010.lean
 ```
 
+The last command prints the final theorem's axiom list. Dependency updates require an explicit manifest change and a successful CI run.
+
 The [P010 Lean workflow](../../.github/workflows/p010-lean.yml)
-builds the formalization and checks the final theorem's axiom
-declaration. This certificate covers the exact finite-$n$ identity;
+builds both the statement module and the formalization, checks that dependency resolution does not modify the committed manifest, and checks the final exact theorem and independent statement theorem's axiom declarations. This certificate covers the exact finite-$n$ identity;
 the asymptotic corollary is not formalized separately.
+
+## Development provenance
+
+The proof development used AI-assisted Lean drafting and incremental debugging against the Lean build and kernel-check workflow. The [statement audit](STATEMENT_AUDIT.md) records the correspondence with the original finite-$n$ theorem. Formal verification does not certify historical novelty, external refereeing, or journal acceptance. No change has been made to the submitted manuscript's archival AI-use declaration.
+
+External registration is distinct from this internal certificate. The project-local metadata records that Palomar registration and a Formal Conjectures contribution have not yet occurred. Palomar additionally requires a Comparator challenge/solution package, a root licence for the submitted repository snapshot, and submission authorization; none is claimed by this certificate.

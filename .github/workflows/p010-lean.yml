@@ -27,6 +27,9 @@ jobs:
         run: |
           lake update
           lean --version
+      - name: Confirm pinned Lake manifest is reproducible
+        working-directory: formal/P010
+        run: git diff --exit-code -- lake-manifest.json
       - name: Retrieve compiled Mathlib cache
         working-directory: formal/P010
         run: lake exe cache get
@@ -39,3 +42,4 @@ jobs:
           set -o pipefail
           lake env lean P010.lean 2>&1 | tee p010-axioms.log
           grep -F "'P010.P010_exact' depends on axioms: [propext, Classical.choice, Quot.sound]" p010-axioms.log
+          grep -F "'P010.P010_statement_valid' depends on axioms: [propext, Classical.choice, Quot.sound]" p010-axioms.log
