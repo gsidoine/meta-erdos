@@ -1,0 +1,33 @@
+# Metadata for the P010 Lean development.
+# This is a project-local record, not a submitted Palomar formalization.yaml.
+id: P010
+title: The minimum number of coprime adjacencies in a permutation
+statement_module: P010Statement
+statement: P010.ExactStatement
+proof_module: P010
+theorem: P010.P010_exact
+statement_equivalence_theorem: P010.P010_statement_valid
+verification_status: kernel_checked
+verified_scope: exact formula for every integer n >= 4
+unformalized_scope: prime-number-theorem asymptotic
+toolchain: leanprover/lean4:v4.35.0
+mathlib_tag: v4.35.0
+mathlib_revision: 56a005855ea17e0b0958f73ec801ae140b0a1679
+foundational_axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+mathematical_source: ../../theorems/P010-exact-coprime-adjacencies.md
+archival_submission: ../../manuscripts/P010/coprime_adjacencies.pdf
+submission_status: submitted to Integers; acceptance not established
+source_priority: unverified
+formal_development:
+  methods:
+    - Lean 4 proof assistant
+    - AI-assisted tactic drafting and debugging
+    - GitHub Actions kernel checks
+  independent_expert_review: not claimed
+external_registration:
+  palomar: not registered
+  formal_conjectures: not submitted
+  license: explicit licensing is required before a Palomar submission
