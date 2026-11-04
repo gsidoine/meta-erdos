@@ -22,6 +22,8 @@ The comparison below treats **historical priority**, **mathematical validity**, 
 
 **Finite-pattern extension.** A direct rough-root argument now embeds a linearly growing number of independent copies of the complete maximum-primitive-set state space on every fixed interval $[C]$. It gives $F(C)^{c_C n+O_C(1)}\mid F(2n)$ and transfers each finite heat-bath gap $\lambda_C$ to a full-chain lower mixing coefficient $1/(2\lambda_C)$. For example $F(20)=26$ implies $\nu_{13}(F(2n))\gg n$. This factorization is closely related to the divisibility-lattice decomposition in **Section 2 and Claim 2.1 of Liu–Pach–Palincza (2021)** and to McNew's divisor-graph component enumeration. Whether it is already an immediate known corollary requires theorem-level comparison; no historical originality is asserted. No decay of the $\lambda_C$ is proved.
 
+**Finite-volume spectral limit.** The finite-pattern inheritance implies $\lim_{N\to\infty}\lambda_N=\inf_{C:F(C)>1}\lambda_C$ for the unnormalized single-coordinate generator. Hence the discrete-time spectral gaps $\gamma_n$ satisfy $n\gamma_n\to\lambda_*$, with $0\le\lambda_*\le66083/243852$. The conclusion does not decide whether $\lambda_*>0$, nor any mixing-time cutoff. This is an elementary consequence of the factor theorem; historical priority relative to known divisor-lattice component methods and Markov-chain products remains unverified.
+
 **Gate.** Identify whether a known general mixing/spectral theorem specializes to the exact coordinate-selection measure and arithmetic poset. Preserve the distinction between the projected product cutoff and a cutoff for the full chain. Status remains *candidate*.
 
 ## P031 — Pairwise-coprime Sidon extremum
