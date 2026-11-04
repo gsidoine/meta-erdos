@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].  
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
-> **Verified/known progress:** Exact diameter and improved 23-state mixing obstruction (121926/66083)n log n; arbitrary fixed maximum primitive-set spaces occur as positive-density independent factors, implying linear divisibility and spectral transfer.  
-> **Finite evidence:** Exact 23-state Rayleigh certificate; independent finite counts F(20)=26, F(24)=34 and factor-isolation checks; full-chain mixing and priority remain unresolved.  
+> **Verified/known progress:** The unnormalized heat-bath spectral gaps converge: lim_N lambda_N = inf_C lambda_C, with 0 ≤ limit ≤ 66083/243852; exact exchange geometry, finite factors, and the (121926/66083)n log n lower mixing bound are proved.  
+> **Finite evidence:** Self-contained factor-inheritance proof of the spectral limit; exact 23-state rational Rayleigh certificate and independent finite-pattern counts.  
 > **Symbolic prize:** A Research Prize (symbolic) — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
