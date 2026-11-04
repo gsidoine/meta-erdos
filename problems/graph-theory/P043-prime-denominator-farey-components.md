@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; Farey graphs and prime-denominator fractions have established prior art.  
 > **Verified/known progress:** An exact component-count identity involving twin primes, a forest after removal of 1/2, and exact vertex and edge enumerations are internally proved.  
 > **Finite evidence:** Reproducible component, triangle, and forest checks for N<=101.  
-> **Symbolic prize:** One small beer — A sharp asymptotic for the largest component of the prime-denominator Farey graph.  
+> **Symbolic prize:** A Coffee (symbolic) — A sharp asymptotic for the largest component of the prime-denominator Farey graph.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

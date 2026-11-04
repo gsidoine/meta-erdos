@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; related squarefree-sum permanents and classical permanent bounds are known.  
 > **Verified/known progress:** Internally proved log M(N)=log(N!)+N log(6/pi^2)+O(sqrt N).  
 > **Finite evidence:** Exact integer permanents via subset dynamic programming through N=17.  
-> **Symbolic prize:** One hundred grams of caviar — The optimal order of the error in the squarefree-displacement permanent asymptotic.  
+> **Symbolic prize:** A Research Prize (symbolic) — The optimal order of the error in the squarefree-displacement permanent asymptotic.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

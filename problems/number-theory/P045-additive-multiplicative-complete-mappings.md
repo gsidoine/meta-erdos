@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; additive and multiplicative complete mappings have extensive literature.  
 > **Verified/known progress:** Internally proved that at least two multiplicative image defects are unavoidable for p>=5; the bound is attained at p=5,7,11,13.  
 > **Finite evidence:** Explicit complete-mapping permutation witnesses and independent exact checks.  
-> **Symbolic prize:** A small black coffee — A complete construction of almost-distinct-product additive complete mappings for all primes at least five, or a counterexample.  
+> **Symbolic prize:** A Coffee (symbolic) — A complete construction of almost-distinct-product additive complete mappings for all primes at least five, or a counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

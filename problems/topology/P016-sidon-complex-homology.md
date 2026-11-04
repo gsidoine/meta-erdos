@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Minimal nonfaces have size 3 or 4; exact F2 Betti numbers exhibit migration from lower to higher dimensions.  
 > **Finite evidence:** Exact augmented boundary-rank computations through N=23; no asymptotic vanishing claim.  
-> **Symbolic prize:** One kilogram of bacon — A proof of eventual vanishing for each fixed homological degree, or an infinite nonvanishing family.  
+> **Symbolic prize:** A Dinner (symbolic) — A proof of eventual vanishing for each fixed homological degree, or an infinite nonvanishing family.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

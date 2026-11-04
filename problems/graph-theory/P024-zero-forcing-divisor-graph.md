@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified (targeted audit).  
 > **Verified/known progress:** The primes above N/2 are twin leaves, yielding Z(D_N) >= pi(N)-pi(N/2)-1.  
 > **Finite evidence:** Elementary rigorous lower bound; exact finite zero-forcing computations pending.  
-> **Symbolic prize:** One kilogram of bacon — The first-order asymptotics of the zero-forcing number of the divisor comparability graph.  
+> **Symbolic prize:** A Dinner (symbolic) — The first-order asymptotics of the zero-forcing number of the divisor comparability graph.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

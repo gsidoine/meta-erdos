@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; binary Sidon sets and APN functions are classical, prime-restricted extremal size needs comparison.  
 > **Verified/known progress:** Internally proved 2^(m/2)/m << s_m <= 2^(m/2)+O(1) for primes in [2^m,2^(m+1)).  
 > **Finite evidence:** Finite XOR Sidon/APN constructions and exhaustive translate-intersection checks for small m.  
-> **Symbolic prize:** Five small beers — A constant-factor square-root lower bound for XOR-Sidon sets of primes in all sufficiently large dyadic intervals.; One small beer — An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound.  
+> **Symbolic prize:** A Book (symbolic) — A constant-factor square-root lower bound for XOR-Sidon sets of primes in all sufficiently large dyadic intervals.; A Coffee (symbolic) — An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

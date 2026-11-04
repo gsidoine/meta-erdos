@@ -5,7 +5,7 @@
 > **Formulation:** reframe. **Novelty:** known subproblem; extension unverified.  
 > **Verified/known progress:** Full graceful existence iff n≤5 is a published 2021 theorem; extremal extension unverified.  
 > **Finite evidence:** Exact finite MILP checks in selected sizes.  
-> **Symbolic prize:** A bottle of whisky of positive measure — A proof or disproof of eventual attainment of the parity upper bound for coprime paths.  
+> **Symbolic prize:** A Dinner (symbolic) — A proof or disproof of eventual attainment of the parity upper bound for coprime paths.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

@@ -22,13 +22,11 @@ SUBJECTS = {
 }
 FORMATS = {"Markdown", "LaTeX"}
 REWARDS = {
-    "None", "A small black coffee (symbolic)",
-    "One small beer (symbolic)", "Five small beers (symbolic)",
-    "A bottle of wine (symbolic)",
-    "A bottle of whisky of positive measure (symbolic)",
-    "One hundred grams of caviar (symbolic)",
-    "One kilogram of bacon (symbolic)",
-    "A live goose (symbolic)",
+    "None",
+    "A Coffee (symbolic)",
+    "A Book (symbolic)",
+    "A Dinner (symbolic)",
+    "A Research Prize (symbolic)",
     "Other symbolic reward",
     "Material reward proposal (requires named willing sponsor)",
 }

@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Classical Hankel corank and exact cyclic/two-generator/elementary-abelian laws; uniform positive TV separation from ordinary Cohen–Lenstra law; full limit unresolved.  
 > **Finite evidence:** Exact modular group counts at p=2 (n≤4), p=3 (n≤3); kernel-product rank proved from Yiasemides (2024).  
-> **Symbolic prize:** A live goose — An explicit limiting distribution for random p-adic Hankel cokernels, or a proof that it does not exist.; A small black coffee — An exact probability for a previously untreated three-generator higher-exponent cokernel class.  
+> **Symbolic prize:** A Research Prize (symbolic) — An explicit limiting distribution for random p-adic Hankel cokernels, or a proof that it does not exist.; A Coffee (symbolic) — An exact probability for a previously untreated three-generator higher-exponent cokernel class.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

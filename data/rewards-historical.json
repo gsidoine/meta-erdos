@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "note": "Archive of the former symbolic reward vocabulary and assignments in this collection. These are not offers by sponsors, nor original Scottish Book awards.",
+  "references": [
+    {
+      "name": "R. Daniel Mauldin (ed.), The Scottish Book, 2nd ed. (Springer, 2015)",
+      "url": "https://link.springer.com/book/10.1007/978-3-319-22897-6"
+    },
+    {
+      "name": "University of St Andrews, MacTutor, Stanisław Mazur",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Mazur/"
+    }
+  ],
+  "historical_vocabulary": [
+    {
+      "id": "coffee",
+      "label": "A small black coffee",
+      "historical_note": "A small black coffee appears among the rewards specified by Hugo Steinhaus for Problem 152."
+    },
+    {
+      "id": "small-beer",
+      "label": "One small beer",
+      "historical_note": "Small beer was a recorded Scottish Book prize, including one outcome of Problem 152."
+    },
+    {
+      "id": "five-beers",
+      "label": "Five small beers",
+      "historical_note": "Five small beers appear among the historical Scottish Book prizes."
+    },
+    {
+      "id": "wine",
+      "label": "A bottle of wine",
+      "historical_note": "A bottle of wine was offered for several Scottish Book problems, including Problem 6."
+    },
+    {
+      "id": "whisky",
+      "label": "A bottle of whisky of positive measure",
+      "historical_note": "The whisky prize is mentioned in the preface of Mauldin's edition."
+    },
+    {
+      "id": "caviar",
+      "label": "One hundred grams of caviar",
+      "historical_note": "Hugo Steinhaus's Problem 152 offered caviar for an explicit numerical determination."
+    },
+    {
+      "id": "bacon",
+      "label": "One kilogram of bacon",
+      "historical_note": "One kilogram of bacon is among the prizes in the Scottish Book."
+    },
+    {
+      "id": "goose",
+      "label": "A live goose",
+      "historical_note": "Stanisław Mazur offered a live goose for Problem 153, awarded to Per Enflo in 1972."
+    }
+  ],
+  "previous_assignments": [
+    {
+      "id": "P001",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "A proof of bounded prime-sum deficit, or an unbounded sequence of deficits."
+        }
+      ]
+    },
+    {
+      "id": "P002",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A classification of four-cycle-switch components for all prime-sum perfect matchings."
+        }
+      ]
+    },
+    {
+      "id": "P003",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A proof of matching-packing equality for every order, or a counterexample."
+        }
+      ]
+    },
+    {
+      "id": "P004",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "An asymptotic determination of the connectivity threshold for one-mark Sidon exchanges."
+        }
+      ]
+    },
+    {
+      "id": "P005",
+      "rewards": [
+        {
+          "kind": "goose",
+          "condition": "A necessary and sufficient criterion for connected coprime-permutation switch graphs."
+        }
+      ]
+    },
+    {
+      "id": "P006",
+      "rewards": [
+        {
+          "kind": "bacon",
+          "condition": "The sharp leading constant in the maximum size of a prime-difference-free Sidon set."
+        }
+      ]
+    },
+    {
+      "id": "P007",
+      "rewards": [
+        {
+          "kind": "whisky",
+          "condition": "A proof or disproof of eventual attainment of the parity upper bound for coprime paths."
+        }
+      ]
+    },
+    {
+      "id": "P008",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A specified non-tautological expansion of the arithmetic connectivity threshold with a proved error term."
+        }
+      ]
+    },
+    {
+      "id": "P009",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A proof that two prime sums suffice for every positive integer n, or an explicit counterexample."
+        }
+      ]
+    },
+    {
+      "id": "P010",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "An independently checked Lean formalization of the exact coprime-adjacency theorem."
+        }
+      ]
+    },
+    {
+      "id": "P011",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "A rigorous threshold law for perfect matchings in the random sum-diagonal graph model."
+        }
+      ]
+    },
+    {
+      "id": "P012",
+      "rewards": [
+        {
+          "kind": "five-beers",
+          "condition": "A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning."
+        }
+      ]
+    },
+    {
+      "id": "P013",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability."
+        }
+      ]
+    },
+    {
+      "id": "P014",
+      "rewards": [
+        {
+          "kind": "whisky",
+          "condition": "A proof or disproof that the specified Cayley-sum flag-complex homology thresholds match the independent-edge model."
+        }
+      ]
+    },
+    {
+      "id": "P015",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "A general proof of four-class odd-area flip connectivity, or a finite counterexample."
+        }
+      ]
+    },
+    {
+      "id": "P016",
+      "rewards": [
+        {
+          "kind": "bacon",
+          "condition": "A proof of eventual vanishing for each fixed homological degree, or an infinite nonvanishing family."
+        }
+      ]
+    },
+    {
+      "id": "P017",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "Existence or nonexistence of the normalized longest-chain limit for a fixed site density strictly between zero and one."
+        }
+      ]
+    },
+    {
+      "id": "P018",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "The least uniform exchange size connecting every feasible conserved-XOR basis fiber."
+        }
+      ]
+    },
+    {
+      "id": "P019",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A universal bound on simultaneous replacements in optimal no-three-in-line configurations, or a proof of unboundedness."
+        }
+      ]
+    },
+    {
+      "id": "P020",
+      "rewards": [
+        {
+          "kind": "goose",
+          "condition": "An explicit limiting distribution for random p-adic Hankel cokernels, or a proof that it does not exist."
+        },
+        {
+          "kind": "coffee",
+          "condition": "An exact probability for a previously untreated three-generator higher-exponent cokernel class."
+        }
+      ]
+    },
+    {
+      "id": "P021",
+      "rewards": [
+        {
+          "kind": "whisky",
+          "condition": "An explicit limiting Sylow-group distribution for the correlated Cayley-sum sandpile model."
+        }
+      ]
+    },
+    {
+      "id": "P022",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A proved nontrivial homology transition regime for the random unimodular triangle complex."
+        }
+      ]
+    },
+    {
+      "id": "P023",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "A sharp threshold for full rank of the random prime-incidence matrix."
+        }
+      ]
+    },
+    {
+      "id": "P024",
+      "rewards": [
+        {
+          "kind": "bacon",
+          "condition": "The first-order asymptotics of the zero-forcing number of the divisor comparability graph."
+        }
+      ]
+    },
+    {
+      "id": "P025",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A proof or disproof of the cyclic analogue of the known adjacent-lcm bottleneck asymptotic."
+        }
+      ]
+    },
+    {
+      "id": "P026",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A proof that prime-sum four-cycles span the binary cycle space in all orders, or a counterexample."
+        }
+      ]
+    },
+    {
+      "id": "P027",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component."
+        }
+      ]
+    },
+    {
+      "id": "P028",
+      "rewards": [
+        {
+          "kind": "whisky",
+          "condition": "A nondegenerate fluctuation law for the random Euler characteristic after explicit centering and scaling."
+        }
+      ]
+    },
+    {
+      "id": "P029",
+      "rewards": [
+        {
+          "kind": "five-beers",
+          "condition": "A universal bounded-size exchange theorem for nontrivial prime-sum X-ray fibers, or counterexamples with unbounded exchange size."
+        }
+      ]
+    },
+    {
+      "id": "P030",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "A perfect double-prime matching for every even order at least eight, or an exceptional order."
+        }
+      ]
+    },
+    {
+      "id": "P031",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A sharp asymptotic for the maximum size of a pairwise-coprime Sidon subset of an initial interval."
+        }
+      ]
+    },
+    {
+      "id": "P032",
+      "rewards": [
+        {
+          "kind": "bacon",
+          "condition": "A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures."
+        }
+      ]
+    },
+    {
+      "id": "P033",
+      "rewards": [
+        {
+          "kind": "goose",
+          "condition": "A proof that three prime sums always connect the graph on an initial interval, or a counterexample."
+        }
+      ]
+    },
+    {
+      "id": "P034",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A construction using four prime sums for every odd order at least seven, or an exceptional order."
+        }
+      ]
+    },
+    {
+      "id": "P035",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "An asymptotically optimal Sidon and divisibility-antichain coloring, or a larger lower bound."
+        }
+      ]
+    },
+    {
+      "id": "P036",
+      "rewards": [
+        {
+          "kind": "whisky",
+          "condition": "The critical scale and limiting law for the first nonempty two-core in a random Schur hypergraph."
+        }
+      ]
+    },
+    {
+      "id": "P037",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "The maximal-order growth of the induced-cycle prime-gap deficit."
+        }
+      ]
+    },
+    {
+      "id": "P038",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A sharpened asymptotic error term for the logarithm of the coprime-graph induced-matching number."
+        }
+      ]
+    },
+    {
+      "id": "P039",
+      "rewards": [
+        {
+          "kind": "five-beers",
+          "condition": "A proof that prime-product-plus-one pairings exist for every n at least one, or an infinite obstruction family."
+        }
+      ]
+    },
+    {
+      "id": "P040",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "Existence and exact value of the limiting coprime-matching local resilience."
+        }
+      ]
+    },
+    {
+      "id": "P041",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A limiting constant for the second-order gap between unrestricted and squarefree random divisibility chains."
+        }
+      ]
+    },
+    {
+      "id": "P042",
+      "rewards": [
+        {
+          "kind": "bacon",
+          "condition": "Hamiltonian paths in every one-carry graph of dimension at least four, or an infinite obstruction family."
+        }
+      ]
+    },
+    {
+      "id": "P043",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A sharp asymptotic for the largest component of the prime-denominator Farey graph."
+        }
+      ]
+    },
+    {
+      "id": "P044",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "The optimal order of the error in the squarefree-displacement permanent asymptotic."
+        }
+      ]
+    },
+    {
+      "id": "P045",
+      "rewards": [
+        {
+          "kind": "coffee",
+          "condition": "A complete construction of almost-distinct-product additive complete mappings for all primes at least five, or a counterexample."
+        }
+      ]
+    },
+    {
+      "id": "P046",
+      "rewards": [
+        {
+          "kind": "five-beers",
+          "condition": "A constant-factor square-root lower bound for XOR-Sidon sets of primes in all sufficiently large dyadic intervals."
+        },
+        {
+          "kind": "small-beer",
+          "condition": "An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound."
+        }
+      ]
+    },
+    {
+      "id": "P047",
+      "rewards": [
+        {
+          "kind": "wine",
+          "condition": "A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists."
+        }
+      ]
+    },
+    {
+      "id": "P048",
+      "rewards": []
+    },
+    {
+      "id": "P049",
+      "rewards": [
+        {
+          "kind": "caviar",
+          "condition": "A proved limit and explicit characterization of the rank density for every fixed retention probability."
+        }
+      ]
+    },
+    {
+      "id": "P050",
+      "rewards": [
+        {
+          "kind": "small-beer",
+          "condition": "A proof or counterexample to the exact dyadic prime-Hamming cube coloring formula."
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "problems.json"
 REWARD_TYPES = ROOT / "data" / "rewards.json"
+REWARD_COMMITMENTS = ROOT / "data" / "reward-commitments.json"
 README = ROOT / "README.md"
 BROWSER_DATA = ROOT / "docs" / "problems.json"
 BROWSER_REWARDS = ROOT / "docs" / "rewards.json"
@@ -54,11 +55,27 @@ def reward_text(problem, menu):
     prizes = problem["rewards"]
     if not isinstance(prizes, list):
         raise ValueError(f"{problem['id']}: rewards must be a list")
+    commitments = json.loads(REWARD_COMMITMENTS.read_text(encoding="utf-8"))
+    if commitments.get("schema_version") != 1:
+        raise ValueError("Invalid reward commitment ledger")
+    records = commitments.get("commitments")
+    if not isinstance(records, list):
+        raise ValueError("Reward commitment ledger must be a list")
+    by_id = {c.get("id"): c for c in records if isinstance(c, dict)}
+    if len(by_id) != len(records):
+        raise ValueError("Duplicate or malformed reward commitments")
     descriptions = []
     used = set()
+    statuses = {"symbolic", "pledged", "funded", "awarded"}
     for prize in prizes:
-        if not isinstance(prize, dict) or set(prize) != {"kind", "condition"}:
-            raise ValueError(f"{problem['id']}: reward requires kind and condition")
+        if not isinstance(prize, dict):
+            raise ValueError(f"{problem['id']}: malformed reward")
+        status = prize.get("status")
+        expected = {"kind", "condition", "status"}
+        if status != "symbolic":
+            expected.add("commitment_id")
+        if set(prize) != expected or status not in statuses:
+            raise ValueError(f"{problem['id']}: reward requires a valid kind, condition and state")
         kind, condition = prize["kind"], prize["condition"]
         if kind not in menu:
             raise ValueError(f"{problem['id']}: unknown reward {kind!r}")
@@ -67,10 +84,26 @@ def reward_text(problem, menu):
         if (kind, condition) in used:
             raise ValueError(f"{problem['id']}: duplicate reward")
         used.add((kind, condition))
+        if status != "symbolic":
+            c = by_id.get(prize["commitment_id"])
+            if not c or c.get("problem_id") != problem["id"] or c.get("kind") != kind:
+                raise ValueError(f"{problem['id']}: documented reward commitment missing")
+            if c.get("status") != status or not all(
+                isinstance(c.get(k), str) and c[k].strip()
+                for k in ("sponsor", "terms_url", "evidence_url")
+            ):
+                raise ValueError(f"{problem['id']}: commitment status or evidence missing")
+            if not all(c[k].startswith("https://") for k in ("terms_url", "evidence_url")):
+                raise ValueError(f"{problem['id']}: commitment evidence must be an https URL")
+            if status == "awarded" and not (
+                isinstance(c.get("recipient"), str) and c["recipient"].strip()
+                and isinstance(c.get("resolution_url"), str)
+                and c["resolution_url"].startswith("https://")
+            ):
+                raise ValueError(f"{problem['id']}: awarded prize needs recipient and resolution")
         label = menu[kind]
-        descriptions.append(f"{label} — {condition.strip()}")
+        descriptions.append(f"{label} ({status}) — {condition.strip()}")
     return "; ".join(descriptions) if descriptions else "—"
-
 
 def generate():
     obj = json.loads(DATA.read_text(encoding="utf-8"))

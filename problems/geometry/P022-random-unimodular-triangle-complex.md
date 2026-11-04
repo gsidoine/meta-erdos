@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified (targeted audit).  
 > **Verified/known progress:** At N=1 with all four vertices kept the complex is the tetrahedral boundary, with reduced H2 nonzero.  
 > **Finite evidence:** Exact elementary N=1 example only; finite Betti experiments pending.  
-> **Symbolic prize:** One small beer — A proved nontrivial homology transition regime for the random unimodular triangle complex.  
+> **Symbolic prize:** A Coffee (symbolic) — A proved nontrivial homology transition regime for the random unimodular triangle complex.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

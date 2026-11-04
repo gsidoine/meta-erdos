@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Random Sidon decision phase behavior is known; feasible exchange components form a distinct proposed observable.  
 > **Finite evidence:** k=2 degenerate connectivity checked conceptually; no large-case claim.  
-> **Symbolic prize:** A small black coffee — A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability.  
+> **Symbolic prize:** A Coffee (symbolic) — A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

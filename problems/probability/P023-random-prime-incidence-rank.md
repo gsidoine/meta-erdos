@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified (targeted audit).  
 > **Verified/known progress:** Full rank iff no nonzero prime-parity functional annihilates all retained columns; exact zero-row probability.  
 > **Finite evidence:** Deterministic parity characterization proved; probabilistic threshold unproved.  
-> **Symbolic prize:** A small black coffee — A sharp threshold for full rank of the random prime-incidence matrix.  
+> **Symbolic prize:** A Coffee (symbolic) — A sharp threshold for full rank of the random prime-incidence matrix.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

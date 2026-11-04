@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Asymptotic lower constant at least 1/√2 and upper at most 1.  
 > **Finite evidence:** Small exact MILP optima through N=60.  
-> **Symbolic prize:** One kilogram of bacon — The sharp leading constant in the maximum size of a prime-difference-free Sidon set.  
+> **Symbolic prize:** A Dinner (symbolic) — The sharp leading constant in the maximum size of a prime-difference-free Sidon set.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

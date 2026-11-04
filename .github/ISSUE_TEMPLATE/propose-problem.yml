@@ -72,17 +72,13 @@ body:
     id: reward
     attributes:
       label: Suggested reward
-      description: "Optional symbolic designation, independent of difficulty. No material prize is offered without an approved sponsor and terms."
+      description: "Optional symbolic designation, independent of difficulty. No material prize is offered unless sponsorship and terms are independently documented."
       options:
         - None
-        - A small black coffee (symbolic)
-        - One small beer (symbolic)
-        - Five small beers (symbolic)
-        - A bottle of wine (symbolic)
-        - A bottle of whisky of positive measure (symbolic)
-        - One hundred grams of caviar (symbolic)
-        - One kilogram of bacon (symbolic)
-        - A live goose (symbolic)
+        - A Coffee (symbolic)
+        - A Book (symbolic)
+        - A Dinner (symbolic)
+        - A Research Prize (symbolic)
         - Other symbolic reward
         - Material reward proposal (requires named willing sponsor)
     validations:

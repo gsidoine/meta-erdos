@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
 > **Verified/known progress:** Exact diameter and improved 23-state mixing obstruction (121926/66083)n log n; arbitrary fixed maximum primitive-set spaces occur as positive-density independent factors, implying linear divisibility and spectral transfer.  
 > **Finite evidence:** Exact 23-state Rayleigh certificate; independent finite counts F(20)=26, F(24)=34 and factor-isolation checks; full-chain mixing and priority remain unresolved.  
-> **Symbolic prize:** One hundred grams of caviar — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
+> **Symbolic prize:** A Research Prize (symbolic) — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

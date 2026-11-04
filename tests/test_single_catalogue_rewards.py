@@ -32,21 +32,31 @@ class SingleCatalogueRewardTests(unittest.TestCase):
             self.assertNotIn(header, self.readme)
             self.assertNotIn(header, self.site)
 
-    def test_prize_vocab_is_historical_and_not_ranked(self):
-        self.assertEqual(len(self.labels), 8)
+    def test_active_vocab_and_historical_records(self):
+        self.assertEqual(set(self.labels), {"coffee", "book", "dinner", "research-prize"})
         self.assertEqual(len(self.labels), len(set(self.labels.values())))
-        self.assertIn("coffee", self.labels)
-        self.assertIn("goose", self.labels)
-        for choice in self.menu["rewards"]:
-            self.assertTrue(choice["historical_note"])
+        archive = json.loads((ROOT / "data/rewards-historical.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(archive["historical_vocabulary"]), 8)
+        self.assertEqual([r["id"] for r in archive["previous_assignments"]],
+                         [p["id"] for p in self.records])
         rewards_note = (ROOT / "REWARDS.md").read_text(encoding="utf-8")
         for name in self.labels.values():
             self.assertIn(name, rewards_note)
         self.assertIn("no physical prize is presently offered", self.readme.lower())
-        self.assertIn("not a measure of difficulty", rewards_note)
+        self.assertIn("independent of difficulty", rewards_note)
         self.assertEqual(
             self.menu, json.loads((ROOT / "docs/rewards.json").read_text(encoding="utf-8")),
         )
+
+    def test_no_material_offer_without_evidence(self):
+        ledger = json.loads((ROOT / "data/reward-commitments.json").read_text(encoding="utf-8"))
+        self.assertEqual(ledger["commitments"], [])
+        self.assertEqual({state["id"] for state in self.menu["statuses"]},
+                         {"symbolic", "pledged", "funded", "awarded"})
+        for record in self.records:
+            for reward in record["rewards"]:
+                self.assertEqual(reward["status"], "symbolic")
+                self.assertEqual(set(reward), {"kind", "condition", "status"})
 
     def test_every_problem_has_a_well_formed_optional_reward(self):
         for r in self.records:
@@ -57,14 +67,21 @@ class SingleCatalogueRewardTests(unittest.TestCase):
                 if not r["rewards"]:
                     self.assertEqual(label, "—")
         with self.assertRaises(ValueError):
-            reward_text({"id": "PTEST", "rewards": [{"kind": "unknown", "condition": "Proof"}]},
+            reward_text({"id": "PTEST", "rewards": [{"kind": "unknown", "condition": "Proof", "status": "symbolic"}]},
                         self.labels)
         with self.assertRaises(ValueError):
-            reward_text({"id": "PTEST", "rewards": [{"kind": "goose", "condition": ""}]},
+            reward_text({"id": "PTEST", "rewards": [{"kind": "research-prize", "condition": "", "status": "symbolic"}]},
                         self.labels)
-        example = {"id": "PTEST", "rewards": [{"kind": "coffee", "condition": "For a counterexample"}]}
+        example = {"id": "PTEST", "rewards": [{"kind": "coffee", "condition": "For a counterexample", "status": "symbolic"}]}
         self.assertEqual(reward_text(example, self.labels),
-                         "A small black coffee — For a counterexample")
+                         "A Coffee (symbolic) — For a counterexample")
+
+    def test_unsubstantiated_pledges_are_rejected(self):
+        candidate = {"id": "PTEST", "rewards": [
+            {"kind": "book", "condition": "A proof", "status": "pledged",
+             "commitment_id": "unverified"}]}
+        with self.assertRaises(ValueError):
+            reward_text(candidate, self.labels)
 
     def test_web_catalogue_uses_only_reward_status_and_area_filters(self):
         for term in ('id="area"', 'id="status"', 'id="reward"',

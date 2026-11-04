@@ -5,7 +5,7 @@
 > **Formulation:** needs specification. **Novelty:** needs precise formulation.  
 > **Verified/known progress:** Internal threshold/Gumbel arguments require external proof and priority audit.  
 > **Finite evidence:** Finite degree-profile and center checks.  
-> **Symbolic prize:** One small beer — A specified non-tautological expansion of the arithmetic connectivity threshold with a proved error term.  
+> **Symbolic prize:** A Coffee (symbolic) — A specified non-tautological expansion of the arithmetic connectivity threshold with a proved error term.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
