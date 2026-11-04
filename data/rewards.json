@@ -1,56 +1,59 @@
 {
-  "schema_version": 1,
-  "material_status": "Historical names used only as symbolic designations. No physical prize is offered by default.",
-  "references": [
-    {
-      "name": "R. Daniel Mauldin (ed.), The Scottish Book, 2nd ed. (Springer, 2015)",
-      "url": "https://link.springer.com/book/10.1007/978-3-319-22897-6"
-    },
-    {
-      "name": "University of St Andrews, MacTutor, Stanisław Mazur",
-      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Mazur/"
-    }
-  ],
+  "schema_version": 2,
+  "material_status": "All active problem rewards are symbolic. There are no pledged, funded or awarded material rewards.",
+  "historical_archive": "data/rewards-historical.json",
+  "transition_from_historical": {
+    "coffee": "coffee",
+    "small-beer": "coffee",
+    "five-beers": "book",
+    "wine": "book",
+    "whisky": "dinner",
+    "bacon": "dinner",
+    "caviar": "research-prize",
+    "goose": "research-prize"
+  },
   "rewards": [
     {
       "id": "coffee",
-      "label": "A small black coffee",
-      "historical_note": "A small black coffee appears among the rewards specified by Hugo Steinhaus for Problem 152."
+      "label": "A Coffee",
+      "description": "A coffee or equivalent gesture if separately sponsored."
     },
     {
-      "id": "small-beer",
-      "label": "One small beer",
-      "historical_note": "Small beer was a recorded Scottish Book prize, including one outcome of Problem 152."
+      "id": "book",
+      "label": "A Book",
+      "description": "A mathematics book of the recipient's choice if separately sponsored."
     },
     {
-      "id": "five-beers",
-      "label": "Five small beers",
-      "historical_note": "Five small beers appear among the historical Scottish Book prizes."
+      "id": "dinner",
+      "label": "A Dinner",
+      "description": "A meal or equivalent gift if separately sponsored."
     },
     {
-      "id": "wine",
-      "label": "A bottle of wine",
-      "historical_note": "A bottle of wine was offered for several Scottish Book problems, including Problem 6."
+      "id": "research-prize",
+      "label": "A Research Prize",
+      "description": "A research-oriented award or contribution, only if separately sponsored and funded."
+    }
+  ],
+  "statuses": [
+    {
+      "id": "symbolic",
+      "label": "Symbolic",
+      "meaning": "Designation only; no item or payment is promised."
     },
     {
-      "id": "whisky",
-      "label": "A bottle of whisky of positive measure",
-      "historical_note": "The whisky prize is mentioned in the preface of Mauldin's edition."
+      "id": "pledged",
+      "label": "Pledged",
+      "meaning": "A named sponsor has documented an explicit commitment and terms; funds are not asserted to be secured."
     },
     {
-      "id": "caviar",
-      "label": "One hundred grams of caviar",
-      "historical_note": "Hugo Steinhaus's Problem 152 offered caviar for an explicit numerical determination."
+      "id": "funded",
+      "label": "Funded",
+      "meaning": "Funds or goods are independently confirmed as secured under public written award terms."
     },
     {
-      "id": "bacon",
-      "label": "One kilogram of bacon",
-      "historical_note": "One kilogram of bacon is among the prizes in the Scottish Book."
-    },
-    {
-      "id": "goose",
-      "label": "A live goose",
-      "historical_note": "Stanisław Mazur offered a live goose for Problem 153, awarded to Per Enflo in 1972."
+      "id": "awarded",
+      "label": "Awarded",
+      "meaning": "A verified resolution, named recipient and documented award are linked."
     }
   ]
 }
