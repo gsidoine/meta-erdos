@@ -1538,9 +1538,6 @@ number of resulting pairs, with one additional item if unmatched. -/
 theorem splitPrimePairs_length (ps : List ℕ) :
     2 * (splitPrimePairs ps).1.length +
       (splitPrimePairs ps).2.toList.length = ps.length := by
-  have hr := congrArg List.length (splitPrimePairs_recompose ps)
-  simp only [List.length_append, List.length_flatMap] at hr
-  -- An exact arithmetic identity is also available by structural induction.
   induction ps using List.twoStepInduction with
   | nil => rfl
   | singleton p => rfl
