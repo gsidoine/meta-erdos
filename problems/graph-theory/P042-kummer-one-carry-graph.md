@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; Kummer's theorem and digital carry combinatorics are classical, precise Hamiltonian question requires specialist review.  
 > **Verified/known progress:** Internally proved connectivity for all m>=4, precisely two forced leaves, and |E|=((m+2)3^(m-2)-m)/2; Hamiltonicity remains open.  
 > **Finite evidence:** Complete edge and connectivity checks for m=2..8; explicit Hamiltonian paths for m=4..8 checked against carries and binomial valuations.  
-> **Symbolic prize:** A Dinner (symbolic) — Hamiltonian paths in every one-carry graph of dimension at least four, or an infinite obstruction family.  
+> **Symbolic prize:** A Dinner (symbolic) — Hamiltonian paths for every one-carry graph of dimension at least four, or one explicit counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

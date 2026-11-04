@@ -2,7 +2,7 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** What is the maximal growth order of 2π(sqrt(N)) minus the longest induced-cycle length in the gcd>1 graph, for N≤X?  
-> **Formulation:** candidate. **Novelty:** unverified; unboundedness follows from Pintz (2015), general threshold-cycle theory is classical.  
+> **Formulation:** reframe. **Novelty:** leading induced-cycle asymptotic and unbounded deficit already proved; residual maximal-deficit question presently transfers classical prime-gap fluctuations.  
 > **Verified/known progress:** Proved H(N)~2π(sqrt(N)) and exact saturation criterion; D(N) unbounded by Pintz (2015); quantitative maximal order unresolved.  
 > **Finite evidence:** Constructive prime-product cycles and finite saturation certificates.  
 > **Symbolic prize:** A Coffee (symbolic) — The maximal-order growth of the induced-cycle prime-gap deficit.  

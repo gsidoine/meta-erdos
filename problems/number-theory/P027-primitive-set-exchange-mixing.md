@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
 > **Verified/known progress:** The unnormalized heat-bath spectral gaps converge: lim_N lambda_N = inf_C lambda_C, with 0 ≤ limit ≤ 66083/243852; exact exchange geometry, finite factors, and the (121926/66083)n log n lower mixing bound are proved.  
 > **Finite evidence:** Self-contained factor-inheritance proof of the spectral limit; exact 23-state rational Rayleigh certificate and independent finite-pattern counts.  
-> **Symbolic prize:** A Research Prize (symbolic) — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
+> **Symbolic prize:** A Research Prize (symbolic) — A sharp full-chain mixing-time order with a matching upper bound, or a proof that the mixing scale exceeds every fixed multiple of n log n.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
