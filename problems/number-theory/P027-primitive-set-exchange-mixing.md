@@ -101,18 +101,18 @@ The [finite-volume spectral-gap theorem](../../theorems/P027-spectral-gap-conver
 establishes that the unnormalized full-chain generator gap $\lambda_N$
 converges as $N\to\infty$:
 
-$
+$$
 \lim_{N\to\infty}\lambda_N
 =\inf_{\substack{C\ge2\\F(C)>1}}\lambda_C
 =:\lambda_*.
-$
+$$
 
 Equivalently, if $\gamma_n$ is the gap of the discrete-time chain on
 $[2n]$, then
 
-$
+$$
 \boxed{\lim_{n\to\infty}n\gamma_n=\lambda_*.}
-$
+$$
 
 The proof is a direct consequence of the universal finite-pattern
 factorization: every fixed nontrivial factor eventually occurs as an
