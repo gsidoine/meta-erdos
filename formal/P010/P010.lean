@@ -359,4 +359,36 @@ theorem h_le_of_noncoprime_cover (n : ℕ) (paths : List (List ℕ))
     (adjacentCount_flatten_le paths hpaths)
 
 
+
+/-- Canonical decomposition into maximal non-coprime runs. It is
+the path cover obtained by cutting a permutation at precisely the
+coprime consecutive pairs. -/
+def maximalNonCoprimeRuns (a : List ℕ) : List (List ℕ) :=
+  a.splitBy (fun x y => decide (¬Nat.Coprime x y))
+
+/-- Splitting at coprime adjacencies never removes or duplicates vertices. -/
+theorem maximalNonCoprimeRuns_flatten (a : List ℕ) :
+    (maximalNonCoprimeRuns a).flatten = a := by
+  exact List.flatten_splitBy _ a
+
+/-- Every component of the canonical cut decomposition is a
+non-coprime path, with no appeal to the submitted construction. -/
+theorem maximalNonCoprimeRuns_chains (a : List ℕ) :
+    ∀ p ∈ maximalNonCoprimeRuns a, NonCoprimeChain p := by
+  intro p hp
+  have hc : List.IsChain
+      (fun (x y : ℕ) => (decide (¬Nat.Coprime x y)) = true) p := by
+    exact List.isChain_of_mem_splitBy (show
+      p ∈ a.splitBy (fun x y => decide (¬Nat.Coprime x y)) from hp)
+  simpa [NonCoprimeChain] using hc
+
+/-- The canonical non-coprime-run cover of any permutation
+gives a valid upper bound on its minimum coprime adjacency count. -/
+theorem h_le_canonical_run_count (n : ℕ) (a : List ℕ)
+    (ha : IsPermutation n a) :
+    h n ≤ (maximalNonCoprimeRuns a).length - 1 := by
+  apply h_le_of_noncoprime_cover n (maximalNonCoprimeRuns a)
+  · simpa [maximalNonCoprimeRuns_flatten] using ha
+  · exact maximalNonCoprimeRuns_chains a
+
 end P010
