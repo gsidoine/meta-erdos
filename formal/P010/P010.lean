@@ -868,4 +868,14 @@ theorem P010_universal_lower_bound (n : ℕ) (hn : 4 ≤ n)
       unfold target
       omega
 
+
+/-- The full, unconditional lower half of the P010 formula for n ≥ 4. -/
+theorem P010_h_lower_bound (n : ℕ) (hn : 4 ≤ n) :
+    target n ≤ h n := by
+  exact le_h_of_lower_bound n (target n)
+    (fun a ha => P010_universal_lower_bound n hn a ha)
+
+#print axioms P010_universal_lower_bound
+#print axioms P010_h_lower_bound
+
 end P010
