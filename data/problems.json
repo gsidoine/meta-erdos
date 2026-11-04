@@ -839,9 +839,9 @@
       "question": "Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].",
       "status": "candidate",
       "novelty": "not certified; closely related to counting primitive sets and distributive-lattice walks",
-      "result": "Proved exact exchange geometry and positive-density finite factors; the unnormalized heat-bath spectral gap converges to inf_C lambda_C, with upper bound 66083/243852; full mixing remains unresolved",
-      "verification": "Spectral-limit proof by factor inheritance, exact 23-state Rayleigh 66083/243852 and full mixing lower coefficient 121926/66083; independent finite factor checks",
-      "priority": "determine whether the limiting unnormalized gap is positive, and establish the mixing-time order and possible cutoff",
+      "result": "The unnormalized heat-bath spectral gaps converge: lim_N lambda_N = inf_C lambda_C, with 0 ≤ limit ≤ 66083/243852; exact exchange geometry, finite factors, and the (121926/66083)n log n lower mixing bound are proved",
+      "verification": "Self-contained factor-inheritance proof of the spectral limit; exact 23-state rational Rayleigh certificate and independent finite-pattern counts",
+      "priority": "determine whether the spectral limit is positive and prove full-chain mixing-time order and possible cutoff",
       "sources": [
         {
           "name": "Liu–Pach–Palincza (2021), maximum primitive sets",
