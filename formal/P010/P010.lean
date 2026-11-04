@@ -1750,4 +1750,58 @@ theorem corePath_chain_even (n : ℕ) (hn : 12 ≤ n) :
     simp
   · exact coreUnits_good n hn
 
+
+/-!
+## Permutations of the largest-prime-factor class catalog
+-/
+
+/-- Concatenate the complete prime-factor classes indexed by a list
+of primes. -/
+noncomputable def classConcat (n : ℕ) (ps : List ℕ) : List ℕ :=
+  ps.flatMap (fun p => (primeClass n p).toList)
+
+theorem mem_classConcat (n m : ℕ) (ps : List ℕ) :
+    m ∈ classConcat n ps ↔
+      ∃ p ∈ ps, m ∈ primeClass n p := by
+  simp only [classConcat, List.mem_flatMap, Finset.mem_toList]
+
+/-- Distinct prime-factor classes have disjoint vertex lists. -/
+theorem primeClass_toList_disjoint (n p q : ℕ) (hpq : p ≠ q) :
+    List.Disjoint (primeClass n p).toList (primeClass n q).toList := by
+  apply List.disjoint_left.mpr
+  intro x hx hy
+  have hd := primeClass_disjoint n p q hpq
+  exact (Finset.disjoint_left.mp hd)
+    (Finset.mem_toList.mp hx) (Finset.mem_toList.mp hy)
+
+/-- Concatenating distinct prime-factor classes never repeats
+a vertex. -/
+theorem classConcat_nodup (n : ℕ) (ps : List ℕ) (hps : ps.Nodup) :
+    (classConcat n ps).Nodup := by
+  classical
+  apply List.nodup_flatMap.mpr
+  refine ⟨?_, ?_⟩
+  · intro p hp
+    exact Finset.nodup_toList _
+  · exact hps.imp (fun p q hpq => primeClass_toList_disjoint n p q hpq)
+
+/-- Reordering the indices merely permutes the concatenated class
+catalog. -/
+theorem classConcat_congr_perm (n : ℕ) (ps qs : List ℕ)
+    (hpq : ps.Perm qs) :
+    (classConcat n ps).Perm (classConcat n qs) := by
+  unfold classConcat
+  exact hpq.flatMap_right _
+
+/-- The union of prime-factor classes indexed by ps is precisely
+the set of vertices occurring in their concatenated lists. -/
+theorem classConcat_toFinset (n : ℕ) (ps : List ℕ) :
+    (classConcat n ps).toFinset =
+      ps.toFinset.biUnion (primeClass n) := by
+  classical
+  ext m
+  simp only [List.mem_toFinset, Finset.mem_biUnion, Finset.mem_toFinset,
+    mem_classConcat]
+  exact Iff.rfl
+
 end P010
