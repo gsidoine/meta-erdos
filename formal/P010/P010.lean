@@ -1399,7 +1399,7 @@ theorem unpaired_leaf_with_core_chain (p : ℕ) (hp : Nat.Prime p)
   apply join_prime_ended_paths 2 (by norm_num)
     [p, 2 * p] core (leaf_left_chain p hp) hc
   · intro x hx
-    have hxx : x = 2 * p := by simpa using hx
+    have hxx : 2 * p = x := by simpa using hx
     subst x
     exact ⟨p, by omega⟩
   · intro y hy
@@ -1415,7 +1415,7 @@ theorem paired_leaf_with_core_chain (p q : ℕ)
     NonCoprimeChain ([p, 2 * p] ++ core ++ [2 * q, q]) := by
   obtain ⟨u, v, hu, hv, h2u, h2v⟩ := he
   have hleft : NonCoprimeChain ([p, 2 * p] ++ core) :=
-    unpaired_leaf_with_core_chain p hp core hc he
+    unpaired_leaf_with_core_chain p hp core hc ⟨u, v, hu, hv, h2u, h2v⟩
   apply join_prime_ended_paths 2 (by norm_num)
     ([p, 2 * p] ++ core) [2 * q, q] hleft (leaf_right_chain q hq)
   · intro x hx
@@ -1425,7 +1425,10 @@ theorem paired_leaf_with_core_chain (p q : ℕ)
         · exact hv
         · intro h
           simp [h] at hu
-      simpa [hlast] using hx
+      have hx' : x ∈ (some v : Option ℕ) := by
+        rw [← hlast]
+        exact hx
+      simpa using hx'
     simpa [← heq] using h2v
   · intro y hy
     have heq : 2 * q = y := by simpa using hy
