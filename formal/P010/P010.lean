@@ -217,7 +217,7 @@ theorem smallWitness_certified (n : ℕ) (hnpos : 1 ≤ n) (hnmax : n ≤ 11) :
     IsPermutation n (smallWitness n) ∧
       adjacentCount (smallWitness n) =
         (if n ≤ 3 then n - 1 else target n) := by
-  interval_cases n <;> decide
+  interval_cases n <;> (unfold IsPermutation; decide)
 
 theorem small_upper_bound (n : ℕ) (hn4 : 4 ≤ n) (hn11 : n ≤ 11) :
     ∃ a : List ℕ, IsPermutation n a ∧ adjacentCount a = target n := by
