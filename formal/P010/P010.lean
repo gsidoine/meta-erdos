@@ -1310,7 +1310,7 @@ theorem landau_implies_attachment_capacity (n : ℕ) (hn : 12 ≤ n)
     simpa [pi, Nat.primesLE_card_eq_primeCounting] using
       (Finset.card_pos.mpr hh)
   have hdiff : pi (n / 2) - pi (n / 3) ≤ 2 * pi (n / 4) :=
-    (Nat.sub_le_self _ _).trans hlandau
+    by omega
   unfold evenUnitCount
   omega
 
