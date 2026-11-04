@@ -25,7 +25,7 @@ EXPECTED_EXCEPTIONS = [
 def weight_check():
     assert sum(WEIGHTS) == DEN
     for mask in ALL_MASKS:
-        numerator = DEN
+        numerator = 1
         denominator = 1
         for i, p in enumerate(PRIMES):
             numerator *= 1 if (mask & (1 << i)) else p - 1
