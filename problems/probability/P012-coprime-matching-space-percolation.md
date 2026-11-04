@@ -10,7 +10,7 @@
 <!-- /DOSSIER-SUMMARY -->
 
 **Fields:** probability, arithmetic graph theory, graph reconfiguration  
-**Research status:** candidate, unproved, not certified novel.
+**Research status:** reframe; the exact conditional observable is defined, but no specific arithmetic fragmentation regime is yet established.
 
 ## Model
 
@@ -33,6 +33,10 @@ as $n\to\infty$, and determine the **separation of scales** between (i) existenc
 One possible outcome is a phase diagram with a substantial regime where perfect matchings exist in abundance but their switch space is fragmented. Identify arithmetic causes for such fragmentation and compare with $G(n,n,p)$ and other deterministic host graph families.
 
 This statement asks for the phase diagram **without asserting that the connectivity event is monotone or has a sharp threshold**.
+
+## Mathematical scope
+
+The conditional event is well-defined, but an unrestricted request for its full nonmonotone phase diagram is not yet a separate sharp conjecture. General switch-chain fragmentation and frozen alternating edges are established phenomena. A stronger statement must specify an asymptotic density regime and isolate a mechanism genuinely caused by the coprimality host graph, rather than by arbitrary bipartite matching spaces.
 
 ## Why a separate problem?
 
