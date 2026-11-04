@@ -33,3 +33,9 @@ jobs:
       - name: Kernel-check P010 formalization
         working-directory: formal/P010
         run: lake build P010
+      - name: Check exact theorem's foundational assumptions
+        working-directory: formal/P010
+        run: |
+          set -o pipefail
+          lake env lean P010.lean 2>&1 | tee p010-axioms.log
+          grep -F "'P010.P010_exact' depends on axioms: [propext, Classical.choice, Quot.sound]" p010-axioms.log

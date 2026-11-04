@@ -100,47 +100,39 @@ $$
 
 vertex-disjoint paths with **both endpoints even**. (In the odd case, the leftover $M$ class merges with $C_3$, so the count remains $u=s+\lfloor m/2\rfloor$.)
 
-## Step 4 — Attach the one-ended classes
+## Step 4 — Pair the one-ended classes directly
 
-Let
+Concatenate all the two-even-ended units from Step 3 into a single path $U$. All connecting edges join even vertices. The path $U$ has two even endpoints and covers precisely the classes with $p\le n/3$. It is nonempty, since $2\in S$ for $n\ge12$.
+
+Write $L=\{q_1,\ldots,q_\ell\}$ for the primes in $(n/3,n/2]$, and put
 
 $$
 r=\max\{1,\lceil\ell/2\rceil\}.
 $$
 
-We require at least $r$ two-even-ended units. In fact $u\ge s\ge r$ for every $n\ge12$.
-
-For the last inequality, use the classical prime-counting inequality
+The classes indexed by $L$ are $C_q=\{q,2q\}$. If $q\ne q'$ are in $L$, the four vertices
 
 $$
-\pi(2x)\le 2\pi(x)\qquad (x\ge3).
+q,\ 2q,\ 2q',\ q'
 $$
 
-It is included in the known Rosser–Schoenfeld bounds for $x>10$ and can be checked directly on $3\le x\le10$; see [OEIS A060208](https://oeis.org/A060208) and its Rosser–Schoenfeld reference. Taking $x=n/4$ yields
+form a path in $H_n$: the first and last edges are multiples-of-prime edges, while the middle edge joins two even vertices. These paths are disjoint for disjoint pairs of leaf primes, since the classes $C_q$ partition their vertices.
+
+There are three cases.
+
+* **$\ell=0$.** Retain $U$ as one path.
+* **$\ell=2k>0$.** Partition $L$ into $k$ pairs. For $k-1$ pairs use the four-vertex paths above. For the last pair $\{q,q'\}$ use the path $q,2q,U,2q',q'$. Here $U$ denotes its full vertex sequence, inserted between the two even vertices. The two new connecting edges are even–even. This gives exactly $k$ paths.
+* **$\ell=2k+1$.** Partition $2k$ leaf primes into $k$ pairs, and let $q$ be the remaining prime. Use the $k$ four-vertex paths and one path $q,2q,U$. The final connection is even–even. This gives exactly $k+1$ paths.
+
+In each case, every class with largest prime factor at most $n/2$ is covered exactly once by **$r$ vertex-disjoint paths**. The remaining classes are the $A_n$ isolated large primes and the singleton vertex $1$. Consequently,
 
 $$
-\ell=B_n\le \pi(n/2)\le2\pi(n/4)=2s.
-$$
-
-Since $s\ge1$, we obtain $r\le s\le u$.
-
-Partition these $u$ two-even-ended units into exactly $r$ nonempty groups, and concatenate the units in each group. All inter-unit edges connect **even to even**, hence are edges of $H_n$. This yields $r$ paths with two even endpoints, covering precisely the classes with $p\le n/3$.
-
-There are $\ell=B_n$ classes $C_p=\{p,2p\}$ with $p\in L$. Each such path has exactly one even endpoint, so it can be **attached at an end** of one of the $r$ existing paths via an even–even edge. Since $\ell\le2r$, assign at most two such attachments per path, one on each end.
-
-All integers with largest prime factor at most $n/2$ are now covered by **exactly $r$** paths. Add $A_n$ singleton classes for $p>n/2$ and the singleton vertex 1. We obtain a path cover of $H_n$ with
-
-$$
-r+A_n+1
-$$
-
-paths. Hence
-
-$$
+\mathrm{pc}(H_n)\le r+A_n+1,
+\qquad
 h(n)\le A_n+r. \tag{2}
 $$
 
-Together with (1), this proves the theorem for **every $n\ge12$**. $\square$
+Together with (1), this proves the theorem for every $n\ge12$. No prime-counting inequality is required. $\square$
 
 ## Step 5 — Direct finite check for $4\le n\le11$
 
@@ -187,7 +179,6 @@ The theorem has a complete proof in this repository. Its historical priority has
 Most important historical antecedents:
 
 1. **P. Erdős, R. Freud and N. Hegyvári**, *Arithmetical properties of permutations of integers*, *Acta Math. Hung.* 41 (1983), 169–176: https://users.renyi.hu/~p_erdos/1983-02.pdf . They study the sizes of consecutive gcd and lcm values, **not in the located statements** the minimum number of gcd-one adjacencies.
-2. **Rosser and Schoenfeld** prime-counting inequality $\pi(2x)\le2\pi(x)$ for $x\ge3$; see [OEIS A060208](https://oeis.org/A060208) and https://math.stackexchange.com/questions/1738347/proving-that-pi2x-2-pix (which cites the bounds). A self-contained citation/verification of the small range $3\le x\le10$ is included above.
-3. Standard graph-theoretic *minimum path cover* is known and not claimed new. The theorem exploits the **special arithmetic partition** by largest prime divisor.
+2. Standard graph-theoretic *minimum path cover* is known and not claimed new. The theorem exploits the **special arithmetic partition** by largest prime divisor.
 
 **Provisional resolution:** P010's exact mathematics is resolved within this project, **subject to an adversarial independent proof check and historical novelty verification**. The P010 problem ID is preserved; do not create P011 as a replacement.

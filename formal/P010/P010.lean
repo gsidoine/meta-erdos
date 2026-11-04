@@ -3,14 +3,14 @@ import Mathlib
 /-!
 # P010: minimum number of coprime adjacencies
 
-This is a developing formalization of the theorem proved in
-`theorems/P010-exact-coprime-adjacencies.md`.
+This file proves the exact extremal formula for every n ≥ 4, with
+the unconditional theorem `P010_exact`. The proof combines a universal
+path-cover lower bound with an explicit largest-prime-factor path cover
+whose leaf-prime classes are paired directly. The latter construction
+does not require any prime-counting inequality.
 
-The submitted manuscript is not modified. The universal lower bound
-is formalized. The upper-bound construction remains partial: its
-largest-prime-factor classes, prescribed-endpoint paths and local bridges
-are certified, but the global assembly and prime-counting input remain.
-There is no axiom or `sorry` asserting the manuscript's main result.
+The submitted manuscript PDF is unchanged. The final theorem's
+assumptions are audited by `#print axioms P010_exact`.
 -/
 
 namespace P010
@@ -1319,5 +1319,1027 @@ theorem landau_implies_attachment_capacity (n : ℕ) (hn : 12 ≤ n)
 #print axioms paired_intermediate_classes_chain
 #print axioms intermediate_three_bridge_chain
 #print axioms landau_implies_attachment_capacity
+
+
+/-!
+## Even-ended core paths and leaf-class pairing
+
+An even-ended core path permits all leaf-prime classes to be assembled
+in pairs without invoking an inequality for the prime-counting function.
+-/
+
+/-- A nonempty path whose first and last vertices are even. -/
+def EvenEnded (a : List ℕ) : Prop :=
+  ∃ u v, a.head? = some u ∧ a.getLast? = some v ∧ 2 ∣ u ∧ 2 ∣ v
+
+/-- Concatenating two even-ended noncoprime paths preserves the
+noncoprime-chain property and both even endpoints. -/
+theorem append_even_ended (a b : List ℕ)
+    (ha : NonCoprimeChain a) (hb : NonCoprimeChain b)
+    (hea : EvenEnded a) (heb : EvenEnded b) :
+    NonCoprimeChain (a ++ b) ∧ EvenEnded (a ++ b) := by
+  obtain ⟨u, v, hau, hav, hu, hv⟩ := hea
+  obtain ⟨w, z, hbw, hbz, hw, hz⟩ := heb
+  have hchain : NonCoprimeChain (a ++ b) := by
+    apply join_even_ended_paths a b ha hb
+    · intro x hx
+      have heq : v = x := by simpa [hav] using hx
+      simpa [← heq] using hv
+    · intro y hy
+      have heq : w = y := by simpa [hbw] using hy
+      simpa [← heq] using hw
+  have hane : a ≠ [] := by
+    intro h
+    simp [h] at hau
+  have hbne : b ≠ [] := by
+    intro h
+    simp [h] at hbw
+  refine ⟨hchain, u, z, ?_, ?_, hu, hz⟩
+  · rw [List.head?_append_of_ne_nil a hane, hau]
+  · rw [List.getLast?_append_of_ne_nil a hbne, hbz]
+
+/-- For any prime p, the two-vertex leaf path p--2p is
+a simple noncoprime chain ending at an even vertex. -/
+theorem leaf_left_chain (p : ℕ) (hp : Nat.Prime p) :
+    NonCoprimeChain [p, 2 * p] := by
+  exact (List.isChain_pair).2
+    (common_prime_divisor_noncoprime hp (dvd_refl p)
+      ⟨2, by omega⟩)
+
+/-- The reverse leaf class ends at the prime vertex p. -/
+theorem leaf_right_chain (p : ℕ) (hp : Nat.Prime p) :
+    NonCoprimeChain [2 * p, p] := by
+  exact (List.isChain_pair).2
+    (common_prime_divisor_noncoprime hp
+      ⟨2, by omega⟩ (dvd_refl p))
+
+/-- Two distinct leaf-prime classes can form a noncoprime path
+without using any vertex of the even-ended core. -/
+theorem paired_leaf_classes_chain (p q : ℕ)
+    (hp : Nat.Prime p) (hq : Nat.Prime q) :
+    NonCoprimeChain [p, 2 * p, 2 * q, q] := by
+  simp only [NonCoprimeChain, List.isChain_cons_cons,
+    List.IsChain.singleton, and_true]
+  refine ⟨?_, ?_, ?_⟩
+  · exact common_prime_divisor_noncoprime hp (dvd_refl p)
+      ⟨2, by omega⟩
+  · exact common_prime_divisor_noncoprime
+      (by norm_num : Nat.Prime 2)
+      ⟨p, by omega⟩ ⟨q, by omega⟩
+  · exact common_prime_divisor_noncoprime hq
+      ⟨2, by omega⟩ (dvd_refl q)
+
+/-- An unmatched leaf class may be attached to the even-ended
+core path, with no use of prime-counting estimates. -/
+theorem unpaired_leaf_with_core_chain (p : ℕ) (hp : Nat.Prime p)
+    (core : List ℕ) (hc : NonCoprimeChain core)
+    (he : EvenEnded core) :
+    NonCoprimeChain ([p, 2 * p] ++ core) := by
+  obtain ⟨u, v, hu, hv, h2u, h2v⟩ := he
+  apply join_prime_ended_paths 2 (by norm_num)
+    [p, 2 * p] core (leaf_left_chain p hp) hc
+  · intro x hx
+    have hxx : 2 * p = x := by simpa using hx
+    subst x
+    exact ⟨p, by omega⟩
+  · intro y hy
+    have hyy : u = y := by simpa [hu] using hy
+    simpa [← hyy] using h2u
+
+/-- One paired leaf path can absorb the core by inserting it
+between its two even vertices. -/
+theorem paired_leaf_with_core_chain (p q : ℕ)
+    (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (core : List ℕ) (hc : NonCoprimeChain core)
+    (he : EvenEnded core) :
+    NonCoprimeChain ([p, 2 * p] ++ core ++ [2 * q, q]) := by
+  obtain ⟨u, v, hu, hv, h2u, h2v⟩ := he
+  have hleft : NonCoprimeChain ([p, 2 * p] ++ core) :=
+    unpaired_leaf_with_core_chain p hp core hc ⟨u, v, hu, hv, h2u, h2v⟩
+  apply join_prime_ended_paths 2 (by norm_num)
+    ([p, 2 * p] ++ core) [2 * q, q] hleft (leaf_right_chain q hq)
+  · intro x hx
+    have heq : v = x := by
+      have hlast : ([p, 2 * p] ++ core).getLast? = some v := by
+        rw [List.getLast?_append_of_ne_nil]
+        · exact hv
+        · intro h
+          simp [h] at hu
+      have hx' : x ∈ (some v : Option ℕ) := by
+        rw [← hlast]
+        exact hx
+      simpa using hx'
+    simpa [← heq] using h2v
+  · intro y hy
+    have heq : 2 * q = y := by simpa using hy
+    simpa [← heq] using (show 2 ∣ 2 * q from ⟨q, by omega⟩)
+
+
+/-- Pack leaf-prime classes into pairs, inserting the even-ended core
+in the final pair (or next to the final unpaired prime). No capacity
+hypothesis is needed: every pair uses its own even multiples. -/
+def packLeafClasses (core : List ℕ) : List ℕ → List (List ℕ)
+  | [] => [core]
+  | [p] => [[p, 2 * p] ++ core]
+  | [p, q] => [[p, 2 * p] ++ core ++ [2 * q, q]]
+  | p :: q :: r :: rs =>
+      [p, 2 * p, 2 * q, q] :: packLeafClasses core (r :: rs)
+
+/-- Pair packing creates the exact required number of nonisolated
+paths, regardless of how many leaf-prime classes are present. -/
+theorem packLeafClasses_length (core : List ℕ) :
+    ∀ leafs : List ℕ,
+      (packLeafClasses core leafs).length =
+        max 1 ((leafs.length + 1) / 2) := by
+  intro leafs
+  induction leafs using List.twoStepInduction with
+  | nil =>
+      norm_num [packLeafClasses]
+  | singleton p =>
+      norm_num [packLeafClasses]
+  | cons_cons p q rest ih =>
+      cases rest with
+      | nil =>
+          norm_num [packLeafClasses]
+      | cons r rs =>
+          have hi := ih
+          simp only [packLeafClasses, List.length_cons] at hi ⊢
+          omega
+
+/-- Every packed leaf component is a noncoprime path when the
+core is an even-ended noncoprime path. -/
+theorem packLeafClasses_chains (core : List ℕ)
+    (hc : NonCoprimeChain core) (he : EvenEnded core) :
+    ∀ (leafs : List ℕ),
+      (∀ p ∈ leafs, Nat.Prime p) →
+      ∀ path ∈ packLeafClasses core leafs, NonCoprimeChain path := by
+  intro leafs
+  induction leafs using List.twoStepInduction with
+  | nil =>
+      intro _ path hm
+      have hpath : path = core := by simpa [packLeafClasses] using hm
+      subst path
+      exact hc
+  | singleton p =>
+      intro hprime path hm
+      have hpath : path = [p, 2 * p] ++ core := by
+        simpa [packLeafClasses] using hm
+      subst path
+      exact unpaired_leaf_with_core_chain p
+        (hprime p (by simp)) core hc he
+  | cons_cons p q rest ih =>
+      intro hprime path hm
+      have hp : Nat.Prime p := hprime p (by simp)
+      have hq : Nat.Prime q := hprime q (by simp)
+      cases rest with
+      | nil =>
+          have hpath : path = [p, 2 * p] ++ core ++ [2 * q, q] := by
+            simpa [packLeafClasses] using hm
+          subst path
+          exact paired_leaf_with_core_chain p q hp hq core hc he
+      | cons r rs =>
+          have hrest : ∀ x ∈ r :: rs, Nat.Prime x := by
+            intro x hx
+            exact hprime x (by simp [hx])
+          have hmem : path ∈
+              [p, 2 * p, 2 * q, q] :: packLeafClasses core (r :: rs) := by
+            simpa only [packLeafClasses] using hm
+          rcases List.mem_cons.mp hmem with heq | ht
+          · subst path
+            exact paired_leaf_classes_chain p q hp hq
+          · exact ih hrest path ht
+
+
+/-- Split an arbitrary list into consecutive pairs and at most one
+unpaired final element. -/
+def splitPrimePairs : List ℕ → List (ℕ × ℕ) × Option ℕ
+  | [] => ([], none)
+  | [p] => ([], some p)
+  | p :: q :: rest =>
+      let split := splitPrimePairs rest
+      ((p, q) :: split.1, split.2)
+
+/-- The pair splitting loses no elements: unfolding the pairs and
+optional leftover reproduces the input list in its original order. -/
+theorem splitPrimePairs_recompose :
+    ∀ ps : List ℕ,
+      (splitPrimePairs ps).1.flatMap (fun pq => [pq.1, pq.2]) ++
+        (splitPrimePairs ps).2.toList = ps := by
+  intro ps
+  induction ps using List.twoStepInduction with
+  | nil => rfl
+  | singleton p => rfl
+  | cons_cons p q rest ih =>
+      simp only [splitPrimePairs, List.flatMap_cons, List.append_assoc]
+      simpa using congrArg (fun t => p :: q :: t) ih
+
+/-- The number of paired items in a split is exactly twice the
+number of resulting pairs, with one additional item if unmatched. -/
+theorem splitPrimePairs_length (ps : List ℕ) :
+    2 * (splitPrimePairs ps).1.length +
+      (splitPrimePairs ps).2.toList.length = ps.length := by
+  induction ps using List.twoStepInduction with
+  | nil => rfl
+  | singleton p => rfl
+  | cons_cons p q rest ih =>
+      simp only [splitPrimePairs, List.length_cons, Option.toList]
+        at ih ⊢
+      omega
+
+
+/-- Any nonempty list of even-ended noncoprime paths can be flattened
+to a single even-ended noncoprime path. -/
+theorem flatten_even_ended_units :
+    ∀ units : List (List ℕ), units ≠ [] →
+      (∀ unit ∈ units, NonCoprimeChain unit ∧ EvenEnded unit) →
+      NonCoprimeChain units.flatten ∧ EvenEnded units.flatten := by
+  intro units
+  induction units with
+  | nil =>
+      intro h
+      exact (h rfl).elim
+  | cons a rest ih =>
+      intro _ hgood
+      have ha : NonCoprimeChain a ∧ EvenEnded a :=
+        hgood a (by simp)
+      cases rest with
+      | nil =>
+          simpa using ha
+      | cons b bs =>
+          have hrest : ∀ unit ∈ b :: bs,
+              NonCoprimeChain unit ∧ EvenEnded unit := by
+            intro unit hu
+            exact hgood unit (by simp [hu])
+          have htail := ih (by simp) hrest
+          simpa only [List.flatten_cons] using
+            append_even_ended a (List.flatten (b :: bs))
+              ha.1 htail.1 ha.2 htail.2
+
+/-- The even-ended path through one small prime class. -/
+noncomputable def smallEvenUnit (n p : ℕ) : List ℕ :=
+  orderedPrimeClass n p (2 * p) (4 * p)
+
+/-- The even-ended path through two paired intermediate classes. -/
+noncomputable def intermediateEvenUnit (n : ℕ) (pq : ℕ × ℕ) : List ℕ :=
+  orderedPrimeClass n pq.1 (2 * pq.1) (3 * pq.1) ++
+    orderedPrimeClass n pq.2 (3 * pq.2) (2 * pq.2)
+
+/-- The class of prime 3, optionally bridged to one unpaired
+intermediate class. -/
+noncomputable def threeEvenUnit (n : ℕ) : Option ℕ → List ℕ
+  | none => orderedPrimeClass n 3 6 12
+  | some p =>
+      orderedPrimeClass n 3 6 9 ++
+        orderedPrimeClass n p (3 * p) (2 * p)
+
+/-- Small prime classes admit noncoprime even-ended paths. -/
+theorem smallEvenUnit_good (n p : ℕ) (hp : Nat.Prime p)
+    (hbound : 4 * p ≤ n) :
+    NonCoprimeChain (smallEvenUnit n p) ∧
+      EvenEnded (smallEvenUnit n p) := by
+  obtain ⟨hu, hv, _⟩ := small_prime_even_endpoints n p hp hbound
+  have hc : NonCoprimeChain (smallEvenUnit n p) :=
+    orderedPrimeClass_chain n p (2 * p) (4 * p) hp hu hv
+  refine ⟨hc, 2 * p, 4 * p, ?_, ?_, ?_, ?_⟩
+  · exact orderedPrimeClass_head n p (2 * p) (4 * p)
+  · exact orderedPrimeClass_last n p (2 * p) (4 * p)
+  · exact ⟨p, by omega⟩
+  · exact ⟨2 * p, by omega⟩
+
+/-- Paired intermediate classes admit noncoprime even-ended paths. -/
+theorem intermediateEvenUnit_good (n p q : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n)
+    (hq : q ∈ intermediatePrimes n) :
+    NonCoprimeChain (intermediateEvenUnit n (p, q)) ∧
+      EvenEnded (intermediateEvenUnit n (p, q)) := by
+  obtain ⟨hpp, hpquarter, hpthird⟩ := mem_intermediatePrimes.mp hp
+  obtain ⟨hqq, hqquarter, hqthird⟩ := mem_intermediatePrimes.mp hq
+  have hc := paired_intermediate_classes_chain n p q hn
+    hpp hqq hpquarter hpthird hqquarter hqthird
+  let a := orderedPrimeClass n p (2 * p) (3 * p)
+  let b := orderedPrimeClass n q (3 * q) (2 * q)
+  have ha : a.head? = some (2 * p) := orderedPrimeClass_head ..
+  have hb : b.getLast? = some (2 * q) := orderedPrimeClass_last ..
+  have hane : a ≠ [] := by intro h; simp [h] at ha
+  have hbne : b ≠ [] := by intro h; simp [h] at hb
+  refine ⟨hc, 2 * p, 2 * q, ?_, ?_, ?_, ?_⟩
+  · change (a ++ b).head? = some (2 * p)
+    rw [List.head?_append_of_ne_nil a hane]
+    exact ha
+  · change (a ++ b).getLast? = some (2 * q)
+    rw [List.getLast?_append_of_ne_nil a hbne]
+    exact hb
+  · exact ⟨p, by omega⟩
+  · exact ⟨q, by omega⟩
+
+/-- With no unmatched intermediate class, class 3 itself provides
+an even-ended core unit. -/
+theorem threeEvenUnit_none_good (n : ℕ) (hn : 12 ≤ n) :
+    NonCoprimeChain (threeEvenUnit n none) ∧
+      EvenEnded (threeEvenUnit n none) := by
+  have hp : Nat.Prime 3 := by norm_num
+  have hh := smallEvenUnit_good n 3 hp (by omega)
+  simpa [threeEvenUnit, smallEvenUnit, show 2 * 3 = 6 by omega,
+    show 4 * 3 = 12 by omega] using hh
+
+/-- With one unmatched intermediate class, the prime-3 bridge
+remains even-ended. -/
+theorem threeEvenUnit_some_good (n p : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n) :
+    NonCoprimeChain (threeEvenUnit n (some p)) ∧
+      EvenEnded (threeEvenUnit n (some p)) := by
+  obtain ⟨hpp, hquarter, hthird⟩ := mem_intermediatePrimes.mp hp
+  have hc := intermediate_three_bridge_chain n p hn hpp hquarter hthird
+  let a := orderedPrimeClass n 3 6 9
+  let b := orderedPrimeClass n p (3 * p) (2 * p)
+  have ha : a.head? = some 6 := orderedPrimeClass_head ..
+  have hb : b.getLast? = some (2 * p) := orderedPrimeClass_last ..
+  have hane : a ≠ [] := by intro h; simp [h] at ha
+  have hbne : b ≠ [] := by intro h; simp [h] at hb
+  refine ⟨hc, 6, 2 * p, ?_, ?_, ?_, ?_⟩
+  · change (a ++ b).head? = some 6
+    rw [List.head?_append_of_ne_nil a hane]
+    exact ha
+  · change (a ++ b).getLast? = some (2 * p)
+    rw [List.getLast?_append_of_ne_nil a hbne]
+    exact hb
+  · exact ⟨3, by norm_num⟩
+  · exact ⟨p, by omega⟩
+
+
+/-- Every member of a pair produced by splitting belongs to the
+original list. -/
+theorem splitPrimePairs_pair_mem (ps : List ℕ) (pair : ℕ × ℕ)
+    (hp : pair ∈ (splitPrimePairs ps).1) :
+    pair.1 ∈ ps ∧ pair.2 ∈ ps := by
+  have hrec := splitPrimePairs_recompose ps
+  have hleft : pair.1 ∈
+      (splitPrimePairs ps).1.flatMap (fun pq => [pq.1, pq.2]) := by
+    apply List.mem_flatMap.mpr
+    exact ⟨pair, hp, by simp⟩
+  have hright : pair.2 ∈
+      (splitPrimePairs ps).1.flatMap (fun pq => [pq.1, pq.2]) := by
+    apply List.mem_flatMap.mpr
+    exact ⟨pair, hp, by simp⟩
+  constructor
+  · rw [← hrec]
+    exact List.mem_append.mpr (Or.inl hleft)
+  · rw [← hrec]
+    exact List.mem_append.mpr (Or.inl hright)
+
+/-- The optional unmatched element of a split belongs to its input. -/
+theorem splitPrimePairs_spare_mem (ps : List ℕ) (p : ℕ)
+    (hp : (splitPrimePairs ps).2 = some p) : p ∈ ps := by
+  rw [← splitPrimePairs_recompose ps]
+  apply List.mem_append.mpr
+  right
+  simp [hp]
+
+/-- The list of core units, starting with the class of prime 3.
+The optional spare intermediate class is included in this first unit.
+Remaining small classes and paired intermediate classes follow. -/
+noncomputable def coreUnits (n : ℕ) : List (List ℕ) := by
+  classical
+  let mids := splitPrimePairs (intermediatePrimes n).toList
+  exact threeEvenUnit n mids.2 ::
+      (((n / 4).primesLE.erase 3).toList.map (smallEvenUnit n) ++
+        mids.1.map (intermediateEvenUnit n))
+
+/-- Concatenation of the core units. -/
+noncomputable def corePath (n : ℕ) : List ℕ :=
+  (coreUnits n).flatten
+
+/-- Every unit of the core is a noncoprime even-ended path. -/
+theorem coreUnits_good (n : ℕ) (hn : 12 ≤ n) :
+    ∀ unit ∈ coreUnits n, NonCoprimeChain unit ∧ EvenEnded unit := by
+  classical
+  intro unit hu
+  simp only [coreUnits, List.mem_cons, List.mem_append,
+    List.mem_map] at hu
+  rcases hu with hfirst | hsmall | hpaired
+  · subst unit
+    cases hs : (splitPrimePairs (intermediatePrimes n).toList).2 with
+    | none =>
+        exact threeEvenUnit_none_good n hn
+    | some p =>
+        have hp : p ∈ intermediatePrimes n := by
+          apply Finset.mem_toList.mp
+          exact splitPrimePairs_spare_mem
+            (intermediatePrimes n).toList p hs
+        exact threeEvenUnit_some_good n p hn hp
+  · obtain ⟨p, hp, hunit⟩ := hsmall
+    subst unit
+    have hmem : p ∈ (n / 4).primesLE :=
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hp)).2
+    obtain ⟨hpn, hprime⟩ := Nat.mem_primesLE.mp hmem
+    exact smallEvenUnit_good n p hprime (by omega)
+  · obtain ⟨pair, hpair, hunit⟩ := hpaired
+    subst unit
+    obtain ⟨hp, hq⟩ := splitPrimePairs_pair_mem
+      (intermediatePrimes n).toList pair hpair
+    exact intermediateEvenUnit_good n pair.1 pair.2 hn
+      (Finset.mem_toList.mp hp) (Finset.mem_toList.mp hq)
+
+/-- The assembled core path is nonempty, noncoprime, and even-ended,
+with no appeal to the Landau prime-counting inequality. -/
+theorem corePath_chain_even (n : ℕ) (hn : 12 ≤ n) :
+    NonCoprimeChain (corePath n) ∧ EvenEnded (corePath n) := by
+  unfold corePath
+  apply flatten_even_ended_units (coreUnits n)
+  · unfold coreUnits
+    simp
+  · exact coreUnits_good n hn
+
+
+/-!
+## Permutations of the largest-prime-factor class catalog
+-/
+
+/-- Concatenate the complete prime-factor classes indexed by a list
+of primes. -/
+noncomputable def classConcat (n : ℕ) (ps : List ℕ) : List ℕ :=
+  ps.flatMap (fun p => (primeClass n p).toList)
+
+theorem mem_classConcat (n m : ℕ) (ps : List ℕ) :
+    m ∈ classConcat n ps ↔
+      ∃ p ∈ ps, m ∈ primeClass n p := by
+  simp only [classConcat, List.mem_flatMap, Finset.mem_toList]
+
+/-- Distinct prime-factor classes have disjoint vertex lists. -/
+theorem primeClass_toList_disjoint (n p q : ℕ) (hpq : p ≠ q) :
+    List.Disjoint (primeClass n p).toList (primeClass n q).toList := by
+  apply List.disjoint_left.mpr
+  intro x hx hy
+  have hd := primeClass_disjoint n p q hpq
+  exact (Finset.disjoint_left.mp hd)
+    (Finset.mem_toList.mp hx) (Finset.mem_toList.mp hy)
+
+/-- Concatenating distinct prime-factor classes never repeats
+a vertex. -/
+theorem classConcat_nodup (n : ℕ) (ps : List ℕ) (hps : ps.Nodup) :
+    (classConcat n ps).Nodup := by
+  classical
+  apply List.nodup_flatMap.mpr
+  refine ⟨?_, ?_⟩
+  · intro p hp
+    exact Finset.nodup_toList _
+  · exact hps.imp (fun {_ _} hpq => primeClass_toList_disjoint n _ _ hpq)
+
+/-- Reordering the indices merely permutes the concatenated class
+catalog. -/
+theorem classConcat_congr_perm (n : ℕ) (ps qs : List ℕ)
+    (hpq : ps.Perm qs) :
+    (classConcat n ps).Perm (classConcat n qs) := by
+  unfold classConcat
+  exact hpq.flatMap_right _
+
+/-- The union of prime-factor classes indexed by ps is precisely
+the set of vertices occurring in their concatenated lists. -/
+theorem classConcat_toFinset (n : ℕ) (ps : List ℕ) :
+    (classConcat n ps).toFinset =
+      ps.toFinset.biUnion (primeClass n) := by
+  classical
+  ext m
+  simp only [List.mem_toFinset, Finset.mem_biUnion, mem_classConcat]
+
+
+/-- Small and intermediate primes partition the primes at most n/3. -/
+theorem small_intermediate_partition (n : ℕ) :
+    (n / 4).primesLE ∪ intermediatePrimes n =
+      (n / 3).primesLE := by
+  ext p
+  simp only [Finset.mem_union, Nat.mem_primesLE, mem_intermediatePrimes]
+  constructor
+  · rintro (⟨hle, hp⟩ | ⟨hp, _, hle⟩)
+    · exact ⟨by omega, hp⟩
+    · exact ⟨hle, hp⟩
+  · rintro ⟨hle, hp⟩
+    by_cases hs : p ≤ n / 4
+    · exact Or.inl ⟨hs, hp⟩
+    · exact Or.inr ⟨hp, by omega, hle⟩
+
+/-- The three disjoint arithmetic prime ranges partition all
+primes up to n. -/
+theorem prime_segments_partition (n : ℕ) :
+    (n / 3).primesLE ∪ middlePrimes n ∪ largePrimes n =
+      n.primesLE := by
+  ext p
+  simp only [Finset.mem_union, Nat.mem_primesLE,
+    mem_middlePrimes, mem_largePrimes]
+  constructor
+  · rintro ((⟨hle, hp⟩ | ⟨hp, _, hle⟩) | ⟨hp, _, hle⟩)
+    · exact ⟨by omega, hp⟩
+    · exact ⟨by omega, hp⟩
+    · exact ⟨hle, hp⟩
+  · rintro ⟨hle, hp⟩
+    by_cases ht : p ≤ n / 3
+    · exact Or.inl (Or.inl ⟨ht, hp⟩)
+    by_cases hh : p ≤ n / 2
+    · exact Or.inl (Or.inr ⟨hp, by omega, hh⟩)
+    · exact Or.inr ⟨hp, by omega, hle⟩
+
+/-- The canonical list of prime indices represented in the core. -/
+noncomputable def coreIndices (n : ℕ) : List ℕ :=
+  3 :: (((n / 4).primesLE.erase 3).toList ++
+    (intermediatePrimes n).toList)
+
+theorem coreIndices_nodup (n : ℕ) (hn : 12 ≤ n) :
+    (coreIndices n).Nodup := by
+  classical
+  unfold coreIndices
+  apply List.nodup_cons.mpr
+  constructor
+  · simp only [List.mem_append, Finset.mem_toList, Finset.mem_erase,
+        not_or]
+    constructor
+    · simp
+    · intro hm
+      have hgt := (mem_intermediatePrimes.mp hm).2.1
+      omega
+  · apply List.nodup_append'.mpr
+    refine ⟨Finset.nodup_toList _, Finset.nodup_toList _, ?_⟩
+    apply List.disjoint_left.mpr
+    intro p hp hq
+    have hsmall : p ≤ n / 4 :=
+      (Nat.mem_primesLE.mp
+        (Finset.mem_erase.mp (Finset.mem_toList.mp hp)).2).1
+    have hlarge : n / 4 < p :=
+      (mem_intermediatePrimes.mp (Finset.mem_toList.mp hq)).2.1
+    omega
+
+theorem coreIndices_toFinset (n : ℕ) (hn : 12 ≤ n) :
+    (coreIndices n).toFinset = (n / 3).primesLE := by
+  classical
+  have hthree : 3 ∈ (n / 4).primesLE :=
+    Nat.mem_primesLE.mpr ⟨by omega, by norm_num⟩
+  have hclean : insert 3 ((n / 4).primesLE.erase 3) =
+      (n / 4).primesLE := Finset.insert_erase hthree
+  rw [coreIndices]
+  simp only [List.toFinset_cons, List.toFinset_append,
+    Finset.toList_toFinset]
+  rw [← Finset.insert_union]
+  rw [hclean]
+  exact small_intermediate_partition n
+
+/-- The core prime-index list is a permutation of all primes ≤ n/3. -/
+theorem coreIndices_perm (n : ℕ) (hn : 12 ≤ n) :
+    (coreIndices n).Perm (n / 3).primesLE.toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (coreIndices_nodup n hn) (Finset.nodup_toList _)
+  simpa using coreIndices_toFinset n hn
+
+
+/-- Concatenating all largest-prime-factor classes yields precisely
+the integers 2,...,n, without repetition. -/
+theorem classConcat_all_primes (n : ℕ) :
+    (classConcat n n.primesLE.toList).Perm
+      (Finset.Icc 2 n).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (classConcat_nodup n _ (Finset.nodup_toList _))
+    (Finset.nodup_toList _)
+  simpa only [classConcat_toFinset, Finset.toList_toFinset] using
+    primeClass_partition n
+
+theorem range_one_toFinset (n : ℕ) :
+    (List.range' 1 n).toFinset = Finset.Icc 1 n := by
+  classical
+  ext m
+  simp only [List.mem_toFinset, Finset.mem_Icc]
+  constructor
+  · intro hm
+    obtain ⟨i, hi, heq⟩ := List.mem_range'.mp hm
+    omega
+  · rintro ⟨hpos, hle⟩
+    apply List.mem_range'.mpr
+    refine ⟨m - 1, by omega, ?_⟩
+    omega
+
+theorem range_one_perm_Icc (n : ℕ) :
+    (List.range' 1 n).Perm (Finset.Icc 1 n).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (List.nodup_range') (Finset.nodup_toList _)
+  rw [range_one_toFinset, Finset.toList_toFinset]
+
+
+/-- Small-class units enumerate their whole class exactly once. -/
+theorem smallEvenUnit_perm (n p : ℕ) (hp : Nat.Prime p)
+    (hbound : 4 * p ≤ n) :
+    (smallEvenUnit n p).Perm (primeClass n p).toList := by
+  obtain ⟨hu, hv, hne⟩ := small_prime_even_endpoints n p hp hbound
+  exact orderedPrimeClass_perm n p (2 * p) (4 * p) hu hv hne
+
+/-- A paired intermediate unit enumerates both of its classes. -/
+theorem intermediateEvenUnit_perm (n p q : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n)
+    (hq : q ∈ intermediatePrimes n) :
+    (intermediateEvenUnit n (p, q)).Perm (classConcat n [p, q]) := by
+  obtain ⟨hpp, hpquarter, hpthird⟩ := mem_intermediatePrimes.mp hp
+  obtain ⟨hqq, hqquarter, hqthird⟩ := mem_intermediatePrimes.mp hq
+  obtain ⟨hp2, hp3, hpneq⟩ :=
+    intermediate_prime_endpoints n p hn hpp hpquarter hpthird
+  obtain ⟨hq2, hq3, hqneq⟩ :=
+    intermediate_prime_endpoints n q hn hqq hqquarter hqthird
+  have h1 := orderedPrimeClass_perm n p (2 * p) (3 * p)
+    hp2 hp3 hpneq
+  have h2 := orderedPrimeClass_perm n q (3 * q) (2 * q)
+    hq3 hq2 hqneq.symm
+  simpa [intermediateEvenUnit, classConcat] using h1.append h2
+
+/-- The prime-3 unit without an unmatched intermediate class
+enumerates just its own class. -/
+theorem threeEvenUnit_none_perm (n : ℕ) (hn : 12 ≤ n) :
+    (threeEvenUnit n none).Perm (classConcat n [3]) := by
+  have hp : Nat.Prime 3 := by norm_num
+  have h := smallEvenUnit_perm n 3 hp (by omega)
+  simpa [threeEvenUnit, smallEvenUnit, classConcat] using h
+
+/-- The prime-3 bridge with one unmatched class enumerates both
+classes exactly once. -/
+theorem threeEvenUnit_some_perm (n p : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n) :
+    (threeEvenUnit n (some p)).Perm (classConcat n [3, p]) := by
+  obtain ⟨hpp, hquarter, hthird⟩ := mem_intermediatePrimes.mp hp
+  obtain ⟨h6, h9, hneq⟩ := three_class_bridge_vertices n hn
+  obtain ⟨h2, h3, hneq2⟩ :=
+    intermediate_prime_endpoints n p hn hpp hquarter hthird
+  have h1 := orderedPrimeClass_perm n 3 6 9 h6 h9 hneq
+  have h2 := orderedPrimeClass_perm n p (3 * p) (2 * p)
+    h3 h2 hneq2.symm
+  simpa [threeEvenUnit, classConcat] using h1.append h2
+
+/-- Pair-unit concatenation is a permutation of the catalogs for
+all primes occurring in the pairs, in pair order. -/
+theorem intermediateUnits_perm (n : ℕ) (pairs : List (ℕ × ℕ))
+    (hn : 12 ≤ n)
+    (hpairs : ∀ pair ∈ pairs,
+      pair.1 ∈ intermediatePrimes n ∧
+        pair.2 ∈ intermediatePrimes n) :
+    (pairs.map (intermediateEvenUnit n)).flatten.Perm
+      (classConcat n (pairs.flatMap (fun pq => [pq.1, pq.2]))) := by
+  induction pairs with
+  | nil => simp [classConcat]
+  | cons pq rest ih =>
+      have hpair := hpairs pq (by simp)
+      have htail : ∀ pair ∈ rest,
+          pair.1 ∈ intermediatePrimes n ∧
+            pair.2 ∈ intermediatePrimes n := by
+        intro pair hp
+        exact hpairs pair (by simp [hp])
+      have hunit := intermediateEvenUnit_perm n pq.1 pq.2
+        hn hpair.1 hpair.2
+      have hrest := ih htail
+      simpa [classConcat, List.map_cons, List.flatten_cons,
+        List.flatMap_cons] using hunit.append hrest
+
+/-- Small-unit concatenation enumerates exactly the classes
+indexed by the prescribed small-prime list. -/
+theorem smallUnits_perm (n : ℕ) (small : List ℕ)
+    (hsmall : ∀ p ∈ small, Nat.Prime p ∧ 4 * p ≤ n) :
+    (small.map (smallEvenUnit n)).flatten.Perm (classConcat n small) := by
+  change (small.flatMap (smallEvenUnit n)).Perm
+    (small.flatMap (fun p => (primeClass n p).toList))
+  apply List.Perm.flatMap_left
+  intro p hp
+  obtain ⟨hprime, hbound⟩ := hsmall p hp
+  exact smallEvenUnit_perm n p hprime hbound
+
+
+/-- The complete core path is a permutation of the concatenated
+classes indexed by all primes at most n/3. -/
+theorem corePath_perm_classConcat (n : ℕ) (hn : 12 ≤ n) :
+    (corePath n).Perm (classConcat n (n / 3).primesLE.toList) := by
+  classical
+  let mids := (intermediatePrimes n).toList
+  let sp := splitPrimePairs mids
+  let small := ((n / 4).primesLE.erase 3).toList
+  let pairIdx := sp.1.flatMap (fun pq => [pq.1, pq.2])
+
+  have hthree : (threeEvenUnit n sp.2).Perm
+      (classConcat n (3 :: sp.2.toList)) := by
+    cases hopt : sp.2 with
+    | none =>
+        simpa [hopt] using threeEvenUnit_none_perm n hn
+    | some p =>
+        have hp : p ∈ intermediatePrimes n := by
+          apply Finset.mem_toList.mp
+          exact splitPrimePairs_spare_mem mids p (by simpa [sp, mids] using hopt)
+        simpa [hopt] using threeEvenUnit_some_perm n p hn hp
+
+  have hsmall : ∀ p ∈ small, Nat.Prime p ∧ 4 * p ≤ n := by
+    intro p hp
+    have hmem : p ∈ (n / 4).primesLE :=
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hp)).2
+    obtain ⟨hle, hprime⟩ := Nat.mem_primesLE.mp hmem
+    exact ⟨hprime, by omega⟩
+  have hsmallPerm : (small.map (smallEvenUnit n)).flatten.Perm
+      (classConcat n small) :=
+    smallUnits_perm n small hsmall
+
+  have hpairs : ∀ pq ∈ sp.1,
+      pq.1 ∈ intermediatePrimes n ∧ pq.2 ∈ intermediatePrimes n := by
+    intro pq hp
+    obtain ⟨hp1, hp2⟩ :=
+      splitPrimePairs_pair_mem mids pq (by simpa [sp, mids] using hp)
+    exact ⟨Finset.mem_toList.mp hp1, Finset.mem_toList.mp hp2⟩
+  have hpairsPerm : (sp.1.map (intermediateEvenUnit n)).flatten.Perm
+      (classConcat n pairIdx) := by
+    simpa [pairIdx] using intermediateUnits_perm n sp.1 hn hpairs
+
+  have hsum : (corePath n).Perm
+      (classConcat n ((3 :: sp.2.toList) ++ small ++ pairIdx)) := by
+    have hh := hthree.append (hsmallPerm.append hpairsPerm)
+    simpa [corePath, coreUnits, mids, sp, small, pairIdx,
+      classConcat, List.flatMap_append, List.flatten_append,
+      List.map_append, List.append_assoc] using hh
+
+  have hrecompose : pairIdx ++ sp.2.toList = mids := by
+    simpa [pairIdx, sp, mids] using splitPrimePairs_recompose mids
+  have hindices : ((3 :: sp.2.toList) ++ small ++ pairIdx).Perm
+      (coreIndices n) := by
+    have hswap : (sp.2.toList ++ (small ++ pairIdx)).Perm
+        ((small ++ pairIdx) ++ sp.2.toList) := List.perm_append_comm
+    have hswap' : (sp.2.toList ++ small ++ pairIdx).Perm
+        (small ++ mids) := by
+      simpa [List.append_assoc, hrecompose] using hswap
+    simpa [coreIndices, small, mids, List.append_assoc] using
+      hswap'.cons 3
+
+  have hcore : (corePath n).Perm (classConcat n (coreIndices n)) :=
+    hsum.trans (classConcat_congr_perm n _ _ hindices)
+  exact hcore.trans (classConcat_congr_perm n _ _
+    (coreIndices_perm n hn))
+
+/-- No vertex is repeated in the core path. -/
+theorem corePath_nodup (n : ℕ) (hn : 12 ≤ n) :
+    (corePath n).Nodup := by
+  have hd : (classConcat n (n / 3).primesLE.toList).Nodup :=
+    classConcat_nodup n _ (Finset.nodup_toList _)
+  exact (corePath_perm_classConcat n hn).nodup_iff.mpr hd
+
+
+/-- Leaf-class packing preserves the multiset of all core vertices
+and all vertices p,2p from the leaf list. -/
+theorem packLeafClasses_perm (core : List ℕ) :
+    ∀ leafs : List ℕ,
+      (packLeafClasses core leafs).flatten.Perm
+        (core ++ leafs.flatMap (fun p => [p, 2 * p])) := by
+  intro leafs
+  induction leafs using List.twoStepInduction with
+  | nil =>
+      simp [packLeafClasses]
+  | singleton p =>
+      simpa [packLeafClasses] using
+        (List.perm_append_comm :
+          ([p, 2 * p] ++ core).Perm (core ++ [p, 2 * p]))
+  | cons_cons p q rest ih =>
+      have hswap : ([2 * q, q] : List ℕ).Perm [q, 2 * q] :=
+        List.Perm.swap _ _ []
+      have hswap' : ([p, 2 * p, 2 * q, q] : List ℕ).Perm
+          [p, 2 * p, q, 2 * q] := (hswap.cons (2 * p)).cons p
+      cases rest with
+      | nil =>
+          have hmove : ([p, 2 * p] ++ core).Perm
+              (core ++ [p, 2 * p]) := List.perm_append_comm
+          have hresult := (hmove.append_right [2 * q, q]).trans
+              (hswap.append_left (core ++ [p, 2 * p]))
+          simpa [packLeafClasses, List.append_assoc] using hresult
+      | cons r rs =>
+          have hr := ih
+          have hfirst := hswap'.append hr
+          have hmove : ([p, 2 * p, q, 2 * q] ++ core).Perm
+              (core ++ [p, 2 * p, q, 2 * q]) :=
+            List.perm_append_comm
+          have hresult := hfirst.trans
+            (by simpa [List.append_assoc] using
+              hmove.append_right ((r :: rs).flatMap
+                (fun t => [t, 2 * t])))
+          simpa [packLeafClasses, List.flatMap_cons,
+            List.append_assoc] using hresult
+
+
+/-!
+## Leaf and isolated classes in the full cover
+-/
+
+/-- The two-vertex list of a middle-range prime enumerates its class. -/
+theorem leafClass_perm (n p : ℕ) (hp : p ∈ middlePrimes n) :
+    ([p, 2 * p] : List ℕ).Perm (primeClass n p).toList := by
+  obtain ⟨hpp, hthird, hhalf⟩ := mem_middlePrimes.mp hp
+  have hclass := leaf_prime_class_eq n p hpp hthird hhalf
+  have hneq : p ≠ 2 * p := by
+    have := hpp.two_le
+    omega
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (by simp [hneq]) (Finset.nodup_toList _)
+  simp [hclass]
+
+theorem leafClasses_perm (n : ℕ) (leaves : List ℕ)
+    (hleaves : ∀ p ∈ leaves, p ∈ middlePrimes n) :
+    (leaves.flatMap (fun p => [p, 2 * p])).Perm
+      (classConcat n leaves) := by
+  unfold classConcat
+  exact List.Perm.flatMap_left leaves
+    (fun p hp => leafClass_perm n p (hleaves p hp))
+
+/-- The singleton large-prime path enumerates its class. -/
+theorem isolatedLargeClass_perm (n p : ℕ) (hp : p ∈ largePrimes n) :
+    ([p] : List ℕ).Perm (primeClass n p).toList := by
+  obtain ⟨hpp, hhalf, hle⟩ := mem_largePrimes.mp hp
+  rw [large_prime_class_eq n p hpp hhalf hle]
+  simp
+
+/-- Large-prime singleton paths enumerate precisely the large classes. -/
+theorem largeSingletons_perm (n : ℕ) :
+    ((largePrimes n).toList.map (fun p => [p])).flatten.Perm
+      (classConcat n (largePrimes n).toList) := by
+  classical
+  change ((largePrimes n).toList.flatMap (fun p => [p])).Perm
+    ((largePrimes n).toList.flatMap (fun p => (primeClass n p).toList))
+  apply List.Perm.flatMap_left
+  intro p hp
+  exact isolatedLargeClass_perm n p (Finset.mem_toList.mp hp)
+
+/-- Every prime ≤ n belongs to exactly one of the core, middle,
+or large prime-index ranges. -/
+theorem segments_index_perm (n : ℕ) :
+    ((n / 3).primesLE.toList ++
+      (middlePrimes n).toList ++
+      (largePrimes n).toList).Perm n.primesLE.toList := by
+  classical
+  have hn : (((n / 3).primesLE.toList ++
+      (middlePrimes n).toList) ++
+      (largePrimes n).toList).Nodup := by
+    apply List.nodup_append'.mpr
+    constructor
+    · apply List.nodup_append'.mpr
+      refine ⟨Finset.nodup_toList _, Finset.nodup_toList _, ?_⟩
+      apply List.disjoint_left.mpr
+      intro p hp hq
+      have hle := (Nat.mem_primesLE.mp (Finset.mem_toList.mp hp)).1
+      have hgt := (mem_middlePrimes.mp (Finset.mem_toList.mp hq)).2.1
+      omega
+    constructor
+    · exact Finset.nodup_toList _
+    · apply List.disjoint_left.mpr
+      intro p hp hq
+      have hbig := (mem_largePrimes.mp (Finset.mem_toList.mp hq)).2.1
+      rcases List.mem_append.mp hp with hs | hm
+      · have hle := (Nat.mem_primesLE.mp (Finset.mem_toList.mp hs)).1
+        omega
+      · have hle := (mem_middlePrimes.mp (Finset.mem_toList.mp hm)).2.2
+        omega
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (by simpa [List.append_assoc] using hn) (Finset.nodup_toList _)
+  simp only [List.toFinset_append, Finset.toList_toFinset]
+  simpa [Finset.union_assoc] using prime_segments_partition n
+
+
+/-!
+## Complete optimal noncoprime path cover
+-/
+
+/-- Isolated vertex 1, the isolated large-prime classes, and the
+directly paired leaf classes around the even-ended core. -/
+noncomputable def optimalCover (n : ℕ) : List (List ℕ) :=
+  [[1]] ++
+    (largePrimes n).toList.map (fun p => [p]) ++
+    packLeafClasses (corePath n) (middlePrimes n).toList
+
+/-- Every component of the proposed optimal cover is a
+noncoprime chain. -/
+theorem optimalCover_chains (n : ℕ) (hn : 12 ≤ n) :
+    ∀ path ∈ optimalCover n, NonCoprimeChain path := by
+  classical
+  obtain ⟨hcore, heven⟩ := corePath_chain_even n hn
+  have hpack : ∀ path ∈
+      packLeafClasses (corePath n) (middlePrimes n).toList,
+      NonCoprimeChain path := by
+    apply packLeafClasses_chains (corePath n) hcore heven
+    intro p hp
+    exact (mem_middlePrimes.mp (Finset.mem_toList.mp hp)).1
+  intro path hp
+  simp only [optimalCover, List.mem_append, List.mem_singleton,
+    List.mem_map] at hp
+  rcases hp with (h1 | ⟨p, _, hpath⟩) | hpackmem
+  · subst path
+    simp [NonCoprimeChain]
+  · subst path
+    simp [NonCoprimeChain]
+  · exact hpack path hpackmem
+
+/-- The cover has exactly the number of components prescribed
+by the P010 formula, plus the singleton vertex 1. -/
+theorem optimalCover_length (n : ℕ) :
+    (optimalCover n).length =
+      1 + (largePrimes n).card +
+        max 1 (((middlePrimes n).card + 1) / 2) := by
+  classical
+  have h := packLeafClasses_length (corePath n)
+    (middlePrimes n).toList
+  simp only [optimalCover, List.length_append, List.length_singleton,
+    List.length_map, Finset.length_toList] at *
+  omega
+
+/-- Adding vertex 1 to the interval [2,n] gives a permutation of
+the interval [1,n], for n≥1. -/
+theorem one_Icc_two_perm_Icc_one (n : ℕ) (hn : 1 ≤ n) :
+    (1 :: (Finset.Icc 2 n).toList).Perm
+      (Finset.Icc 1 n).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (by simp [Finset.nodup_toList]) (Finset.nodup_toList _)
+  ext x
+  simp only [List.toFinset_cons, Finset.toList_toFinset,
+    Finset.mem_insert, Finset.mem_Icc]
+  omega
+
+/-- The assembled cover uses each integer in [1,n] exactly once. -/
+theorem optimalCover_isPermutation (n : ℕ) (hn : 12 ≤ n) :
+    IsPermutation n (optimalCover n).flatten := by
+  classical
+  let big := (largePrimes n).toList
+  let small := (n / 3).primesLE.toList
+  let leaves := (middlePrimes n).toList
+
+  have hlarge : (big.map (fun p => [p])).flatten.Perm
+      (classConcat n big) := largeSingletons_perm n
+
+  have hmiddle : ∀ p ∈ leaves, p ∈ middlePrimes n := by
+    intro p hp
+    exact Finset.mem_toList.mp hp
+  have hleaf := leafClasses_perm n leaves hmiddle
+  have hcore := corePath_perm_classConcat n hn
+  have hpack : (packLeafClasses (corePath n) leaves).flatten.Perm
+      (classConcat n small ++ classConcat n leaves) := by
+    have hpreserve := packLeafClasses_perm (corePath n) leaves
+    exact hpreserve.trans (hcore.append hleaf)
+
+  have hall : (optimalCover n).flatten.Perm
+      (1 :: (classConcat n big ++
+        (classConcat n small ++ classConcat n leaves))) := by
+    have h := (hlarge.append hpack).append_left [1]
+    simpa [optimalCover, big, small, leaves,
+      List.flatten_append, List.map_append,
+      List.append_assoc] using h
+
+  have hind : (big ++ small ++ leaves).Perm n.primesLE.toList := by
+    have hswap : (big ++ (small ++ leaves)).Perm
+        ((small ++ leaves) ++ big) := List.perm_append_comm
+    have hrest := segments_index_perm n
+    simpa [big, small, leaves, List.append_assoc] using
+      hswap.trans hrest
+
+  have hcat : (classConcat n big ++
+        (classConcat n small ++ classConcat n leaves)).Perm
+        (classConcat n n.primesLE.toList) := by
+    simpa [classConcat, List.flatMap_append, List.append_assoc] using
+      classConcat_congr_perm n (big ++ small ++ leaves)
+        n.primesLE.toList hind
+
+  have hfull : (optimalCover n).flatten.Perm
+      (1 :: (Finset.Icc 2 n).toList) :=
+    hall.trans ((hcat.trans (classConcat_all_primes n)).cons 1)
+
+  have htwo := one_Icc_two_perm_Icc_one n (by omega)
+  have hrange := range_one_perm_Icc n
+  exact hfull.trans htwo |>.trans hrange.symm
+
+/-- For every n≥12, there is an optimal permutation of [1,n]
+attaining the exact target number of coprime adjacencies. -/
+theorem P010_upper_large (n : ℕ) (hn : 12 ≤ n) :
+    ∃ a : List ℕ, IsPermutation n a ∧
+      adjacentCount a ≤ target n := by
+  let paths := optimalCover n
+  have hc : IsPermutation n paths.flatten :=
+    optimalCover_isPermutation n hn
+  have hg : ∀ p ∈ paths, NonCoprimeChain p :=
+    optimalCover_chains n hn
+  have hcount : adjacentCount paths.flatten ≤ paths.length - 1 :=
+    adjacentCount_flatten_le paths hg
+  have hlen : paths.length = target n + 1 := by
+    dsimp [paths]
+    rw [optimalCover_length, largePrimes_card, middlePrimes_card]
+    unfold target
+    omega
+  refine ⟨paths.flatten, hc, ?_⟩
+  have heq : paths.length - 1 = target n := by omega
+  simpa only [heq] using hcount
+
+/-- The exact theorem submitted to Integers, for every n≥4. -/
+theorem P010_exact (n : ℕ) (hn : 4 ≤ n) :
+    h n = target n := by
+  apply Nat.le_antisymm
+  · by_cases hlarge : 12 ≤ n
+    · obtain ⟨a, ha, hscore⟩ := P010_upper_large n hlarge
+      exact (h_le_of_permutation n a ha).trans hscore
+    · obtain ⟨a, ha, hscore⟩ :=
+        small_upper_bound n hn (by omega)
+      exact (h_le_of_permutation n a ha).trans hscore.le
+  · exact P010_h_lower_bound n hn
+
+#print axioms P010_exact
 
 end P010
