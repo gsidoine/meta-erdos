@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** No universal-row/column shortcut; arithmetic structure is essential.  
 > **Finite evidence:** 3,459,600 states at n=14, one component.  
-> **Symbolic prize:** A live goose — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
+> **Symbolic prize:** A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
