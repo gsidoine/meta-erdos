@@ -68,6 +68,25 @@ finite-prime infimum and the effect of further primes remain unresolved.
 The rational certificate and finite indicator checks are
 [reproducible](../../experiments/P040_two_prime_thresholds.py).
 
+**Prime-prefix reduction.** The [thinning transport theorem](../../theorems/P040-prime-prefix-reduction.md)
+shows that among all sets of $k$ odd primes the first $k$
+odd primes minimize the fractional Hall-cut infimum. Hence
+
+$
+\boxed{
+\alpha_{\mathrm{frac}}
+=\lim_{k\to\infty}\alpha(\{3,5,7,\ldots,r_k\}).
+}
+$
+
+The reduction uses increasing fractional profiles, justified by
+the existing monotone-compression theorem, and couples product
+measures by independent thinning. No additional number-theoretic
+assumptions or computer search are required. The next unresolved
+case is whether the four-prime prefix $\{3,5,7,11\}$ lowers the
+currently attained value $5/12$. A finite computation cannot
+certify the unrestricted limit.
+
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 
 ## A proved universal lower bound
