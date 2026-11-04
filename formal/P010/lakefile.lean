@@ -10,4 +10,4 @@ require mathlib from git
 @[default_target]
 lean_lib P010 where
   srcDir := "."
-  roots := #[`P010]
+  roots := #[`P010Statement, `P010]
