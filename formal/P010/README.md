@@ -36,7 +36,7 @@ theorem P010_exact (n : ℕ) (hn : 4 ≤ n) :
     h n = target n
 ```
 
-The definitions `IsPermutation`, `adjacentCount`, `h`, and `target` are in the separate `P010Statement.lean` module; `h` is the least attained coprime-adjacency count. The [statement-fidelity audit](STATEMENT_AUDIT.md) relates each definition to the mathematical statement. The proof also establishes `P010_statement_valid` for the exact independent proposition `ExactStatement`.
+The definitions `IsPermutation`, `adjacentCount`, `h`, and `target` are in the separate `P010Statement.lean` module; `h` is the least attained coprime-adjacency count. The [statement-fidelity audit](STATEMENT_AUDIT.md) and [project-local verification metadata](metadata.yaml) relate each definition to the mathematical statement. The proof also establishes `P010_statement_valid` for the exact independent proposition `ExactStatement`.
 
 ## Proof structure
 
@@ -90,3 +90,5 @@ the asymptotic corollary is not formalized separately.
 ## Development provenance
 
 The proof development used AI-assisted Lean drafting and incremental debugging against the Lean build and kernel-check workflow. The [statement audit](STATEMENT_AUDIT.md) records the correspondence with the original finite-$n$ theorem. Formal verification does not certify historical novelty, external refereeing, or journal acceptance. No change has been made to the submitted manuscript's archival AI-use declaration.
+
+External registration is distinct from this internal certificate. The project-local metadata records that Palomar registration and a Formal Conjectures contribution have not yet occurred. Palomar additionally requires a Comparator challenge/solution package, a root licence for the submitted repository snapshot, and submission authorization; none is claimed by this certificate.
