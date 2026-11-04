@@ -3,14 +3,14 @@ import Mathlib
 /-!
 # P010: minimum number of coprime adjacencies
 
-This is a developing formalization of the theorem proved in
-`theorems/P010-exact-coprime-adjacencies.md`.
+This file proves the exact extremal formula for every n ≥ 4, with
+the unconditional theorem `P010_exact`. The proof combines a universal
+path-cover lower bound with an explicit largest-prime-factor path cover
+whose leaf-prime classes are paired directly. The latter construction
+does not require any prime-counting inequality.
 
-The submitted manuscript is not modified. The universal lower bound
-is formalized. The upper-bound construction remains partial: its
-largest-prime-factor classes, prescribed-endpoint paths and local bridges
-are certified, but the global assembly and prime-counting input remain.
-There is no axiom or `sorry` asserting the manuscript's main result.
+The submitted manuscript PDF is unchanged. The final theorem's
+assumptions are audited by `#print axioms P010_exact`.
 -/
 
 namespace P010
