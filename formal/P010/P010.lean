@@ -1434,4 +1434,81 @@ theorem paired_leaf_with_core_chain (p q : ℕ)
     have heq : 2 * q = y := by simpa using hy
     simpa [← heq] using (show 2 ∣ 2 * q from ⟨q, by omega⟩)
 
+
+/-- Pack leaf-prime classes into pairs, inserting the even-ended core
+in the final pair (or next to the final unpaired prime). No capacity
+hypothesis is needed: every pair uses its own even multiples. -/
+def packLeafClasses (core : List ℕ) : List ℕ → List (List ℕ)
+  | [] => [core]
+  | [p] => [[p, 2 * p] ++ core]
+  | [p, q] => [[p, 2 * p] ++ core ++ [2 * q, q]]
+  | p :: q :: r :: rs =>
+      [p, 2 * p, 2 * q, q] :: packLeafClasses core (r :: rs)
+
+/-- Pair packing creates the exact required number of nonisolated
+paths, regardless of how many leaf-prime classes are present. -/
+theorem packLeafClasses_length (core : List ℕ) :
+    ∀ leafs : List ℕ,
+      (packLeafClasses core leafs).length =
+        max 1 ((leafs.length + 1) / 2) := by
+  intro leafs
+  induction leafs using List.twoStepInduction with
+  | nil =>
+      norm_num [packLeafClasses]
+  | singleton p =>
+      norm_num [packLeafClasses]
+  | cons_cons p q rest ih =>
+      cases rest with
+      | nil =>
+          norm_num [packLeafClasses]
+      | cons r rs =>
+          have hi := ih
+          change 1 + (packLeafClasses core (r :: rs)).length =
+            max 1 (((p :: q :: r :: rs).length + 1) / 2)
+          simp only [List.length_cons] at hi ⊢
+          omega
+
+/-- Every packed leaf component is a noncoprime path when the
+core is an even-ended noncoprime path. -/
+theorem packLeafClasses_chains (core : List ℕ)
+    (hc : NonCoprimeChain core) (he : EvenEnded core) :
+    ∀ (leafs : List ℕ),
+      (∀ p ∈ leafs, Nat.Prime p) →
+      ∀ path ∈ packLeafClasses core leafs, NonCoprimeChain path := by
+  intro leafs
+  induction leafs using List.twoStepInduction with
+  | nil =>
+      intro _ path hm
+      have hpath : path = core := by simpa [packLeafClasses] using hm
+      subst path
+      exact hc
+  | singleton p =>
+      intro hprime path hm
+      have hpath : path = [p, 2 * p] ++ core := by
+        simpa [packLeafClasses] using hm
+      subst path
+      exact unpaired_leaf_with_core_chain p
+        (hprime p (by simp)) core hc he
+  | cons_cons p q rest ih =>
+      intro hprime path hm
+      have hp : Nat.Prime p := hprime p (by simp)
+      have hq : Nat.Prime q := hprime q (by simp)
+      cases rest with
+      | nil =>
+          have hpath : path = [p, 2 * p] ++ core ++ [2 * q, q] := by
+            simpa [packLeafClasses] using hm
+          subst path
+          exact paired_leaf_with_core_chain p q hp hq core hc he
+      | cons r rs =>
+          have hrest : ∀ x ∈ r :: rs, Nat.Prime x := by
+            intro x hx
+            exact hprime x (by simp [hx])
+          have hmem : path ∈
+              [p, 2 * p, 2 * q, q] :: packLeafClasses core (r :: rs) := by
+            simpa only [packLeafClasses] using hm
+          rcases List.mem_cons.mp hmem with heq | ht
+          · subst path
+            exact paired_leaf_classes_chain p q hp hq
+          · exact ih hrest path ht
+
 end P010
