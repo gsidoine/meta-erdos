@@ -407,12 +407,17 @@ private theorem splitBy_loop_run_count
     simp [List.splitBy.loop, adjacentCount]
   | cons x xs ih =>
     by_cases hc : Nat.Coprime b x
-    · have hi := ih x [] ((b :: rev).reverse :: parts)
-      simpa [List.splitBy.loop, hc, adjacentCount_cons_cons,
-        Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hi
-    · have hi := ih x (b :: rev) parts
-      simpa [List.splitBy.loop, hc, adjacentCount_cons_cons,
-        Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hi
+    · have hr : decide (¬Nat.Coprime b x) = false := by simp [hc]
+      simp only [List.splitBy.loop, hr, adjacentCount_cons_cons]
+      rw [if_pos hc]
+      have hi := ih x [] ((b :: rev).reverse :: parts)
+      simp only [List.length_cons] at hi
+      omega
+    · have hr : decide (¬Nat.Coprime b x) = true := by simp [hc]
+      simp only [List.splitBy.loop, hr, adjacentCount_cons_cons]
+      rw [if_neg hc]
+      have hi := ih x (b :: rev) parts
+      omega
 
 /-- The number of maximal non-coprime runs is exactly one more
 than the number of adjacent coprime pairs. -/
