@@ -56,7 +56,7 @@ The former symbolic assignments have been transferred to the four active designa
 | A bottle of whisky; one kilogram of bacon | A Dinner |
 | One hundred grams of caviar; a live goose | A Research Prize |
 
-The complete original list of designations, mathematical conditions, and problem-by-problem assignments is retained in [the immutable migration reference](data/rewards-historical.json). These earlier assignments were symbolic choices made by this collection, **not** awards offered in the historical Scottish Book. Permanent problem numbers and mathematical prize conditions are preserved.
+The complete original list of designations, mathematical conditions, and problem-by-problem assignments is retained in [the archival migration record](data/rewards-historical.json). These earlier assignments were symbolic choices made by this collection, **not** awards offered in the historical Scottish Book. Permanent problem numbers and mathematical prize conditions are preserved.
 
 ## Recording a prize
 
