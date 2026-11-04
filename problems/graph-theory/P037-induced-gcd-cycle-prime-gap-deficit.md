@@ -11,6 +11,8 @@
 
 Let $G_N$ be the graph on $[N]$ with $ab$ an edge precisely when $\gcd(a,b)>1$. Write $H(N)$ for the greatest length of an **induced cycle** in $G_N$ (a cycle with no chords), taking $H(N)=0$ when none exists.
 
+**Formulation status:** reframe. The leading graph invariant is already determined; the remaining extremal deficit is currently motivated by classical prime-gap oscillations. Its mathematical independence requires a quantitative two-sided reduction or a new graph-theoretic obstruction.
+
 ## Research question
 
 **What is the asymptotic order of the maximal deficit $\mathcal D(X)=\max_{4\le N\le X}\bigl(2\pi(\sqrt N)-H(N)\bigr)$?**
@@ -77,4 +79,4 @@ These finite inequalities are independently reproducible; unboundedness follows 
 - Erdős–Sárközy, [*On cycles in the coprime graph of integers*](https://doi.org/10.37236/1323), *Electronic Journal of Combinatorics* (1997), investigate a different graph, whose edges correspond to coprime rather than non-coprime pairs.
 - Work on induced cycles in unitary Cayley graphs of residue classes concerns $\gcd(a-b,n)$, a different adjacency rule.
 
-**Historical novelty remains unverified** after searches using *non-coprime graph induced cycles*, *gcd graph holes*, *prime-product threshold graph* and *longest induced cycles arithmetic graphs*. The asymptotic theorem is a short combination of known ingredients; the fine deficit question appears mathematically distinct but may already follow from results on prime gaps or threshold graph Hamiltonicity. The maximal-deficit formulation remains a **candidate** in the single numbered catalogue. No publication or priority claim is made.
+**Historical novelty remains unverified** after searches using *non-coprime graph induced cycles*, *gcd graph holes*, *prime-product threshold graph* and *longest induced cycles arithmetic graphs*. The asymptotic theorem is a short combination of known ingredients; the fine deficit question appears mathematically distinct but may already follow from results on prime gaps or threshold graph Hamiltonicity. The maximal-deficit formulation is retained as **reframe**, not as an independently certified open question. A future substantive statement must show more than a transfer of known prime-gap extremes through threshold-graph cycle formulas. No publication or priority claim is made.
