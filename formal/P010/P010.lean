@@ -6,10 +6,11 @@ import Mathlib
 This is a developing formalization of the theorem proved in
 `theorems/P010-exact-coprime-adjacencies.md`.
 
-The submitted manuscript is not modified. The full prime-factor
-path-cover construction and all-n arithmetic lower bound are not
-yet formalized. There is deliberately no axiom or `sorry` that
-asserts the manuscript's main result.
+The submitted manuscript is not modified. The universal lower bound
+is formalized. The upper-bound construction remains partial: its
+largest-prime-factor classes, prescribed-endpoint paths and local bridges
+are certified, but the global assembly and prime-counting input remain.
+There is no axiom or `sorry` asserting the manuscript's main result.
 -/
 
 namespace P010
@@ -877,5 +878,446 @@ theorem P010_h_lower_bound (n : ℕ) (hn : 4 ≤ n) :
 
 #print axioms P010_universal_lower_bound
 #print axioms P010_h_lower_bound
+
+
+/-!
+## Largest-prime-factor classes for the upper construction
+
+The integers from 2 through n are partitioned according to their
+largest prime divisor. Every such class is a clique in the noncoprime
+graph; the following results certify the partition and its endpoints.
+-/
+
+/-- The class of integers in [2,n] with largest prime factor p. -/
+def primeClass (n p : ℕ) : Finset ℕ :=
+  (Finset.Icc 2 n).filter (fun m => Nat.maxPrimeFac m = p)
+
+theorem mem_primeClass {n p m : ℕ} :
+    m ∈ primeClass n p ↔ 2 ≤ m ∧ m ≤ n ∧ Nat.maxPrimeFac m = p := by
+  simp only [primeClass, Finset.mem_filter, Finset.mem_Icc, and_assoc]
+
+theorem primeClass_dvd {n p m : ℕ} (hm : m ∈ primeClass n p) :
+    p ∣ m := by
+  have h := Nat.maxPrimeFac_dvd (n := m)
+  simpa [(mem_primeClass.mp hm).2.2] using h
+
+theorem primeClass_prime {n p m : ℕ} (hm : m ∈ primeClass n p) :
+    Nat.Prime p := by
+  have h := Nat.prime_maxPrimeFac_of_one_lt
+      (show 1 < m by have := (mem_primeClass.mp hm).1; omega)
+  simpa [(mem_primeClass.mp hm).2.2] using h
+
+/-- The classes indexed by primes at most n cover every integer in [2,n]. -/
+theorem primeClass_partition (n : ℕ) :
+    (n.primesLE.biUnion (fun p => primeClass n p)) = Finset.Icc 2 n := by
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨p, _, hmp⟩ := Finset.mem_biUnion.mp hm
+    have h := mem_primeClass.mp hmp
+    exact Finset.mem_Icc.mpr ⟨h.1, h.2.1⟩
+  · intro hm
+    have hr := Finset.mem_Icc.mp hm
+    have hprime : Nat.Prime (Nat.maxPrimeFac m) :=
+      Nat.prime_maxPrimeFac_of_one_lt (by omega)
+    have hle : Nat.maxPrimeFac m ≤ n :=
+      (Nat.maxPrimeFac_le (n := m)).trans hr.2
+    apply Finset.mem_biUnion.mpr
+    refine ⟨Nat.maxPrimeFac m, ?_, ?_⟩
+    · exact Nat.mem_primesLE.mpr ⟨hle, hprime⟩
+    · exact mem_primeClass.mpr ⟨hr.1, hr.2, rfl⟩
+
+/-- Different largest-prime-factor classes have no common member. -/
+theorem primeClass_disjoint (n p q : ℕ) (hpq : p ≠ q) :
+    Disjoint (primeClass n p) (primeClass n q) := by
+  apply Finset.disjoint_left.mpr
+  intro m hm hn
+  have h1 := (mem_primeClass.mp hm).2.2
+  have h2 := (mem_primeClass.mp hn).2.2
+  exact hpq (h1.symm.trans h2)
+
+/-- Any ordering of a largest-prime-factor class is a noncoprime chain. -/
+theorem primeClass_chain (n p : ℕ) (hp : Nat.Prime p)
+    (a : List ℕ) (hclass : ∀ m ∈ a, m ∈ primeClass n p) :
+    NonCoprimeChain a := by
+  apply prime_class_chain p hp a
+  intro m hm
+  exact primeClass_dvd (hclass m hm)
+
+/-- A prime occurs in its own class whenever it does not exceed n. -/
+theorem prime_mem_primeClass (n p : ℕ) (hp : Nat.Prime p)
+    (hpn : p ≤ n) : p ∈ primeClass n p := by
+  exact mem_primeClass.mpr
+    ⟨hp.two_le, hpn, hp.maxPrimeFac_eq_self⟩
+
+/-- The even vertex 2p belongs to the class p when it lies in [2,n]. -/
+theorem two_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
+    (hpn : 2 * p ≤ n) : 2 * p ∈ primeClass n p := by
+  have hp2 := hp.two_le
+  have hmax : Nat.maxPrimeFac (2 * p) = p := by
+    rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
+      (Nat.Prime.maxPrimeFac_eq_self (by norm_num : Nat.Prime 2)), hp.maxPrimeFac_eq_self]
+    exact max_eq_right hp.two_le
+  exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
+
+/-- The even vertex 4p belongs to the class p when it lies in [2,n]. -/
+theorem four_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
+    (hpn : 4 * p ≤ n) : 4 * p ∈ primeClass n p := by
+  have hp2 := hp.two_le
+  have hmax : Nat.maxPrimeFac (4 * p) = p := by
+    rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
+      (show Nat.maxPrimeFac 4 = 2 by
+        have h2 : Nat.maxPrimeFac 2 = 2 :=
+          Nat.Prime.maxPrimeFac_eq_self (by norm_num : Nat.Prime 2)
+        have hh := Nat.maxPrimeFac_mul (m := 2) (n := 2)
+          (by norm_num) (by norm_num)
+        simpa [h2] using hh), hp.maxPrimeFac_eq_self]
+    exact max_eq_right hp.two_le
+  exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
+
+/-- A vertex 3p belongs to class p when p is a prime at least 3. -/
+theorem three_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
+    (hp3 : 3 ≤ p) (hpn : 3 * p ≤ n) :
+    3 * p ∈ primeClass n p := by
+  have hp2 := hp.two_le
+  have hmax : Nat.maxPrimeFac (3 * p) = p := by
+    rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
+      (Nat.Prime.maxPrimeFac_eq_self (by norm_num : Nat.Prime 3)), hp.maxPrimeFac_eq_self]
+    exact max_eq_right hp3
+  exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
+
+/-- The p-class with p ≤ n/4 has two distinct even vertices. -/
+theorem small_prime_even_endpoints (n p : ℕ) (hp : Nat.Prime p)
+    (hsmall : 4 * p ≤ n) :
+    2 * p ∈ primeClass n p ∧
+      4 * p ∈ primeClass n p ∧ 2 * p ≠ 4 * p := by
+  constructor
+  · exact two_mul_prime_mem_class n p hp (by omega)
+  constructor
+  · exact four_mul_prime_mem_class n p hp hsmall
+  · have := hp.two_le
+    omega
+
+/-- Prime classes in the intermediate interval possess one even
+and one divisible-by-three endpoint. -/
+theorem intermediate_prime_endpoints (n p : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hquarter : n / 4 < p)
+    (hthird : p ≤ n / 3) :
+    2 * p ∈ primeClass n p ∧
+      3 * p ∈ primeClass n p ∧ 2 * p ≠ 3 * p := by
+  have hp3 : 3 ≤ p := by omega
+  constructor
+  · exact two_mul_prime_mem_class n p hp (by omega)
+  constructor
+  · exact three_mul_prime_mem_class n p hp hp3 (by omega)
+  · have := hp.two_le
+    omega
+
+
+/-- An element of class p bounded by k*p has multiplier in [1,k). -/
+theorem primeClass_multiple_below (n p m k : ℕ)
+    (hm : m ∈ primeClass n p) (hupper : n < k * p) :
+    ∃ t : ℕ, 1 ≤ t ∧ t < k ∧ m = t * p := by
+  obtain ⟨t, ht⟩ := primeClass_dvd hm
+  have hpos : 2 ≤ m := (mem_primeClass.mp hm).1
+  have hle : m ≤ n := (mem_primeClass.mp hm).2.1
+  have htp : m = t * p := by simpa [Nat.mul_comm] using ht
+  have htpos : 1 ≤ t := by
+    by_contra h
+    have hzero : t = 0 := by omega
+    subst t
+    simp at htp
+    omega
+  have htlt : t < k := by
+    by_contra h
+    have hge : k ≤ t := by omega
+    have hprod : k * p ≤ t * p := Nat.mul_le_mul_right p hge
+    omega
+  exact ⟨t, htpos, htlt, htp⟩
+
+/-- Above n/2 the largest-prime-factor class is a singleton. -/
+theorem large_prime_class_eq (n p : ℕ) (hp : Nat.Prime p)
+    (hbig : n / 2 < p) (hle : p ≤ n) :
+    primeClass n p = {p} := by
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨t, htpos, htlt, hmt⟩ :=
+      primeClass_multiple_below n p m 2 hm (by omega)
+    have ht : t = 1 := by omega
+    simp only [Finset.mem_singleton]
+    simpa [ht] using hmt
+  · intro hm
+    have heq : m = p := Finset.mem_singleton.mp hm
+    subst m
+    exact prime_mem_primeClass n p hp hle
+
+/-- In (n/3,n/2] the class has exactly the prime and its double. -/
+theorem leaf_prime_class_eq (n p : ℕ) (hp : Nat.Prime p)
+    (hthird : n / 3 < p) (hhalf : p ≤ n / 2) :
+    primeClass n p = {p, 2 * p} := by
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨t, htpos, htlt, hmt⟩ :=
+      primeClass_multiple_below n p m 3 hm (by omega)
+    have hcases : t = 1 ∨ t = 2 := by omega
+    rcases hcases with ht | ht
+    · simp [ht, hmt]
+    · simp [ht, hmt]
+  · intro hm
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+    rcases hm with heq | heq
+    · subst m
+      exact prime_mem_primeClass n p hp (by omega)
+    · subst m
+      exact two_mul_prime_mem_class n p hp (by omega)
+
+/-- In (n/4,n/3] the class consists of p, 2p, and 3p for n≥12. -/
+theorem intermediate_prime_class_eq (n p : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hquarter : n / 4 < p)
+    (hthird : p ≤ n / 3) :
+    primeClass n p = {p, 2 * p, 3 * p} := by
+  have hp3 : 3 ≤ p := by omega
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨t, htpos, htlt, hmt⟩ :=
+      primeClass_multiple_below n p m 4 hm (by omega)
+    have hcases : t = 1 ∨ t = 2 ∨ t = 3 := by omega
+    rcases hcases with ht | ht | ht
+    · simp [ht, hmt]
+    · simp [ht, hmt]
+    · simp [ht, hmt]
+  · intro hm
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+    rcases hm with heq | heq | heq
+    · subst m
+      exact prime_mem_primeClass n p hp (by omega)
+    · subst m
+      exact two_mul_prime_mem_class n p hp (by omega)
+    · subst m
+      exact three_mul_prime_mem_class n p hp hp3 (by omega)
+
+/-- Class 3 supplies the even endpoint 6 and the bridge endpoint 9
+when n≥12. -/
+theorem three_class_bridge_vertices (n : ℕ) (hn : 12 ≤ n) :
+    6 ∈ primeClass n 3 ∧ 9 ∈ primeClass n 3 ∧ 6 ≠ 9 := by
+  have hp : Nat.Prime 3 := by norm_num
+  constructor
+  · simpa using two_mul_prime_mem_class n 3 hp (by omega)
+  constructor
+  · simpa using three_mul_prime_mem_class n 3 hp (by omega) (by omega)
+  · norm_num
+
+
+/-!
+## Paths with prescribed endpoints in a prime class
+-/
+
+/-- List every member of a prime class exactly once, placing two
+distinct prescribed members at the beginning and end. -/
+noncomputable def orderedPrimeClass (n p u v : ℕ) : List ℕ := by
+  classical
+  exact u :: (((primeClass n p).erase u).erase v).toList ++ [v]
+
+theorem orderedPrimeClass_mem (n p u v m : ℕ)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p)
+    (hm : m ∈ orderedPrimeClass n p u v) :
+    m ∈ primeClass n p := by
+  classical
+  change m ∈ u :: (((primeClass n p).erase u).erase v).toList ++ [v] at hm
+  rcases List.mem_cons.mp hm with heq | ht
+  · simpa [heq] using hu
+  rcases List.mem_append.mp ht with hmid | hlast
+  · exact (Finset.mem_erase.mp
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hmid)).2).2
+  · have heq : m = v := by simpa using hlast
+    simpa [heq] using hv
+
+/-- The prescribed-endpoint ordering covers precisely its class. -/
+theorem orderedPrimeClass_toFinset (n p u v : ℕ)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p) :
+    (orderedPrimeClass n p u v).toFinset = primeClass n p := by
+  classical
+  ext m
+  simp only [List.mem_toFinset]
+  constructor
+  · exact orderedPrimeClass_mem n p u v m hu hv
+  · intro hm
+    by_cases hmu : m = u
+    · subst m
+      simp [orderedPrimeClass]
+    by_cases hmv : m = v
+    · subst m
+      simp [orderedPrimeClass]
+    · simp [orderedPrimeClass, hm, hmu, hmv]
+
+/-- The ordering has no repeated vertex when endpoints are distinct. -/
+theorem orderedPrimeClass_nodup (n p u v : ℕ) (huv : u ≠ v) :
+    (orderedPrimeClass n p u v).Nodup := by
+  classical
+  unfold orderedPrimeClass
+  apply List.nodup_cons.mpr
+  constructor
+  · simp [Finset.mem_erase, huv]
+  · apply List.nodup_append'.mpr
+    refine ⟨Finset.nodup_toList _, by simp, ?_⟩
+    intro m hm hv
+    have hnot : m ≠ v :=
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hm)).1
+    exact hnot (by simpa using hv)
+
+/-- The prescribed-endpoint class ordering is a noncoprime chain. -/
+theorem orderedPrimeClass_chain (n p u v : ℕ)
+    (hp : Nat.Prime p)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p) :
+    NonCoprimeChain (orderedPrimeClass n p u v) := by
+  apply primeClass_chain n p hp
+  intro m hm
+  exact orderedPrimeClass_mem n p u v m hu hv hm
+
+/-- The prescribed path starts at u. -/
+theorem orderedPrimeClass_head (n p u v : ℕ) :
+    (orderedPrimeClass n p u v).head? = some u := by
+  simp [orderedPrimeClass]
+
+/-- The prescribed path ends at v. -/
+theorem orderedPrimeClass_last (n p u v : ℕ) :
+    (orderedPrimeClass n p u v).getLast? = some v := by
+  change ((u :: (((primeClass n p).erase u).erase v).toList) ++ [v]).getLast? =
+    some v
+  rw [List.getLast?_append_cons]
+  rfl
+
+/-- A prescribed-endpoint ordering is a permutation of the class list. -/
+theorem orderedPrimeClass_perm (n p u v : ℕ)
+    (hu : u ∈ primeClass n p) (hv : v ∈ primeClass n p)
+    (huv : u ≠ v) :
+    (orderedPrimeClass n p u v).Perm (primeClass n p).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (orderedPrimeClass_nodup n p u v huv)
+    (Finset.nodup_toList _)
+  simpa using orderedPrimeClass_toFinset n p u v hu hv
+
+
+/-- Two intermediate prime classes can be joined along their
+multiple-of-three endpoints into one noncoprime path. -/
+theorem paired_intermediate_classes_chain (n p q : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (hpquarter : n / 4 < p) (hpthird : p ≤ n / 3)
+    (hqquarter : n / 4 < q) (hqthird : q ≤ n / 3) :
+    NonCoprimeChain
+      (orderedPrimeClass n p (2 * p) (3 * p) ++
+       orderedPrimeClass n q (3 * q) (2 * q)) := by
+  obtain ⟨hp2, hp3, _⟩ :=
+    intermediate_prime_endpoints n p hn hp hpquarter hpthird
+  obtain ⟨hq2, hq3, _⟩ :=
+    intermediate_prime_endpoints n q hn hq hqquarter hqthird
+  apply join_three_ended_paths
+  · exact orderedPrimeClass_chain n p (2 * p) (3 * p) hp hp2 hp3
+  · exact orderedPrimeClass_chain n q (3 * q) (2 * q) hq hq3 hq2
+  · intro x hx
+    have heq : 3 * p = x := by
+      simpa [orderedPrimeClass_last] using hx
+    subst x
+    exact ⟨p, rfl⟩
+  · intro y hy
+    have heq : 3 * q = y := by
+      simpa [orderedPrimeClass_head] using hy
+    subst y
+    exact ⟨q, rfl⟩
+
+/-- An unpaired intermediate class may be bridged through the
+class of 3 along the edge 9--3p. -/
+theorem intermediate_three_bridge_chain (n p : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hquarter : n / 4 < p)
+    (hthird : p ≤ n / 3) :
+    NonCoprimeChain
+      (orderedPrimeClass n 3 6 9 ++
+       orderedPrimeClass n p (3 * p) (2 * p)) := by
+  obtain ⟨h6, h9, _⟩ := three_class_bridge_vertices n hn
+  obtain ⟨h2, h3, _⟩ :=
+    intermediate_prime_endpoints n p hn hp hquarter hthird
+  apply join_three_ended_paths
+  · exact orderedPrimeClass_chain n 3 6 9 (by norm_num) h6 h9
+  · exact orderedPrimeClass_chain n p (3 * p) (2 * p) hp h3 h2
+  · intro x hx
+    have heq : 9 = x := by
+      simpa [orderedPrimeClass_last] using hx
+    subst x
+    exact ⟨3, rfl⟩
+  · intro y hy
+    have heq : 3 * p = y := by
+      simpa [orderedPrimeClass_head] using hy
+    subst y
+    exact ⟨p, rfl⟩
+
+
+/-!
+## Arithmetic capacity for assembling class paths
+-/
+
+/-- The intermediate primes whose classes are paired in the construction. -/
+def intermediatePrimes (n : ℕ) : Finset ℕ :=
+  (n / 3).primesLE \ (n / 4).primesLE
+
+theorem intermediatePrimes_card (n : ℕ) :
+    (intermediatePrimes n).card = pi (n / 3) - pi (n / 4) := by
+  have hsub : (n / 4).primesLE ⊆ (n / 3).primesLE := by
+    intro p hp
+    obtain ⟨hle, hprime⟩ := Nat.mem_primesLE.mp hp
+    exact Nat.mem_primesLE.mpr ⟨by omega, hprime⟩
+  simpa [intermediatePrimes, pi, Nat.primesLE_card_eq_primeCounting]
+    using Finset.card_sdiff_of_subset hsub
+
+theorem mem_intermediatePrimes {n p : ℕ} :
+    p ∈ intermediatePrimes n ↔
+      Nat.Prime p ∧ n / 4 < p ∧ p ≤ n / 3 := by
+  constructor
+  · intro h
+    obtain ⟨hm, hnot⟩ := Finset.mem_sdiff.mp h
+    obtain ⟨hle, hp⟩ := Nat.mem_primesLE.mp hm
+    have hbig : n / 4 < p := by
+      by_contra hsmall
+      exact hnot (Nat.mem_primesLE.mpr ⟨by omega, hp⟩)
+    exact ⟨hp, hbig, hle⟩
+  · rintro ⟨hp, hbig, hle⟩
+    apply Finset.mem_sdiff.mpr
+    constructor
+    · exact Nat.mem_primesLE.mpr ⟨hle, hp⟩
+    · intro hsmall
+      have hle' := (Nat.mem_primesLE.mp hsmall).1
+      omega
+
+/-- Number of even-ended units produced by the small classes and
+paired intermediate classes. -/
+def evenUnitCount (n : ℕ) : ℕ :=
+  pi (n / 4) + (intermediatePrimes n).card / 2
+
+/-- The known Landau prime-counting inequality supplies sufficient
+even-ended units for all leaf-class attachments. The Landau
+inequality is a *hypothesis* here, not asserted as a Lean theorem. -/
+theorem landau_implies_attachment_capacity (n : ℕ) (hn : 12 ≤ n)
+    (hlandau : pi (n / 2) ≤ 2 * pi (n / 4)) :
+    max 1 (((pi (n / 2) - pi (n / 3)) + 1) / 2) ≤
+      evenUnitCount n := by
+  have htwo : 2 ≤ n / 4 := by omega
+  have hpos : 0 < pi (n / 4) := by
+    have hh : (n / 4).primesLE.Nonempty :=
+      ⟨2, Nat.mem_primesLE.mpr ⟨htwo, by norm_num⟩⟩
+    simpa [pi, Nat.primesLE_card_eq_primeCounting] using
+      (Finset.card_pos.mpr hh)
+  have hdiff : pi (n / 2) - pi (n / 3) ≤ 2 * pi (n / 4) :=
+    by omega
+  unfold evenUnitCount
+  omega
+
+#print axioms primeClass_partition
+#print axioms orderedPrimeClass_perm
+#print axioms paired_intermediate_classes_chain
+#print axioms intermediate_three_bridge_chain
+#print axioms landau_implies_attachment_capacity
 
 end P010
