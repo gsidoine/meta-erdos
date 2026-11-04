@@ -2119,4 +2119,81 @@ theorem packLeafClasses_perm (core : List ℕ) :
           simpa [packLeafClasses, List.flatMap_cons,
             List.append_assoc] using hresult
 
+
+/-!
+## Leaf and isolated classes in the full cover
+-/
+
+/-- The two-vertex list of a middle-range prime enumerates its class. -/
+theorem leafClass_perm (n p : ℕ) (hp : p ∈ middlePrimes n) :
+    ([p, 2 * p] : List ℕ).Perm (primeClass n p).toList := by
+  obtain ⟨hpp, hthird, hhalf⟩ := mem_middlePrimes.mp hp
+  have hclass := leaf_prime_class_eq n p hpp hthird hhalf
+  have hneq : p ≠ 2 * p := by
+    have := hpp.two_le
+    omega
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (by simp [hneq]) (Finset.nodup_toList _)
+  simp [hclass]
+
+theorem leafClasses_perm (n : ℕ) (leaves : List ℕ)
+    (hleaves : ∀ p ∈ leaves, p ∈ middlePrimes n) :
+    (leaves.flatMap (fun p => [p, 2 * p])).Perm
+      (classConcat n leaves) := by
+  unfold classConcat
+  exact List.Perm.flatMap_left leaves
+    (fun p hp => leafClass_perm n p (hleaves p hp))
+
+/-- The singleton large-prime path enumerates its class. -/
+theorem isolatedLargeClass_perm (n p : ℕ) (hp : p ∈ largePrimes n) :
+    ([p] : List ℕ).Perm (primeClass n p).toList := by
+  obtain ⟨hpp, hhalf, hle⟩ := mem_largePrimes.mp hp
+  rw [large_prime_class_eq n p hpp hhalf hle]
+  simp
+
+/-- Large-prime singleton paths enumerate precisely the large classes. -/
+theorem largeSingletons_perm (n : ℕ) :
+    ((largePrimes n).toList.map (fun p => [p])).flatten.Perm
+      (classConcat n (largePrimes n).toList) := by
+  classical
+  change ((largePrimes n).toList.flatMap (fun p => [p])).Perm
+    ((largePrimes n).toList.flatMap (fun p => (primeClass n p).toList))
+  apply List.Perm.flatMap_left
+  intro p hp
+  exact isolatedLargeClass_perm n p (Finset.mem_toList.mp hp)
+
+/-- Every prime ≤ n belongs to exactly one of the core, middle,
+or large prime-index ranges. -/
+theorem segments_index_perm (n : ℕ) :
+    ((n / 3).primesLE.toList ++
+      (middlePrimes n).toList ++
+      (largePrimes n).toList).Perm n.primesLE.toList := by
+  classical
+  have hn : (((n / 3).primesLE.toList ++
+      (middlePrimes n).toList) ++
+      (largePrimes n).toList).Nodup := by
+    apply List.nodup_append'.mpr
+    constructor
+    · apply List.nodup_append'.mpr
+      refine ⟨Finset.nodup_toList _, Finset.nodup_toList _, ?_⟩
+      apply List.disjoint_left.mpr
+      intro p hp hq
+      have hle := (Nat.mem_primesLE.mp (Finset.mem_toList.mp hp)).1
+      have hgt := (mem_middlePrimes.mp (Finset.mem_toList.mp hq)).2.1
+      omega
+    constructor
+    · exact Finset.nodup_toList _
+    · apply List.disjoint_left.mpr
+      intro p hp hq
+      have hbig := (mem_largePrimes.mp (Finset.mem_toList.mp hq)).2.1
+      rcases List.mem_append.mp hp with hs | hm
+      · have hle := (Nat.mem_primesLE.mp (Finset.mem_toList.mp hs)).1
+        omega
+      · have hle := (mem_middlePrimes.mp (Finset.mem_toList.mp hm)).2.2
+        omega
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (by simpa [List.append_assoc] using hn) (Finset.nodup_toList _)
+  simp only [List.toFinset_append, Finset.toList_toFinset]
+  simpa [Finset.union_assoc] using prime_segments_partition n
+
 end P010
