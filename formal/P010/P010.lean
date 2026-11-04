@@ -725,4 +725,147 @@ private theorem weighted_capacity_flatten (ps : List (List ℕ))
         List.length_append, List.length_cons]
       nlinarith
 
+
+/-- A marked isolated vertex forces its entire non-coprime path
+to be a singleton. -/
+theorem isolated_path_singleton (n p : ℕ) (a : List ℕ)
+    (hi : p ∈ isolatedVertices n) (hc : NonCoprimeChain a)
+    (hd : a.Nodup) (hp : p ∈ a)
+    (hb : ∀ t ∈ a, 0 < t ∧ t ≤ n) : a = [p] := by
+  rcases Finset.mem_insert.mp hi with h1 | hl
+  · subst p
+    exact one_path_singleton a hc hd hp
+  · exact large_prime_path_singleton n p a hl hc hd hp hb
+
+/-- A simple non-coprime path has either one isolated vertex or
+at most two middle primes, never both. -/
+theorem isolated_middle_path_weight (n : ℕ) (a : List ℕ)
+    (hc : NonCoprimeChain a) (hd : a.Nodup)
+    (hb : ∀ t ∈ a, 0 < t ∧ t ≤ n) :
+    2 * (a.filter (fun t => decide (t ∈ isolatedVertices n))).length +
+        (a.filter (fun t => decide (t ∈ middlePrimes n))).length ≤ 2 := by
+  by_cases hex : ∃ p, p ∈ a ∧ p ∈ isolatedVertices n
+  · obtain ⟨p, hp, hi⟩ := hex
+    have heq := isolated_path_singleton n p a hi hc hd hp hb
+    rw [heq]
+    have hm := isolated_not_middle n p hi
+    simp [hi, hm]
+  · have hno : ∀ p ∈ a, p ∉ isolatedVertices n := by
+      intro p hp hi
+      exact hex ⟨p, hp, hi⟩
+    have hnil := filter_finset_nil (isolatedVertices n) a hno
+    have hcap := middle_primes_path_capacity n a hc hd hb
+    rw [hnil]
+    simp only [List.length_nil, mul_zero, zero_add]
+    exact hcap
+
+/-- For n ≥ 4, isolated vertices and vertex 2 must occupy
+different paths of any non-coprime cover. -/
+theorem isolated_two_path_weight (n : ℕ) (hn : 4 ≤ n) (a : List ℕ)
+    (hc : NonCoprimeChain a) (hd : a.Nodup)
+    (hb : ∀ t ∈ a, 0 < t ∧ t ≤ n) :
+    (a.filter (fun t => decide (t ∈ isolatedVertices n))).length +
+        (a.filter (fun t => decide (t = 2))).length ≤ 1 := by
+  by_cases hex : ∃ p, p ∈ a ∧ p ∈ isolatedVertices n
+  · obtain ⟨p, hp, hi⟩ := hex
+    have heq := isolated_path_singleton n p a hi hc hd hp hb
+    have hne : p ≠ 2 := by
+      intro heq2
+      apply two_not_isolated n hn
+      simpa [heq2] using hi
+    rw [heq]
+    simp [hi, hne]
+  · have hno : ∀ p ∈ a, p ∉ isolatedVertices n := by
+      intro p hp hi
+      exact hex ⟨p, hp, hi⟩
+    have hnil := filter_finset_nil (isolatedVertices n) a hno
+    have hcap := filtered_two_le_one a hd
+    rw [hnil]
+    simpa using hcap
+
+/-- The global path-cover lower bounds from isolated vertices,
+degree-one middle primes and the remaining vertex 2. -/
+theorem noncoprime_cover_lower_counts (n : ℕ) (hn : 4 ≤ n)
+    (paths : List (List ℕ))
+    (hcover : IsPermutation n paths.flatten)
+    (hchains : ∀ p ∈ paths, NonCoprimeChain p) :
+    2 * (isolatedVertices n).card + (middlePrimes n).card ≤
+        2 * paths.length ∧
+      (isolatedVertices n).card + 1 ≤ paths.length := by
+  have hnodup := permutation_nodup n paths.flatten hcover
+  have hpath_nodup : ∀ p ∈ paths, p.Nodup :=
+    (List.nodup_flatten.mp hnodup).1
+  have hbound : ∀ p ∈ paths, ∀ t ∈ p, 0 < t ∧ t ≤ n := by
+    intro p hp t ht
+    have hmem := List.mem_flatten_of_mem hp ht
+    have hr := (permutation_mem_iff n paths.flatten hcover t).1 hmem
+    omega
+  have hi : (paths.flatten.filter
+      (fun t => decide (t ∈ isolatedVertices n))).length =
+      (isolatedVertices n).card :=
+    permutation_filter_card n paths.flatten hcover (isolatedVertices n)
+      (fun x hx => isolatedVertices_range n x hx (by omega))
+  have hm : (paths.flatten.filter
+      (fun t => decide (t ∈ middlePrimes n))).length =
+      (middlePrimes n).card :=
+    permutation_filter_card n paths.flatten hcover (middlePrimes n)
+      (fun x hx => middlePrimes_range n x hx)
+  have htwo : (paths.flatten.filter
+      (fun t => decide (t = 2))).length = 1 := by
+    have hf := permutation_filter_card n paths.flatten hcover
+        ({2} : Finset ℕ) (by
+          intro x hx
+          simp only [Finset.mem_singleton] at hx
+          omega)
+    simpa using hf
+  have hw : 2 * (paths.flatten.filter
+      (fun t => decide (t ∈ isolatedVertices n))).length +
+      (paths.flatten.filter
+      (fun t => decide (t ∈ middlePrimes n))).length ≤
+      2 * paths.length := by
+    have h := weighted_capacity_flatten paths
+        (fun t => decide (t ∈ isolatedVertices n))
+        (fun t => decide (t ∈ middlePrimes n)) 2 1 2 (by
+          intro p hp
+          simpa using isolated_middle_path_weight n p
+            (hchains p hp) (hpath_nodup p hp) (hbound p hp))
+    simpa using h
+  have hw2 : (paths.flatten.filter
+      (fun t => decide (t ∈ isolatedVertices n))).length +
+      (paths.flatten.filter
+      (fun t => decide (t = 2))).length ≤ paths.length := by
+    have h := weighted_capacity_flatten paths
+        (fun t => decide (t ∈ isolatedVertices n))
+        (fun t => decide (t = 2)) 1 1 1 (by
+          intro p hp
+          simpa using isolated_two_path_weight n hn p
+            (hchains p hp) (hpath_nodup p hp) (hbound p hp))
+    simpa using h
+  constructor <;> omega
+
+/-- The universal lower bound in P010. No assertion about the
+constructive upper bound is used. -/
+theorem P010_universal_lower_bound (n : ℕ) (hn : 4 ≤ n)
+    (a : List ℕ) (ha : IsPermutation n a) :
+    target n ≤ adjacentCount a := by
+  cases a with
+  | nil =>
+      have hmem : 1 ∈ ([] : List ℕ) :=
+        (permutation_mem_iff n [] ha 1).2 (by omega)
+      simp at hmem
+  | cons x xs =>
+      let paths := maximalNonCoprimeRuns (x :: xs)
+      have hcover : IsPermutation n paths.flatten := by
+        simpa [paths, maximalNonCoprimeRuns_flatten] using ha
+      have hchains : ∀ p ∈ paths, NonCoprimeChain p :=
+        maximalNonCoprimeRuns_chains (x :: xs)
+      obtain ⟨hdegree, hother⟩ :=
+        noncoprime_cover_lower_counts n hn paths hcover hchains
+      have hrun : paths.length = adjacentCount (x :: xs) + 1 :=
+        maximalNonCoprimeRuns_length x xs
+      have hi := isolatedVertices_card n
+      have hm := middlePrimes_card n
+      unfold target
+      omega
+
 end P010
