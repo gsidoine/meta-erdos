@@ -72,12 +72,12 @@ The rational certificate and finite indicator checks are
 shows that among all sets of $k$ odd primes the first $k$
 odd primes minimize the fractional Hall-cut infimum. Hence
 
-$
+$$
 \boxed{
 \alpha_{\mathrm{frac}}
 =\lim_{k\to\infty}\alpha(\{3,5,7,\ldots,r_k\}).
 }
-$
+$$
 
 The reduction uses increasing fractional profiles, justified by
 the existing monotone-compression theorem, and couples product
