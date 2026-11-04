@@ -1125,12 +1125,14 @@ theorem orderedPrimeClass_mem (n p u v m : ℕ)
     (hm : m ∈ orderedPrimeClass n p u v) :
     m ∈ primeClass n p := by
   classical
-  simp only [orderedPrimeClass, List.mem_cons, List.mem_append,
-    Finset.mem_toList, List.mem_singleton] at hm
-  rcases hm with heq | heq | heq
+  change m ∈ u :: (((primeClass n p).erase u).erase v).toList ++ [v] at hm
+  rcases List.mem_cons.mp hm with heq | ht
   · simpa [heq] using hu
-  · exact (Finset.mem_erase.mp (Finset.mem_erase.mp heq).2).2
-  · simpa [heq] using hv
+  rcases List.mem_append.mp ht with hmid | hlast
+  · exact (Finset.mem_erase.mp
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hmid)).2).2
+  · have heq : m = v := by simpa using hlast
+    simpa [heq] using hv
 
 /-- The prescribed-endpoint ordering covers precisely its class. -/
 theorem orderedPrimeClass_toFinset (n p u v : ℕ)
@@ -1182,7 +1184,10 @@ theorem orderedPrimeClass_head (n p u v : ℕ) :
 /-- The prescribed path ends at v. -/
 theorem orderedPrimeClass_last (n p u v : ℕ) :
     (orderedPrimeClass n p u v).getLast? = some v := by
-  simp [orderedPrimeClass]
+  change ((u :: (((primeClass n p).erase u).erase v).toList) ++ [v]).getLast? =
+    some v
+  rw [List.getLast?_append_cons]
+  rfl
 
 /-- A prescribed-endpoint ordering is a permutation of the class list. -/
 theorem orderedPrimeClass_perm (n p u v : ℕ)
