@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown.  
 > **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; the 5/12 sieve threshold is exact for all asymmetric profiles on {3,5,7}, and finite-prime optimization reduces to increasing profiles.  
 > **Finite evidence:** Hall-cut lower bound; complete asymmetric three-prime proof and general compression; exact rational sieve and 32,434 integral profile-pair checks; n≤10 finite resilience.  
-> **Symbolic prize:** One hundred grams of caviar — Existence and exact value of the limiting coprime-matching local resilience.  
+> **Symbolic prize:** A Research Prize (symbolic) — Existence and exact value of the limiting coprime-matching local resilience.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

@@ -5,7 +5,7 @@
 > **Formulation:** reframe. **Novelty:** strong overlap: bounded prime differences and Erdős Problem 17; exact quantifiers not equivalent.  
 > **Verified/known progress:** Only prime-sum-two edge is a bridge; diameter seven is equivalent to uniformly finding prime pairs with prescribed even differences in bounded intervals.  
 > **Finite evidence:** Exact bridge-based diameters for 2≤n≤250; independent all-pairs BFS for n≤35.  
-> **Symbolic prize:** One kilogram of bacon — A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures.  
+> **Symbolic prize:** A Dinner (symbolic) — A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

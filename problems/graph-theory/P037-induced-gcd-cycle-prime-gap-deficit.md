@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** unverified; unboundedness follows from Pintz (2015), general threshold-cycle theory is classical.  
 > **Verified/known progress:** Proved H(N)~2π(sqrt(N)) and exact saturation criterion; D(N) unbounded by Pintz (2015); quantitative maximal order unresolved.  
 > **Finite evidence:** Constructive prime-product cycles and finite saturation certificates.  
-> **Symbolic prize:** A small black coffee — The maximal-order growth of the induced-cycle prime-gap deficit.  
+> **Symbolic prize:** A Coffee (symbolic) — The maximal-order growth of the induced-cycle prime-gap deficit.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
