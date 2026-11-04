@@ -445,7 +445,7 @@ theorem middle_primes_tail_at_most_one (n x y : ℕ) (xs : List ℕ)
     ((y :: xs).filter (fun t => decide (t ∈ middlePrimes n))).length ≤ 1 := by
   induction xs generalizing x y with
   | nil =>
-      simp
+      by_cases hy : y ∈ middlePrimes n <;> simp [hy]
   | cons z zs ih =>
       have hy_not_middle : y ∉ middlePrimes n := by
         intro hy
@@ -497,7 +497,7 @@ theorem middle_primes_path_capacity (n : ℕ) (a : List ℕ)
   | cons x xs =>
       cases xs with
       | nil =>
-          simp
+          by_cases hx : x ∈ middlePrimes n <;> simp [hx]
       | cons y ys =>
           have htail :=
             middle_primes_tail_at_most_one n x y ys hchain hnodup hbound
