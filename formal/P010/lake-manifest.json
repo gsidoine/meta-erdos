@@ -93,4 +93,4 @@
    "configFile": "lakefile.toml"}],
  "name": "p010",
  "lakeDir": ".lake",
- "fixedToolchain": true}
+ "fixedToolchain": false}
