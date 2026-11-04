@@ -3,7 +3,7 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** What is the exact minimum number of adjacent coprime pairs in a permutation of 1,…,n? (Resolved internally.)  
 > **Formulation:** proved internally. **Novelty:** internal proof; priority unverified.  
-> **Verified/known progress:** Exact path-cover formula and asymptotic proved in the repository; manuscript submitted to Integers.  
+> **Verified/known progress:** Exact formula for every n≥4 kernel-checked in Lean 4; asymptotic deduced mathematically; manuscript submitted to Integers.  
 > **Finite evidence:** Constructive proof with prime-factor paths; explicit witnesses checked n≤10,000.  
 > **Symbolic prize:** A Coffee (symbolic) — An independently checked Lean formalization of the exact coprime-adjacency theorem.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
@@ -11,8 +11,10 @@
 
 
 **Area:** arithmetic graph theory, extremal Hamiltonian paths, prime distribution  
-**Research status:** Proved internally; the manuscript has been submitted to *Integers*.  
+**Research status:** Exact theorem formally verified in Lean 4; manuscript submitted to *Integers*.  
 **Novelty:** **not certified**; independent proof audit and source-priority verification are required
+
+**Formal certificate:** [Lean 4 source and verification record](../../formal/P010/README.md), including `P010_exact` and its foundational-axiom audit. The asymptotic corollary is established mathematically but is not part of the Lean certificate.
 
 ## Exact statement
 
