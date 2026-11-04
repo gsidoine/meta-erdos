@@ -1,5 +1,7 @@
 # P015 — Flip connectivity of odd-area lattice triangulations
 
+**Historical dossier.** The [current canonical entry](P015-odd-area-triangulations/README.md) contains the maintained statement, status, supporting proofs and references. This file is retained as a research record; the canonical catalogue governs the current formulation and novelty assessment.
+
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Are all odd-normalized-area triangulations of a convex lattice polygon connected by odd-area-preserving diagonal flips when all four mod-2 vertex residues occur?  
 > **Formulation:** candidate. **Novelty:** high overlap risk: colored triangulation flip graphs.  
