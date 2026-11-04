@@ -393,6 +393,10 @@
         {
           "name": "Dotú–Van Hentenryck (2005), Golomb ruler search",
           "url": "https://cs.brown.edu/research/pubs/pdfs/2005/Dotu-2005-SHE.pdf"
+        },
+        {
+          "name": "Godbole–Janson–Locantore–Rapoport (1999), Random Sidon Sequences",
+          "url": "https://doi.org/10.1006/jnth.1998.2325"
         }
       ],
       "portfolio_tier": "C",
@@ -448,7 +452,7 @@
       "novelty": "high overlap risk: colored triangulation flip graphs",
       "result": "Odd doubled area iff the triangle has three different mod-2 vertex classes; flips require all four classes",
       "verification": "Exhaustive parity color patterns through n=9 (zero disconnected four-class cases); six-vertex three-color obstruction",
-      "priority": "structural discovery",
+      "priority": "retain subject to full-text comparison with colored and colorful triangulation flip theorems; four-residue simultaneous constraint may be distinct",
       "sources": [
         {
           "name": "Baur et al., coloured triangulation flip graphs (2025)",
@@ -461,6 +465,14 @@
         {
           "name": "Debrohim–Sasaki–Nunes, cyclic colors (2026)",
           "url": "https://arxiv.org/abs/2608.26006"
+        },
+        {
+          "name": "Baur–Bergerova–Voon–Xu (2024), Flip graphs of coloured triangulations",
+          "url": "https://doi.org/10.12958/adm2312"
+        },
+        {
+          "name": "Acharya–Mütze–Verciani (2025), Flips in Colorful Triangulations",
+          "url": "https://doi.org/10.20382/jocg.v16i1a9"
         }
       ],
       "portfolio_tier": "C",
@@ -682,7 +694,7 @@
       "title": "Random unimodular triangle complex homology",
       "area": "discrete geometry",
       "file": "problems/geometry/P022-random-unimodular-triangle-complex.md",
-      "question": "What are homology regimes for random lattice-site complexes whose two-faces have normalized area one?",
+      "question": "At what vertex-retention scale does the unimodular lattice-triangle complex develop nonzero second homology over F2?",
       "status": "needs specification",
       "novelty": "only a one-square finite example established; no focused homological degree, critical exponent or verified new asymptotic phenomenon",
       "result": "The N=1 full-retention complex is a tetrahedral boundary; no nontrivial homology scale, concentration theorem or limiting law has been established",
@@ -711,7 +723,7 @@
       "novelty": "not certified (targeted audit)",
       "result": "Full rank iff no nonzero prime-parity functional annihilates all retained columns; exact zero-row probability",
       "verification": "Deterministic parity characterization proved; probabilistic threshold unproved",
-      "priority": "new candidate; conditional",
+      "priority": "prove the probabilistic rank threshold beyond the tautological left-kernel characterization, including nonzero parity obstructions after row coverage",
       "sources": [
         {
           "name": "Linial–Rothschild (1981), subset incidence rank",
