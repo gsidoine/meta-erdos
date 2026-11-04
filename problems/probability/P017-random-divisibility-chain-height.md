@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** For fixed 0<p<1, the normalized height is asymptotically between p and 1 in probability; convergence to a constant is unproved.  
 > **Finite evidence:** Exact dynamic program cross-checked against all subsets for N≤9; exploratory sampling at larger N.  
-> **Symbolic prize:** One small beer — Existence or nonexistence of the normalized longest-chain limit for a fixed site density strictly between zero and one.  
+> **Symbolic prize:** A Coffee (symbolic) — Existence or nonexistence of the normalized longest-chain limit for a fixed site density strictly between zero and one.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Connects P005 matching switches to P008 arithmetic thinning; phase diagram not yet determined.  
 > **Finite evidence:** Frozen-edge obstruction identified; unique-matching and nonmonotonicity caveats.  
-> **Symbolic prize:** Five small beers — A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning.  
+> **Symbolic prize:** A Book (symbolic) — A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
