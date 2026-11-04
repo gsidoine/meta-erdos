@@ -10,7 +10,7 @@
 <!-- /DOSSIER-SUMMARY -->
 
 **Fields:** additive combinatorics, random discrete structures, reconfiguration  
-**Research status:** candidate, unproved, not certified novel.
+**Research status:** reframe; no particular nontrivial random-site scaling or exchange-fragmentation theorem is established.
 
 ## Model
 
@@ -32,6 +32,10 @@ $$
 **Can the appearance of Sidon states and the emergence of a single feasible exchange component occur at parametrically different scales of $q$?** Determine meaningful scaling limits and/or transition regimes when the expected number of states becomes large.
 
 To avoid trivial conventions, condition on $X_{N,k}(q)\ge2$ when discussing connectivity. Neither this conditional event nor the connectedness of the state graph is assumed monotone in $q$.
+
+## Mathematical scope
+
+The current question ranges over unspecified sequences $k(N)$ and $q(N)$. Existence of Sidon sets and connectivity of their exchange space are distinct predicates, but this distinction alone is not a new asymptotic phenomenon. A proposed scale separation must fix the growth of $k(N)$, identify the relevant $q(N)$ window and distinguish a specific arithmetic obstruction from generic state-space fragmentation. The $k=2$ case is exactly a Johnson graph and gives no separation.
 
 ## Structural implications
 
