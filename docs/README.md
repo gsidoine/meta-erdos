@@ -2,7 +2,7 @@
 
 The [online book](https://gsidoine.github.io/the-scottish-book/) contains **50 current research entries**, P001–P050. All entries appear in a single catalogue, ordered by identifier; filtering is by mathematical subject, formulation status and optional symbolic prize.
 
-Canonical problem records are in [data/problems.json](../data/problems.json), with the historical symbolic reward vocabulary in [data/rewards.json](../data/rewards.json). Derived copies are generated in this directory. The previous editorial partition in [data/curation.json](../data/curation.json) is retained as an **archival record**, not a current public classification or a statement of relative difficulty.
+Canonical problem records are in [data/problems.json](../data/problems.json), with the modern four-designation vocabulary in [data/rewards.json](../data/rewards.json) and the original symbolic designations retained in [data/rewards-historical.json](../data/rewards-historical.json). Derived copies are generated in this directory. The previous editorial partition in [data/curation.json](../data/curation.json) is retained as an **archival record**, not a current public classification or a statement of relative difficulty.
 
 Use the [structured submission form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml) to propose a new question, or [Contributing](../CONTRIBUTING.md) for proofs, counterexamples, references and Lean formalizations. No proposed prize is an actual material offer without an independently documented sponsor.
 
