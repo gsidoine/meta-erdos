@@ -16,7 +16,7 @@ $$
 c(a)=\#\{i:1\le i<n,\ \gcd(a_i,a_{i+1})=1\},
 \qquad h(n)=\min_{a}c(a).
 
-$
+$$
 
 The theorem submitted to *Integers* states that for $n\ge4$,
 
