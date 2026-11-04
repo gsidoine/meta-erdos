@@ -9,7 +9,7 @@
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
-**Area:** discrete geometry, random topology, arithmetic combinatorics. **Status:** candidate.
+**Area:** discrete geometry, random topology, arithmetic combinatorics. **Status:** needs specification.
 
 ## Definition and question
 
@@ -24,6 +24,10 @@ Include each edge and vertex of such a triangle, and every remaining retained ve
 For fixed $k=0,1,2$, determine the asymptotic regimes of $\Pr(\widetilde H_k(U_N(p_N);\mathbb F_2)\ne0)$, especially at $p_N=N^{-\alpha}$ and at fixed density $p_N=p$. More strongly, is there a natural normalization under which $\beta_1$ satisfies a law of large numbers?
 
 No monotonicity of nonzero homology is assumed: adding vertices can both create and fill cycles.
+
+## Unresolved formulation
+
+The construction defines a legitimate finite simplicial complex, but asking simultaneously for all three homology degrees, all sparse exponents, fixed-density behavior and a Betti-number law of large numbers does not yet identify an independent mathematical obstruction. Before promoting the question, one must specify a single homological degree and a conjectured critical scaling, supported by an arithmetic count of minimal cycles and a comparison with existing unimodular lattice complexes. The $N=1$ tetrahedral-boundary example is a boundary case, not evidence of a general phase transition.
 
 ## A rigorous basic distinction
 
