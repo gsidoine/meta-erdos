@@ -893,7 +893,7 @@ def primeClass (n p : ℕ) : Finset ℕ :=
 
 theorem mem_primeClass {n p m : ℕ} :
     m ∈ primeClass n p ↔ 2 ≤ m ∧ m ≤ n ∧ Nat.maxPrimeFac m = p := by
-  simp [primeClass]
+  simp only [primeClass, Finset.mem_filter, Finset.mem_Icc, and_assoc]
 
 theorem primeClass_dvd {n p m : ℕ} (hm : m ∈ primeClass n p) :
     p ∣ m := by
@@ -952,18 +952,25 @@ theorem prime_mem_primeClass (n p : ℕ) (hp : Nat.Prime p)
 /-- The even vertex 2p belongs to the class p when it lies in [2,n]. -/
 theorem two_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
     (hpn : 2 * p ≤ n) : 2 * p ∈ primeClass n p := by
+  have hp2 := hp.two_le
   have hmax : Nat.maxPrimeFac (2 * p) = p := by
     rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
-      (show Nat.maxPrimeFac 2 = 2 by decide), hp.maxPrimeFac_eq_self]
+      (Nat.Prime.maxPrimeFac_eq_self (by norm_num : Nat.Prime 2)), hp.maxPrimeFac_eq_self]
     exact max_eq_right hp.two_le
   exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
 
 /-- The even vertex 4p belongs to the class p when it lies in [2,n]. -/
 theorem four_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
     (hpn : 4 * p ≤ n) : 4 * p ∈ primeClass n p := by
+  have hp2 := hp.two_le
   have hmax : Nat.maxPrimeFac (4 * p) = p := by
     rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
-      (show Nat.maxPrimeFac 4 = 2 by decide), hp.maxPrimeFac_eq_self]
+      (show Nat.maxPrimeFac 4 = 2 by
+        have h2 : Nat.maxPrimeFac 2 = 2 :=
+          Nat.Prime.maxPrimeFac_eq_self (by norm_num : Nat.Prime 2)
+        have hh := Nat.maxPrimeFac_mul (m := 2) (n := 2)
+          (by norm_num) (by norm_num)
+        simpa [h2] using hh), hp.maxPrimeFac_eq_self]
     exact max_eq_right hp.two_le
   exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
 
@@ -971,9 +978,10 @@ theorem four_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
 theorem three_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
     (hp3 : 3 ≤ p) (hpn : 3 * p ≤ n) :
     3 * p ∈ primeClass n p := by
+  have hp2 := hp.two_le
   have hmax : Nat.maxPrimeFac (3 * p) = p := by
     rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
-      (show Nat.maxPrimeFac 3 = 3 by decide), hp.maxPrimeFac_eq_self]
+      (Nat.Prime.maxPrimeFac_eq_self (by norm_num : Nat.Prime 3)), hp.maxPrimeFac_eq_self]
     exact max_eq_right hp3
   exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
 
