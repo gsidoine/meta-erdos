@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?  
 > **Formulation:** candidate. **Novelty:** unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown.  
-> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; fractional Hall-cut values are monotone under coordinatewise bias increase, reducing the unrestricted finite-prime infimum to the consecutive odd-prime prefixes.  
-> **Finite evidence:** Exact two- and three-prime thresholds, monotone compression, thinning-transport theorem with rational verifier, Hall bounds and finite profile checks.  
+> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact finite-prime optimum 5/12 on {3,5,7,11}, via monotone-compression and exhaustive rational support certificate; full sieve infimum open.  
+> **Finite evidence:** 168 upward-closed four-prime supports, 27,889 ordered pairs checked exactly, four exceptions eliminated analytically; prime-prefix reduction, prior 2/3-prime classifications and Hall bounds.  
 > **Symbolic prize:** A Research Prize (symbolic) — Existence and exact value of the limiting coprime-matching local resilience.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -86,6 +86,22 @@ assumptions or computer search are required. The next unresolved
 case is whether the four-prime prefix $\{3,5,7,11\}$ lowers the
 currently attained value $5/12$. A finite computation cannot
 certify the unrestricted limit.
+
+**The four-prime threshold.** An [exact finite certificate](../../theorems/P040-four-prime-sharpness.md)
+extends the three-prime optimum to
+
+$$
+\boxed{\alpha(\{3,5,7,11\})=5/12.}
+$$
+
+The calculation enumerates all $168$ increasing support families and
+checks every ordered pair with integer arithmetic; four possible
+exceptions are excluded by a separate conditional-mass inequality.
+This is a **computer-assisted proof**, not finite statistical
+evidence and not a statement about unrestricted arithmetic Hall cuts.
+By the prime-prefix reduction, the same lower threshold holds for
+the optimal choice of at most four odd-prime coordinates. The
+five-prime prefix $\{3,5,7,11,13\}$ remains open.
 
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 
