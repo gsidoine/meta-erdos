@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified (specialist source check needed).  
 > **Verified/known progress:** Exact finite-field elimination gives vanishing square-filled first homology for n up to 60; no proof for all n.  
 > **Finite evidence:** Exhaustive enumeration of all four-cycles and their GF(2) boundary span; reproducible standard-library code.  
-> **Symbolic prize:** One small beer — A proof that prime-sum four-cycles span the binary cycle space in all orders, or a counterexample.  
+> **Symbolic prize:** A Coffee (symbolic) — A proof that prime-sum four-cycles span the binary cycle space in all orders, or a counterexample.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

@@ -5,7 +5,7 @@
 > **Formulation:** candidate. **Novelty:** not certified; prime sum/difference cycles have explicit earlier study.  
 > **Verified/known progress:** Every odd n is impossible by parity; exact finite matchings exist for every even n in [8,400], while n=2,4,6 fail.  
 > **Finite evidence:** Dependency-free exact bipartite matching checker for every even n≤400 and parity obstruction.  
-> **Symbolic prize:** A small black coffee — A perfect double-prime matching for every even order at least eight, or an exceptional order.  
+> **Symbolic prize:** A Coffee (symbolic) — A perfect double-prime matching for every even order at least eight, or an exceptional order.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

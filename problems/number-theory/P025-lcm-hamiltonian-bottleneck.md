@@ -5,7 +5,7 @@
 > **Formulation:** reframe. **Novelty:** confirmed collision for linear-path analogue.  
 > **Verified/known progress:** Erdős–Freud–Hegyvári (1983) already prove the linear-path asymptotic; cyclic-only variation remains under review.  
 > **Finite evidence:** Elementary lower bound recovered; no independent cyclic upper bound.  
-> **Symbolic prize:** A bottle of wine — A proof or disproof of the cyclic analogue of the known adjacent-lcm bottleneck asymptotic.  
+> **Symbolic prize:** A Book (symbolic) — A proof or disproof of the cyclic analogue of the known adjacent-lcm bottleneck asymptotic.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
