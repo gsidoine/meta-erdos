@@ -282,8 +282,8 @@ theorem join_three_ended_paths (a b : List ℕ)
 
 /-- A fully verified finite lower bound, obtained by checking every
 permutation for n = 4,5,6. This is not the all-n lower bound. -/
-set_option maxRecDepth 18000 in
-set_option maxHeartbeats 4000000 in
+set_option maxRecDepth 18000
+set_option maxHeartbeats 4000000
 theorem finite_lower_six (n : ℕ) (hn4 : 4 ≤ n) (hn6 : n ≤ 6) :
     ∀ a : List ℕ, IsPermutation n a → target n ≤ adjacentCount a := by
   have hall : ((List.range' 1 n).permutations'.all
