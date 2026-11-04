@@ -1899,8 +1899,8 @@ theorem classConcat_all_primes (n : ℕ) :
   apply List.perm_of_nodup_nodup_toFinset_eq
     (classConcat_nodup n _ (Finset.nodup_toList _))
     (Finset.nodup_toList _)
-  rw [classConcat_toFinset, Finset.toList_toFinset]
-  exact primeClass_partition n
+  simpa only [classConcat_toFinset, Finset.toList_toFinset] using
+    primeClass_partition n
 
 theorem range_one_toFinset (n : ℕ) :
     (List.range' 1 n).toFinset = Finset.Icc 1 n := by
