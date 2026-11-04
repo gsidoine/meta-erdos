@@ -299,4 +299,64 @@ theorem join_three_ended_paths (a b : List ℕ)
   exact join_prime_ended_paths 3 (by norm_num) a b ha hb hend hstart
 
 
+
+/-- Expanding one adjacent pair in the counted adjacency list. -/
+theorem adjacentCount_cons_cons (x y : ℕ) (xs : List ℕ) :
+    adjacentCount (x :: y :: xs) =
+      (if Nat.Coprime x y then 1 else 0) + adjacentCount (y :: xs) := by
+  by_cases h : Nat.Coprime x y
+  · simp [adjacentCount, h, List.countP_cons, Nat.add_comm]
+  · simp [adjacentCount, h, List.countP_cons, Nat.add_comm]
+
+/-- Joining two lists introduces at most one new coprime adjacency. -/
+theorem adjacentCount_append_le (a b : List ℕ) :
+    adjacentCount (a ++ b) ≤
+      adjacentCount a + adjacentCount b + 1 := by
+  induction a with
+  | nil => simp [adjacentCount]
+  | cons x xs ih =>
+    cases xs with
+    | nil =>
+      cases b with
+      | nil => simp [adjacentCount]
+      | cons y ys =>
+        simp [adjacentCount_cons_cons, adjacentCount]
+        split_ifs <;> omega
+    | cons y ys =>
+      simp only [List.cons_append, adjacentCount_cons_cons]
+      omega
+
+/-- The concatenation of k non-coprime paths contains at most k-1
+coprime adjacencies. Empty paths are harmless. -/
+theorem adjacentCount_flatten_le (paths : List (List ℕ))
+    (hpaths : ∀ p ∈ paths, NonCoprimeChain p) :
+    adjacentCount paths.flatten ≤ paths.length - 1 := by
+  induction paths with
+  | nil => simp [adjacentCount]
+  | cons a rest ih =>
+    cases rest with
+    | nil =>
+      have ha : NonCoprimeChain a := hpaths a (by simp)
+      simpa [List.flatten, chain_adjacentCount_zero a ha]
+    | cons b bs =>
+      have ha : NonCoprimeChain a := hpaths a (by simp)
+      have ht : ∀ p ∈ b :: bs, NonCoprimeChain p := by
+        intro p hp
+        exact hpaths p (by simp [hp])
+      have hi := ih ht
+      have hjoin := adjacentCount_append_le a (List.flatten (b :: bs))
+      have hzero := chain_adjacentCount_zero a ha
+      simp only [List.flatten_cons, List.length_cons] at *
+      omega
+
+/-- Formal version of the graph-theoretic path-cover upper-bound
+reduction used in the submitted P010 proof. -/
+theorem h_le_of_noncoprime_cover (n : ℕ) (paths : List (List ℕ))
+    (hcover : IsPermutation n paths.flatten)
+    (hpaths : ∀ p ∈ paths, NonCoprimeChain p) :
+    h n ≤ paths.length - 1 := by
+  exact (h_le_of_permutation n paths.flatten hcover).trans
+    (adjacentCount_flatten_le paths hpaths)
+
+
 end P010
