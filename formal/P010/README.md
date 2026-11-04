@@ -12,20 +12,21 @@ The [Lean source](P010.lean) uses Lean 4.35.0 and Mathlib 4.35.0.
 
 For a permutation $a=(a_1,\ldots,a_n)$ of $[n]$, let
 
-$
+$$
 c(a)=\#\{i:1\le i<n,\ \gcd(a_i,a_{i+1})=1\},
 \qquad h(n)=\min_{a}c(a).
 
 $
+
 The theorem submitted to *Integers* states that for $n\ge4$,
 
-$
+$$
 h(n)=\pi(n)-\pi(\lfloor n/2\rfloor)
  +\max\!\left(1,\left\lceil
  \frac{\pi(\lfloor n/2\rfloor)-\pi(\lfloor n/3\rfloor)}2
  \right\rceil\right).
 
-$
+$$
 
 The Lean definitions `IsPermutation`, `adjacentCount`, `h` and
 `target` encode the **same extremal assertion**. Here `h` uses
