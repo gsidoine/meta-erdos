@@ -322,12 +322,12 @@ The [prime-prefix reduction](P040-prime-prefix-reduction.md) proves
 monotonicity of the fractional Hall-cut infimum under coordinatewise
 increases of the product-measure biases. It follows that
 
-$
+$$
 \boxed{
 \alpha_{\mathrm{frac}}=
 \lim_{k\to\infty}\alpha(\{3,5,7,\ldots,r_k\}),
 }
-$
+$$
 
 where $r_k$ is the $k$-th odd prime and the sequence decreases
 weakly. The proof transports arbitrary increasing fractional
