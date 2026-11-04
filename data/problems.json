@@ -1277,9 +1277,9 @@
       "question": "Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?",
       "status": "candidate",
       "novelty": "unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown",
-      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; the 5/12 sieve threshold is exact for all asymmetric profiles on {3,5,7}, and finite-prime optimization reduces to increasing profiles",
-      "verification": "Hall-cut lower bound; complete asymmetric three-prime proof and general compression; exact rational sieve and 32,434 integral profile-pair checks; n≤10 finite resilience",
-      "priority": "determine whether additional primes lower the finite-prime infimum, or whether general Hall cuts beat the finite-prime bound",
+      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact small-prime sieve values are 1/2 for singleton sets, 4/9 for {3,5}, and 5/12 for {3,5,7}; arbitrary finite-prime infimum remains open",
+      "verification": "Exact two-prime theorem, three-prime asymmetric theorem, monotone compression, and rational finite-profile verifiers",
+      "priority": "determine whether additional primes improve the 5/12 finite-prime threshold or whether non-sieve Hall cuts improve it",
       "sources": [
         {
           "name": "Pomerance (2021), Coprime Matchings",
