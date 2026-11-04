@@ -320,7 +320,7 @@ theorem adjacentCount_append_le (a b : List ℕ) :
       cases b with
       | nil => simp [adjacentCount]
       | cons y ys =>
-        simp [adjacentCount]
+        simp [adjacentCount, List.countP_cons] <;> omega
     | cons y ys =>
       simp only [List.cons_append, adjacentCount_cons_cons] at ih ⊢
       omega
