@@ -90,9 +90,9 @@ certify the unrestricted limit.
 **The four-prime threshold.** An [exact finite certificate](../../theorems/P040-four-prime-sharpness.md)
 extends the three-prime optimum to
 
-$
+$$
 \boxed{\alpha(\{3,5,7,11\})=5/12.}
-$
+$$
 
 The calculation enumerates all $168$ increasing support families and
 checks every ordered pair with integer arithmetic; four possible
