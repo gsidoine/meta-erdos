@@ -6,7 +6,7 @@
 > **Verified/known progress:** Explicit 1/2-Ahlfors-regular simultaneous Sidon set (Fraser's 1/2 existence bound is known); sharp 1/2 dimension bound for locally Lipschitz pair-sum-to-product maps; proper closed subfields have dimension at most 1/2.  
 > **Finite evidence:** Exact symbolic argument and finite polynomial checks of up to 64 elements; dimension-one existence is not established.  
 > **Symbolic prize:** A Book (symbolic) — A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists.  
-> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
+> **Navigation:** [Full problem catalogue](../../../README.md#problem-catalogue) · [Status and scope](../../../README.md#status-and-scope) · [Literature and audits](../../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Area:** topological combinatorics  
