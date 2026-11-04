@@ -24,6 +24,8 @@ The comparison below treats **historical priority**, **mathematical validity**, 
 
 **Finite-volume spectral limit.** The finite-pattern inheritance implies $\lim_{N\to\infty}\lambda_N=\inf_{C:F(C)>1}\lambda_C$ for the unnormalized single-coordinate generator. Hence the discrete-time spectral gaps $\gamma_n$ satisfy $n\gamma_n\to\lambda_*$, with $0\le\lambda_*\le66083/243852$. The conclusion does not decide whether $\lambda_*>0$, nor any mixing-time cutoff. This is an elementary consequence of the factor theorem; historical priority relative to known divisor-lattice component methods and Markov-chain products remains unverified.
 
+**Spectral convergence theorem.** The inherited-factor construction implies the existence of the full-volume unnormalized heat-bath gap limit $\lambda_* = \lim_{N\to\infty}\lambda_N = \inf_{C:F(C)>1}\lambda_C$, with $0\le\lambda_*\le66083/243852$. Thus the discrete-time gap on $[2n]$ satisfies $n\gamma_n\to\lambda_*$. This establishes existence, not positivity or mixing cutoff. Historical priority relative to lattice-component and product-Markov-chain results remains unverified.
+
 **Gate.** Identify whether a known general mixing/spectral theorem specializes to the exact coordinate-selection measure and arithmetic poset. Preserve the distinction between the projected product cutoff and a cutoff for the full chain. Status remains *candidate*.
 
 ## P031 — Pairwise-coprime Sidon extremum
