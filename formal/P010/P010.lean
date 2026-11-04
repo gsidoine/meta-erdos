@@ -284,12 +284,12 @@ theorem join_three_ended_paths (a b : List ℕ)
 permutation for n = 4,5,6. This is not the all-n lower bound. -/
 theorem finite_lower_six (n : ℕ) (hn4 : 4 ≤ n) (hn6 : n ≤ 6) :
     ∀ a : List ℕ, IsPermutation n a → target n ≤ adjacentCount a := by
-  have hall : ((List.range' 1 n).permutations.all
+  have hall : ((List.range' 1 n).permutations'.all
       (fun b => decide (target n ≤ adjacentCount b))) = true := by
     interval_cases n <;> decide
   intro a ha
-  have hmem : a ∈ (List.range' 1 n).permutations :=
-    List.mem_permutations.mpr ha
+  have hmem : a ∈ (List.range' 1 n).permutations' :=
+    List.mem_permutations'.mpr ha
   exact of_decide_eq_true ((List.all_eq_true.mp hall) a hmem)
 
 /-- The complete exact P010 formula is already kernel-checked for
