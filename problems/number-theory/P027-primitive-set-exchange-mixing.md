@@ -95,6 +95,35 @@ $$
 
 The exact [finite-pattern verifier](../../experiments/P027_universal_finite_pattern_factors.py) checks sample factors and state counts. This generalization does **not** establish a bound better than the existing 23-state certificate, or prove that the finite-factor gaps approach zero. The counting-component viewpoint has established precedents in Liu–Pach–Palincza and McNew.
 
+## Normalized spectral-gap convergence
+
+The [finite-volume spectral-gap theorem](../../theorems/P027-spectral-gap-convergence.md)
+establishes that the unnormalized full-chain generator gap $\lambda_N$
+converges as $N\to\infty$:
+
+$
+\lim_{N\to\infty}\lambda_N
+=\inf_{\substack{C\ge2\\F(C)>1}}\lambda_C
+=:\lambda_*.
+$
+
+Equivalently, if $\gamma_n$ is the gap of the discrete-time chain on
+$[2n]$, then
+
+$
+\boxed{\lim_{n\to\infty}n\gamma_n=\lambda_*.}
+$
+
+The proof is a direct consequence of the universal finite-pattern
+factorization: every fixed nontrivial factor eventually occurs as an
+independent component in every sufficiently large ambient state space.
+The 23-state rational certificate gives
+$0\le\lambda_*\le66083/243852$.
+
+This is **convergence of a spectral quantity**, not a determination of
+its value or proof of full-chain cutoff. Historical priority has not
+been certified, and the arithmetic counting decomposition is known.
+
 ## Existing literature and novelty caveat
 
 - [Liu–Pach–Palincza, *The number of maximum primitive sets of integers* (2021)](https://doi.org/10.1017/S0963548321000018): crucial primary predecessor. They prove the exponential counting constant exists; **the family M_n and dyadic chain decomposition are known**. Do not present either as original.
