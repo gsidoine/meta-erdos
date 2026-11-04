@@ -78,7 +78,7 @@
     </section>
     <section aria-labelledby="catalogue-heading">
       <h2 id="catalogue-heading">Problem catalogue</h2>
-      <p class="note">All numbered problems appear in one sequence. Formulation, historical novelty, and symbolic rewards are separate attributes. Rewards do not rank difficulty or importance. <a href="https://github.com/gsidoine/the-scottish-book/blob/main/REWARDS.md">Sources and reward conditions</a>.</p>
+      <p class="note">All numbered problems appear in one sequence. Formulation, historical novelty, and prizes are separate attributes. The active designations are Coffee, Book, Dinner and Research Prize. Every current prize is symbolic; no material prize is offered. Pledged, funded and awarded states require public documentation. Prizes do not rank difficulty or importance. <a href="https://github.com/gsidoine/the-scottish-book/blob/main/REWARDS.md">Sources and reward conditions</a>.</p>
       <div class="bar" role="search">
         <input id="search" type="search" placeholder="Search problems…" aria-label="Search problems">
         <select id="area" aria-label="Filter by area"><option value="">All areas</option></select>
@@ -102,7 +102,7 @@
     const $=id=>document.getElementById(id);
     let problems=[],labels=new Map();
     const prizeText=p=>(p.rewards||[]).map(r=>
-      (labels.get(r.kind)||r.kind)+" — "+r.condition).join("; ")||"—";
+      (labels.get(r.kind)||r.kind)+" ("+r.status+") — "+r.condition).join("; ")||"—";
     function draw(){
       const term=$("search").value.trim().toLowerCase();
       const area=$("area").value,status=$("status").value,reward=$("reward").value;
