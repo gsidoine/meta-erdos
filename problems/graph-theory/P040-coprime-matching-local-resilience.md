@@ -52,13 +52,13 @@ The [three-prime sharpness theorem](../../theorems/P040-fractional-sieve-variati
 
 **Exact small-prime classification.** The [two-prime threshold theorem](../../theorems/P040-two-prime-thresholds.md) determines the fractional Hall-cut infimum for all sets of at most two odd primes:
 
-$
+$$
 \alpha(P)=
 \begin{cases}
 4/9,&P=\{3,5\},\\
 1/2,&P\ne\{3,5\}.
 \end{cases}
-$
+$$
 
 Together with the three-prime theorem, the successive supports
 $\{3\}$, $\{3,5\}$, and $\{3,5,7\}$ have exact thresholds
