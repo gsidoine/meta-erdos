@@ -54,6 +54,10 @@ The comparison below treats **historical priority**, **mathematical validity**, 
 
 **Exact two-prime classification.** For fractional, potentially asymmetric profiles on at most two distinct odd primes, the support-specific variational infimum is $4/9$ exactly for $\{3,5\}$ and $1/2$ for every other choice. The three-prime optimum $5/12$ is already proved separately. These are finite-prime thresholds, not a global resilience lower bound. The proof is elementary; historical originality is not certified.
 
+**Bias monotonicity and prime-prefix reduction.** A new self-contained thinning argument proves that, after monotone compression, increasing any vector of product-measure inclusion probabilities cannot increase the fractional Hall-cut infimum. Thinning from the larger biases to the smaller biases transports the selected masses, supports, and all conditional disjointness costs *exactly*. Consequently, for each fixed number $k$ of odd primes, the first $k$ odd primes minimize the support-specific infimum. Thus the unrestricted finite-prime infimum equals the limit of the non-increasing prefix sequence $\alpha(\{3,5,7,\dots,r_k\})$. This does not establish a global $5/12$ lower bound or a graph-resilience limit.
+
+The thinning device is a standard stochastic domination technique. [Wu–Feng (2026)](https://arxiv.org/abs/2607.26871) study related nonuniform biased cross-intersecting families, while [Chang–Liu–Liu (2026)](https://arxiv.org/abs/2606.15618) use coordinatewise coupling for biased cross-intersection. The precise conditional-deletion comparison is not claimed to be novel without exhaustive specialist review.
+
 **Gate.** Compare the exact finite-prime variational parameter with extremal nonuniform product-measure disjointness and Hall-resilience theorems. No claim that its bounds are historically new is warranted. Status *candidate*.
 
 ## P047 — Full-dimensional simultaneous Sidon sets
