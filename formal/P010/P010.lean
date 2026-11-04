@@ -1320,4 +1320,115 @@ theorem landau_implies_attachment_capacity (n : ℕ) (hn : 12 ≤ n)
 #print axioms intermediate_three_bridge_chain
 #print axioms landau_implies_attachment_capacity
 
+
+/-!
+## Even-ended core paths and leaf-class pairing
+
+An even-ended core path permits all leaf-prime classes to be assembled
+in pairs without invoking an inequality for the prime-counting function.
+-/
+
+/-- A nonempty path whose first and last vertices are even. -/
+def EvenEnded (a : List ℕ) : Prop :=
+  ∃ u v, a.head? = some u ∧ a.getLast? = some v ∧ 2 ∣ u ∧ 2 ∣ v
+
+/-- Concatenating two even-ended noncoprime paths preserves the
+noncoprime-chain property and both even endpoints. -/
+theorem append_even_ended (a b : List ℕ)
+    (ha : NonCoprimeChain a) (hb : NonCoprimeChain b)
+    (hea : EvenEnded a) (heb : EvenEnded b) :
+    NonCoprimeChain (a ++ b) ∧ EvenEnded (a ++ b) := by
+  obtain ⟨u, v, hau, hav, hu, hv⟩ := hea
+  obtain ⟨w, z, hbw, hbz, hw, hz⟩ := heb
+  have hchain : NonCoprimeChain (a ++ b) := by
+    apply join_even_ended_paths a b ha hb
+    · intro x hx
+      have heq : v = x := by simpa [hav] using hx
+      simpa [← heq] using hv
+    · intro y hy
+      have heq : w = y := by simpa [hbw] using hy
+      simpa [← heq] using hw
+  have hane : a ≠ [] := by
+    intro h
+    simp [h] at hau
+  have hbne : b ≠ [] := by
+    intro h
+    simp [h] at hbw
+  refine ⟨hchain, u, z, ?_, ?_, hu, hz⟩
+  · rw [List.head?_append_of_ne_nil a hane, hau]
+  · rw [List.getLast?_append_of_ne_nil a hbne, hbz]
+
+/-- For any prime p, the two-vertex leaf path p--2p is
+a simple noncoprime chain ending at an even vertex. -/
+theorem leaf_left_chain (p : ℕ) (hp : Nat.Prime p) :
+    NonCoprimeChain [p, 2 * p] := by
+  exact (List.isChain_pair).2
+    (common_prime_divisor_noncoprime hp (dvd_refl p)
+      ⟨2, by omega⟩)
+
+/-- The reverse leaf class ends at the prime vertex p. -/
+theorem leaf_right_chain (p : ℕ) (hp : Nat.Prime p) :
+    NonCoprimeChain [2 * p, p] := by
+  exact (List.isChain_pair).2
+    (common_prime_divisor_noncoprime hp
+      ⟨2, by omega⟩ (dvd_refl p))
+
+/-- Two distinct leaf-prime classes can form a noncoprime path
+without using any vertex of the even-ended core. -/
+theorem paired_leaf_classes_chain (p q : ℕ)
+    (hp : Nat.Prime p) (hq : Nat.Prime q) :
+    NonCoprimeChain [p, 2 * p, 2 * q, q] := by
+  simp only [NonCoprimeChain, List.isChain_cons_cons,
+    List.IsChain.singleton, and_true]
+  refine ⟨?_, ?_, ?_⟩
+  · exact common_prime_divisor_noncoprime hp (dvd_refl p)
+      ⟨2, by omega⟩
+  · exact common_prime_divisor_noncoprime
+      (by norm_num : Nat.Prime 2)
+      ⟨p, by omega⟩ ⟨q, by omega⟩
+  · exact common_prime_divisor_noncoprime hq
+      ⟨2, by omega⟩ (dvd_refl q)
+
+/-- An unmatched leaf class may be attached to the even-ended
+core path, with no use of prime-counting estimates. -/
+theorem unpaired_leaf_with_core_chain (p : ℕ) (hp : Nat.Prime p)
+    (core : List ℕ) (hc : NonCoprimeChain core)
+    (he : EvenEnded core) :
+    NonCoprimeChain ([p, 2 * p] ++ core) := by
+  obtain ⟨u, v, hu, hv, h2u, h2v⟩ := he
+  apply join_prime_ended_paths 2 (by norm_num)
+    [p, 2 * p] core (leaf_left_chain p hp) hc
+  · intro x hx
+    have hxx : x = 2 * p := by simpa using hx
+    subst x
+    exact ⟨p, by omega⟩
+  · intro y hy
+    have hyy : u = y := by simpa [hu] using hy
+    simpa [← hyy] using h2u
+
+/-- One paired leaf path can absorb the core by inserting it
+between its two even vertices. -/
+theorem paired_leaf_with_core_chain (p q : ℕ)
+    (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (core : List ℕ) (hc : NonCoprimeChain core)
+    (he : EvenEnded core) :
+    NonCoprimeChain ([p, 2 * p] ++ core ++ [2 * q, q]) := by
+  obtain ⟨u, v, hu, hv, h2u, h2v⟩ := he
+  have hleft : NonCoprimeChain ([p, 2 * p] ++ core) :=
+    unpaired_leaf_with_core_chain p hp core hc he
+  apply join_prime_ended_paths 2 (by norm_num)
+    ([p, 2 * p] ++ core) [2 * q, q] hleft (leaf_right_chain q hq)
+  · intro x hx
+    have heq : v = x := by
+      have hlast : ([p, 2 * p] ++ core).getLast? = some v := by
+        rw [List.getLast?_append_of_ne_nil]
+        · exact hv
+        · intro h
+          simp [h] at hu
+      simpa [hlast] using hx
+    simpa [← heq] using h2v
+  · intro y hy
+    have heq : 2 * q = y := by simpa using hy
+    simpa [← heq] using (show 2 ∣ 2 * q from ⟨q, by omega⟩)
+
 end P010
