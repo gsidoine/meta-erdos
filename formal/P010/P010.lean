@@ -320,10 +320,9 @@ theorem adjacentCount_append_le (a b : List ℕ) :
       cases b with
       | nil => simp [adjacentCount]
       | cons y ys =>
-        simp [adjacentCount_cons_cons, adjacentCount]
-        split_ifs <;> omega
+        simp [adjacentCount]
     | cons y ys =>
-      simp only [List.cons_append, adjacentCount_cons_cons]
+      simp only [List.cons_append, adjacentCount_cons_cons] at ih ⊢
       omega
 
 /-- The concatenation of k non-coprime paths contains at most k-1
