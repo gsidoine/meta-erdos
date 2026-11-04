@@ -1923,4 +1923,87 @@ theorem range_one_perm_Icc (n : ℕ) :
     (List.nodup_range') (Finset.nodup_toList _)
   rw [range_one_toFinset, Finset.toList_toFinset]
 
+
+/-- Small-class units enumerate their whole class exactly once. -/
+theorem smallEvenUnit_perm (n p : ℕ) (hp : Nat.Prime p)
+    (hbound : 4 * p ≤ n) :
+    (smallEvenUnit n p).Perm (primeClass n p).toList := by
+  obtain ⟨hu, hv, hne⟩ := small_prime_even_endpoints n p hp hbound
+  exact orderedPrimeClass_perm n p (2 * p) (4 * p) hu hv hne
+
+/-- A paired intermediate unit enumerates both of its classes. -/
+theorem intermediateEvenUnit_perm (n p q : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n)
+    (hq : q ∈ intermediatePrimes n) :
+    (intermediateEvenUnit n (p, q)).Perm (classConcat n [p, q]) := by
+  obtain ⟨hpp, hpquarter, hpthird⟩ := mem_intermediatePrimes.mp hp
+  obtain ⟨hqq, hqquarter, hqthird⟩ := mem_intermediatePrimes.mp hq
+  obtain ⟨hp2, hp3, hpneq⟩ :=
+    intermediate_prime_endpoints n p hn hpp hpquarter hpthird
+  obtain ⟨hq2, hq3, hqneq⟩ :=
+    intermediate_prime_endpoints n q hn hqq hqquarter hqthird
+  have h1 := orderedPrimeClass_perm n p (2 * p) (3 * p)
+    hp2 hp3 hpneq
+  have h2 := orderedPrimeClass_perm n q (3 * q) (2 * q)
+    hq3 hq2 hqneq.symm
+  simpa [intermediateEvenUnit, classConcat] using h1.append h2
+
+/-- The prime-3 unit without an unmatched intermediate class
+enumerates just its own class. -/
+theorem threeEvenUnit_none_perm (n : ℕ) (hn : 12 ≤ n) :
+    (threeEvenUnit n none).Perm (classConcat n [3]) := by
+  have hp : Nat.Prime 3 := by norm_num
+  have h := smallEvenUnit_perm n 3 hp (by omega)
+  simpa [threeEvenUnit, smallEvenUnit, classConcat] using h
+
+/-- The prime-3 bridge with one unmatched class enumerates both
+classes exactly once. -/
+theorem threeEvenUnit_some_perm (n p : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n) :
+    (threeEvenUnit n (some p)).Perm (classConcat n [3, p]) := by
+  obtain ⟨hpp, hquarter, hthird⟩ := mem_intermediatePrimes.mp hp
+  obtain ⟨h6, h9, hneq⟩ := three_class_bridge_vertices n hn
+  obtain ⟨h2, h3, hneq2⟩ :=
+    intermediate_prime_endpoints n p hn hpp hquarter hthird
+  have h1 := orderedPrimeClass_perm n 3 6 9 h6 h9 hneq
+  have h2 := orderedPrimeClass_perm n p (3 * p) (2 * p)
+    h3 h2 hneq2.symm
+  simpa [threeEvenUnit, classConcat] using h1.append h2
+
+/-- Pair-unit concatenation is a permutation of the catalogs for
+all primes occurring in the pairs, in pair order. -/
+theorem intermediateUnits_perm (n : ℕ) (pairs : List (ℕ × ℕ))
+    (hn : 12 ≤ n)
+    (hpairs : ∀ pair ∈ pairs,
+      pair.1 ∈ intermediatePrimes n ∧
+        pair.2 ∈ intermediatePrimes n) :
+    (pairs.map (intermediateEvenUnit n)).flatten.Perm
+      (classConcat n (pairs.flatMap (fun pq => [pq.1, pq.2]))) := by
+  induction pairs with
+  | nil => simp [classConcat]
+  | cons pq rest ih =>
+      have hpair := hpairs pq (by simp)
+      have htail : ∀ pair ∈ rest,
+          pair.1 ∈ intermediatePrimes n ∧
+            pair.2 ∈ intermediatePrimes n := by
+        intro pair hp
+        exact hpairs pair (by simp [hp])
+      have hunit := intermediateEvenUnit_perm n pq.1 pq.2
+        hn hpair.1 hpair.2
+      have hrest := ih htail
+      simpa [classConcat, List.map_cons, List.flatten_cons,
+        List.flatMap_cons] using hunit.append hrest
+
+/-- Small-unit concatenation enumerates exactly the classes
+indexed by the prescribed small-prime list. -/
+theorem smallUnits_perm (n : ℕ) (small : List ℕ)
+    (hsmall : ∀ p ∈ small, Nat.Prime p ∧ 4 * p ≤ n) :
+    (small.map (smallEvenUnit n)).flatten.Perm (classConcat n small) := by
+  change (small.flatMap (smallEvenUnit n)).Perm
+    (small.flatMap (fun p => (primeClass n p).toList))
+  apply List.Perm.flatMap_left
+  intro p hp
+  obtain ⟨hprime, hbound⟩ := hsmall p hp
+  exact smallEvenUnit_perm n p hprime hbound
+
 end P010
