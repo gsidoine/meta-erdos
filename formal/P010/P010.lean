@@ -225,4 +225,81 @@ theorem small_upper_bound (n : ℕ) (hn4 : 4 ≤ n) (hn11 : n ≤ 11) :
   refine ⟨smallWitness n, hperm, ?_⟩
   simpa [show ¬n ≤ 3 by omega] using hcount
 
+
+/-- The non-coprime adjacency condition on all consecutive elements
+of a list. These are precisely the paths used in the manuscript's
+path-cover argument. -/
+def NonCoprimeChain (a : List ℕ) : Prop :=
+  List.IsChain (fun x y : ℕ => ¬Nat.Coprime x y) a
+
+theorem common_prime_divisor_noncoprime {p x y : ℕ}
+    (hp : Nat.Prime p) (hx : p ∣ x) (hy : p ∣ y) :
+    ¬Nat.Coprime x y := by
+  exact Nat.Prime.not_coprime_iff_dvd.mpr ⟨p, hp, hx, hy⟩
+
+/-- Every ordering of a class of integers sharing a prime divisor
+is a non-coprime path. This formalizes the internal class paths. -/
+theorem prime_class_chain (p : ℕ) (hp : Nat.Prime p)
+    (a : List ℕ) (hdiv : ∀ x ∈ a, p ∣ x) :
+    NonCoprimeChain a := by
+  have hpair : List.Pairwise (fun x y : ℕ => ¬Nat.Coprime x y) a := by
+    induction a with
+    | nil => exact List.Pairwise.nil
+    | cons x xs ih =>
+      apply List.Pairwise.cons
+      · intro y hy
+        exact common_prime_divisor_noncoprime hp
+          (hdiv x (by simp)) (hdiv y (by simp [hy]))
+      · exact ih (fun y hy => hdiv y (by simp [hy]))
+  exact hpair.isChain
+
+/-- A path ending in a multiple of p may be joined to a path
+starting in a multiple of p. -/
+theorem join_prime_ended_paths (p : ℕ) (hp : Nat.Prime p)
+    (a b : List ℕ)
+    (ha : NonCoprimeChain a) (hb : NonCoprimeChain b)
+    (hend : ∀ x : ℕ, x ∈ a.getLast? → p ∣ x)
+    (hstart : ∀ y : ℕ, y ∈ b.head? → p ∣ y) :
+    NonCoprimeChain (a ++ b) := by
+  exact List.IsChain.append ha hb (fun x hx y hy =>
+    common_prime_divisor_noncoprime hp (hend x hx) (hstart y hy))
+
+/-- The proof's even-endpoint concatenation rule (p = 2). -/
+theorem join_even_ended_paths (a b : List ℕ)
+    (ha : NonCoprimeChain a) (hb : NonCoprimeChain b)
+    (hend : ∀ x : ℕ, x ∈ a.getLast? → 2 ∣ x)
+    (hstart : ∀ y : ℕ, y ∈ b.head? → 2 ∣ y) :
+    NonCoprimeChain (a ++ b) := by
+  exact join_prime_ended_paths 2 (by norm_num) a b ha hb hend hstart
+
+/-- The same rule for bridges formed by multiples of three. -/
+theorem join_three_ended_paths (a b : List ℕ)
+    (ha : NonCoprimeChain a) (hb : NonCoprimeChain b)
+    (hend : ∀ x : ℕ, x ∈ a.getLast? → 3 ∣ x)
+    (hstart : ∀ y : ℕ, y ∈ b.head? → 3 ∣ y) :
+    NonCoprimeChain (a ++ b) := by
+  exact join_prime_ended_paths 3 (by norm_num) a b ha hb hend hstart
+
+/-- A fully verified finite lower bound, obtained by checking every
+permutation for n = 4,5,6. This is not the all-n lower bound. -/
+theorem finite_lower_six (n : ℕ) (hn4 : 4 ≤ n) (hn6 : n ≤ 6) :
+    ∀ a : List ℕ, IsPermutation n a → target n ≤ adjacentCount a := by
+  have hall : ((List.range' 1 n).permutations.all
+      (fun b => decide (target n ≤ adjacentCount b))) = true := by
+    interval_cases n <;> decide
+  intro a ha
+  have hmem : a ∈ (List.range' 1 n).permutations :=
+    List.mem_permutations.mpr ha
+  exact of_decide_eq_true ((List.all_eq_true.mp hall) a hmem)
+
+/-- The complete exact P010 formula is already kernel-checked for
+n = 4,5,6, using independent exhaustive lower-bound checking and
+the explicit witnesses from the manuscript. -/
+theorem finite_exact_six (n : ℕ) (hn4 : 4 ≤ n) (hn6 : n ≤ 6) :
+    h n = target n := by
+  apply exact_of_matching_bounds n
+  · exact finite_lower_six n hn4 hn6
+  · obtain ⟨a, ha, hc⟩ := small_upper_bound n hn4 (by omega)
+    exact ⟨a, ha, le_of_eq hc⟩
+
 end P010
