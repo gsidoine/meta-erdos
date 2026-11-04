@@ -120,4 +120,109 @@ theorem middle_prime_unique_neighbor {n p x : ℕ} (hp : Nat.Prime p)
   · subst k
     simpa [hk, Nat.mul_comm]
 
+
+/-- The set of isolated large primes, of size $\pi(n)-\pi(\lfloor n/2\rfloor)$. -/
+def largePrimes (n : ℕ) : Finset ℕ :=
+  n.primesLE \ (n / 2).primesLE
+
+/-- The primes that have degree one in the non-coprime graph. -/
+def middlePrimes (n : ℕ) : Finset ℕ :=
+  (n / 2).primesLE \ (n / 3).primesLE
+
+theorem largePrimes_card (n : ℕ) :
+    (largePrimes n).card = pi n - pi (n / 2) := by
+  have hsubset : (n / 2).primesLE ⊆ n.primesLE := by
+    intro p hp
+    obtain ⟨hpbound, hpprime⟩ := Nat.mem_primesLE.mp hp
+    exact Nat.mem_primesLE.mpr ⟨by omega, hpprime⟩
+  simpa [largePrimes, pi, Nat.primesLE_card_eq_primeCounting]
+    using Finset.card_sdiff_of_subset hsubset
+
+theorem middlePrimes_card (n : ℕ) :
+    (middlePrimes n).card = pi (n / 2) - pi (n / 3) := by
+  have hsubset : (n / 3).primesLE ⊆ (n / 2).primesLE := by
+    intro p hp
+    obtain ⟨hpbound, hpprime⟩ := Nat.mem_primesLE.mp hp
+    exact Nat.mem_primesLE.mpr ⟨by omega, hpprime⟩
+  simpa [middlePrimes, pi, Nat.primesLE_card_eq_primeCounting]
+    using Finset.card_sdiff_of_subset hsubset
+
+theorem mem_largePrimes {n p : ℕ} :
+    p ∈ largePrimes n ↔ Nat.Prime p ∧ n / 2 < p ∧ p ≤ n := by
+  constructor
+  · intro h
+    obtain ⟨hp, hnot⟩ := Finset.mem_sdiff.mp h
+    obtain ⟨hle, hprime⟩ := Nat.mem_primesLE.mp hp
+    have hbig : n / 2 < p := by
+      by_contra hsmall
+      apply hnot
+      exact Nat.mem_primesLE.mpr ⟨by omega, hprime⟩
+    exact ⟨hprime, hbig, hle⟩
+  · rintro ⟨hprime, hbig, hle⟩
+    apply Finset.mem_sdiff.mpr
+    constructor
+    · exact Nat.mem_primesLE.mpr ⟨hle, hprime⟩
+    · intro hp
+      have hle' := (Nat.mem_primesLE.mp hp).1
+      omega
+
+theorem mem_middlePrimes {n p : ℕ} :
+    p ∈ middlePrimes n ↔ Nat.Prime p ∧ n / 3 < p ∧ p ≤ n / 2 := by
+  constructor
+  · intro h
+    obtain ⟨hp, hnot⟩ := Finset.mem_sdiff.mp h
+    obtain ⟨hle, hprime⟩ := Nat.mem_primesLE.mp hp
+    have hbig : n / 3 < p := by
+      by_contra hsmall
+      apply hnot
+      exact Nat.mem_primesLE.mpr ⟨by omega, hprime⟩
+    exact ⟨hprime, hbig, hle⟩
+  · rintro ⟨hprime, hbig, hle⟩
+    apply Finset.mem_sdiff.mpr
+    constructor
+    · exact Nat.mem_primesLE.mpr ⟨hle, hprime⟩
+    · intro hp
+      have hle' := (Nat.mem_primesLE.mp hp).1
+      omega
+
+/-- Every middle prime has exactly one non-coprime neighbor,
+namely twice itself. -/
+theorem middle_prime_exact_neighbor {n p : ℕ} (hp : Nat.Prime p)
+    (hthird : n / 3 < p) (hhalf : p ≤ n / 2) :
+    ∃ x : ℕ, 0 < x ∧ x ≤ n ∧ x ≠ p ∧ ¬Nat.Coprime p x ∧
+      ∀ y : ℕ, 0 < y → y ≤ n → y ≠ p → ¬Nat.Coprime p y → y = x := by
+  have hppos : 0 < p := by have := hp.two_le; omega
+  refine ⟨2 * p, by omega, by omega, by omega, ?_, ?_⟩
+  · apply (hp.dvd_iff_not_coprime).1
+    exact ⟨2, by omega⟩
+  · intro y hypos hyle hyne hyn
+    exact middle_prime_unique_neighbor hp hthird hypos hyle hyne hyn
+
+/-- Explicit optimal witnesses for the exceptional small inputs. -/
+def smallWitness : ℕ → List ℕ
+  | 1 => [1]
+  | 2 => [1, 2]
+  | 3 => [1, 2, 3]
+  | 4 => [1, 2, 4, 3]
+  | 5 => [1, 2, 4, 3, 5]
+  | 6 => [1, 2, 4, 6, 3, 5]
+  | 7 => [1, 2, 4, 6, 3, 5, 7]
+  | 8 => [1, 2, 4, 8, 6, 3, 5, 7]
+  | 9 => [1, 2, 4, 8, 6, 3, 9, 5, 7]
+  | 10 => [1, 3, 9, 6, 2, 4, 8, 10, 5, 7]
+  | 11 => [1, 3, 9, 6, 2, 4, 8, 10, 5, 7, 11]
+  | _ => []
+
+theorem smallWitness_certified (n : ℕ) (hnpos : 1 ≤ n) (hnmax : n ≤ 11) :
+    IsPermutation n (smallWitness n) ∧
+      adjacentCount (smallWitness n) =
+        (if n ≤ 3 then n - 1 else target n) := by
+  interval_cases n <;> decide
+
+theorem small_upper_bound (n : ℕ) (hn4 : 4 ≤ n) (hn11 : n ≤ 11) :
+    ∃ a : List ℕ, IsPermutation n a ∧ adjacentCount a = target n := by
+  obtain ⟨hperm, hcount⟩ := smallWitness_certified n (by omega) hn11
+  refine ⟨smallWitness n, hperm, ?_⟩
+  simpa [show ¬n ≤ 3 by omega] using hcount
+
 end P010
