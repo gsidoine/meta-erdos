@@ -1883,4 +1883,38 @@ theorem coreIndices_perm (n : ℕ) (hn : 12 ≤ n) :
     (coreIndices_nodup n) (Finset.nodup_toList _)
   simpa using coreIndices_toFinset n hn
 
+
+/-- Concatenating all largest-prime-factor classes yields precisely
+the integers 2,...,n, without repetition. -/
+theorem classConcat_all_primes (n : ℕ) :
+    (classConcat n n.primesLE.toList).Perm
+      (Finset.Icc 2 n).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (classConcat_nodup n _ (Finset.nodup_toList _))
+    (Finset.nodup_toList _)
+  rw [classConcat_toFinset, Finset.toList_toFinset]
+  exact primeClass_partition n
+
+theorem range_one_toFinset (n : ℕ) :
+    (List.range' 1 n).toFinset = Finset.Icc 1 n := by
+  classical
+  ext m
+  simp only [List.mem_toFinset, Finset.mem_Icc]
+  constructor
+  · intro hm
+    obtain ⟨i, hi, heq⟩ := List.mem_range'.mp hm
+    omega
+  · rintro ⟨hpos, hle⟩
+    apply List.mem_range'.mpr
+    refine ⟨m - 1, by omega, ?_⟩
+    omega
+
+theorem range_one_perm_Icc (n : ℕ) :
+    (List.range' 1 n).Perm (Finset.Icc 1 n).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (List.nodup_range') (Finset.nodup_toList _)
+  rw [range_one_toFinset, Finset.toList_toFinset]
+
 end P010
