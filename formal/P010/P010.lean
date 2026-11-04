@@ -508,4 +508,79 @@ theorem middle_primes_path_capacity (n : ℕ) (a : List ℕ)
               htail.trans (by omega)
             simpa [hx] using hsmall
 
+
+/-- In a simple non-coprime path, a vertex coprime to all other
+vertices of the path can occur only as a singleton path. -/
+theorem isolated_member_forces_singleton (p : ℕ) :
+    ∀ a : List ℕ, NonCoprimeChain a → a.Nodup →
+      p ∈ a → (∀ x ∈ a, x ≠ p → Nat.Coprime p x) → a = [p] := by
+  intro a
+  induction a with
+  | nil =>
+      intro _ _ hmem _
+      simp at hmem
+  | cons x xs ih =>
+      intro hchain hnodup hmem hiso
+      cases xs with
+      | nil =>
+          have hpx : p = x := by simpa using hmem
+          subst x
+          rfl
+      | cons y ys =>
+          have hxy : ¬Nat.Coprime x y :=
+            (List.isChain_cons.mp hchain).1 y (by simp)
+          by_cases hpx : p = x
+          · have hy_ne : y ≠ p := by
+              intro heq
+              exact (List.nodup_cons.mp hnodup).1 (by simp [hpx, heq])
+            have hc : Nat.Coprime x y := by
+              simpa [hpx] using hiso y (by simp) hy_ne
+            exact (hxy hc).elim
+          · have hmemtail : p ∈ y :: ys := by
+              rcases List.mem_cons.mp hmem with heq | ht
+              · exact (hpx heq).elim
+              · exact ht
+            have htail : NonCoprimeChain (y :: ys) :=
+              (List.isChain_cons.mp hchain).2
+            have hnoduptail : (y :: ys).Nodup :=
+              (List.nodup_cons.mp hnodup).2
+            have hisotail : ∀ z ∈ y :: ys, z ≠ p → Nat.Coprime p z := by
+              intro z hz hne
+              exact hiso z (by simp [hz]) hne
+            have htail_eq : y :: ys = [p] :=
+              ih htail hnoduptail hmemtail hisotail
+            have hy : y = p := by
+              have hm : y ∈ [p] := by rw [← htail_eq]; simp
+              simpa using hm
+            have hx_ne : x ≠ p := by
+              intro heq
+              exact hpx heq.symm
+            have hc : Nat.Coprime x y := by
+              simpa [hy] using (hiso x (by simp) hx_ne).symm
+            exact (hxy hc).elim
+
+/-- Every large prime is a singleton in any simple non-coprime path
+containing it and lying within [1,n]. -/
+theorem large_prime_path_singleton (n p : ℕ) (a : List ℕ)
+    (hp : p ∈ largePrimes n)
+    (hchain : NonCoprimeChain a)
+    (hnodup : a.Nodup)
+    (hmem : p ∈ a)
+    (hbound : ∀ t ∈ a, 0 < t ∧ t ≤ n) :
+    a = [p] := by
+  obtain ⟨hprime, hbig, _⟩ := mem_largePrimes.mp hp
+  apply isolated_member_forces_singleton p a hchain hnodup hmem
+  intro x hx hne
+  obtain ⟨hxpos, hxle⟩ := hbound x hx
+  exact large_prime_isolated hprime hbig hxpos hxle hne
+
+/-- The vertex 1 is a singleton in any simple non-coprime path
+containing it. -/
+theorem one_path_singleton (a : List ℕ)
+    (hchain : NonCoprimeChain a) (hnodup : a.Nodup)
+    (hmem : 1 ∈ a) : a = [1] := by
+  apply isolated_member_forces_singleton 1 a hchain hnodup hmem
+  intro x _ _
+  exact one_coprime x
+
 end P010
