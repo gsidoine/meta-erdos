@@ -13,8 +13,8 @@ class P010StatementIntegrityTests(unittest.TestCase):
     def test_statement_is_independent_of_proof(self):
         statement = (PROJECT / "P010Statement.lean").read_text(encoding="utf-8")
         proof = (PROJECT / "P010.lean").read_text(encoding="utf-8")
-        self.assertTrue(statement.startswith("import Mathlib\n"))
-        self.assertTrue(proof.startswith("import P010Statement\n"))
+        self.assertTrue(statement.startswith("module\n\npublic import Mathlib\n"))
+        self.assertTrue(proof.startswith("module\n\npublic import P010Statement\n"))
         self.assertIn("def ExactStatement (n : ℕ) : Prop := 4 ≤ n → h n = target n", statement)
         self.assertIn("theorem P010_exact (n : ℕ) (hn : 4 ≤ n)", proof)
         self.assertIn("theorem P010_statement_valid (n : ℕ) : ExactStatement n", proof)
