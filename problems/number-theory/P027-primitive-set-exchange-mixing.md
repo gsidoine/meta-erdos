@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Determine the mixing-time order and possible cutoff for single-chain heat-bath dynamics on maximum primitive subsets of [2n].  
 > **Formulation:** candidate. **Novelty:** not certified; closely related to counting primitive sets and distributive-lattice walks.  
-> **Verified/known progress:** Exact diameter and improved 23-state mixing obstruction (121926/66083)n log n; arbitrary fixed maximum primitive-set spaces occur as positive-density independent factors, implying linear divisibility and spectral transfer.  
-> **Finite evidence:** Exact 23-state Rayleigh certificate; independent finite counts F(20)=26, F(24)=34 and factor-isolation checks; full-chain mixing and priority remain unresolved.  
+> **Verified/known progress:** The unnormalized heat-bath spectral gaps converge: lim_N lambda_N = inf_C lambda_C, with 0 ≤ limit ≤ 66083/243852; exact exchange geometry, finite factors, and the (121926/66083)n log n lower mixing bound are proved.  
+> **Finite evidence:** Self-contained factor-inheritance proof of the spectral limit; exact 23-state rational Rayleigh certificate and independent finite-pattern counts.  
 > **Symbolic prize:** A Research Prize (symbolic) — A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -94,6 +94,35 @@ t_{\mathrm{mix}}(n,\varepsilon)\ge
 $$
 
 The exact [finite-pattern verifier](../../experiments/P027_universal_finite_pattern_factors.py) checks sample factors and state counts. This generalization does **not** establish a bound better than the existing 23-state certificate, or prove that the finite-factor gaps approach zero. The counting-component viewpoint has established precedents in Liu–Pach–Palincza and McNew.
+
+## Normalized spectral-gap convergence
+
+The [finite-volume spectral-gap theorem](../../theorems/P027-spectral-gap-convergence.md)
+establishes that the unnormalized full-chain generator gap $\lambda_N$
+converges as $N\to\infty$:
+
+$$
+\lim_{N\to\infty}\lambda_N
+=\inf_{\substack{C\ge2\\F(C)>1}}\lambda_C
+=:\lambda_*.
+$$
+
+Equivalently, if $\gamma_n$ is the gap of the discrete-time chain on
+$[2n]$, then
+
+$$
+\boxed{\lim_{n\to\infty}n\gamma_n=\lambda_*.}
+$$
+
+The proof is a direct consequence of the universal finite-pattern
+factorization: every fixed nontrivial factor eventually occurs as an
+independent component in every sufficiently large ambient state space.
+The 23-state rational certificate gives
+$0\le\lambda_*\le66083/243852$.
+
+This is **convergence of a spectral quantity**, not a determination of
+its value or proof of full-chain cutoff. Historical priority has not
+been certified, and the arithmetic counting decomposition is known.
 
 ## Existing literature and novelty caveat
 
