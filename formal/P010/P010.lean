@@ -1012,4 +1012,101 @@ theorem intermediate_prime_endpoints (n p : ℕ) (hn : 12 ≤ n)
   · have := hp.two_le
     omega
 
+
+/-- An element of class p bounded by k*p has multiplier in [1,k). -/
+theorem primeClass_multiple_below (n p m k : ℕ)
+    (hm : m ∈ primeClass n p) (hupper : n < k * p) :
+    ∃ t : ℕ, 1 ≤ t ∧ t < k ∧ m = t * p := by
+  obtain ⟨t, ht⟩ := primeClass_dvd hm
+  have hpos : 2 ≤ m := (mem_primeClass.mp hm).1
+  have hle : m ≤ n := (mem_primeClass.mp hm).2.1
+  have htp : m = t * p := by simpa [Nat.mul_comm] using ht
+  have htpos : 1 ≤ t := by
+    by_contra h
+    have hzero : t = 0 := by omega
+    subst t
+    simp at htp
+    omega
+  have htlt : t < k := by
+    by_contra h
+    have hge : k ≤ t := by omega
+    have hprod : k * p ≤ t * p := Nat.mul_le_mul_right p hge
+    omega
+  exact ⟨t, htpos, htlt, htp⟩
+
+/-- Above n/2 the largest-prime-factor class is a singleton. -/
+theorem large_prime_class_eq (n p : ℕ) (hp : Nat.Prime p)
+    (hbig : n / 2 < p) (hle : p ≤ n) :
+    primeClass n p = {p} := by
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨t, htpos, htlt, hmt⟩ :=
+      primeClass_multiple_below n p m 2 hm (by omega)
+    have ht : t = 1 := by omega
+    simp only [Finset.mem_singleton]
+    simpa [ht] using hmt
+  · intro hm
+    have heq : m = p := Finset.mem_singleton.mp hm
+    subst m
+    exact prime_mem_primeClass n p hp hle
+
+/-- In (n/3,n/2] the class has exactly the prime and its double. -/
+theorem leaf_prime_class_eq (n p : ℕ) (hp : Nat.Prime p)
+    (hthird : n / 3 < p) (hhalf : p ≤ n / 2) :
+    primeClass n p = {p, 2 * p} := by
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨t, htpos, htlt, hmt⟩ :=
+      primeClass_multiple_below n p m 3 hm (by omega)
+    have hcases : t = 1 ∨ t = 2 := by omega
+    rcases hcases with ht | ht
+    · simp [ht, hmt]
+    · simp [ht, hmt]
+  · intro hm
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+    rcases hm with heq | heq
+    · subst m
+      exact prime_mem_primeClass n p hp (by omega)
+    · subst m
+      exact two_mul_prime_mem_class n p hp (by omega)
+
+/-- In (n/4,n/3] the class consists of p, 2p, and 3p for n≥12. -/
+theorem intermediate_prime_class_eq (n p : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hquarter : n / 4 < p)
+    (hthird : p ≤ n / 3) :
+    primeClass n p = {p, 2 * p, 3 * p} := by
+  have hp3 : 3 ≤ p := by omega
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨t, htpos, htlt, hmt⟩ :=
+      primeClass_multiple_below n p m 4 hm (by omega)
+    have hcases : t = 1 ∨ t = 2 ∨ t = 3 := by omega
+    rcases hcases with ht | ht | ht
+    · simp [ht, hmt]
+    · simp [ht, hmt]
+    · simp [ht, hmt]
+  · intro hm
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+    rcases hm with heq | heq | heq
+    · subst m
+      exact prime_mem_primeClass n p hp (by omega)
+    · subst m
+      exact two_mul_prime_mem_class n p hp (by omega)
+    · subst m
+      exact three_mul_prime_mem_class n p hp hp3 (by omega)
+
+/-- Class 3 supplies the even endpoint 6 and the bridge endpoint 9
+when n≥12. -/
+theorem three_class_bridge_vertices (n : ℕ) (hn : 12 ≤ n) :
+    6 ∈ primeClass n 3 ∧ 9 ∈ primeClass n 3 ∧ 6 ≠ 9 := by
+  have hp : Nat.Prime 3 := by norm_num
+  constructor
+  · simpa using two_mul_prime_mem_class n 3 hp (by omega)
+  constructor
+  · simpa using three_mul_prime_mem_class n 3 hp (by omega) (by omega)
+  · norm_num
+
 end P010
