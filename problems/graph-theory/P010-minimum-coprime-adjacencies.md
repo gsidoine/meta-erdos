@@ -36,7 +36,7 @@ $$
 \boxed{\displaystyle h(n)\sim\frac7{12}\frac{n}{\log n}.}
 $$
 
-**Full constructive proof:** [Exact minimum coprime adjacency theorem](../../theorems/P010-exact-coprime-adjacencies.md). It requires no conjecture: only elementary graph theory and the classical prime-counting inequality $\pi(2x)\le2\pi(x)$ for $x\ge3$.
+**Full constructive proof:** [Exact minimum coprime adjacency theorem](../../theorems/P010-exact-coprime-adjacencies.md). The refined proof requires only elementary graph theory and the arithmetic partition by largest prime factor; it does not use a prime-counting inequality.
 
 ## Why the exact expression is inevitable
 
@@ -44,7 +44,7 @@ Let $H_n$ join distinct integers whose gcd exceeds 1. The minimum number of vert
 
 The vertex 1 and all primes $p>n/2$ are isolated, forcing $A_n+1$ singleton paths. The primes $q\in(n/3,n/2]$ each have exactly **one** noncoprime neighbor, namely $2q$. Hence these $B_n$ leaves force at least $\lceil B_n/2\rceil$ further paths. For $n\ge4$, the remaining set containing 2 and 4 is nonempty, forcing at least one path even when $B_n=0$. This gives the exact lower bound.
 
-For the matching upper bound, partition $[2,n]$ by **largest prime factor**. Classes with prime $p\le n/4$ have two even endpoints $2p,4p$; those with $n/4<p\le n/3$ have endpoints $2p,3p$. Pair middle classes through the edges $3p\!-\!3q$; when there is an odd one, attach it to the class for prime 3 through $3p\!-\!9$. This yields paths with **two even endpoints**, which may be concatenated freely through even–even edges. Primes $q\in(n/3,n/2]$ each contribute a one-even-ended class and can be attached to the ends of these paths, two per path. The standard inequality $\pi(n/2)\le2\pi(n/4)$ guarantees enough units to realize the lower bound for $n\ge12$. Explicit permutations handle $4\le n\le11$. See the theorem for all details and endpoint accounting.
+For the matching upper bound, partition $[2,n]$ by **largest prime factor**. Classes with prime $p\le n/4$ have two even endpoints $2p,4p$; those with $n/4<p\le n/3$ have endpoints $2p,3p$. Pair middle classes through the edges $3p\!-\!3q$; when there is an odd one, attach it to the class for prime 3 through $3p\!-\!9$. This yields paths with **two even endpoints**, which may be concatenated freely through even–even edges. Concatenating all even-ended units gives one core path. The remaining classes $\{q,2q\}$ can be paired directly along even–even edges: each pair $q,2q,2q',q'$ forms a path, and the core is inserted into one such pair (or attached to a single unmatched class). This gives exactly $\max\{1,\lceil B_n/2\rceil\}$ nonisolated paths without a prime-counting inequality. Explicit permutations handle $4\le n\le11$. See the theorem for all details and endpoint accounting.
 
 ## Computation and independent checks
 
