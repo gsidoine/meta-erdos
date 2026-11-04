@@ -27,7 +27,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "A proof of bounded prime-sum deficit, or an unbounded sequence of deficits."
+          "condition": "A proof of bounded prime-sum deficit, or an unbounded sequence of deficits.",
+          "status": "symbolic"
         }
       ]
     },
@@ -55,8 +56,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A classification of four-cycle-switch components for all prime-sum perfect matchings."
+          "kind": "coffee",
+          "condition": "A classification of four-cycle-switch components for all prime-sum perfect matchings.",
+          "status": "symbolic"
         }
       ]
     },
@@ -84,8 +86,9 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A proof of matching-packing equality for every order, or a counterexample."
+          "kind": "book",
+          "condition": "A proof of matching-packing equality for every order, or a counterexample.",
+          "status": "symbolic"
         }
       ]
     },
@@ -113,8 +116,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "An asymptotic determination of the connectivity threshold for one-mark Sidon exchanges."
+          "kind": "research-prize",
+          "condition": "An asymptotic determination of the connectivity threshold for one-mark Sidon exchanges.",
+          "status": "symbolic"
         }
       ]
     },
@@ -146,8 +150,9 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "goose",
-          "condition": "A necessary and sufficient criterion for connected coprime-permutation switch graphs."
+          "kind": "research-prize",
+          "condition": "A necessary and sufficient criterion for connected coprime-permutation switch graphs.",
+          "status": "symbolic"
         }
       ]
     },
@@ -175,8 +180,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "bacon",
-          "condition": "The sharp leading constant in the maximum size of a prime-difference-free Sidon set."
+          "kind": "dinner",
+          "condition": "The sharp leading constant in the maximum size of a prime-difference-free Sidon set.",
+          "status": "symbolic"
         }
       ]
     },
@@ -204,8 +210,9 @@
       "portfolio_tier": "D",
       "rewards": [
         {
-          "kind": "whisky",
-          "condition": "A proof or disproof of eventual attainment of the parity upper bound for coprime paths."
+          "kind": "dinner",
+          "condition": "A proof or disproof of eventual attainment of the parity upper bound for coprime paths.",
+          "status": "symbolic"
         }
       ]
     },
@@ -237,8 +244,9 @@
       "portfolio_tier": "D",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A specified non-tautological expansion of the arithmetic connectivity threshold with a proved error term."
+          "kind": "coffee",
+          "condition": "A specified non-tautological expansion of the arithmetic connectivity threshold with a proved error term.",
+          "status": "symbolic"
         }
       ]
     },
@@ -266,8 +274,9 @@
       "portfolio_tier": "D",
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A proof that two prime sums suffice for every positive integer n, or an explicit counterexample."
+          "kind": "book",
+          "condition": "A proof that two prime sums suffice for every positive integer n, or an explicit counterexample.",
+          "status": "symbolic"
         }
       ]
     },
@@ -300,7 +309,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "An independently checked Lean formalization of the exact coprime-adjacency theorem."
+          "condition": "An independently checked Lean formalization of the exact coprime-adjacency theorem.",
+          "status": "symbolic"
         }
       ]
     },
@@ -328,8 +338,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "A rigorous threshold law for perfect matchings in the random sum-diagonal graph model."
+          "kind": "research-prize",
+          "condition": "A rigorous threshold law for perfect matchings in the random sum-diagonal graph model.",
+          "status": "symbolic"
         }
       ]
     },
@@ -357,8 +368,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "five-beers",
-          "condition": "A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning."
+          "kind": "book",
+          "condition": "A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning.",
+          "status": "symbolic"
         }
       ]
     },
@@ -387,7 +399,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability."
+          "condition": "A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability.",
+          "status": "symbolic"
         }
       ]
     },
@@ -419,8 +432,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "whisky",
-          "condition": "A proof or disproof that the specified Cayley-sum flag-complex homology thresholds match the independent-edge model."
+          "kind": "dinner",
+          "condition": "A proof or disproof that the specified Cayley-sum flag-complex homology thresholds match the independent-edge model.",
+          "status": "symbolic"
         }
       ]
     },
@@ -453,7 +467,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "A general proof of four-class odd-area flip connectivity, or a finite counterexample."
+          "condition": "A general proof of four-class odd-area flip connectivity, or a finite counterexample.",
+          "status": "symbolic"
         }
       ]
     },
@@ -485,8 +500,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "bacon",
-          "condition": "A proof of eventual vanishing for each fixed homological degree, or an infinite nonvanishing family."
+          "kind": "dinner",
+          "condition": "A proof of eventual vanishing for each fixed homological degree, or an infinite nonvanishing family.",
+          "status": "symbolic"
         }
       ]
     },
@@ -514,8 +530,9 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "Existence or nonexistence of the normalized longest-chain limit for a fixed site density strictly between zero and one."
+          "kind": "coffee",
+          "condition": "Existence or nonexistence of the normalized longest-chain limit for a fixed site density strictly between zero and one.",
+          "status": "symbolic"
         }
       ]
     },
@@ -547,8 +564,9 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "The least uniform exchange size connecting every feasible conserved-XOR basis fiber."
+          "kind": "research-prize",
+          "condition": "The least uniform exchange size connecting every feasible conserved-XOR basis fiber.",
+          "status": "symbolic"
         }
       ]
     },
@@ -580,8 +598,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A universal bound on simultaneous replacements in optimal no-three-in-line configurations, or a proof of unboundedness."
+          "kind": "book",
+          "condition": "A universal bound on simultaneous replacements in optimal no-three-in-line configurations, or a proof of unboundedness.",
+          "status": "symbolic"
         }
       ]
     },
@@ -617,12 +636,14 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "goose",
-          "condition": "An explicit limiting distribution for random p-adic Hankel cokernels, or a proof that it does not exist."
+          "kind": "research-prize",
+          "condition": "An explicit limiting distribution for random p-adic Hankel cokernels, or a proof that it does not exist.",
+          "status": "symbolic"
         },
         {
           "kind": "coffee",
-          "condition": "An exact probability for a previously untreated three-generator higher-exponent cokernel class."
+          "condition": "An exact probability for a previously untreated three-generator higher-exponent cokernel class.",
+          "status": "symbolic"
         }
       ]
     },
@@ -650,8 +671,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "whisky",
-          "condition": "An explicit limiting Sylow-group distribution for the correlated Cayley-sum sandpile model."
+          "kind": "dinner",
+          "condition": "An explicit limiting Sylow-group distribution for the correlated Cayley-sum sandpile model.",
+          "status": "symbolic"
         }
       ]
     },
@@ -679,8 +701,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A proved nontrivial homology transition regime for the random unimodular triangle complex."
+          "kind": "coffee",
+          "condition": "A proved nontrivial homology transition regime for the random unimodular triangle complex.",
+          "status": "symbolic"
         }
       ]
     },
@@ -709,7 +732,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "A sharp threshold for full rank of the random prime-incidence matrix."
+          "condition": "A sharp threshold for full rank of the random prime-incidence matrix.",
+          "status": "symbolic"
         }
       ]
     },
@@ -737,8 +761,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "bacon",
-          "condition": "The first-order asymptotics of the zero-forcing number of the divisor comparability graph."
+          "kind": "dinner",
+          "condition": "The first-order asymptotics of the zero-forcing number of the divisor comparability graph.",
+          "status": "symbolic"
         }
       ]
     },
@@ -770,8 +795,9 @@
       "portfolio_tier": "D",
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A proof or disproof of the cyclic analogue of the known adjacent-lcm bottleneck asymptotic."
+          "kind": "book",
+          "condition": "A proof or disproof of the cyclic analogue of the known adjacent-lcm bottleneck asymptotic.",
+          "status": "symbolic"
         }
       ]
     },
@@ -799,8 +825,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A proof that prime-sum four-cycles span the binary cycle space in all orders, or a counterexample."
+          "kind": "coffee",
+          "condition": "A proof that prime-sum four-cycles span the binary cycle space in all orders, or a counterexample.",
+          "status": "symbolic"
         }
       ]
     },
@@ -836,8 +863,9 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component."
+          "kind": "research-prize",
+          "condition": "A classification of irreducible components and a sharp mixing-time estimate on a specified nontrivial component.",
+          "status": "symbolic"
         }
       ]
     },
@@ -869,8 +897,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "whisky",
-          "condition": "A nondegenerate fluctuation law for the random Euler characteristic after explicit centering and scaling."
+          "kind": "dinner",
+          "condition": "A nondegenerate fluctuation law for the random Euler characteristic after explicit centering and scaling.",
+          "status": "symbolic"
         }
       ]
     },
@@ -898,8 +927,9 @@
       "portfolio_tier": "D",
       "rewards": [
         {
-          "kind": "five-beers",
-          "condition": "A universal bounded-size exchange theorem for nontrivial prime-sum X-ray fibers, or counterexamples with unbounded exchange size."
+          "kind": "book",
+          "condition": "A universal bounded-size exchange theorem for nontrivial prime-sum X-ray fibers, or counterexamples with unbounded exchange size.",
+          "status": "symbolic"
         }
       ]
     },
@@ -928,7 +958,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "A perfect double-prime matching for every even order at least eight, or an exceptional order."
+          "condition": "A perfect double-prime matching for every even order at least eight, or an exceptional order.",
+          "status": "symbolic"
         }
       ]
     },
@@ -960,8 +991,9 @@
       ],
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A sharp asymptotic for the maximum size of a pairwise-coprime Sidon subset of an initial interval."
+          "kind": "book",
+          "condition": "A sharp asymptotic for the maximum size of a pairwise-coprime Sidon subset of an initial interval.",
+          "status": "symbolic"
         }
       ]
     },
@@ -989,8 +1021,9 @@
       ],
       "rewards": [
         {
-          "kind": "bacon",
-          "condition": "A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures."
+          "kind": "dinner",
+          "condition": "A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1030,8 +1063,9 @@
       ],
       "rewards": [
         {
-          "kind": "goose",
-          "condition": "A proof that three prime sums always connect the graph on an initial interval, or a counterexample."
+          "kind": "research-prize",
+          "condition": "A proof that three prime sums always connect the graph on an initial interval, or a counterexample.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1063,8 +1097,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A construction using four prime sums for every odd order at least seven, or an exceptional order."
+          "kind": "coffee",
+          "condition": "A construction using four prime sums for every odd order at least seven, or an exceptional order.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1096,8 +1131,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "An asymptotically optimal Sidon and divisibility-antichain coloring, or a larger lower bound."
+          "kind": "research-prize",
+          "condition": "An asymptotically optimal Sidon and divisibility-antichain coloring, or a larger lower bound.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1129,8 +1165,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "whisky",
-          "condition": "The critical scale and limiting law for the first nonempty two-core in a random Schur hypergraph."
+          "kind": "dinner",
+          "condition": "The critical scale and limiting law for the first nonempty two-core in a random Schur hypergraph.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1167,7 +1204,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "The maximal-order growth of the induced-cycle prime-gap deficit."
+          "condition": "The maximal-order growth of the induced-cycle prime-gap deficit.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1195,8 +1233,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A sharpened asymptotic error term for the logarithm of the coprime-graph induced-matching number."
+          "kind": "coffee",
+          "condition": "A sharpened asymptotic error term for the logarithm of the coprime-graph induced-matching number.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1224,8 +1263,9 @@
       "portfolio_tier": "C",
       "rewards": [
         {
-          "kind": "five-beers",
-          "condition": "A proof that prime-product-plus-one pairings exist for every n at least one, or an infinite obstruction family."
+          "kind": "book",
+          "condition": "A proof that prime-product-plus-one pairings exist for every n at least one, or an infinite obstruction family.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1261,8 +1301,9 @@
       "portfolio_tier": "A",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "Existence and exact value of the limiting coprime-matching local resilience."
+          "kind": "research-prize",
+          "condition": "Existence and exact value of the limiting coprime-matching local resilience.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1294,8 +1335,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A limiting constant for the second-order gap between unrestricted and squarefree random divisibility chains."
+          "kind": "book",
+          "condition": "A limiting constant for the second-order gap between unrestricted and squarefree random divisibility chains.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1323,8 +1365,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "bacon",
-          "condition": "Hamiltonian paths in every one-carry graph of dimension at least four, or an infinite obstruction family."
+          "kind": "dinner",
+          "condition": "Hamiltonian paths in every one-carry graph of dimension at least four, or an infinite obstruction family.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1352,8 +1395,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A sharp asymptotic for the largest component of the prime-denominator Farey graph."
+          "kind": "coffee",
+          "condition": "A sharp asymptotic for the largest component of the prime-denominator Farey graph.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1381,8 +1425,9 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "The optimal order of the error in the squarefree-displacement permanent asymptotic."
+          "kind": "research-prize",
+          "condition": "The optimal order of the error in the squarefree-displacement permanent asymptotic.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1411,7 +1456,8 @@
       "rewards": [
         {
           "kind": "coffee",
-          "condition": "A complete construction of almost-distinct-product additive complete mappings for all primes at least five, or a counterexample."
+          "condition": "A complete construction of almost-distinct-product additive complete mappings for all primes at least five, or a counterexample.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1439,12 +1485,14 @@
       "portfolio_tier": "B",
       "rewards": [
         {
-          "kind": "five-beers",
-          "condition": "A constant-factor square-root lower bound for XOR-Sidon sets of primes in all sufficiently large dyadic intervals."
+          "kind": "book",
+          "condition": "A constant-factor square-root lower bound for XOR-Sidon sets of primes in all sufficiently large dyadic intervals.",
+          "status": "symbolic"
         },
         {
-          "kind": "small-beer",
-          "condition": "An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound."
+          "kind": "coffee",
+          "condition": "An improvement of the current 1/m factor in the dyadic XOR-Sidon lower bound.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1479,8 +1527,9 @@
       ],
       "rewards": [
         {
-          "kind": "wine",
-          "condition": "A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists."
+          "kind": "book",
+          "condition": "A full-dimensional compact perfect simultaneous four-point Sidon set, or a proof that none exists.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1542,8 +1591,9 @@
       ],
       "rewards": [
         {
-          "kind": "caviar",
-          "condition": "A proved limit and explicit characterization of the rank density for every fixed retention probability."
+          "kind": "research-prize",
+          "condition": "A proved limit and explicit characterization of the rank density for every fixed retention probability.",
+          "status": "symbolic"
         }
       ]
     },
@@ -1574,8 +1624,9 @@
       ],
       "rewards": [
         {
-          "kind": "small-beer",
-          "condition": "A proof or counterexample to the exact dyadic prime-Hamming cube coloring formula."
+          "kind": "coffee",
+          "condition": "A proof or counterexample to the exact dyadic prime-Hamming cube coloring formula.",
+          "status": "symbolic"
         }
       ]
     }
