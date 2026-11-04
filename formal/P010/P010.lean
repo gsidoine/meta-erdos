@@ -395,4 +395,31 @@ theorem h_le_canonical_run_count (n : ℕ) (a : List ℕ)
   · simpa [maximalNonCoprimeRuns_flatten] using ha
   · exact maximalNonCoprimeRuns_chains a
 
+
+/-- Each coprime adjacency creates one new non-coprime run. -/
+private theorem splitBy_loop_run_count
+    (xs : List ℕ) (b : ℕ) (rev : List ℕ) (parts : List (List ℕ)) :
+    (List.splitBy.loop (fun x y : ℕ => decide (¬Nat.Coprime x y))
+      xs b rev parts).length =
+        parts.length + 1 + adjacentCount (b :: xs) := by
+  induction xs generalizing b rev parts with
+  | nil =>
+    simp [List.splitBy.loop, adjacentCount]
+  | cons x xs ih =>
+    by_cases hc : Nat.Coprime b x
+    · have hi := ih x [] ((b :: rev).reverse :: parts)
+      simpa [List.splitBy.loop, hc, adjacentCount_cons_cons,
+        Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hi
+    · have hi := ih x (b :: rev) parts
+      simpa [List.splitBy.loop, hc, adjacentCount_cons_cons,
+        Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hi
+
+/-- The number of maximal non-coprime runs is exactly one more
+than the number of adjacent coprime pairs. -/
+theorem maximalNonCoprimeRuns_length (x : ℕ) (xs : List ℕ) :
+    (maximalNonCoprimeRuns (x :: xs)).length =
+      adjacentCount (x :: xs) + 1 := by
+  simpa [maximalNonCoprimeRuns, List.splitBy, Nat.add_comm, Nat.add_left_comm]
+    using splitBy_loop_run_count xs x [] []
+
 end P010
