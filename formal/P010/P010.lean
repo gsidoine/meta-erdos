@@ -1509,4 +1509,44 @@ theorem packLeafClasses_chains (core : List ℕ)
             exact paired_leaf_classes_chain p q hp hq
           · exact ih hrest path ht
 
+
+/-- Split an arbitrary list into consecutive pairs and at most one
+unpaired final element. -/
+def splitPrimePairs : List ℕ → List (ℕ × ℕ) × Option ℕ
+  | [] => ([], none)
+  | [p] => ([], some p)
+  | p :: q :: rest =>
+      let split := splitPrimePairs rest
+      ((p, q) :: split.1, split.2)
+
+/-- The pair splitting loses no elements: unfolding the pairs and
+optional leftover reproduces the input list in its original order. -/
+theorem splitPrimePairs_recompose :
+    ∀ ps : List ℕ,
+      (splitPrimePairs ps).1.flatMap (fun pq => [pq.1, pq.2]) ++
+        (splitPrimePairs ps).2.toList = ps := by
+  intro ps
+  induction ps using List.twoStepInduction with
+  | nil => rfl
+  | singleton p => rfl
+  | cons_cons p q rest ih =>
+      simp only [splitPrimePairs, List.flatMap_cons, List.append_assoc]
+      simpa using congrArg (fun t => p :: q :: t) ih
+
+/-- The number of paired items in a split is exactly twice the
+number of resulting pairs, with one additional item if unmatched. -/
+theorem splitPrimePairs_length (ps : List ℕ) :
+    2 * (splitPrimePairs ps).1.length +
+      (splitPrimePairs ps).2.toList.length = ps.length := by
+  have hr := congrArg List.length (splitPrimePairs_recompose ps)
+  simp only [List.length_append, List.length_flatMap] at hr
+  -- An exact arithmetic identity is also available by structural induction.
+  induction ps using List.twoStepInduction with
+  | nil => rfl
+  | singleton p => rfl
+  | cons_cons p q rest ih =>
+      simp only [splitPrimePairs, List.length_cons, Option.toList]
+        at ih ⊢
+      omega
+
 end P010
