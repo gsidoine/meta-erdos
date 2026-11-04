@@ -84,17 +84,23 @@ def path_cover(n, lpf):
         units.append(with_ends(blocks[p], 2*p, 3*p)
                      + with_ends(blocks[q], 3*q, 2*q))
 
-    r = max(1, (len(leaves)+1)//2)
-    assert len(units) >= r
-    chains = units[:r]
-    for j, unit in enumerate(units[r:]):
-        chains[j % r].extend(unit)  # all unit endpoints are even
-
-    for j, p in enumerate(leaves):
-        if j < r:
-            chains[j] = [p, 2*p] + chains[j]
-        else:
-            chains[j-r].extend([2*p, p])
+    # Join all even-ended units into one core, then pair leaves directly.
+    # The original capacity comparison with prime counts is unnecessary.
+    core = [v for unit in units for v in unit]
+    assert core and core[0] % 2 == 0 and core[-1] % 2 == 0
+    paired = list(zip(leaves[::2], leaves[1::2]))
+    if len(leaves) % 2:
+        p = leaves[-1]
+        chains = [[p, 2*p] + core] + [
+            [u, 2*u, 2*v, v] for u, v in paired
+        ]
+    elif paired:
+        p, q = paired.pop()
+        chains = [[p, 2*p] + core + [2*q, q]] + [
+            [u, 2*u, 2*v, v] for u, v in paired
+        ]
+    else:
+        chains = [core]
     return [[1]] + [[p] for p in singletons] + chains
 
 
