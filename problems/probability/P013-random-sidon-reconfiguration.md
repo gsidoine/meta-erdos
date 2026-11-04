@@ -2,15 +2,15 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can Sidon-set existence and feasible one-element-exchange connectivity have different transition regimes inside a random subset of [N]?  
-> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
-> **Verified/known progress:** Random Sidon decision phase behavior is known; feasible exchange components form a distinct proposed observable.  
+> **Formulation:** reframe. **Novelty:** random Sidon thresholds and exchange heuristics have predecessors; no fixed k(N),q(N) regime with a proved new phenomenon.  
+> **Verified/known progress:** Model and conditional component observable are defined; the k=2 case is Johnson-graph connectivity, and no asymptotic fragmentation regime has been established.  
 > **Finite evidence:** k=2 degenerate connectivity checked conceptually; no large-case claim.  
 > **Symbolic prize:** A Coffee (symbolic) — A sequence of site probabilities where Sidon configurations exist with high probability but the exchange graph is disconnected with high probability.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Fields:** additive combinatorics, random discrete structures, reconfiguration  
-**Research status:** candidate, unproved, not certified novel.
+**Research status:** reframe; no particular nontrivial random-site scaling or exchange-fragmentation theorem is established.
 
 ## Model
 
@@ -33,6 +33,10 @@ $$
 
 To avoid trivial conventions, condition on $X_{N,k}(q)\ge2$ when discussing connectivity. Neither this conditional event nor the connectedness of the state graph is assumed monotone in $q$.
 
+## Mathematical scope
+
+The current question ranges over unspecified sequences $k(N)$ and $q(N)$. Existence of Sidon sets and connectivity of their exchange space are distinct predicates, but this distinction alone is not a new asymptotic phenomenon. A proposed scale separation must fix the growth of $k(N)$, identify the relevant $q(N)$ window and distinguish a specific arithmetic obstruction from generic state-space fragmentation. The $k=2$ case is exactly a Johnson graph and gives no separation.
+
 ## Structural implications
 
 This asks whether a *randomly diluted arithmetic constraint space* can exhibit a fragmented phase, analogous to clustering in random constraint satisfaction and the solution geometry of hard-core models. The $q=1$ endpoint is the deterministic Sidon exchange problem P004. The random-site model may reveal an intrinsic **reconfiguration threshold** distinct from ordinary Sidon-set existence.
@@ -42,6 +46,8 @@ This asks whether a *randomly diluted arithmetic constraint space* can exhibit a
 When $k=2$, every two-element set is Sidon, and the exchange graph is a Johnson graph on the selected sites, hence connected whenever it is nonempty. This is a degenerate case, not evidence for higher-$k$ behavior.
 
 A Sidon set cannot be arbitrarily close to $\sqrt N$ without strong global constraints; at high $k$, frozen isolated states or no states can dominate the ensemble. The problem should be studied with clear conditioning and fixed $k(N)$ regimes.
+
+The underlying random Sidon-existence threshold was studied in Godbole, Janson, Locantore and Rapoport, [*Random Sidon Sequences*](https://doi.org/10.1006/jnth.1998.2325), *Journal of Number Theory* **75** (1999), 7–22. This is a substantive predecessor to the random-site model, although it does not define the reconfiguration graph.
 
 ## Literature context
 

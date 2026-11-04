@@ -2,15 +2,15 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** At what densities do the perfect matchings of a thinned coprime graph form one four-cycle reconfiguration component?  
-> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
-> **Verified/known progress:** Connects P005 matching switches to P008 arithmetic thinning; phase diagram not yet determined.  
+> **Formulation:** reframe. **Novelty:** model and switch chain have known predecessors; no arithmetic-specific fragmentation regime established.  
+> **Verified/known progress:** The conditional connectivity observable is defined, but no distinguished density window or arithmetic-specific obstruction has been established; frozen-edge obstructions are generic.  
 > **Finite evidence:** Frozen-edge obstruction identified; unique-matching and nonmonotonicity caveats.  
-> **Symbolic prize:** A Book (symbolic) — A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning.  
+> **Symbolic prize:** A Book (symbolic) — A proved asymptotic law for switch-space connectivity in a specified nontrivial thinning regime, or an explicit arithmetic fragmentation obstruction.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Fields:** probability, arithmetic graph theory, graph reconfiguration  
-**Research status:** candidate, unproved, not certified novel.
+**Research status:** reframe; the exact conditional observable is defined, but no specific arithmetic fragmentation regime is yet established.
 
 ## Model
 
@@ -33,6 +33,10 @@ as $n\to\infty$, and determine the **separation of scales** between (i) existenc
 One possible outcome is a phase diagram with a substantial regime where perfect matchings exist in abundance but their switch space is fragmented. Identify arithmetic causes for such fragmentation and compare with $G(n,n,p)$ and other deterministic host graph families.
 
 This statement asks for the phase diagram **without asserting that the connectivity event is monotone or has a sharp threshold**.
+
+## Mathematical scope
+
+The conditional event is well-defined, but an unrestricted request for its full nonmonotone phase diagram is not yet a separate sharp conjecture. General switch-chain fragmentation and frozen alternating edges are established phenomena. A stronger statement must specify an asymptotic density regime and isolate a mechanism genuinely caused by the coprimality host graph, rather than by arbitrary bipartite matching spaces.
 
 ## Why a separate problem?
 

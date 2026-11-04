@@ -1,7 +1,7 @@
 # P011 — Matching transitions in random sum-diagonal graphs
 
 <!-- DOSSIER-SUMMARY -->
-> **Research question:** In random sum-diagonal bipartite graphs, how do perfect matchings and min-degree factor saturation emerge?  
+> **Research question:** Does disappearance of isolated vertices determine the perfect-matching threshold and limiting window in a random sum-diagonal bipartite graph?  
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
 > **Verified/known progress:** Random sum-graphs are known; matching and factor phase behavior not located; factor saturation not monotone.  
 > **Finite evidence:** Explicit three-by-three obstruction to monotonicity; no asymptotic claims.  

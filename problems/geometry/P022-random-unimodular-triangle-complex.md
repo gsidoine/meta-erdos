@@ -1,15 +1,15 @@
 # P022 — Homology of random unimodular lattice-triangle complexes
 
 <!-- DOSSIER-SUMMARY -->
-> **Research question:** What are homology regimes for random lattice-site complexes whose two-faces have normalized area one?  
-> **Formulation:** candidate. **Novelty:** not certified (targeted audit).  
-> **Verified/known progress:** At N=1 with all four vertices kept the complex is the tetrahedral boundary, with reduced H2 nonzero.  
+> **Research question:** At what vertex-retention scale does the unimodular lattice-triangle complex develop nonzero second homology over F2?  
+> **Formulation:** needs specification. **Novelty:** only a one-square finite example established; no focused homological degree, critical exponent or verified new asymptotic phenomenon.  
+> **Verified/known progress:** The N=1 full-retention complex is a tetrahedral boundary; no nontrivial homology scale, concentration theorem or limiting law has been established.  
 > **Finite evidence:** Exact elementary N=1 example only; finite Betti experiments pending.  
-> **Symbolic prize:** A Coffee (symbolic) — A proved nontrivial homology transition regime for the random unimodular triangle complex.  
+> **Symbolic prize:** —  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
-**Area:** discrete geometry, random topology, arithmetic combinatorics. **Status:** candidate.
+**Area:** discrete geometry, random topology, arithmetic combinatorics. **Status:** needs specification.
 
 ## Definition and question
 
@@ -21,9 +21,17 @@ $$
 
 Include each edge and vertex of such a triangle, and every remaining retained vertex as a singleton; **do not** add triangles of larger area or fill higher cliques.
 
+**Proposed primary question (not yet a promoted conjecture).** At what retention scale $p_N$ does the second reduced homology $\widetilde H_2(U_N(p_N);\mathbb F_2)$ become nonzero with high probability? A nontrivial critical exponent must be justified by an arithmetic witness-count and matching absence theorem.
+
+Secondary questions include:
+
 For fixed $k=0,1,2$, determine the asymptotic regimes of $\Pr(\widetilde H_k(U_N(p_N);\mathbb F_2)\ne0)$, especially at $p_N=N^{-\alpha}$ and at fixed density $p_N=p$. More strongly, is there a natural normalization under which $\beta_1$ satisfies a law of large numbers?
 
 No monotonicity of nonzero homology is assumed: adding vertices can both create and fill cycles.
+
+## Unresolved formulation
+
+The construction defines a legitimate finite simplicial complex, but asking simultaneously for all three homology degrees, all sparse exponents, fixed-density behavior and a Betti-number law of large numbers does not yet identify an independent mathematical obstruction. Before promoting the question, one must specify a single homological degree and a conjectured critical scaling, supported by an arithmetic count of minimal cycles and a comparison with existing unimodular lattice complexes. The $N=1$ tetrahedral-boundary example is a boundary case, not evidence of a general phase transition.
 
 ## A rigorous basic distinction
 

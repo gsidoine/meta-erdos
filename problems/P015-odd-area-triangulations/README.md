@@ -24,7 +24,7 @@ A triangle has odd normalized area exactly when its three vertices represent dis
 
 ## Context
 
-Colored triangulation flip graphs are established subjects, and related published theorems may subsume the remaining question. The novelty and unresolved status of this exact formulation are not certified.
+Colored triangulation flip graphs are established subjects, and related published theorems may subsume the remaining question. The published colored-triangulation flip theories of [Baur–Bergerova–Voon–Xu](https://doi.org/10.12958/adm2312) and [Acharya–Mütze–Verciani](https://doi.org/10.20382/jocg.v16i1a9) are direct comparators. Their color conditions must be compared with the requirement that every face use three distinct classes of $(\mathbb Z/2\mathbb Z)^2$; ordinary colorful-flip connectivity does not alone establish connectivity under all simultaneous parity restrictions. The novelty and unresolved status of this exact formulation are not certified.
 
 ## Supporting material
 
