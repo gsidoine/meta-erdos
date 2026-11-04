@@ -174,6 +174,19 @@ $$
 \alpha(\{3,5,7\})=\frac5{12}.
 $$
 
+The [four-prime classification](P040-four-prime-sharpness.md)
+adds the exact finite computer-assisted result
+
+$
+\alpha(\{3,5,7,11\})=\frac5{12}.
+$
+
+All $168$ upward-closed support families are checked by a
+self-contained integer-arithmetic certificate, and the four
+remaining support pairs are excluded analytically. Thus the
+prime-prefix sequence is constant at $5/12$ from its third
+through its fourth term, but further terms are unknown.
+
 This reduction does **not** prove that the limit equals
 $5/12$, or that it equals the asymptotic resilience
 of the even–odd coprimality graph. Additional primes
