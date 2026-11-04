@@ -1253,4 +1253,64 @@ theorem intermediate_three_bridge_chain (n p : ℕ) (hn : 12 ≤ n)
     subst y
     exact ⟨p, rfl⟩
 
+
+/-!
+## Arithmetic capacity for assembling class paths
+-/
+
+/-- The intermediate primes whose classes are paired in the construction. -/
+def intermediatePrimes (n : ℕ) : Finset ℕ :=
+  (n / 3).primesLE \ (n / 4).primesLE
+
+theorem intermediatePrimes_card (n : ℕ) :
+    (intermediatePrimes n).card = pi (n / 3) - pi (n / 4) := by
+  have hsub : (n / 4).primesLE ⊆ (n / 3).primesLE := by
+    intro p hp
+    obtain ⟨hle, hprime⟩ := Nat.mem_primesLE.mp hp
+    exact Nat.mem_primesLE.mpr ⟨by omega, hprime⟩
+  simpa [intermediatePrimes, pi, Nat.primesLE_card_eq_primeCounting]
+    using Finset.card_sdiff_of_subset hsub
+
+theorem mem_intermediatePrimes {n p : ℕ} :
+    p ∈ intermediatePrimes n ↔
+      Nat.Prime p ∧ n / 4 < p ∧ p ≤ n / 3 := by
+  constructor
+  · intro h
+    obtain ⟨hm, hnot⟩ := Finset.mem_sdiff.mp h
+    obtain ⟨hle, hp⟩ := Nat.mem_primesLE.mp hm
+    have hbig : n / 4 < p := by
+      by_contra hsmall
+      exact hnot (Nat.mem_primesLE.mpr ⟨by omega, hp⟩)
+    exact ⟨hp, hbig, hle⟩
+  · rintro ⟨hp, hbig, hle⟩
+    apply Finset.mem_sdiff.mpr
+    constructor
+    · exact Nat.mem_primesLE.mpr ⟨hle, hp⟩
+    · intro hsmall
+      have hle' := (Nat.mem_primesLE.mp hsmall).1
+      omega
+
+/-- Number of even-ended units produced by the small classes and
+paired intermediate classes. -/
+def evenUnitCount (n : ℕ) : ℕ :=
+  pi (n / 4) + (intermediatePrimes n).card / 2
+
+/-- The known Landau prime-counting inequality supplies sufficient
+even-ended units for all leaf-class attachments. The Landau
+inequality is a *hypothesis* here, not asserted as a Lean theorem. -/
+theorem landau_implies_attachment_capacity (n : ℕ) (hn : 12 ≤ n)
+    (hlandau : pi (n / 2) ≤ 2 * pi (n / 4)) :
+    max 1 (((pi (n / 2) - pi (n / 3)) + 1) / 2) ≤
+      evenUnitCount n := by
+  have htwo : 2 ≤ n / 4 := by omega
+  have hpos : 0 < pi (n / 4) := by
+    have hh : (n / 4).primesLE.Nonempty :=
+      ⟨2, Nat.mem_primesLE.mpr ⟨htwo, by norm_num⟩⟩
+    simpa [pi, Nat.primesLE_card_eq_primeCounting] using
+      (Finset.card_pos.mpr hh)
+  have hdiff : pi (n / 2) - pi (n / 3) ≤ 2 * pi (n / 4) :=
+    (Nat.sub_le_self _ _).trans hlandau
+  unfold evenUnitCount
+  omega
+
 end P010
