@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CODE = ROOT / "problems/P047-perfect-algebraic-fusion/verification/P047_sidon.py"
+CODE = ROOT / "problems/topology/P047-perfect-algebraic-fusion/verification/P047_sidon.py"
 
 spec = importlib.util.spec_from_file_location("p047_sidon_check", CODE)
 module = importlib.util.module_from_spec(spec)
@@ -23,8 +23,8 @@ class P047FiniteChecks(unittest.TestCase):
                 self.assertEqual(pairs, count * (count - 1) // 2)
 
     def test_problem_and_proof_record_scope(self):
-        problem = (ROOT / "problems/P047-perfect-algebraic-fusion/README.md").read_text(encoding="utf-8")
-        proof = (ROOT / "problems/P047-perfect-algebraic-fusion/proofs/half-dimensional-construction.md").read_text(encoding="utf-8")
+        problem = (ROOT / "problems/topology/P047-perfect-algebraic-fusion/README.md").read_text(encoding="utf-8")
+        proof = (ROOT / "problems/topology/P047-perfect-algebraic-fusion/proofs/half-dimensional-construction.md").read_text(encoding="utf-8")
         self.assertIn("dimension $1/2$", problem)
         self.assertIn("compact perfect", proof)
         self.assertIn("unverified", problem)

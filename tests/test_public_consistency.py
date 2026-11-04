@@ -63,6 +63,14 @@ class PublicCatalogueConsistencyTests(unittest.TestCase):
         self.assertIn("**Submitted**", manuscript)
         self.assertIn("(manuscripts/P010/coprime_adjacencies.pdf)", self.readme)
         self.assertTrue((ROOT / "manuscripts/P010/coprime_adjacencies.pdf").is_file())
+        certificate = (ROOT / "formal/P010/P010.lean").read_text(encoding="utf-8")
+        readme = (ROOT / "formal/P010/README.md").read_text(encoding="utf-8")
+        self.assertIn("kernel-checked in Lean 4", p010["result"])
+        self.assertIn("formal/P010/README.md", self.readme)
+        self.assertIn("theorem P010_exact (n : ℕ) (hn : 4 ≤ n)", certificate)
+        self.assertIn("#print axioms P010_exact", certificate)
+        self.assertIn("Verification status: complete", readme)
+
 
     def test_noncanonical_historical_audits_are_labeled(self):
         self.assertIn("Historical source reviews", self.readme)
