@@ -2079,4 +2079,44 @@ theorem corePath_nodup (n : ℕ) (hn : 12 ≤ n) :
     classConcat_nodup n _ (Finset.nodup_toList _)
   exact (corePath_perm_classConcat n hn).nodup_iff.mpr hd
 
+
+/-- Leaf-class packing preserves the multiset of all core vertices
+and all vertices p,2p from the leaf list. -/
+theorem packLeafClasses_perm (core : List ℕ) :
+    ∀ leafs : List ℕ,
+      (packLeafClasses core leafs).flatten.Perm
+        (core ++ leafs.flatMap (fun p => [p, 2 * p])) := by
+  intro leafs
+  induction leafs using List.twoStepInduction with
+  | nil =>
+      simp [packLeafClasses]
+  | singleton p =>
+      simpa [packLeafClasses] using
+        (List.perm_append_comm :
+          ([p, 2 * p] ++ core).Perm (core ++ [p, 2 * p]))
+  | cons_cons p q rest ih =>
+      have hswap : ([2 * q, q] : List ℕ).Perm [q, 2 * q] :=
+        List.Perm.swap _ _ []
+      have hswap' : ([p, 2 * p, 2 * q, q] : List ℕ).Perm
+          [p, 2 * p, q, 2 * q] := (hswap.cons (2 * p)).cons p
+      cases rest with
+      | nil =>
+          have hmove : ([p, 2 * p] ++ core).Perm
+              (core ++ [p, 2 * p]) := List.perm_append_comm
+          have hresult := (hmove.append_right [2 * q, q]).trans
+              (hswap.append_left (core ++ [p, 2 * p]))
+          simpa [packLeafClasses, List.append_assoc] using hresult
+      | cons r rs =>
+          have hr := ih
+          have hfirst := hswap'.append hr
+          have hmove : ([p, 2 * p, q, 2 * q] ++ core).Perm
+              (core ++ [p, 2 * p, q, 2 * q]) :=
+            List.perm_append_comm
+          have hresult := hfirst.trans
+            (by simpa [List.append_assoc] using
+              hmove.append_right ((r :: rs).flatMap
+                (fun t => [t, 2 * t])))
+          simpa [packLeafClasses, List.flatMap_cons,
+            List.append_assoc] using hresult
+
 end P010
