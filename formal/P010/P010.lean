@@ -6,10 +6,11 @@ import Mathlib
 This is a developing formalization of the theorem proved in
 `theorems/P010-exact-coprime-adjacencies.md`.
 
-The submitted manuscript is not modified. The full prime-factor
-path-cover construction and all-n arithmetic lower bound are not
-yet formalized. There is deliberately no axiom or `sorry` that
-asserts the manuscript's main result.
+The submitted manuscript is not modified. The universal lower bound
+is formalized. The upper-bound construction remains partial: its
+largest-prime-factor classes, prescribed-endpoint paths and local bridges
+are certified, but the global assembly and prime-counting input remain.
+There is no axiom or `sorry` asserting the manuscript's main result.
 -/
 
 namespace P010
@@ -1312,5 +1313,11 @@ theorem landau_implies_attachment_capacity (n : ℕ) (hn : 12 ≤ n)
     (Nat.sub_le_self _ _).trans hlandau
   unfold evenUnitCount
   omega
+
+#print axioms primeClass_partition
+#print axioms orderedPrimeClass_perm
+#print axioms paired_intermediate_classes_chain
+#print axioms intermediate_three_bridge_chain
+#print axioms landau_implies_attachment_capacity
 
 end P010
