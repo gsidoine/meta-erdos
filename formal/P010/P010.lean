@@ -878,4 +878,130 @@ theorem P010_h_lower_bound (n : ℕ) (hn : 4 ≤ n) :
 #print axioms P010_universal_lower_bound
 #print axioms P010_h_lower_bound
 
+
+/-!
+## Largest-prime-factor classes for the upper construction
+
+The integers from 2 through n are partitioned according to their
+largest prime divisor. Every such class is a clique in the noncoprime
+graph; the following results certify the partition and its endpoints.
+-/
+
+/-- The class of integers in [2,n] with largest prime factor p. -/
+def primeClass (n p : ℕ) : Finset ℕ :=
+  (Finset.Icc 2 n).filter (fun m => Nat.maxPrimeFac m = p)
+
+theorem mem_primeClass {n p m : ℕ} :
+    m ∈ primeClass n p ↔ 2 ≤ m ∧ m ≤ n ∧ Nat.maxPrimeFac m = p := by
+  simp [primeClass]
+
+theorem primeClass_dvd {n p m : ℕ} (hm : m ∈ primeClass n p) :
+    p ∣ m := by
+  have h := Nat.maxPrimeFac_dvd (n := m)
+  simpa [(mem_primeClass.mp hm).2.2] using h
+
+theorem primeClass_prime {n p m : ℕ} (hm : m ∈ primeClass n p) :
+    Nat.Prime p := by
+  have h := Nat.prime_maxPrimeFac_of_one_lt
+      (show 1 < m by have := (mem_primeClass.mp hm).1; omega)
+  simpa [(mem_primeClass.mp hm).2.2] using h
+
+/-- The classes indexed by primes at most n cover every integer in [2,n]. -/
+theorem primeClass_partition (n : ℕ) :
+    (n.primesLE.biUnion (fun p => primeClass n p)) = Finset.Icc 2 n := by
+  ext m
+  constructor
+  · intro hm
+    obtain ⟨p, _, hmp⟩ := Finset.mem_biUnion.mp hm
+    have h := mem_primeClass.mp hmp
+    exact Finset.mem_Icc.mpr ⟨h.1, h.2.1⟩
+  · intro hm
+    have hr := Finset.mem_Icc.mp hm
+    have hprime : Nat.Prime (Nat.maxPrimeFac m) :=
+      Nat.prime_maxPrimeFac_of_one_lt (by omega)
+    have hle : Nat.maxPrimeFac m ≤ n :=
+      (Nat.maxPrimeFac_le (n := m)).trans hr.2
+    apply Finset.mem_biUnion.mpr
+    refine ⟨Nat.maxPrimeFac m, ?_, ?_⟩
+    · exact Nat.mem_primesLE.mpr ⟨hle, hprime⟩
+    · exact mem_primeClass.mpr ⟨hr.1, hr.2, rfl⟩
+
+/-- Different largest-prime-factor classes have no common member. -/
+theorem primeClass_disjoint (n p q : ℕ) (hpq : p ≠ q) :
+    Disjoint (primeClass n p) (primeClass n q) := by
+  apply Finset.disjoint_left.mpr
+  intro m hm hn
+  have h1 := (mem_primeClass.mp hm).2.2
+  have h2 := (mem_primeClass.mp hn).2.2
+  exact hpq (h1.symm.trans h2)
+
+/-- Any ordering of a largest-prime-factor class is a noncoprime chain. -/
+theorem primeClass_chain (n p : ℕ) (hp : Nat.Prime p)
+    (a : List ℕ) (hclass : ∀ m ∈ a, m ∈ primeClass n p) :
+    NonCoprimeChain a := by
+  apply prime_class_chain p hp a
+  intro m hm
+  exact primeClass_dvd (hclass m hm)
+
+/-- A prime occurs in its own class whenever it does not exceed n. -/
+theorem prime_mem_primeClass (n p : ℕ) (hp : Nat.Prime p)
+    (hpn : p ≤ n) : p ∈ primeClass n p := by
+  exact mem_primeClass.mpr
+    ⟨hp.two_le, hpn, hp.maxPrimeFac_eq_self⟩
+
+/-- The even vertex 2p belongs to the class p when it lies in [2,n]. -/
+theorem two_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
+    (hpn : 2 * p ≤ n) : 2 * p ∈ primeClass n p := by
+  have hmax : Nat.maxPrimeFac (2 * p) = p := by
+    rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
+      (show Nat.maxPrimeFac 2 = 2 by decide), hp.maxPrimeFac_eq_self]
+    exact max_eq_right hp.two_le
+  exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
+
+/-- The even vertex 4p belongs to the class p when it lies in [2,n]. -/
+theorem four_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
+    (hpn : 4 * p ≤ n) : 4 * p ∈ primeClass n p := by
+  have hmax : Nat.maxPrimeFac (4 * p) = p := by
+    rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
+      (show Nat.maxPrimeFac 4 = 2 by decide), hp.maxPrimeFac_eq_self]
+    exact max_eq_right hp.two_le
+  exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
+
+/-- A vertex 3p belongs to class p when p is a prime at least 3. -/
+theorem three_mul_prime_mem_class (n p : ℕ) (hp : Nat.Prime p)
+    (hp3 : 3 ≤ p) (hpn : 3 * p ≤ n) :
+    3 * p ∈ primeClass n p := by
+  have hmax : Nat.maxPrimeFac (3 * p) = p := by
+    rw [Nat.maxPrimeFac_mul (by omega) hp.ne_zero,
+      (show Nat.maxPrimeFac 3 = 3 by decide), hp.maxPrimeFac_eq_self]
+    exact max_eq_right hp3
+  exact mem_primeClass.mpr ⟨by omega, hpn, hmax⟩
+
+/-- The p-class with p ≤ n/4 has two distinct even vertices. -/
+theorem small_prime_even_endpoints (n p : ℕ) (hp : Nat.Prime p)
+    (hsmall : 4 * p ≤ n) :
+    2 * p ∈ primeClass n p ∧
+      4 * p ∈ primeClass n p ∧ 2 * p ≠ 4 * p := by
+  constructor
+  · exact two_mul_prime_mem_class n p hp (by omega)
+  constructor
+  · exact four_mul_prime_mem_class n p hp hsmall
+  · have := hp.two_le
+    omega
+
+/-- Prime classes in the intermediate interval possess one even
+and one divisible-by-three endpoint. -/
+theorem intermediate_prime_endpoints (n p : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hquarter : n / 4 < p)
+    (hthird : p ≤ n / 3) :
+    2 * p ∈ primeClass n p ∧
+      3 * p ∈ primeClass n p ∧ 2 * p ≠ 3 * p := by
+  have hp3 : 3 ≤ p := by omega
+  constructor
+  · exact two_mul_prime_mem_class n p hp (by omega)
+  constructor
+  · exact three_mul_prime_mem_class n p hp hp3 (by omega)
+  · have := hp.two_le
+    omega
+
 end P010
