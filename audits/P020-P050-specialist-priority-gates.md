@@ -48,6 +48,8 @@ The comparison below treats **historical priority**, **mathematical validity**, 
 
 **Three-prime optimality.** The exact infimum of the conditional deletion cost on $\{3,5,7\}$ is $5/12$ for **all fractional pairs**, without symmetry. An elementary two-case proof combines support masses and conditional deletion estimates. More generally, coordinatewise upward compression preserves the masses of any two fractional profiles and never increases the maximum conditional cost. Thus the unrestricted finite-prime infimum may be investigated using increasing profiles; additional primes and non-finite-prime Hall cuts remain unresolved. These reductions are compared with the established biased-family compression literature of [Keevash–Lifshitz–Long–Minzer (2023)](https://doi.org/10.1112/jlms.12801). Historical priority of the particular formulation is unverified.
 
+**Exact two-prime classification.** For fractional, potentially asymmetric profiles on at most two distinct odd primes, the support-specific variational infimum is $4/9$ exactly for $\{3,5\}$ and $1/2$ for every other choice. The three-prime optimum $5/12$ is already proved separately. These are finite-prime thresholds, not a global resilience lower bound. The proof is elementary; historical originality is not certified.
+
 **Gate.** Compare the exact finite-prime variational parameter with extremal nonuniform product-measure disjointness and Hall-resilience theorems. No claim that its bounds are historically new is warranted. Status *candidate*.
 
 ## P047 — Full-dimensional simultaneous Sidon sets
