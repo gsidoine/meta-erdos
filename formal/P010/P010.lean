@@ -1200,4 +1200,57 @@ theorem orderedPrimeClass_perm (n p u v : ℕ)
     (Finset.nodup_toList _)
   simpa using orderedPrimeClass_toFinset n p u v hu hv
 
+
+/-- Two intermediate prime classes can be joined along their
+multiple-of-three endpoints into one noncoprime path. -/
+theorem paired_intermediate_classes_chain (n p q : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (hpquarter : n / 4 < p) (hpthird : p ≤ n / 3)
+    (hqquarter : n / 4 < q) (hqthird : q ≤ n / 3) :
+    NonCoprimeChain
+      (orderedPrimeClass n p (2 * p) (3 * p) ++
+       orderedPrimeClass n q (3 * q) (2 * q)) := by
+  obtain ⟨hp2, hp3, _⟩ :=
+    intermediate_prime_endpoints n p hn hp hpquarter hpthird
+  obtain ⟨hq2, hq3, _⟩ :=
+    intermediate_prime_endpoints n q hn hq hqquarter hqthird
+  apply join_three_ended_paths
+  · exact orderedPrimeClass_chain n p (2 * p) (3 * p) hp hp2 hp3
+  · exact orderedPrimeClass_chain n q (3 * q) (2 * q) hq hq3 hq2
+  · intro x hx
+    have heq : x = 3 * p := by
+      simpa [orderedPrimeClass_last] using hx
+    subst x
+    exact ⟨p, rfl⟩
+  · intro y hy
+    have heq : y = 3 * q := by
+      simpa [orderedPrimeClass_head] using hy
+    subst y
+    exact ⟨q, rfl⟩
+
+/-- An unpaired intermediate class may be bridged through the
+class of 3 along the edge 9--3p. -/
+theorem intermediate_three_bridge_chain (n p : ℕ) (hn : 12 ≤ n)
+    (hp : Nat.Prime p) (hquarter : n / 4 < p)
+    (hthird : p ≤ n / 3) :
+    NonCoprimeChain
+      (orderedPrimeClass n 3 6 9 ++
+       orderedPrimeClass n p (3 * p) (2 * p)) := by
+  obtain ⟨h6, h9, _⟩ := three_class_bridge_vertices n hn
+  obtain ⟨h2, h3, _⟩ :=
+    intermediate_prime_endpoints n p hn hp hquarter hthird
+  apply join_three_ended_paths
+  · exact orderedPrimeClass_chain n 3 6 9 (by norm_num) h6 h9
+  · exact orderedPrimeClass_chain n p (3 * p) (2 * p) hp h3 h2
+  · intro x hx
+    have heq : x = 9 := by
+      simpa [orderedPrimeClass_last] using hx
+    subst x
+    exact ⟨3, rfl⟩
+  · intro y hy
+    have heq : y = 3 * p := by
+      simpa [orderedPrimeClass_head] using hy
+    subst y
+    exact ⟨p, rfl⟩
+
 end P010
