@@ -1,11 +1,11 @@
 # P022 — Homology of random unimodular lattice-triangle complexes
 
 <!-- DOSSIER-SUMMARY -->
-> **Research question:** What are homology regimes for random lattice-site complexes whose two-faces have normalized area one?  
-> **Formulation:** candidate. **Novelty:** not certified (targeted audit).  
-> **Verified/known progress:** At N=1 with all four vertices kept the complex is the tetrahedral boundary, with reduced H2 nonzero.  
+> **Research question:** At what vertex-retention scale does the unimodular lattice-triangle complex develop nonzero second homology over F2?  
+> **Formulation:** needs specification. **Novelty:** only a one-square finite example established; no focused homological degree, critical exponent or verified new asymptotic phenomenon.  
+> **Verified/known progress:** The N=1 full-retention complex is a tetrahedral boundary; no nontrivial homology scale, concentration theorem or limiting law has been established.  
 > **Finite evidence:** Exact elementary N=1 example only; finite Betti experiments pending.  
-> **Symbolic prize:** A Coffee (symbolic) — A proved nontrivial homology transition regime for the random unimodular triangle complex.  
+> **Symbolic prize:** —  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 

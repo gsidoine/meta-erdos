@@ -2,10 +2,10 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** At what densities do the perfect matchings of a thinned coprime graph form one four-cycle reconfiguration component?  
-> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
-> **Verified/known progress:** Connects P005 matching switches to P008 arithmetic thinning; phase diagram not yet determined.  
+> **Formulation:** reframe. **Novelty:** model and switch chain have known predecessors; no arithmetic-specific fragmentation regime established.  
+> **Verified/known progress:** The conditional connectivity observable is defined, but no distinguished density window or arithmetic-specific obstruction has been established; frozen-edge obstructions are generic.  
 > **Finite evidence:** Frozen-edge obstruction identified; unique-matching and nonmonotonicity caveats.  
-> **Symbolic prize:** A Book (symbolic) — A sharp connectivity threshold for the four-cycle reconfiguration graph under arithmetic thinning.  
+> **Symbolic prize:** A Book (symbolic) — A proved asymptotic law for switch-space connectivity in a specified nontrivial thinning regime, or an explicit arithmetic fragmentation obstruction.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
