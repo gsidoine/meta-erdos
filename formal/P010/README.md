@@ -51,32 +51,37 @@ tactics, without a `sorry` or any added mathematical axiom:
 - Prime-divisor endpoint gluing, including the even–even
   and divisible-by-three bridges in the submitted construction.
 - Explicit optimal *upper-bound witnesses* for $1\le n\le11$.
+- The exact global path-cover lower bound: isolated vertices require singleton
+  paths; middle-range degree-one primes occupy only endpoints, at most two per
+  path; the vertex 2 forces an additional path when $n\ge4$.
+- The unconditional universal inequality `P010_h_lower_bound`:
+  $h(n)\ge\pi(n)-\pi(\lfloor n/2\rfloor)+\max(1,\lceil (\pi(\lfloor n/2\rfloor)-\pi(\lfloor n/3\rfloor))/2\rceil)$
+  for every $n\ge4$.
 
 Any additional finite enumeration and exact small-order result in
 `P010.lean` is explicitly limited to the stated values of $n$.
 
 ## Outstanding proof obligations
 
-The file **does not yet prove** `∀ n ≥ 4, h n = target n`.
-Two independent arithmetic tasks remain:
+The file **does not yet prove** `∀ n ≥ 4, h n = target n`. The
+unconditional lower bound is proved in `P010_universal_lower_bound` and
+`P010_h_lower_bound`, for every `n ≥ 4`. Their dependency audit is
+printed by `#print axioms` in the Lean source.
 
-1. **Global lower bound.** Show for every permutation that the
-   isolated vertices $1$ and primes $p>n/2$, together with the
-   degree-one primes $n/3<q\le n/2$, require at least the predicted
-   number of coprime adjacencies. The local degree statements are
-   checked, but the global path-cover counting lemma is not.
-2. **Universal upper construction.** Formalize the largest-prime-factor
-   partition, the lists constituting each class path, pairing of
-   middle classes, even-endpoint concatenation, attachment of
-   one-ended classes, and the required prime-counting inequality.
-   Verify that the resulting permutation covers every integer
-   exactly once and achieves the stated count for arbitrary $n$.
+One independent mathematical task remains:
 
-The Lean theorem `exact_of_matching_bounds` explicitly assumes
-these two bounds. It is a **reduction**, not a proof of either
-assumption. No theorem in the source asserts the unproved result
-without stating its hypotheses. A finite computation is not a
-substitute for these universal steps.
+**Universal upper construction.** Formalize the largest-prime-factor
+partition, the lists constituting each class path, pairing of middle
+classes, even-endpoint concatenation, attachment of one-ended classes,
+and the required prime-counting inequality. Verify that the resulting
+permutation covers every integer exactly once and attains the stated
+adjacency count for arbitrary `n ≥ 12`. The existing small-case witnesses
+cover `4 ≤ n ≤ 11`.
+
+The theorem `exact_of_matching_bounds` is a reduction; the lower-bound
+hypothesis is now discharged universally, but its constructive upper-bound
+hypothesis is not. No theorem asserts the full equality without that
+hypothesis. Finite computation does not replace the missing construction.
 
 ## Build
 
