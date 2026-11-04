@@ -28,6 +28,7 @@ DOSSIER_END = "<!-- /DOSSIER-SUMMARY -->"
 
 
 def dossier_summary(p):
+    root = "../" * len(Path(p["file"]).parent.parts)
     return "\n".join([
         DOSSIER_START,
         f"> **Research question:** {p['question']}  ",
@@ -35,8 +36,9 @@ def dossier_summary(p):
         f"> **Verified/known progress:** {p['result']}.  ",
         f"> **Finite evidence:** {p['verification']}.  ",
         f"> **Symbolic prize:** {reward_text(p, {r['id']: r['label'] for r in json.loads(REWARD_TYPES.read_text(encoding='utf-8'))['rewards']})}  ",
-        "> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · "
-        "[Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)",
+        f"> **Navigation:** [Full problem catalogue]({root}README.md#problem-catalogue) · "
+        f"[Status and scope]({root}README.md#status-and-scope) · "
+        f"[Literature and audits]({root}README.md#literature-and-audits)",
         DOSSIER_END,
     ])
 

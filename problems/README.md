@@ -1,11 +1,11 @@
-# Problem folders
+# Mathematical problem dossiers
 
-Every accepted question has a permanent identifier. The canonical catalogue still records all 50 existing IDs and their mathematical status. The problem-folder layout is being introduced incrementally, beginning with [P015](P015-odd-area-triangulations/README.md) and [P020](P020-padic-hankel-cokernels/README.md).
+All 50 permanent identifiers are listed in the [canonical catalogue](../README.md#problem-catalogue). Each problem belongs to a mathematical subject directory inside `problems/`. Entries may use a single dossier file or a more detailed `Pxxx-.../` folder.
 
-The primary README should fit on approximately one screen: exact question, best known result, nearest literature, reward (if offered), and links to supporting files.
+The detailed dossiers presently include [P015 — geometry](geometry/P015-odd-area-triangulations/README.md), [P020 — number theory](number-theory/P020-padic-hankel-cokernels/README.md), and [P047 — topology](topology/P047-perfect-algebraic-fusion/README.md). Their supplementary materials are organized by purpose: proofs, exploration, references, reproducible verification, and formalization where present. The older single-file dossiers for P015 and P020 remain as historical views.
 
-Files are grouped by purpose: proofs, exploration, references, verification, formalization. Empty directories are unnecessary. A `metadata.yaml` file in each pilot records provenance and formalization information; the canonical status and approved optional symbolic rewards are in [data/problems.json](../data/problems.json). The [prize vocabulary](../data/rewards.json) is descriptive, not a difficulty scale. The two pilot files still record the default absence of prizes, consistently with the canonical catalogue.
+Each folder's `metadata.yaml` records provenance and formalization status. The authoritative mathematical status, relevant sources, and symbolic reward designations are stored in [`data/problems.json`](../data/problems.json); a missing reward field in folder metadata does not mean that no catalogue reward is assigned.
 
-Earlier dossier URLs remain available as historical detailed views. Existing theorem and experiment archives are not silently deleted or duplicated as canonical sources. Later migrations may move supporting files with compatibility links and accompanying tests.
+[P010 — the formally verified coprime-adjacency theorem](graph-theory/P010-minimum-coprime-adjacencies.md) has a separate [Lean 4 certificate](../formal/P010/README.md). The submitted manuscript is preserved independently.
 
-To propose a new problem, use the [submission form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml).
+To submit a problem, use the [submission form](https://github.com/gsidoine/the-scottish-book/issues/new?template=propose-problem.yml). Proposed questions receive no permanent identifier before mathematical review.
