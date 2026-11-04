@@ -2239,7 +2239,9 @@ theorem optimalCover_length (n : ℕ) :
   classical
   have h := packLeafClasses_length (corePath n)
     (middlePrimes n).toList
-  simpa [optimalCover, Finset.length_toList] using h
+  simp only [optimalCover, List.length_append, List.length_singleton,
+    List.length_map, Finset.length_toList] at *
+  omega
 
 /-- Adding vertex 1 to the interval [2,n] gives a permutation of
 the interval [1,n], for n≥1. -/
@@ -2311,17 +2313,20 @@ theorem P010_upper_large (n : ℕ) (hn : 12 ≤ n) :
     ∃ a : List ℕ, IsPermutation n a ∧
       adjacentCount a ≤ target n := by
   let paths := optimalCover n
-  have hc := optimalCover_isPermutation n hn
-  have hg := optimalCover_chains n hn
-  have hupper := h_le_of_noncoprime_cover n paths hc hg
+  have hc : IsPermutation n paths.flatten :=
+    optimalCover_isPermutation n hn
+  have hg : ∀ p ∈ paths, NonCoprimeChain p :=
+    optimalCover_chains n hn
   have hcount : adjacentCount paths.flatten ≤ paths.length - 1 :=
     adjacentCount_flatten_le paths hg
-  have hlength := optimalCover_length n
-  have hA := largePrimes_card n
-  have hB := middlePrimes_card n
+  have hlen : paths.length = target n + 1 := by
+    dsimp [paths]
+    rw [optimalCover_length, largePrimes_card, middlePrimes_card]
+    unfold target
+    omega
   refine ⟨paths.flatten, hc, ?_⟩
-  unfold target
-  omega
+  have heq : paths.length - 1 = target n := by omega
+  simpa only [heq] using hcount
 
 /-- The exact theorem submitted to Integers, for every n≥4. -/
 theorem P010_exact (n : ℕ) (hn : 4 ≤ n) :
