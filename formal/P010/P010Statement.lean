@@ -1,4 +1,6 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-!
 # P010 — exact minimum number of coprime adjacencies (statement)
@@ -13,6 +15,8 @@ See `P010.lean` for its kernel-checked proof.
 Mathematical reference:
 https://github.com/gsidoine/the-scottish-book/blob/main/theorems/P010-exact-coprime-adjacencies.md
 -/
+
+@[expose] public section
 
 namespace P010
 

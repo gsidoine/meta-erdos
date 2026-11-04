@@ -1,4 +1,6 @@
-import P010Statement
+module
+
+public import P010Statement
 
 /-!
 # P010: minimum number of coprime adjacencies
@@ -12,6 +14,8 @@ does not require any prime-counting inequality.
 The submitted manuscript PDF is unchanged. The final theorem's
 assumptions are audited by `#print axioms P010_exact`.
 -/
+
+@[expose] public section
 
 namespace P010
 
