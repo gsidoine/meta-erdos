@@ -237,6 +237,24 @@ theorem common_prime_divisor_noncoprime {p x y : ℕ}
     ¬Nat.Coprime x y := by
   exact Nat.Prime.not_coprime_iff_dvd.mpr ⟨p, hp, hx, hy⟩
 
+/-- A genuine path in the non-coprime graph contributes zero
+coprime adjacencies. This connects the graph representation with the
+extremal quantity in the submitted manuscript. -/
+theorem chain_adjacentCount_zero (a : List ℕ) (ha : NonCoprimeChain a) :
+    adjacentCount a = 0 := by
+  induction a with
+  | nil => rfl
+  | cons x xs ih =>
+    cases xs with
+    | nil => rfl
+    | cons y ys =>
+      have hxy : ¬ Nat.Coprime x y :=
+        (List.isChain_cons.mp ha).1 y (by simp)
+      have htail : NonCoprimeChain (y :: ys) :=
+        (List.isChain_cons.mp ha).2
+      have hzero := ih htail
+      simpa [adjacentCount, hxy] using hzero
+
 /-- Every ordering of a class of integers sharing a prime divisor
 is a non-coprime path. This formalizes the internal class paths. -/
 theorem prime_class_chain (p : ℕ) (hp : Nat.Prime p)
