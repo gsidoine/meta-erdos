@@ -427,4 +427,160 @@ theorem maximalNonCoprimeRuns_length (x : ℕ) (xs : List ℕ) :
   simpa [maximalNonCoprimeRuns, List.splitBy, Nat.add_comm, Nat.add_left_comm]
     using splitBy_loop_run_count xs x [] []
 
+
+/-!
+## Degree-one prime capacity of a non-coprime path
+
+The local unique-neighbor lemma has a global consequence: in a simple
+non-coprime path, no middle-range prime may occur at an interior vertex.
+The next two theorems make this restriction quantitative.
+-/
+
+/-- In a simple non-coprime path with at least two vertices, at most one
+middle-range prime can occur after its first vertex. -/
+theorem middle_primes_tail_at_most_one (n x y : ℕ) (xs : List ℕ)
+    (hchain : NonCoprimeChain (x :: y :: xs))
+    (hnodup : (x :: y :: xs).Nodup)
+    (hbound : ∀ t ∈ x :: y :: xs, 0 < t ∧ t ≤ n) :
+    ((y :: xs).filter (fun t => decide (t ∈ middlePrimes n))).length ≤ 1 := by
+  induction xs generalizing x y with
+  | nil =>
+      by_cases hy : y ∈ middlePrimes n <;> simp [hy]
+  | cons z zs ih =>
+      have hy_not_middle : y ∉ middlePrimes n := by
+        intro hy
+        obtain ⟨hprime, hthird, _⟩ := mem_middlePrimes.mp hy
+        have hxy : ¬Nat.Coprime x y :=
+          (List.isChain_cons.mp hchain).1 y (by simp)
+        have hyz : ¬Nat.Coprime y z :=
+          (List.isChain_cons.mp (List.isChain_cons.mp hchain).2).1 z (by simp)
+        have hyx : ¬Nat.Coprime y x := by
+          intro hc
+          exact hxy hc.symm
+        have hx_ne_y : x ≠ y := by
+          intro heq
+          exact (List.nodup_cons.mp hnodup).1 (by simp [heq])
+        have hx_ne_z : x ≠ z := by
+          intro heq
+          exact (List.nodup_cons.mp hnodup).1 (by simp [heq])
+        have hz_ne_y : z ≠ y := by
+          intro heq
+          exact (List.nodup_cons.mp (List.nodup_cons.mp hnodup).2).1
+            (by simp [heq])
+        obtain ⟨hxpos, hxle⟩ := hbound x (by simp)
+        obtain ⟨hzpos, hzle⟩ := hbound z (by simp)
+        have hx : x = 2 * y :=
+          middle_prime_unique_neighbor hprime hthird hxpos hxle hx_ne_y hyx
+        have hz : z = 2 * y :=
+          middle_prime_unique_neighbor hprime hthird hzpos hzle hz_ne_y hyz
+        exact hx_ne_z (hx.trans hz.symm)
+      have hchain' : NonCoprimeChain (y :: z :: zs) :=
+        (List.isChain_cons.mp hchain).2
+      have hnodup' : (y :: z :: zs).Nodup :=
+        (List.nodup_cons.mp hnodup).2
+      have hbound' : ∀ t ∈ y :: z :: zs, 0 < t ∧ t ≤ n := by
+        intro t ht
+        exact hbound t (by simp [ht])
+      have htail := ih y z hchain' hnodup' hbound'
+      simpa [hy_not_middle] using htail
+
+/-- A simple non-coprime path contains at most two primes from
+the degree-one interval (n/3,n/2]. The two can only be endpoints. -/
+theorem middle_primes_path_capacity (n : ℕ) (a : List ℕ)
+    (hchain : NonCoprimeChain a)
+    (hnodup : a.Nodup)
+    (hbound : ∀ t ∈ a, 0 < t ∧ t ≤ n) :
+    (a.filter (fun t => decide (t ∈ middlePrimes n))).length ≤ 2 := by
+  cases a with
+  | nil =>
+      simp
+  | cons x xs =>
+      cases xs with
+      | nil =>
+          by_cases hx : x ∈ middlePrimes n <;> simp [hx]
+      | cons y ys =>
+          have htail :=
+            middle_primes_tail_at_most_one n x y ys hchain hnodup hbound
+          by_cases hx : x ∈ middlePrimes n
+          · simpa [hx] using Nat.succ_le_succ htail
+          · have hsmall : ((y :: ys).filter
+                (fun t => decide (t ∈ middlePrimes n))).length ≤ 2 :=
+              htail.trans (by omega)
+            simpa [hx] using hsmall
+
+
+/-- In a simple non-coprime path, a vertex coprime to all other
+vertices of the path can occur only as a singleton path. -/
+theorem isolated_member_forces_singleton (p : ℕ) :
+    ∀ a : List ℕ, NonCoprimeChain a → a.Nodup →
+      p ∈ a → (∀ x ∈ a, x ≠ p → Nat.Coprime p x) → a = [p] := by
+  intro a
+  induction a with
+  | nil =>
+      intro _ _ hmem _
+      simp at hmem
+  | cons x xs ih =>
+      intro hchain hnodup hmem hiso
+      cases xs with
+      | nil =>
+          have hpx : p = x := by simpa using hmem
+          subst x
+          rfl
+      | cons y ys =>
+          have hxy : ¬Nat.Coprime x y :=
+            (List.isChain_cons.mp hchain).1 y (by simp)
+          by_cases hpx : p = x
+          · have hy_ne : y ≠ p := by
+              intro heq
+              exact (List.nodup_cons.mp hnodup).1 (by simp [hpx, heq])
+            have hc : Nat.Coprime x y := by
+              simpa [hpx] using hiso y (by simp) hy_ne
+            exact (hxy hc).elim
+          · have hmemtail : p ∈ y :: ys := by
+              rcases List.mem_cons.mp hmem with heq | ht
+              · exact (hpx heq).elim
+              · exact ht
+            have htail : NonCoprimeChain (y :: ys) :=
+              (List.isChain_cons.mp hchain).2
+            have hnoduptail : (y :: ys).Nodup :=
+              (List.nodup_cons.mp hnodup).2
+            have hisotail : ∀ z ∈ y :: ys, z ≠ p → Nat.Coprime p z := by
+              intro z hz hne
+              exact hiso z (by simp [hz]) hne
+            have htail_eq : y :: ys = [p] :=
+              ih htail hnoduptail hmemtail hisotail
+            have hy : y = p := by
+              have hm : y ∈ [p] := by rw [← htail_eq]; simp
+              simpa using hm
+            have hx_ne : x ≠ p := by
+              intro heq
+              exact hpx heq.symm
+            have hc : Nat.Coprime x y := by
+              simpa [hy] using (hiso x (by simp) hx_ne).symm
+            exact (hxy hc).elim
+
+/-- Every large prime is a singleton in any simple non-coprime path
+containing it and lying within [1,n]. -/
+theorem large_prime_path_singleton (n p : ℕ) (a : List ℕ)
+    (hp : p ∈ largePrimes n)
+    (hchain : NonCoprimeChain a)
+    (hnodup : a.Nodup)
+    (hmem : p ∈ a)
+    (hbound : ∀ t ∈ a, 0 < t ∧ t ≤ n) :
+    a = [p] := by
+  obtain ⟨hprime, hbig, _⟩ := mem_largePrimes.mp hp
+  apply isolated_member_forces_singleton p a hchain hnodup hmem
+  intro x hx hne
+  obtain ⟨hxpos, hxle⟩ := hbound x hx
+  exact large_prime_isolated hprime hbig hxpos hxle hne
+
+/-- The vertex 1 is a singleton in any simple non-coprime path
+containing it. -/
+theorem one_path_singleton (a : List ℕ)
+    (hchain : NonCoprimeChain a) (hnodup : a.Nodup)
+    (hmem : 1 ∈ a) : a = [1] := by
+  apply isolated_member_forces_singleton 1 a hchain hnodup hmem
+  intro x _ _
+  exact one_coprime x
+
 end P010
