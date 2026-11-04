@@ -652,7 +652,7 @@ theorem permutation_mem_iff (n : ℕ) (a : List ℕ)
 
 theorem permutation_nodup (n : ℕ) (a : List ℕ)
     (ha : IsPermutation n a) : a.Nodup := by
-  exact (ha.nodup_iff).2 (List.nodup_range' 1 n)
+  exact (ha.nodup_iff).2 (List.nodup_range')
 
 /-- A finite subset of [1,n] occurs with its exact cardinality in
 any permutation of [1,n]. -/
