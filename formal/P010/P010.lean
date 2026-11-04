@@ -320,8 +320,12 @@ theorem adjacentCount_append_le (a b : List ℕ) :
       cases b with
       | nil => simp [adjacentCount]
       | cons y ys =>
-        simp only [List.singleton_append, adjacentCount_cons_cons]
-        by_cases hxy : Nat.Coprime x y <;> simp [hxy, adjacentCount] <;> omega
+        change adjacentCount (x :: y :: ys) ≤
+          adjacentCount [x] + adjacentCount (y :: ys) + 1
+        rw [adjacentCount_cons_cons]
+        have hsingle : adjacentCount [x] = 0 := by rfl
+        rw [hsingle]
+        split_ifs <;> omega
     | cons y ys =>
       simp only [List.cons_append, adjacentCount_cons_cons] at ih ⊢
       omega
