@@ -58,6 +58,18 @@ The comparison below treats **historical priority**, **mathematical validity**, 
 
 The thinning device is a standard stochastic domination technique. [Wu–Feng (2026)](https://arxiv.org/abs/2607.26871) study related nonuniform biased cross-intersecting families, while [Chang–Liu–Liu (2026)](https://arxiv.org/abs/2606.15618) use coordinatewise coupling for biased cross-intersection. The precise conditional-deletion comparison is not claimed to be novel without exhaustive specialist review.
 
+**Four-prime certified threshold.** The prime-prefix value
+$\alpha(\{3,5,7,11\})=5/12$ is now proved by a complete
+integer-arithmetic enumeration of $168$ increasing support families,
+using $27\,889$ ordered pairs. An elementary conditional-mass
+inequality rules out the four support pairs not eliminated by
+the first necessary bounds. The proof is explicitly
+**finite computer-assisted** and does not determine the
+five-prime value, the full prime-support infimum, or the
+resilience limit. The only presently justified numerical
+equality is for the first four odd-prime support coordinates.
+Historical priority is unverified.
+
 **Gate.** Compare the exact finite-prime variational parameter with extremal nonuniform product-measure disjointness and Hall-resilience theorems. No claim that its bounds are historically new is warranted. Status *candidate*.
 
 ## P047 — Full-dimensional simultaneous Sidon sets
