@@ -32,9 +32,9 @@ The catalogue contains all numbered entries in a single sequence. Mathematical f
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| Candidate | 42 | Research question under investigation; novelty and unresolved status are not certified |
-| Reframe | 5 (P007, P009, P025, P029, P032) | A known predecessor requires the remaining question to be narrowed |
-| Needs specification | 1 (P008) | The open objective requires a sharper formulation |
+| Candidate | 38 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
+| Reframe | 8 (P007, P009, P012, P013, P025, P029, P032, P037) | A predecessor or insufficiently independent target requires a stronger mathematical formulation |
+| Needs specification | 2 (P008, P022) | A sharper quantified problem or nontrivial asymptotic target is required |
 | Proved internally | 1 (P010) | A complete proof is supplied; external review and historical priority remain separate |
 | Known result | 1 (P048) | The statement is resolved by established mathematics; retained to preserve its permanent identifier |
 
@@ -64,7 +64,7 @@ Stefan Banach was one of the mathematicians associated with the Scottish Café i
 
 ## Literature and verification
 
-The [P001–P050 literature comparison](audits/P001-P050-literature-comparison.md) records the principal known predecessors and the remaining uncertainty in historical priority. It does not certify novelty or unresolved status.
+The [P001–P050 mathematical merit review](audits/P001-P050-mathematical-merit-review.md) examines the substance and precision of every numbered statement, including four demotions. The [P001–P050 literature comparison](audits/P001-P050-literature-comparison.md) records principal known predecessors and historical-priority uncertainty. It does not certify novelty or unresolved status.
 
 The [specialist scrutiny of P020–P050](audits/P020-P050-specialist-priority-gates.md) distinguishes proved resolutions from adjacent literature for the principal current candidates. In particular, P048 is resolved by classical prime-reflection pairing and is not an open prize question.
 
