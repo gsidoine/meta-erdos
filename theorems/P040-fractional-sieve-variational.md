@@ -341,6 +341,19 @@ establish its equality with the asymptotic graph resilience.
 The conditional thinning identity is self-contained;
 historical novelty remains unverified.
 
+## Four-prime support
+
+The separate [four-prime sharpness theorem](P040-four-prime-sharpness.md)
+proves $\alpha(\{3,5,7,11\})=5/12$ by an exhaustive
+integer-arithmetic classification of the increasing support
+families, followed by an exact conditional inequality eliminating
+the only four unresolved family pairs. The original fractional
+certificate achieves the matching upper bound as an infimum.
+
+The proof is explicitly computer-assisted and is independent of
+floating-point mixed-integer optimization. The unrestricted
+finite-prime infimum and graph resilience are **not** determined.
+
 ## Scope and references
 
 The equality in Theorem 1 concerns two infima of **finite-prime conditional-density Hall parameters**. It does not assert that these infima equal $\liminf_n\rho_n$ or $\limsup_n\rho_n$, nor that $\rho_n$ converges. The upper constant $5/12$ is optimal for all fractional profiles on the three-prime support $\{3,5,7\}$, but is not asserted optimal for larger finite prime sets or for the full graph resilience.
