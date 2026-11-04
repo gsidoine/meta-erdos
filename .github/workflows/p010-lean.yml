@@ -1,0 +1,26 @@
+name: P010 Lean verification
+on:
+  pull_request:
+    paths:
+      - 'formal/P010/**'
+      - '.github/workflows/p010-lean.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'formal/P010/**'
+      - '.github/workflows/p010-lean.yml'
+  workflow_dispatch:
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formal/P010
+          test: false
+          lint: false
+          axiom-audit: true
+          axiom-audit-root: P010
