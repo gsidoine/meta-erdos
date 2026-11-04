@@ -21,6 +21,10 @@ $$
 
 Include each edge and vertex of such a triangle, and every remaining retained vertex as a singleton; **do not** add triangles of larger area or fill higher cliques.
 
+**Proposed primary question (not yet a promoted conjecture).** At what retention scale $p_N$ does the second reduced homology $\widetilde H_2(U_N(p_N);\mathbb F_2)$ become nonzero with high probability? A nontrivial critical exponent must be justified by an arithmetic witness-count and matching absence theorem.
+
+Secondary questions include:
+
 For fixed $k=0,1,2$, determine the asymptotic regimes of $\Pr(\widetilde H_k(U_N(p_N);\mathbb F_2)\ne0)$, especially at $p_N=N^{-\alpha}$ and at fixed density $p_N=p$. More strongly, is there a natural normalization under which $\beta_1$ satisfies a law of large numbers?
 
 No monotonicity of nonzero homology is assumed: adding vertices can both create and fill cycles.
