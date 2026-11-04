@@ -33,6 +33,8 @@ $$
 
 Then full row rank holds **if and only if**, for every nonempty $T$, at least one retained $m$ has $\chi_T(m)=1$. Indeed, these $\chi_T$ are precisely all nonzero linear functionals on the row space. In particular, if a prime $p\le r_N$ has no retained multiple, the rank is deficient.
 
+**Scope of this equivalence.** The characterization by a nonzero annihilating functional is valid for every binary matrix and is therefore elementary linear algebra, not a new theorem about prime divisibility. The proposed research contribution must determine the random rank threshold, including any higher-order parity obstructions after every row has been covered.
+
 A fixed prime $p$ has exactly $\lfloor N/p\rfloor$ possible columns carrying a 1 in that row; hence its zero-row probability is exactly
 
 $$
