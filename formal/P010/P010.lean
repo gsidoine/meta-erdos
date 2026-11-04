@@ -583,4 +583,146 @@ theorem one_path_singleton (a : List ℕ)
   intro x _ _
   exact one_coprime x
 
+
+/-!
+## Global counting prerequisites for the P010 lower bound
+-/
+
+/-- The set of vertices forced to be singleton paths. -/
+def isolatedVertices (n : ℕ) : Finset ℕ :=
+  insert 1 (largePrimes n)
+
+/-- The vertex 1 is not a prime, hence not in the large-prime set. -/
+theorem one_not_large (n : ℕ) : 1 ∉ largePrimes n := by
+  intro h
+  have hp := (mem_largePrimes.mp h).1
+  have htwo := hp.two_le
+  omega
+
+theorem isolatedVertices_card (n : ℕ) :
+    (isolatedVertices n).card = pi n - pi (n / 2) + 1 := by
+  simp [isolatedVertices, one_not_large, largePrimes_card]
+
+theorem isolatedVertices_range (n x : ℕ) (hx : x ∈ isolatedVertices n)
+    (hn : 1 ≤ n) : 1 ≤ x ∧ x ≤ n := by
+  rcases Finset.mem_insert.mp hx with h1 | hl
+  · omega
+  · obtain ⟨hp, _, hle⟩ := mem_largePrimes.mp hl
+    have htwo := hp.two_le
+    omega
+
+theorem middlePrimes_range (n x : ℕ) (hx : x ∈ middlePrimes n) :
+    1 ≤ x ∧ x ≤ n := by
+  obtain ⟨hp, _, hle⟩ := mem_middlePrimes.mp hx
+  have htwo := hp.two_le
+  omega
+
+theorem isolated_not_middle (n x : ℕ) (hx : x ∈ isolatedVertices n) :
+    x ∉ middlePrimes n := by
+  intro hm
+  obtain ⟨hp, _, hhalf⟩ := mem_middlePrimes.mp hm
+  rcases Finset.mem_insert.mp hx with heq | hl
+  · have htwo := hp.two_le
+    omega
+  · have hbig := (mem_largePrimes.mp hl).2.1
+    omega
+
+theorem two_not_isolated (n : ℕ) (hn : 4 ≤ n) :
+    2 ∉ isolatedVertices n := by
+  intro hx
+  rcases Finset.mem_insert.mp hx with h1 | hl
+  · omega
+  · have hbig := (mem_largePrimes.mp hl).2.1
+    omega
+
+/-- Membership in [1,n] for an arbitrary valid permutation. -/
+theorem permutation_mem_iff (n : ℕ) (a : List ℕ)
+    (ha : IsPermutation n a) (x : ℕ) :
+    x ∈ a ↔ 1 ≤ x ∧ x ≤ n := by
+  change a.Perm (List.range' 1 n) at ha
+  rw [ha.mem_iff]
+  constructor
+  · intro hx
+    obtain ⟨i, hi, heq⟩ := List.mem_range'.mp hx
+    omega
+  · rintro ⟨hpos, hle⟩
+    apply List.mem_range'.mpr
+    refine ⟨x - 1, by omega, ?_⟩
+    omega
+
+theorem permutation_nodup (n : ℕ) (a : List ℕ)
+    (ha : IsPermutation n a) : a.Nodup := by
+  exact (ha.nodup_iff).2 (List.nodup_range' 1 n)
+
+/-- A finite subset of [1,n] occurs with its exact cardinality in
+any permutation of [1,n]. -/
+theorem permutation_filter_card (n : ℕ) (a : List ℕ)
+    (ha : IsPermutation n a) (s : Finset ℕ)
+    (hs : ∀ x ∈ s, 1 ≤ x ∧ x ≤ n) :
+    (a.filter (fun x => decide (x ∈ s))).length = s.card := by
+  classical
+  have hd : (a.filter (fun x => decide (x ∈ s))).Nodup :=
+    (permutation_nodup n a ha).filter _
+  have hsets : (a.filter (fun x => decide (x ∈ s))).toFinset = s := by
+    ext x
+    simp only [List.mem_toFinset, List.mem_filter, decide_eq_true_eq]
+    constructor
+    · intro hx
+      aesop
+    · intro hx
+      have hmem : x ∈ a := (permutation_mem_iff n a ha x).2 (hs x hx)
+      aesop
+  calc
+    (a.filter (fun x => decide (x ∈ s))).length =
+        (a.filter (fun x => decide (x ∈ s))).toFinset.card :=
+          (List.toFinset_card_of_nodup hd).symm
+    _ = s.card := congrArg Finset.card hsets
+
+/-- A filtered list contains no element when the predicate fails
+throughout the input. -/
+private theorem filter_finset_nil (s : Finset ℕ) (a : List ℕ)
+    (h : ∀ x ∈ a, x ∉ s) :
+    a.filter (fun x => decide (x ∈ s)) = [] := by
+  induction a with
+  | nil => rfl
+  | cons x xs ih =>
+      have hx : x ∉ s := h x (by simp)
+      have ht : ∀ y ∈ xs, y ∉ s := by
+        intro y hy
+        exact h y (by simp [hy])
+      simpa [hx] using ih ht
+
+/-- No element can occur more than once in a filtered nodup list. -/
+private theorem filtered_two_le_one (a : List ℕ) (hd : a.Nodup) :
+    (a.filter (fun x => decide (x = 2))).length ≤ 1 := by
+  have hf : (a.filter (fun x => decide (x = 2))).Nodup := hd.filter _
+  have hsub : (a.filter (fun x => decide (x = 2))) ⊆ [2] := by
+    intro x hx
+    simp only [List.mem_singleton]
+    simp only [List.mem_filter, decide_eq_true_eq] at hx
+    aesop
+  have hle := List.Nodup.length_le_of_subset hf hsub
+  simpa using hle
+
+/-- The total of local weighted path capacities bounds the number
+of components of any (possibly empty) path family. -/
+private theorem weighted_capacity_flatten (ps : List (List ℕ))
+    (f g : ℕ → Bool) (r s cap : ℕ)
+    (h : ∀ p ∈ ps,
+      r * (p.filter f).length + s * (p.filter g).length ≤ cap) :
+    r * (ps.flatten.filter f).length +
+        s * (ps.flatten.filter g).length ≤ cap * ps.length := by
+  induction ps with
+  | nil => simp
+  | cons p rest ih =>
+      have hp := h p (by simp)
+      have ht : ∀ q ∈ rest,
+          r * (q.filter f).length + s * (q.filter g).length ≤ cap := by
+        intro q hq
+        exact h q (by simp [hq])
+      have hi := ih ht
+      simp only [List.flatten_cons, List.filter_append,
+        List.length_append, List.length_cons]
+      nlinarith
+
 end P010
