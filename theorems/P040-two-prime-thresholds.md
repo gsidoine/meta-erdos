@@ -166,8 +166,8 @@ at most $\delta$. Therefore $\alpha(\{3,5\})\le4/9$.
 The exceptional case is proved.
 
 Finally, if $P$ is empty or consists of a single odd prime,
-extend each profile to a two-prime space by ignoring an added
-prime. This preserves both masses and all conditional costs,
+extend each profile to a two-prime space by adjoining enough new
+odd-prime coordinates and ignoring them. This preserves both masses and all conditional costs,
 so $\alpha(P)\ge\alpha(P\cup\{q\})=1/2$ for an appropriate
 second prime $q$ with $P\cup\{q\}\ne\{3,5\}$.
 The universal constant-profile upper bound gives equality.
