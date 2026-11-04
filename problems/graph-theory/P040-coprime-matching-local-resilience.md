@@ -87,6 +87,22 @@ case is whether the four-prime prefix $\{3,5,7,11\}$ lowers the
 currently attained value $5/12$. A finite computation cannot
 certify the unrestricted limit.
 
+**The four-prime threshold.** An [exact finite certificate](../../theorems/P040-four-prime-sharpness.md)
+extends the three-prime optimum to
+
+$
+\boxed{\alpha(\{3,5,7,11\})=5/12.}
+$
+
+The calculation enumerates all $168$ increasing support families and
+checks every ordered pair with integer arithmetic; four possible
+exceptions are excluded by a separate conditional-mass inequality.
+This is a **computer-assisted proof**, not finite statistical
+evidence and not a statement about unrestricted arithmetic Hall cuts.
+By the prime-prefix reduction, the same lower threshold holds for
+the optimal choice of at most four odd-prime coordinates. The
+five-prime prefix $\{3,5,7,11,13\}$ remains open.
+
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 
 ## A proved universal lower bound
