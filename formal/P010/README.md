@@ -54,6 +54,18 @@ tactics, without a `sorry` or any added mathematical axiom:
 - The exact global path-cover lower bound: isolated vertices require singleton
   paths; middle-range degree-one primes occupy only endpoints, at most two per
   path; the vertex 2 forces an additional path when $n\ge4$.
+- The largest-prime-factor classes partition $[2,n]$ without overlap,
+  and every ordering within one class forms a non-coprime path.
+- Exact class descriptions: singleton classes for $p>n/2$,
+  two-vertex classes for $n/3<p\le n/2$, and three-vertex
+  classes for $n/4<p\le n/3$ when $n\ge12$.
+- A nodup, class-covering non-coprime path with any two distinct
+  prescribed endpoints in a prime class (`orderedPrimeClass_perm`).
+- Local joining of two intermediate classes and the special bridge
+  through the class of prime $3$.
+- The inequality supplying sufficient even-ended units, conditional
+  on the stated Landau prime-counting inequality
+  (`landau_implies_attachment_capacity`).
 - The unconditional universal inequality `P010_h_lower_bound`:
   $h(n)\ge\pi(n)-\pi(\lfloor n/2\rfloor)+\max(1,\lceil (\pi(\lfloor n/2\rfloor)-\pi(\lfloor n/3\rfloor))/2\rceil)$
   for every $n\ge4$.
@@ -68,15 +80,20 @@ unconditional lower bound is proved in `P010_universal_lower_bound` and
 `P010_h_lower_bound`, for every `n ≥ 4`. Their dependency audit is
 printed by `#print axioms` in the Lean source.
 
-One independent mathematical task remains:
+The universal upper-bound construction is still incomplete.
+The class partition, within-class endpoint paths, and two local
+bridging constructions are now checked. The remaining steps are:
 
-**Universal upper construction.** Formalize the largest-prime-factor
-partition, the lists constituting each class path, pairing of middle
-classes, even-endpoint concatenation, attachment of one-ended classes,
-and the required prime-counting inequality. Verify that the resulting
-permutation covers every integer exactly once and attains the stated
-adjacency count for arbitrary `n ≥ 12`. The existing small-case witnesses
-cover `4 ≤ n ≤ 11`.
+1. Assemble every small and intermediate class into the specified
+   number of even-ended disjoint paths; verify that pairing and the
+   special prime-3 bridge preserve coverage and use each vertex once.
+2. Establish the arithmetic capacity inequality for all $n\ge12$.
+   The source currently proves the needed capacity **conditional** on
+   $\pi(\lfloor n/2\rfloor)\le2\pi(\lfloor n/4\rfloor)$.
+   That known prime-counting inequality has not been formalized here.
+3. Group the even-ended paths, attach each $\{p,2p\}$ leaf class at
+   an endpoint, and prove the resulting path cover is a permutation
+   of $[n]$ with precisely the predicted number of components.
 
 The theorem `exact_of_matching_bounds` is a reduction; the lower-bound
 hypothesis is now discharged universally, but its constructive upper-bound
