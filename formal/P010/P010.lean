@@ -2196,4 +2196,145 @@ theorem segments_index_perm (n : ℕ) :
   simp only [List.toFinset_append, Finset.toList_toFinset]
   simpa [Finset.union_assoc] using prime_segments_partition n
 
+
+/-!
+## Complete optimal noncoprime path cover
+-/
+
+/-- Isolated vertex 1, the isolated large-prime classes, and the
+directly paired leaf classes around the even-ended core. -/
+noncomputable def optimalCover (n : ℕ) : List (List ℕ) :=
+  [[1]] ++
+    (largePrimes n).toList.map (fun p => [p]) ++
+    packLeafClasses (corePath n) (middlePrimes n).toList
+
+/-- Every component of the proposed optimal cover is a
+noncoprime chain. -/
+theorem optimalCover_chains (n : ℕ) (hn : 12 ≤ n) :
+    ∀ path ∈ optimalCover n, NonCoprimeChain path := by
+  classical
+  obtain ⟨hcore, heven⟩ := corePath_chain_even n hn
+  have hpack : ∀ path ∈
+      packLeafClasses (corePath n) (middlePrimes n).toList,
+      NonCoprimeChain path := by
+    apply packLeafClasses_chains (corePath n) hcore heven
+    intro p hp
+    exact (mem_middlePrimes.mp (Finset.mem_toList.mp hp)).1
+  intro path hp
+  simp only [optimalCover, List.mem_append, List.mem_singleton,
+    List.mem_map] at hp
+  rcases hp with (h1 | ⟨p, _, hpath⟩) | hpackmem
+  · subst path
+    simp [NonCoprimeChain]
+  · subst path
+    simp [NonCoprimeChain]
+  · exact hpack path hpackmem
+
+/-- The cover has exactly the number of components prescribed
+by the P010 formula, plus the singleton vertex 1. -/
+theorem optimalCover_length (n : ℕ) :
+    (optimalCover n).length =
+      1 + (largePrimes n).card +
+        max 1 (((middlePrimes n).card + 1) / 2) := by
+  classical
+  have h := packLeafClasses_length (corePath n)
+    (middlePrimes n).toList
+  simpa [optimalCover, Finset.length_toList] using h
+
+/-- Adding vertex 1 to the interval [2,n] gives a permutation of
+the interval [1,n], for n≥1. -/
+theorem one_Icc_two_perm_Icc_one (n : ℕ) (hn : 1 ≤ n) :
+    (1 :: (Finset.Icc 2 n).toList).Perm
+      (Finset.Icc 1 n).toList := by
+  classical
+  apply List.perm_of_nodup_nodup_toFinset_eq
+    (by simp [Finset.nodup_toList]) (Finset.nodup_toList _)
+  ext x
+  simp only [List.toFinset_cons, Finset.toList_toFinset,
+    Finset.mem_insert, Finset.mem_Icc]
+  omega
+
+/-- The assembled cover uses each integer in [1,n] exactly once. -/
+theorem optimalCover_isPermutation (n : ℕ) (hn : 12 ≤ n) :
+    IsPermutation n (optimalCover n).flatten := by
+  classical
+  let big := (largePrimes n).toList
+  let small := (n / 3).primesLE.toList
+  let leaves := (middlePrimes n).toList
+
+  have hlarge : (big.map (fun p => [p])).flatten.Perm
+      (classConcat n big) := largeSingletons_perm n
+
+  have hmiddle : ∀ p ∈ leaves, p ∈ middlePrimes n := by
+    intro p hp
+    exact Finset.mem_toList.mp hp
+  have hleaf := leafClasses_perm n leaves hmiddle
+  have hcore := corePath_perm_classConcat n hn
+  have hpack : (packLeafClasses (corePath n) leaves).flatten.Perm
+      (classConcat n small ++ classConcat n leaves) := by
+    have hpreserve := packLeafClasses_perm (corePath n) leaves
+    exact hpreserve.trans (hcore.append hleaf)
+
+  have hall : (optimalCover n).flatten.Perm
+      (1 :: (classConcat n big ++
+        (classConcat n small ++ classConcat n leaves))) := by
+    have h := (hlarge.append hpack).append_left [1]
+    simpa [optimalCover, big, small, leaves,
+      List.flatten_append, List.map_append,
+      List.append_assoc] using h
+
+  have hind : (big ++ small ++ leaves).Perm n.primesLE.toList := by
+    have hswap : (big ++ (small ++ leaves)).Perm
+        ((small ++ leaves) ++ big) := List.perm_append_comm
+    have hrest := segments_index_perm n
+    simpa [big, small, leaves, List.append_assoc] using
+      hswap.trans hrest
+
+  have hcat : (classConcat n big ++
+        (classConcat n small ++ classConcat n leaves)).Perm
+        (classConcat n n.primesLE.toList) := by
+    simpa [classConcat, List.flatMap_append, List.append_assoc] using
+      classConcat_congr_perm n (big ++ small ++ leaves)
+        n.primesLE.toList hind
+
+  have hfull : (optimalCover n).flatten.Perm
+      (1 :: (Finset.Icc 2 n).toList) :=
+    hall.trans ((hcat.trans (classConcat_all_primes n)).cons 1)
+
+  have htwo := one_Icc_two_perm_Icc_one n (by omega)
+  have hrange := range_one_perm_Icc n
+  exact hfull.trans htwo |>.trans hrange.symm
+
+/-- For every n≥12, there is an optimal permutation of [1,n]
+attaining the exact target number of coprime adjacencies. -/
+theorem P010_upper_large (n : ℕ) (hn : 12 ≤ n) :
+    ∃ a : List ℕ, IsPermutation n a ∧
+      adjacentCount a ≤ target n := by
+  let paths := optimalCover n
+  have hc := optimalCover_isPermutation n hn
+  have hg := optimalCover_chains n hn
+  have hupper := h_le_of_noncoprime_cover n paths hc hg
+  have hcount : adjacentCount paths.flatten ≤ paths.length - 1 :=
+    adjacentCount_flatten_le paths hg
+  have hlength := optimalCover_length n
+  have hA := largePrimes_card n
+  have hB := middlePrimes_card n
+  refine ⟨paths.flatten, hc, ?_⟩
+  unfold target
+  omega
+
+/-- The exact theorem submitted to Integers, for every n≥4. -/
+theorem P010_exact (n : ℕ) (hn : 4 ≤ n) :
+    h n = target n := by
+  apply Nat.le_antisymm
+  · by_cases hlarge : 12 ≤ n
+    · obtain ⟨a, ha, hscore⟩ := P010_upper_large n hlarge
+      exact (h_le_of_permutation n a ha).trans hscore
+    · obtain ⟨a, ha, hscore⟩ :=
+        small_upper_bound n hn (by omega)
+      exact (h_le_of_permutation n a ha).trans hscore.le
+  · exact P010_h_lower_bound n hn
+
+#print axioms P010_exact
+
 end P010
