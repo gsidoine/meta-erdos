@@ -280,28 +280,5 @@ theorem join_three_ended_paths (a b : List ℕ)
     NonCoprimeChain (a ++ b) := by
   exact join_prime_ended_paths 3 (by norm_num) a b ha hb hend hstart
 
-/-- A fully verified finite lower bound, obtained by checking every
-permutation for n = 4,5,6. This is not the all-n lower bound. -/
-set_option maxRecDepth 18000
-set_option maxHeartbeats 4000000
-theorem finite_lower_six (n : ℕ) (hn4 : 4 ≤ n) (hn6 : n ≤ 6) :
-    ∀ a : List ℕ, IsPermutation n a → target n ≤ adjacentCount a := by
-  have hall : ((List.range' 1 n).permutations'.all
-      (fun b => decide (target n ≤ adjacentCount b))) = true := by
-    interval_cases n <;> decide
-  intro a ha
-  have hmem : a ∈ (List.range' 1 n).permutations' :=
-    List.mem_permutations'.mpr ha
-  exact of_decide_eq_true ((List.all_eq_true.mp hall) a hmem)
-
-/-- The complete exact P010 formula is already kernel-checked for
-n = 4,5,6, using independent exhaustive lower-bound checking and
-the explicit witnesses from the manuscript. -/
-theorem finite_exact_six (n : ℕ) (hn4 : 4 ≤ n) (hn6 : n ≤ 6) :
-    h n = target n := by
-  apply exact_of_matching_bounds n
-  · exact finite_lower_six n hn4 hn6
-  · obtain ⟨a, ha, hc⟩ := small_upper_bound n hn4 (by omega)
-    exact ⟨a, ha, le_of_eq hc⟩
 
 end P010
