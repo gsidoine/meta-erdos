@@ -1843,13 +1843,19 @@ noncomputable def coreIndices (n : ℕ) : List ℕ :=
   3 :: (((n / 4).primesLE.erase 3).toList ++
     (intermediatePrimes n).toList)
 
-theorem coreIndices_nodup (n : ℕ) :
+theorem coreIndices_nodup (n : ℕ) (hn : 12 ≤ n) :
     (coreIndices n).Nodup := by
   classical
   unfold coreIndices
   apply List.nodup_cons.mpr
   constructor
-  · simp
+  · simp only [List.mem_append, Finset.mem_toList, Finset.mem_erase,
+        not_or]
+    constructor
+    · simp
+    · intro hm
+      have hgt := (mem_intermediatePrimes.mp hm).2.1
+      omega
   · apply List.nodup_append'.mpr
     refine ⟨Finset.nodup_toList _, Finset.nodup_toList _, ?_⟩
     apply List.disjoint_left.mpr
@@ -1880,7 +1886,7 @@ theorem coreIndices_perm (n : ℕ) (hn : 12 ≤ n) :
     (coreIndices n).Perm (n / 3).primesLE.toList := by
   classical
   apply List.perm_of_nodup_nodup_toFinset_eq
-    (coreIndices_nodup n) (Finset.nodup_toList _)
+    (coreIndices_nodup n hn) (Finset.nodup_toList _)
   simpa using coreIndices_toFinset n hn
 
 
