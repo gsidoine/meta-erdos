@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?  
 > **Formulation:** candidate. **Novelty:** unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown.  
-> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact small-prime sieve values are 1/2 for singleton sets, 4/9 for {3,5}, and 5/12 for {3,5,7}; arbitrary finite-prime infimum remains open.  
-> **Finite evidence:** Exact two-prime theorem, three-prime asymmetric theorem, monotone compression, and rational finite-profile verifiers.  
+> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; fractional Hall-cut values are monotone under coordinatewise bias increase, reducing the unrestricted finite-prime infimum to the consecutive odd-prime prefixes.  
+> **Finite evidence:** Exact two- and three-prime thresholds, monotone compression, thinning-transport theorem with rational verifier, Hall bounds and finite profile checks.  
 > **Symbolic prize:** A Research Prize (symbolic) — Existence and exact value of the limiting coprime-matching local resilience.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -67,6 +67,25 @@ not universal lower bounds on graph resilience. The full
 finite-prime infimum and the effect of further primes remain unresolved.
 The rational certificate and finite indicator checks are
 [reproducible](../../experiments/P040_two_prime_thresholds.py).
+
+**Prime-prefix reduction.** The [thinning transport theorem](../../theorems/P040-prime-prefix-reduction.md)
+shows that among all sets of $k$ odd primes the first $k$
+odd primes minimize the fractional Hall-cut infimum. Hence
+
+$$
+\boxed{
+\alpha_{\mathrm{frac}}
+=\lim_{k\to\infty}\alpha(\{3,5,7,\ldots,r_k\}).
+}
+$$
+
+The reduction uses increasing fractional profiles, justified by
+the existing monotone-compression theorem, and couples product
+measures by independent thinning. No additional number-theoretic
+assumptions or computer search are required. The next unresolved
+case is whether the four-prime prefix $\{3,5,7,11\}$ lowers the
+currently attained value $5/12$. A finite computation cannot
+certify the unrestricted limit.
 
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 

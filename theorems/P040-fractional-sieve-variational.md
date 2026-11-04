@@ -316,6 +316,31 @@ Repeat this operation for every $p\in P$. Compression in a later coordinate pres
 
 This is a measure-preserving form of upward compression, related to classical shifting for biased intersecting families; compare Keevash, Lifshitz, Long and Minzer, [*Forbidden intersections for codes*](https://doi.org/10.1112/jlms.12801), *J. London Math. Soc.* **108** (2023), 2037–2083. That source is a methodological predecessor, not an assertion that it proves this precise conditional-deletion lemma. The compression reduces the **search space** of the unrestricted finite-prime variational problem; it does not evaluate its infimum. Historical priority for this formulation remains unverified.
 
+## Theorem 6 — Reduction to initial odd-prime supports
+
+The [prime-prefix reduction](P040-prime-prefix-reduction.md) proves
+monotonicity of the fractional Hall-cut infimum under coordinatewise
+increases of the product-measure biases. It follows that
+
+$$
+\boxed{
+\alpha_{\mathrm{frac}}=
+\lim_{k\to\infty}\alpha(\{3,5,7,\ldots,r_k\}),
+}
+$$
+
+where $r_k$ is the $k$-th odd prime and the sequence decreases
+weakly. The proof transports arbitrary increasing fractional
+profiles by independent thinning, **preserving the masses and all
+conditional costs exactly**, and uses Theorem 5's monotone
+compression to justify restriction to increasing profiles.
+
+This removes the arbitrary choice of finite prime supports from
+the variational problem. It does not determine the limit or
+establish its equality with the asymptotic graph resilience.
+The conditional thinning identity is self-contained;
+historical novelty remains unverified.
+
 ## Scope and references
 
 The equality in Theorem 1 concerns two infima of **finite-prime conditional-density Hall parameters**. It does not assert that these infima equal $\liminf_n\rho_n$ or $\limsup_n\rho_n$, nor that $\rho_n$ converges. The upper constant $5/12$ is optimal for all fractional profiles on the three-prime support $\{3,5,7\}$, but is not asserted optimal for larger finite prime sets or for the full graph resilience.
