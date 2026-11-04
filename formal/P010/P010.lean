@@ -1218,12 +1218,12 @@ theorem paired_intermediate_classes_chain (n p q : ℕ) (hn : 12 ≤ n)
   · exact orderedPrimeClass_chain n p (2 * p) (3 * p) hp hp2 hp3
   · exact orderedPrimeClass_chain n q (3 * q) (2 * q) hq hq3 hq2
   · intro x hx
-    have heq : x = 3 * p := by
+    have heq : 3 * p = x := by
       simpa [orderedPrimeClass_last] using hx
     subst x
     exact ⟨p, rfl⟩
   · intro y hy
-    have heq : y = 3 * q := by
+    have heq : 3 * q = y := by
       simpa [orderedPrimeClass_head] using hy
     subst y
     exact ⟨q, rfl⟩
@@ -1243,12 +1243,12 @@ theorem intermediate_three_bridge_chain (n p : ℕ) (hn : 12 ≤ n)
   · exact orderedPrimeClass_chain n 3 6 9 (by norm_num) h6 h9
   · exact orderedPrimeClass_chain n p (3 * p) (2 * p) hp h3 h2
   · intro x hx
-    have heq : x = 9 := by
+    have heq : 9 = x := by
       simpa [orderedPrimeClass_last] using hx
     subst x
     exact ⟨3, rfl⟩
   · intro y hy
-    have heq : y = 3 * p := by
+    have heq : 3 * p = y := by
       simpa [orderedPrimeClass_head] using hy
     subst y
     exact ⟨p, rfl⟩
