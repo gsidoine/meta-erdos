@@ -24,7 +24,7 @@ This collection currently contains **50 numbered research entries (P001–P050)*
 
 ## Catalogue
 
-[Complete numbered catalogue](#problem-catalogue) · [Mathematical status](#status-and-scope) · [Historical prizes](REWARDS.md) · [Contributions](CONTRIBUTING.md)
+[Complete numbered catalogue](#problem-catalogue) · [Mathematical status](#status-and-scope) · [Prizes and historical designations](REWARDS.md) · [Contributions](CONTRIBUTING.md)
 
 The catalogue contains all numbered entries in a single sequence. Mathematical formulation and the assessment of historical novelty are recorded separately. A reward, where specified, is a symbolic designation with an explicit condition; it does not measure difficulty, originality, or importance.
 
@@ -42,7 +42,7 @@ Computational verification establishes only the stated finite cases. An internal
 
 ## Symbolic rewards
 
-The original Scottish Book included prizes associated with particular questions, including prizes depending on the kind of solution. This collection adopts a [historically documented reward vocabulary](REWARDS.md), without a scale of difficulty or prestige. All rewards are symbolic unless independently and explicitly pledged by a sponsor; **no physical prize is presently offered**. A dash in the catalogue denotes no assigned reward.
+The original Scottish Book included prizes associated with particular questions, including prizes depending on the kind of solution. This collection uses four [modern symbolic designations](REWARDS.md)—A Coffee, A Book, A Dinner, and A Research Prize—while preserving the historically documented prizes and previous assignments. They form no scale of difficulty or prestige. The catalogue distinguishes symbolic, pledged, funded, and awarded states; every current assignment is **symbolic**, and **no physical prize is presently offered**. A dash in the catalogue denotes no assigned reward.
 
 ## Manuscript record
 
