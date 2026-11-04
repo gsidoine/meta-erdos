@@ -127,7 +127,7 @@ There are three cases.
 In each case, every class with largest prime factor at most $n/2$ is covered exactly once by **$r$ vertex-disjoint paths**. The remaining classes are the $A_n$ isolated large primes and the singleton vertex $1$. Consequently,
 
 $$
-\operatorname{pc}(H_n)\le r+A_n+1,
+\mathrm{pc}(H_n)\le r+A_n+1,
 \qquad
 h(n)\le A_n+r. \tag{2}
 $$
