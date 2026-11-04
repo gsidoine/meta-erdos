@@ -1463,9 +1463,7 @@ theorem packLeafClasses_length (core : List ℕ) :
           norm_num [packLeafClasses]
       | cons r rs =>
           have hi := ih
-          change 1 + (packLeafClasses core (r :: rs)).length =
-            max 1 (((p :: q :: r :: rs).length + 1) / 2)
-          simp only [List.length_cons] at hi ⊢
+          simp only [packLeafClasses, List.length_cons] at hi ⊢
           omega
 
 /-- Every packed leaf component is a noncoprime path when the
