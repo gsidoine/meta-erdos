@@ -34,6 +34,8 @@ $$
 \boxed{h(n)\sim \frac7{12}\frac{n}{\log n}}\qquad(n\to\infty).
 $$
 
+The exact finite-$n$ formula is [kernel-checked in Lean 4](../formal/P010/README.md), via the unconditional theorem `P010_exact`. The asymptotic corollary is not formalized. The submitted journal manuscript remains an unchanged archival version.
+
 This exact formula is proved by a constructive path cover in a noncoprime graph. The first independent computation tests all $12\le n\le10\,000$, with sampled full witness checking, and exact elementary small-case witnesses cover $4\le n\le11$. None of those finite tests substitutes for the proof.
 
 ## Step 1 — Graph equivalence and lower bound
@@ -181,4 +183,4 @@ Most important historical antecedents:
 1. **P. Erdős, R. Freud and N. Hegyvári**, *Arithmetical properties of permutations of integers*, *Acta Math. Hung.* 41 (1983), 169–176: https://users.renyi.hu/~p_erdos/1983-02.pdf . They study the sizes of consecutive gcd and lcm values, **not in the located statements** the minimum number of gcd-one adjacencies.
 2. Standard graph-theoretic *minimum path cover* is known and not claimed new. The theorem exploits the **special arithmetic partition** by largest prime divisor.
 
-**Provisional resolution:** P010's exact mathematics is resolved within this project, **subject to an adversarial independent proof check and historical novelty verification**. The P010 problem ID is preserved; do not create P011 as a replacement.
+**Resolution:** The exact theorem is verified by the Lean kernel. Independent mathematical review, historical priority and journal acceptance are separate questions. The P010 problem ID is preserved; do not create P011 as a replacement.

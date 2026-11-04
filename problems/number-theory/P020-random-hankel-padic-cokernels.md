@@ -1,5 +1,7 @@
 # P020 — Cokernel laws for random $p$-adic Hankel matrices
 
+**Historical dossier.** The [current canonical entry](P020-padic-hankel-cokernels/README.md) contains the maintained statement, status, supporting proofs and references. This file is retained as a research record; the canonical catalogue governs the current formulation and novelty assessment.
+
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the cokernel of an n×n Haar-random p-adic Hankel matrix converge in distribution to a describable measure on finite abelian p-groups?  
 > **Formulation:** candidate. **Novelty:** apparent novelty (targeted audit).  

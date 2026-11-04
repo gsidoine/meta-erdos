@@ -65,7 +65,7 @@ The original "exceptions" $n=9$ and $n=21$ are not exceptions to the theorem. Th
 
 The closest known historical predecessor is **Erdős, Freud and Hegyvári (1983)**, [*Arithmetical properties of permutations of integers*](https://users.renyi.hu/~p_erdos/1983-02.pdf), investigating arithmetic properties of consecutive elements of permutations. The located theorem statements concern extrema of adjacent gcd/lcm **values**, not this exact count of gcd-one adjacencies. This is not sufficient to establish that the new theorem is original: synonym searches, older path-cover literature, and external specialist review are still necessary.
 
-The graph-theoretic path-cover reduction is standard, as is the bound $\pi(2x)\le2\pi(x)$ (Rosser–Schoenfeld; see [OEIS A060208](https://oeis.org/A060208)). What is proved here is the exact arithmetic path-cover formula and the constructive decomposition, **established by the proof presented here, without a claim of independently certified historical novelty**.
+The graph-theoretic path-cover reduction is standard. The earlier construction used a classical prime-counting estimate, but the final proof does not require it. What is proved here is the exact arithmetic path-cover formula and the constructive decomposition, **established by the proof presented here, without a claim of independently certified historical novelty**.
 
 ## Publication status
 

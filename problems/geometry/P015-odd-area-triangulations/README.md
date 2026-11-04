@@ -6,7 +6,7 @@
 > **Verified/known progress:** Odd doubled area iff the triangle has three different mod-2 vertex classes; flips require all four classes.  
 > **Finite evidence:** Exhaustive parity color patterns through n=9 (zero disconnected four-class cases); six-vertex three-color obstruction.  
 > **Symbolic prize:** A Coffee (symbolic) — A general proof of four-class odd-area flip connectivity, or a finite counterexample.  
-> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
+> **Navigation:** [Full problem catalogue](../../../README.md#problem-catalogue) · [Status and scope](../../../README.md#status-and-scope) · [Literature and audits](../../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Subject:** discrete geometry  
@@ -33,6 +33,6 @@ Colored triangulation flip graphs are established subjects, and related publishe
 - [Finite checks and exploration](exploration/README.md)
 - [Reproducible verification program](verification/P015_odd_area_flip_graph.py)
 - [Formalization status](formal/README.md)
-- [Historical full dossier](../geometry/P015-odd-area-lattice-triangulations.md)
+- [Historical full dossier](../P015-odd-area-lattice-triangulations.md)
 
-Contributions to a proof, counterexample, Lean statement, or source comparison are welcome; see [Contributing](../../CONTRIBUTING.md).
+Contributions to a proof, counterexample, Lean statement, or source comparison are welcome; see [Contributing](../../../CONTRIBUTING.md).

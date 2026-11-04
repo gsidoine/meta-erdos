@@ -1,4 +1,4 @@
-"""Check the first two Scottish Book folders and their preserved legacy links."""
+"""Check subject-classified problem dossiers, canonical metadata and historical links."""
 import json
 import unittest
 from pathlib import Path
@@ -6,35 +6,43 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 class ProblemFolderPrototypeTests(unittest.TestCase):
-    def test_two_pilot_folders_are_canonical(self):
+    def test_subject_folders_are_canonical(self):
         records = {r["id"]: r for r in json.loads(
             (ROOT / "data/problems.json").read_text(encoding="utf-8")
         )["problems"]}
         expected = {
-            "P015": "problems/P015-odd-area-triangulations",
-            "P020": "problems/P020-padic-hankel-cokernels",
+            "P015": "problems/geometry/P015-odd-area-triangulations",
+            "P020": "problems/number-theory/P020-padic-hankel-cokernels",
+            "P047": "problems/topology/P047-perfect-algebraic-fusion",
         }
         for pid, folder in expected.items():
             with self.subTest(problem=pid):
                 base = ROOT / folder
                 self.assertEqual(records[pid]["file"], f"{folder}/README.md")
-                for part in ("README.md", "metadata.yaml", "proofs", "exploration",
-                             "references", "verification", "formal"):
+                required = ["README.md", "metadata.yaml", "proofs", "exploration",
+                            "references", "verification"]
+                if pid in ("P015", "P020"):
+                    required.append("formal")
+                for part in required:
                     self.assertTrue((base / part).exists(), (pid, part))
                 meta = (base / "metadata.yaml").read_text(encoding="utf-8")
                 self.assertIn(f"id: {pid}", meta)
                 self.assertNotIn("\nreward:", meta)
                 self.assertIn("human-ai-collaboration", meta)
                 self.assertIn("formal_status: unformalized", meta)
+        self.assertFalse(any(p.name.startswith("P0") for p in (ROOT / "problems").iterdir() if p.is_dir()))
+        for record in records.values():
+            self.assertRegex(record["file"], r"^problems/[a-z-]+/P\d{3}-")
+            self.assertTrue((ROOT / record["file"]).is_file())
         self.assertTrue((ROOT / "problems/geometry/P015-odd-area-lattice-triangulations.md").exists())
         self.assertTrue((ROOT / "problems/number-theory/P020-random-hankel-padic-cokernels.md").exists())
 
     def test_verifiers_are_exact_legacy_copies(self):
         for pid, original, new in (
             ("P015", "experiments/P015_odd_area_flip_graph.py",
-             "problems/P015-odd-area-triangulations/verification/P015_odd_area_flip_graph.py"),
+             "problems/geometry/P015-odd-area-triangulations/verification/P015_odd_area_flip_graph.py"),
             ("P020", "experiments/P020_hankel_finite_field_ranks.py",
-             "problems/P020-padic-hankel-cokernels/verification/P020_hankel_finite_field_ranks.py"),
+             "problems/number-theory/P020-padic-hankel-cokernels/verification/P020_hankel_finite_field_ranks.py"),
         ):
             with self.subTest(problem=pid):
                 self.assertEqual((ROOT / original).read_bytes(), (ROOT / new).read_bytes())

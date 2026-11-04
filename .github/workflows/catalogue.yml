@@ -30,7 +30,7 @@ jobs:
         run: python experiments/P014_sum_flag_cliques.py
 
       - name: Verify P015 parity-area flip connectivity through nine vertices
-        run: python problems/P015-odd-area-triangulations/verification/P015_odd_area_flip_graph.py --max-n 9
+        run: python problems/geometry/P015-odd-area-triangulations/verification/P015_odd_area_flip_graph.py --max-n 9
 
       - name: Verify P016 exact Sidon-complex reduced Betti numbers
         run: python experiments/P016_sidon_complex_betti.py --max-n 12
@@ -45,7 +45,7 @@ jobs:
         run: python experiments/P019_no_three_line_exchange.py --max-n 7
 
       - name: Verify P020 classical finite-field Hankel corank formula
-        run: python problems/P020-padic-hankel-cokernels/verification/P020_hankel_finite_field_ranks.py
+        run: python problems/number-theory/P020-padic-hankel-cokernels/verification/P020_hankel_finite_field_ranks.py
 
       - name: Verify all-rank P020 elementary cokernel laws modulo p²
         run: python experiments/P020_elementary_cokernel_mod_p2.py
