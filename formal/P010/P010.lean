@@ -320,7 +320,8 @@ theorem adjacentCount_append_le (a b : List ℕ) :
       cases b with
       | nil => simp [adjacentCount]
       | cons y ys =>
-        simp [adjacentCount, List.countP_cons] <;> omega
+        simp only [List.singleton_append, adjacentCount_cons_cons]
+        by_cases hxy : Nat.Coprime x y <;> simp [hxy, adjacentCount] <;> omega
     | cons y ys =>
       simp only [List.cons_append, adjacentCount_cons_cons] at ih ⊢
       omega
