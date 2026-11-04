@@ -47,6 +47,8 @@ When $k=2$, every two-element set is Sidon, and the exchange graph is a Johnson 
 
 A Sidon set cannot be arbitrarily close to $\sqrt N$ without strong global constraints; at high $k$, frozen isolated states or no states can dominate the ensemble. The problem should be studied with clear conditioning and fixed $k(N)$ regimes.
 
+The underlying random Sidon-existence threshold was studied in Godbole, Janson, Locantore and Rapoport, [*Random Sidon Sequences*](https://doi.org/10.1006/jnth.1998.2325), *Journal of Number Theory* **75** (1999), 7–22. This is a substantive predecessor to the random-site model, although it does not define the reconfiguration graph.
+
 ## Literature context
 
 - Luque, Torre and Lacasa, [*Phase transitions in number theory: from the birthday problem to Sidon sets* (2013)](https://doi.org/10.1103/PhysRevE.88.052119), studies a random Sidon **decision** problem and statistical-physics phase behavior, **not** this graph of feasible exchanges.
