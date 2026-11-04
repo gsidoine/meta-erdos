@@ -1546,4 +1546,124 @@ theorem splitPrimePairs_length (ps : List ℕ) :
         at ih ⊢
       omega
 
+
+/-- Any nonempty list of even-ended noncoprime paths can be flattened
+to a single even-ended noncoprime path. -/
+theorem flatten_even_ended_units :
+    ∀ units : List (List ℕ), units ≠ [] →
+      (∀ unit ∈ units, NonCoprimeChain unit ∧ EvenEnded unit) →
+      NonCoprimeChain units.flatten ∧ EvenEnded units.flatten := by
+  intro units
+  induction units with
+  | nil =>
+      intro h
+      exact (h rfl).elim
+  | cons a rest ih =>
+      intro _ hgood
+      have ha : NonCoprimeChain a ∧ EvenEnded a :=
+        hgood a (by simp)
+      cases rest with
+      | nil =>
+          simpa using ha
+      | cons b bs =>
+          have hrest : ∀ unit ∈ b :: bs,
+              NonCoprimeChain unit ∧ EvenEnded unit := by
+            intro unit hu
+            exact hgood unit (by simp [hu])
+          have htail := ih (by simp) hrest
+          simpa only [List.flatten_cons] using
+            append_even_ended a (List.flatten (b :: bs))
+              ha.1 htail.1 ha.2 htail.2
+
+/-- The even-ended path through one small prime class. -/
+def smallEvenUnit (n p : ℕ) : List ℕ :=
+  orderedPrimeClass n p (2 * p) (4 * p)
+
+/-- The even-ended path through two paired intermediate classes. -/
+def intermediateEvenUnit (n : ℕ) (pq : ℕ × ℕ) : List ℕ :=
+  orderedPrimeClass n pq.1 (2 * pq.1) (3 * pq.1) ++
+    orderedPrimeClass n pq.2 (3 * pq.2) (2 * pq.2)
+
+/-- The class of prime 3, optionally bridged to one unpaired
+intermediate class. -/
+def threeEvenUnit (n : ℕ) : Option ℕ → List ℕ
+  | none => orderedPrimeClass n 3 6 12
+  | some p =>
+      orderedPrimeClass n 3 6 9 ++
+        orderedPrimeClass n p (3 * p) (2 * p)
+
+/-- Small prime classes admit noncoprime even-ended paths. -/
+theorem smallEvenUnit_good (n p : ℕ) (hp : Nat.Prime p)
+    (hbound : 4 * p ≤ n) :
+    NonCoprimeChain (smallEvenUnit n p) ∧
+      EvenEnded (smallEvenUnit n p) := by
+  obtain ⟨hu, hv, _⟩ := small_prime_even_endpoints n p hp hbound
+  have hc : NonCoprimeChain (smallEvenUnit n p) :=
+    orderedPrimeClass_chain n p (2 * p) (4 * p) hp hu hv
+  refine ⟨hc, 2 * p, 4 * p, ?_, ?_, ?_, ?_⟩
+  · exact orderedPrimeClass_head n p (2 * p) (4 * p)
+  · exact orderedPrimeClass_last n p (2 * p) (4 * p)
+  · exact ⟨p, by omega⟩
+  · exact ⟨2 * p, by omega⟩
+
+/-- Paired intermediate classes admit noncoprime even-ended paths. -/
+theorem intermediateEvenUnit_good (n p q : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n)
+    (hq : q ∈ intermediatePrimes n) :
+    NonCoprimeChain (intermediateEvenUnit n (p, q)) ∧
+      EvenEnded (intermediateEvenUnit n (p, q)) := by
+  obtain ⟨hpp, hpquarter, hpthird⟩ := mem_intermediatePrimes.mp hp
+  obtain ⟨hqq, hqquarter, hqthird⟩ := mem_intermediatePrimes.mp hq
+  have hc := paired_intermediate_classes_chain n p q hn
+    hpp hqq hpquarter hpthird hqquarter hqthird
+  let a := orderedPrimeClass n p (2 * p) (3 * p)
+  let b := orderedPrimeClass n q (3 * q) (2 * q)
+  have ha : a.head? = some (2 * p) := orderedPrimeClass_head ..
+  have hb : b.getLast? = some (2 * q) := orderedPrimeClass_last ..
+  have hane : a ≠ [] := by intro h; simp [h] at ha
+  have hbne : b ≠ [] := by intro h; simp [h] at hb
+  refine ⟨hc, 2 * p, 2 * q, ?_, ?_, ?_, ?_⟩
+  · change (a ++ b).head? = some (2 * p)
+    rw [List.head?_append_of_ne_nil a hane]
+    exact ha
+  · change (a ++ b).getLast? = some (2 * q)
+    rw [List.getLast?_append_of_ne_nil a hbne]
+    exact hb
+  · exact ⟨p, by omega⟩
+  · exact ⟨q, by omega⟩
+
+/-- With no unmatched intermediate class, class 3 itself provides
+an even-ended core unit. -/
+theorem threeEvenUnit_none_good (n : ℕ) (hn : 12 ≤ n) :
+    NonCoprimeChain (threeEvenUnit n none) ∧
+      EvenEnded (threeEvenUnit n none) := by
+  have hp : Nat.Prime 3 := by norm_num
+  have hh := smallEvenUnit_good n 3 hp (by omega)
+  simpa [threeEvenUnit, smallEvenUnit, show 2 * 3 = 6 by omega,
+    show 4 * 3 = 12 by omega] using hh
+
+/-- With one unmatched intermediate class, the prime-3 bridge
+remains even-ended. -/
+theorem threeEvenUnit_some_good (n p : ℕ) (hn : 12 ≤ n)
+    (hp : p ∈ intermediatePrimes n) :
+    NonCoprimeChain (threeEvenUnit n (some p)) ∧
+      EvenEnded (threeEvenUnit n (some p)) := by
+  obtain ⟨hpp, hquarter, hthird⟩ := mem_intermediatePrimes.mp hp
+  have hc := intermediate_three_bridge_chain n p hn hpp hquarter hthird
+  let a := orderedPrimeClass n 3 6 9
+  let b := orderedPrimeClass n p (3 * p) (2 * p)
+  have ha : a.head? = some 6 := orderedPrimeClass_head ..
+  have hb : b.getLast? = some (2 * p) := orderedPrimeClass_last ..
+  have hane : a ≠ [] := by intro h; simp [h] at ha
+  have hbne : b ≠ [] := by intro h; simp [h] at hb
+  refine ⟨hc, 6, 2 * p, ?_, ?_, ?_, ?_⟩
+  · change (a ++ b).head? = some 6
+    rw [List.head?_append_of_ne_nil a hane]
+    exact ha
+  · change (a ++ b).getLast? = some (2 * p)
+    rw [List.getLast?_append_of_ne_nil a hbne]
+    exact hb
+  · exact ⟨3, by norm_num⟩
+  · exact ⟨p, by omega⟩
+
 end P010
