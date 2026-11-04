@@ -1666,4 +1666,88 @@ theorem threeEvenUnit_some_good (n p : ℕ) (hn : 12 ≤ n)
   · exact ⟨3, by norm_num⟩
   · exact ⟨p, by omega⟩
 
+
+/-- Every member of a pair produced by splitting belongs to the
+original list. -/
+theorem splitPrimePairs_pair_mem (ps : List ℕ) (pair : ℕ × ℕ)
+    (hp : pair ∈ (splitPrimePairs ps).1) :
+    pair.1 ∈ ps ∧ pair.2 ∈ ps := by
+  have hrec := splitPrimePairs_recompose ps
+  have hleft : pair.1 ∈
+      (splitPrimePairs ps).1.flatMap (fun pq => [pq.1, pq.2]) := by
+    apply List.mem_flatMap.mpr
+    exact ⟨pair, hp, by simp⟩
+  have hright : pair.2 ∈
+      (splitPrimePairs ps).1.flatMap (fun pq => [pq.1, pq.2]) := by
+    apply List.mem_flatMap.mpr
+    exact ⟨pair, hp, by simp⟩
+  constructor
+  · rw [← hrec]
+    exact List.mem_append.mpr (Or.inl hleft)
+  · rw [← hrec]
+    exact List.mem_append.mpr (Or.inl hright)
+
+/-- The optional unmatched element of a split belongs to its input. -/
+theorem splitPrimePairs_spare_mem (ps : List ℕ) (p : ℕ)
+    (hp : (splitPrimePairs ps).2 = some p) : p ∈ ps := by
+  rw [← splitPrimePairs_recompose ps]
+  apply List.mem_append.mpr
+  right
+  simp [hp]
+
+/-- The list of core units, starting with the class of prime 3.
+The optional spare intermediate class is included in this first unit.
+Remaining small classes and paired intermediate classes follow. -/
+noncomputable def coreUnits (n : ℕ) : List (List ℕ) := by
+  classical
+  let mids := splitPrimePairs (intermediatePrimes n).toList
+  exact threeEvenUnit n mids.2 ::
+      (((n / 4).primesLE.erase 3).toList.map (smallEvenUnit n) ++
+        mids.1.map (intermediateEvenUnit n))
+
+/-- Concatenation of the core units. -/
+noncomputable def corePath (n : ℕ) : List ℕ :=
+  (coreUnits n).flatten
+
+/-- Every unit of the core is a noncoprime even-ended path. -/
+theorem coreUnits_good (n : ℕ) (hn : 12 ≤ n) :
+    ∀ unit ∈ coreUnits n, NonCoprimeChain unit ∧ EvenEnded unit := by
+  classical
+  intro unit hu
+  simp only [coreUnits, List.mem_cons, List.mem_append,
+    List.mem_map] at hu
+  rcases hu with hfirst | hsmall | hpaired
+  · subst unit
+    cases hs : (splitPrimePairs (intermediatePrimes n).toList).2 with
+    | none =>
+        exact threeEvenUnit_none_good n hn
+    | some p =>
+        have hp : p ∈ intermediatePrimes n := by
+          apply Finset.mem_toList.mp
+          exact splitPrimePairs_spare_mem
+            (intermediatePrimes n).toList p hs
+        exact threeEvenUnit_some_good n p hn hp
+  · obtain ⟨p, hp, hunit⟩ := hsmall
+    subst unit
+    have hmem : p ∈ (n / 4).primesLE :=
+      (Finset.mem_erase.mp (Finset.mem_toList.mp hp)).2
+    obtain ⟨hpn, hprime⟩ := Nat.mem_primesLE.mp hmem
+    exact smallEvenUnit_good n p hprime (by omega)
+  · obtain ⟨pair, hpair, hunit⟩ := hpaired
+    subst unit
+    obtain ⟨hp, hq⟩ := splitPrimePairs_pair_mem
+      (intermediatePrimes n).toList pair hpair
+    exact intermediateEvenUnit_good n pair.1 pair.2 hn
+      (Finset.mem_toList.mp hp) (Finset.mem_toList.mp hq)
+
+/-- The assembled core path is nonempty, noncoprime, and even-ended,
+with no appeal to the Landau prime-counting inequality. -/
+theorem corePath_chain_even (n : ℕ) (hn : 12 ≤ n) :
+    NonCoprimeChain (corePath n) ∧ EvenEnded (corePath n) := by
+  unfold corePath
+  apply flatten_even_ended_units (coreUnits n)
+  · unfold coreUnits
+    simp
+  · exact coreUnits_good n hn
+
 end P010
