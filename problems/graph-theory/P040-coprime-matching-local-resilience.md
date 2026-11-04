@@ -50,6 +50,24 @@ The certificate uses the primes $3,5,7$, an exact half-mass fractional profile, 
 
 The [three-prime sharpness theorem](../../theorems/P040-fractional-sieve-variational.md) proves that $5/12$ is the **exact infimum for all fractional profile pairs $f,g$ on $P=\{3,5,7\}$**, including asymmetric pairs with $m_P(f)+m_P(g)>1$. The same theorem note gives a mass-preserving coordinate compression that reduces the general finite-prime variational search to increasing fractional profiles. Additional primes or non-finite-prime Hall cuts may still improve $5/12$; this is not an unrestricted resilience lower bound.
 
+**Exact small-prime classification.** The [two-prime threshold theorem](../../theorems/P040-two-prime-thresholds.md) determines the fractional Hall-cut infimum for all sets of at most two odd primes:
+
+$
+\alpha(P)=
+\begin{cases}
+4/9,&P=\{3,5\},\\
+1/2,&P\ne\{3,5\}.
+\end{cases}
+$
+
+Together with the three-prime theorem, the successive supports
+$\{3\}$, $\{3,5\}$, and $\{3,5,7\}$ have exact thresholds
+$1/2$, $4/9$, and $5/12$. These are restricted variational values,
+not universal lower bounds on graph resilience. The full
+finite-prime infimum and the effect of further primes remain unresolved.
+The rational certificate and finite indicator checks are
+[reproducible](../../experiments/P040_two_prime_thresholds.py).
+
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 
 ## A proved universal lower bound
