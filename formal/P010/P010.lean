@@ -1576,17 +1576,17 @@ theorem flatten_even_ended_units :
               ha.1 htail.1 ha.2 htail.2
 
 /-- The even-ended path through one small prime class. -/
-def smallEvenUnit (n p : ℕ) : List ℕ :=
+noncomputable def smallEvenUnit (n p : ℕ) : List ℕ :=
   orderedPrimeClass n p (2 * p) (4 * p)
 
 /-- The even-ended path through two paired intermediate classes. -/
-def intermediateEvenUnit (n : ℕ) (pq : ℕ × ℕ) : List ℕ :=
+noncomputable def intermediateEvenUnit (n : ℕ) (pq : ℕ × ℕ) : List ℕ :=
   orderedPrimeClass n pq.1 (2 * pq.1) (3 * pq.1) ++
     orderedPrimeClass n pq.2 (3 * pq.2) (2 * pq.2)
 
 /-- The class of prime 3, optionally bridged to one unpaired
 intermediate class. -/
-def threeEvenUnit (n : ℕ) : Option ℕ → List ℕ
+noncomputable def threeEvenUnit (n : ℕ) : Option ℕ → List ℕ
   | none => orderedPrimeClass n 3 6 12
   | some p =>
       orderedPrimeClass n 3 6 9 ++
