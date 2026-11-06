@@ -46,7 +46,7 @@ The original Scottish Book included prizes associated with particular questions,
 
 ## Manuscript record
 
-**[P010 — Minimum coprime adjacencies](problems/graph-theory/P010-minimum-coprime-adjacencies.md)** has a [complete Lean-verified exact theorem](formal/P010/README.md), checked without nonfoundational axioms. The [submitted manuscript](manuscripts/P010/coprime_adjacencies.pdf) was submitted to the journal _Integers_; submission does not imply acceptance or publication. The archived PDF, the accompanying manuscript record, and its factual AI-use statement are preserved. The journal [permits supporting AI-tool use](https://math.colgate.edu/~integers/submit.html), subject to its stated rules.
+**[P010 — Minimum coprime adjacencies](problems/graph-theory/P010-minimum-coprime-adjacencies.md)** has a [complete Lean-verified exact theorem](formal/P010/README.md), checked without nonfoundational axioms. The [submitted manuscript](manuscripts/P010/coprime_adjacencies.pdf) was submitted to the journal _Integers_; submission does not imply acceptance or publication. The archived PDF, the accompanying manuscript record, and its factual AI-use statement are preserved. The journal's [current AI-use policy](https://math.colgate.edu/~integers/submit.html) **excludes AI-produced mathematics, code, bibliography, or other substantive content** (except basic spelling and grammar tools); substantive AI involvement in the P010 project is documented. Editorial eligibility has **not** been established by the acknowledgement of submission. See the [corrected submission-policy note](manuscripts/P010-2026-10-29-submission-snapshot-and-policy-audit.md).
 
 ## Problem folders
 
