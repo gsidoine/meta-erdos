@@ -25,14 +25,17 @@ $$
 
 with $h(1)=0,h(2)=1,h(3)=2$ and $h(n)\sim 7n/(12\log n)$. The PDF proof uses prime-factor classes, 2/3-multiple connections, the Rosser–Schoenfeld/Dusart inequality $\pi(2x)\le 2\pi(x)$ for $x\ge3$, and an explicit list of optimal short permutations. This source comparison is **not** an independent refereeing of the full argument.
 
-## Corrected journal AI-use policy
+## Editorial acknowledgement and AI-use eligibility — updated 6 November 2026
 
-**Correction of this source record:** An earlier version inaccurately stated that *Integers* categorically refused manuscripts involving AI-supported mathematical research or code. That conclusion is **not supported by the official published author instructions**.
+**Editorial status.** The author reports receiving an acknowledgement from Bruce Landman, Managing Editor of *Integers*, indicating that the author will be contacted after review. The acknowledgement's date was not provided for this record. It confirms correspondence regarding the submission, **not** acceptance, a completed report, or necessarily that an external referee has already been assigned. The [journal's published review procedure](https://math.colgate.edu/~integers/submit.html) distinguishes initial editorial assessment from a decision to send a paper to referees.
 
-The current [*Integers* submission guidelines](https://math.colgate.edu/~integers/submit.html) state that AI tools **may support manuscript preparation**, provided they are **not a substitute for human critical thinking**, the author assumes responsibility for the accuracy of mathematical statements and references, the manuscript's **narrative and wording are authored by humans**, and a statement discloses non-grammar/spelling AI use when the manuscript is submitted. A submission email is required to confirm compliance.
+**Correction to the earlier policy account.** The preceding version of this repository note incorrectly described *Integers* as permitting AI assistance in producing substantive mathematical research, provided it was disclosed. The [official instructions for authors, checked on 6 November 2026](https://math.colgate.edu/~integers/submit.html), state a **more restrictive policy**: the journal does not consider articles involving AI in the production of mathematics, code, bibliographic information, or other substantive content; basic spelling and grammar tools are excepted. The submission email must confirm compliance with the AI guideline. This is an explicit eligibility restriction, **not merely a disclosure requirement**.
 
-The submitted P010 manuscript contains an AI-use declaration. Whether the submitted wording, human verification, and disclosures satisfy the journal's requirements is **an editorial decision**, not something this archival audit can decide. No acceptance, rejection or incompatibility determination follows from the policy text alone.
+The P010 research record documents substantive AI involvement in mathematical exploration, proof development, verification code, literature research, and draft preparation. The archived submitted PDF is described as containing an AI-use declaration, but this repository note does **not** establish the scope of what was disclosed to the editor or whether the journal has made an informed eligibility decision. The editor's acknowledgement does not itself waive or resolve the published policy.
 
+**Prudent follow-up:** the submitting author should ensure that the editor has received an accurate description of all substantive AI use, particularly if an initial statement focused mainly on proofreading or mathematical checking. Only the journal can determine how its policy applies to the actual submitted article. Do not infer a referee invitation, eligibility determination, or acceptance from the acknowledgement.
+
+**Archival integrity:** the [original submitted PDF](P010/coprime_adjacencies.pdf) and its checksum are preserved unchanged. This update corrects a **repository policy note** and records a reported editorial status; it does not revise the submitted manuscript, its AI declaration, or the historical submission record.
 
 ## Independent source-level reference checks (manuscript numbering)
 
@@ -51,6 +54,6 @@ The submitted P010 manuscript contains an AI-use declaration. Whether the submit
 
 ## Publication recommendation
 
-The mathematical content is a plausible **short arithmetic-combinatorics note**, conditional on independent human proof verification and deeper priority review. *Integers* permits AI assistance under its stated conditions; the submission's compliance and editorial outcome are for the journal to assess. No external refereeing or publication claim is made.
+The mathematical content is a plausible **short arithmetic-combinatorics note**, conditional on independent human proof verification and deeper priority review. *Integers* publishes a restrictive AI-use eligibility policy, discussed above. Whether the submission satisfies it is a matter for the editor, and the acknowledgement does not establish that it does. No external refereeing or publication claim is made.
 
 This record is **not** a new manuscript, a publication claim, or a replacement for the canonical submitted manuscript PDF.
