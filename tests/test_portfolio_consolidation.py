@@ -62,10 +62,11 @@ class PortfolioConsolidationTests(unittest.TestCase):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         snapshot = (ROOT / "manuscripts/P010-2026-10-29-submission-snapshot-and-policy-audit.md"
                     ).read_text(encoding="utf-8")
-        self.assertIn("permits supporting AI-tool use", readme)
-        self.assertIn("Corrected journal AI-use policy", snapshot)
-        self.assertNotIn("will **not be considered**", snapshot)
-        self.assertNotIn("manuscript appears **incompatible", snapshot)
+        self.assertIn("excludes AI-produced mathematics", readme)
+        self.assertIn("Editorial acknowledgement and AI-use eligibility", snapshot)
+        self.assertIn("does not consider articles involving AI", snapshot)
+        self.assertIn("The editor's acknowledgement does not itself waive", snapshot)
+        self.assertNotIn("permits supporting AI-tool use", readme)
         self.assertIn("(P010/coprime_adjacencies.pdf)", snapshot)
 
 
