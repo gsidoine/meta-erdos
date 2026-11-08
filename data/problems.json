@@ -130,9 +130,9 @@
       "question": "Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?",
       "status": "candidate",
       "novelty": "not certified; targeted literature comparison only",
-      "result": "No universal-row/column shortcut; arithmetic structure is essential",
-      "verification": "3,459,600 states at n=14, one component",
-      "priority": "focus",
+      "result": "Proved even-order Cartesian-square decomposition of matching switch graphs and odd-order marked-pair formula; connectivity remains open",
+      "verification": "Direct bitmask enumeration confirms both identities for all 2≤n≤15; prior switch BFS through n=14",
+      "priority": "prove the even–odd bipartite matching switch graph is connected; analyze odd-order marked-pair fiber transitions",
       "sources": [
         {
           "name": "Pomerance (2022)",
