@@ -1,0 +1,37 @@
+name: Arithmetic graph Lean lemmas
+
+on:
+  pull_request:
+    paths:
+      - 'formal/ArithmeticGraphs/**'
+      - '.github/workflows/arithmetic-graph-lean.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'formal/ArithmeticGraphs/**'
+      - '.github/workflows/arithmetic-graph-lean.yml'
+  workflow_dispatch:
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan and pinned toolchain
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --no-modify-path
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned Mathlib release
+        working-directory: formal/ArithmeticGraphs
+        run: lake update
+      - name: Retrieve Mathlib cache
+        working-directory: formal/ArithmeticGraphs
+        run: lake exe cache get
+      - name: Check Lean lemmas
+        working-directory: formal/ArithmeticGraphs
+        run: |
+          lake build ArithmeticGraphs
+          lake env lean P030.lean
+          lake env lean P033.lean
