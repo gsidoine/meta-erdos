@@ -31,7 +31,7 @@ The [universal-hub theorem](../../theorems/P005-universal-hub-switch-connectivit
 
 $
 \mathcal C_n\text{ is connected},\qquad
-\operatorname{diam}(\mathcal C_n)\le3(n-1).
+\mathrm{diam}(\mathcal C_n)\le3(n-1).
 $
 
 The proof resolves each permutation cycle by using a universal matching row and a universal matching column as temporary buffers. For odd $n$, both are the integer $1$ and a reference coprime permutation fixes $1$; for even $n$, the parity product theorem reduces to two matching graphs with universal row $2$ and universal column $1$. It is a complete elementary proof, not just a finite verification. The [deterministic switch constructor](../../experiments/P005_canonical_switch_certificate.py) independently checks every intermediate swap for all coprime permutations with $n\le11$. The optimal diameter and the mixing time of the switch chain are not determined.
