@@ -41,6 +41,7 @@ class PublicCatalogueConsistencyTests(unittest.TestCase):
             "Needs specification": counts["needs specification"],
             "Proved internally": counts["proved internally"],
             "Known result": counts["known result"],
+            "Disproved": counts["disproved"],
         }
         for name, count in expected.items():
             with self.subTest(status=name):
