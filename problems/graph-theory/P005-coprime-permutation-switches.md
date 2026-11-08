@@ -72,6 +72,10 @@ $$
 
 Its proof partitions the switch space into marked-pair fibers, each a product of two smaller matching switch graphs. The [independent enumeration](../../experiments/P005_parity_matching_decomposition.py) checks both counting identities against direct permutation counts for $2\le n\le15$. This is a structural reduction, **not** a connectivity proof; the even-order perfect-square counting formula is already recorded in [OEIS A009679](https://oeis.org/A009679) (2007), and must not be claimed as new. Historical novelty of the switch-graph and odd-order refinements remains unverified.
 
+## Extended finite switch evidence
+
+The parity reduction permits exhaustive switch connectivity verification for even orders through $n=22$, by enumerating only the perfect matchings of the even–odd coprimality graph. The [independent C++17 BFS](../../experiments/P005_even_bipartite_switch_bfs.cpp) reaches all $4\,051\,872$ matchings for $n=22$, compared with an independently computed subset-DP total. The [theorem note](../../theorems/P005-parity-matching-decomposition.md#extended-finite-connectivity-certificate) records the previous even orders and reproduction instructions. This is finite evidence, not a general connectivity proof.
+
 ## Why nontrivial?
 
 The underlying bipartite graph contains an induced six-cycle on rows $2,3,5$ and columns $2,3,5$: the 3-by-3 adjacency matrix has ones precisely off the diagonal. Thus it is not chordal bipartite for $n\ge5$, and standard immediate chordal-bipartite switch arguments do not apply.
