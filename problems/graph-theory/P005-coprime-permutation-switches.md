@@ -64,7 +64,7 @@ $
 
 Thus even-order P005 is connected exactly when $\mathcal R(B_m)$ is connected. The host graph $B_m$ is also the graph used in [P040](P040-coprime-matching-local-resilience.md), which studies local matching resilience rather than switches.
 
-For odd order $n=2m+1$, every coprime permutation has exactly one odd-to-odd assignment $u\mapsto v$. If $t(u)$ counts coprime bijections between the even vertices and the odd vertices excluding $u$, the same theorem gives the exact identity
+For odd order $n=2m+1$, every coprime permutation has exactly one odd-to-odd assignment $u\mapsto v$. If $t(u)$ counts coprime bijections between the even vertices and the odd vertices excluding $u$, the same theorem gives the exact identity, writing $C(n)$ for the total number of coprime permutations of $[n]$:
 
 $
 C(2m+1)=\sum_{\substack{u,v\ \mathrm{odd}\\\gcd(u,v)=1}}t(u)t(v).
