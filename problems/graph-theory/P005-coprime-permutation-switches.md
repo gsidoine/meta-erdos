@@ -4,7 +4,7 @@
 > **Research question:** Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?  
 > **Formulation:** candidate. **Novelty:** even-order square count known since 2007; switch-space factorization priority unverified.  
 > **Verified/known progress:** Proved even-order Cartesian-square decomposition of matching switch graphs and odd-order marked-pair formula; connectivity remains open.  
-> **Finite evidence:** Direct bitmask enumeration confirms both identities for all 2≤n≤15; prior switch BFS through n=14.  
+> **Finite evidence:** Direct bitmask counting identities n≤15; exhaustive matching-switch connectivity through even n=22.  
 > **Symbolic prize:** A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
