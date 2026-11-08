@@ -1,11 +1,12 @@
 # P030 — Perfect matchings with prime sums and prime differences
 
 <!-- DOSSIER-SUMMARY -->
-> **Research question:** Are there perfect matchings of all sufficiently large even initial intervals when both the sum and absolute difference of every matched pair must be prime? **No.**
-> **Formulation:** disproved. **Novelty:** historical priority of the obstruction not certified.
-> **Proved result:** For \(n\ge4\), the maximum matching size satisfies \(\nu(D_n)\le\lfloor n/3\rfloor+\pi(2n-3)-2=n/3+o(n)\).
-> **Exact counterexamples:** A Hall cut at \(n=51872\) and a global matching bound at \(n=240158\), verified by an integer sieve.
-> **Navigation:** [Catalogue](../../README.md#problem-catalogue) · [Literature](#literature-and-priority)
+> **Research question:** Does the prime-sum-and-difference graph have a perfect matching for every even n≥8? (Disproved.)  
+> **Formulation:** disproved. **Novelty:** internal disproof; historical priority unverified.  
+> **Verified/known progress:** Proved ν(D_n) ≤ floor(n/3)+π(2n−3)−2; Hall counterexample n=51,872.  
+> **Finite evidence:** Exact sieve Hall certificate n=51,872; independent prime-count bound n=240,158.  
+> **Symbolic prize:** —  
+> **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
 **Area:** additive number theory, extremal graph theory. **Status:** disproved by an elementary congruence obstruction.
