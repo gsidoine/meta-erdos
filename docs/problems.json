@@ -129,7 +129,7 @@
       "file": "problems/graph-theory/P005-coprime-permutation-switches.md",
       "question": "Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?",
       "status": "candidate",
-      "novelty": "not certified; targeted literature comparison only",
+      "novelty": "even-order square count known since 2007; switch-space factorization priority unverified",
       "result": "Proved even-order Cartesian-square decomposition of matching switch graphs and odd-order marked-pair formula; connectivity remains open",
       "verification": "Direct bitmask enumeration confirms both identities for all 2≤n≤15; prior switch BFS through n=14",
       "priority": "prove the even–odd bipartite matching switch graph is connected; analyze odd-order marked-pair fiber transitions",
@@ -145,6 +145,10 @@
         {
           "name": "Switch chain (2017)",
           "url": "https://doi.org/10.1145/2822322"
+        },
+        {
+          "name": "OEIS A009679 (Noe 2007), exact even-order square formula",
+          "url": "https://oeis.org/A009679"
         }
       ],
       "portfolio_tier": "A",
