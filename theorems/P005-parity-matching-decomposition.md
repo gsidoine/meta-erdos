@@ -79,6 +79,29 @@ The [independent bitmask enumerator](../experiments/P005_parity_matching_decompo
 
 The identities are proved for all orders above; computation is an independent consistency check, not the proof.
 
+
+### Extended finite connectivity certificate
+
+The Cartesian-product reduction replaces enumeration of $C(2m)$ coprime permutations by enumeration of the $M_m$ perfect matchings of $B_m$. The [C++17 BFS certificate](../experiments/P005_even_bipartite_switch_bfs.cpp) starts at the adjacent-integer matching, enumerates all reachable four-cycle switches, and compares the reached count to an independently computed subset-DP permanent:
+
+| $n=2m$ | $m$ | All perfect matchings | Reachable by switches |
+|---:|---:|---:|---:|
+| 14 | 7 | 1860 | 1860 |
+| 16 | 8 | 9552 | 9552 |
+| 18 | 9 | 59616 | 59616 |
+| 20 | 10 | 565920 | 565920 |
+| 22 | 11 | 4051872 | 4051872 |
+
+The order $n=22$ computation explores **4,051,872** matching states, rather than their Cartesian square of coprime permutations. This verifies connectivity of $\mathcal C_{2m}$ for the displayed even orders by the proved factorization. It does not prove connectivity for any larger or odd order.
+
+Reproduce the largest case:
+
+```sh
+g++ -std=c++17 -O3 experiments/P005_even_bipartite_switch_bfs.cpp -o p005_bfs
+./p005_bfs 11
+```
+
+
 ## Historical comparison
 
 Coprime permutations and their enumeration are studied by [Pomerance (2022)](https://arxiv.org/abs/2203.03085) and [Sah–Sawhney (2022)](https://doi.org/10.1112/mtk.12159). Four-cycle matching reconfiguration is classical; see [Ito et al. (2019)](https://doi.org/10.4230/LIPIcs.MFCS.2019.80). **Known predecessor:** [OEIS A009679](https://oeis.org/A009679), with T. D. Noe's 2007 formula, explicitly records that $C(2n)$ is the square of the number of perfect matchings in the even–odd coprimality matrix. The perfect-square counting formula is therefore **not new**. The present graph isomorphism additionally identifies all four-cycle switches and the component/diameter relations, but historical novelty of that extension is unverified; the odd-order marked-pair formula likewise requires comparison with published permanent expansions.
