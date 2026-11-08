@@ -1,6 +1,6 @@
 # Arithmetic graph structural certificates (P030 and P033)
 
-**Status:** Lean source submitted for independent kernel checking; do not describe these modules as verified until CI succeeds.
+**Verification status:** All four structural lemmas below were kernel-checked using Lean 4.35.0 and Mathlib 4.35.0 by the [Arithmetic graph Lean workflow](../../.github/workflows/arithmetic-graph-lean.yml). These certificates are strictly limited to the stated lemmas.
 
 The modules target two self-contained graph/arithmetic lemmas using Lean 4.35.0 and Mathlib 4.35.0.
 
@@ -20,4 +20,4 @@ lake env lean P030.lean
 lake env lean P033.lean
 ```
 
-The printed axiom declarations report the dependencies of each theorem. No journal or historical novelty claim follows from the formalization.
+The CI axiom report gives exactly `[propext, Quot.sound]` for each of `P030.prime_edge_difference_three`, `P030.edge_gives_two_primes`, `P033.two_color_orbit`, and `P033.two_color_at_most_two`, without `sorryAx` or unproved mathematical assumptions. No journal or historical novelty claim follows from the formalization.
