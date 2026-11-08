@@ -73,6 +73,21 @@ class PublicCatalogueConsistencyTests(unittest.TestCase):
         self.assertIn("Verification status: complete", readme)
 
 
+    def test_p010_editorial_acknowledgement_does_not_imply_acceptance_or_ai_eligibility(self):
+        status = (ROOT / "manuscripts/P010/README.md").read_text(
+            encoding="utf-8")
+        source_audit = (ROOT / "manuscripts/P010-2026-10-29-submission-snapshot-and-policy-audit.md"
+                        ).read_text(encoding="utf-8")
+        self.assertIn("**Submitted**", status)
+        self.assertIn("receipt acknowledged", status)
+        self.assertIn("not establish acceptance", status)
+        self.assertIn("excludes AI-produced mathematics", self.readme)
+        self.assertIn("does not consider articles involving AI", source_audit)
+        self.assertIn("The archived submitted PDF is unchanged", status)
+        self.assertNotIn("permits supporting AI-tool use", self.readme)
+        # These tests validate internal provenance/status consistency, not
+        # current external journal policy or a referee's editorial decision.
+
     def test_noncanonical_historical_audits_are_labeled(self):
         self.assertIn("Historical source reviews", self.readme)
         audits = (ROOT / "audits/README.md").read_text(encoding="utf-8")

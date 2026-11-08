@@ -3,7 +3,7 @@
 **Title:** *The Minimum Number of Coprime Adjacencies in a Permutation*  
 **Author:** G. Sidoine (Independent Researcher, France; ORCID 0009-0005-4525-1182)  
 **Journal:** *Integers*  
-**Publication status:** **Submitted**. This does not indicate acceptance, peer review completion or publication.
+**Publication status:** **Submitted**; receipt acknowledged by the Managing Editor (author-reported). The author has been informed that the journal will make contact following its review process. The acknowledgement does not establish acceptance, completed peer review, or assignment to an external referee. The exact acknowledgement date has not been provided for this record.
 
 [Read the submitted manuscript (PDF)](coprime_adjacencies.pdf)
 
@@ -27,6 +27,8 @@ The proof interprets $h(n)$ as the minimum path-cover number of the non-coprime 
 - [Publication and historical-priority review](../../audits/2026-10-29-P010-publishability-priority-review.md)
 
 The manuscript is the submitted version. The repository proof and computation files provide supplementary detail; no journal acceptance or historical originality is claimed.
+
+**Journal policy clarification (verified 6 November 2026).** The [official INTEGERS AI-use guideline](https://math.colgate.edu/~integers/submit.html) excludes articles involving AI in the production of mathematics, computer code, bibliography, or other substantive content; basic language/spelling tools are exempt. The repository documents substantive AI assistance during P010's mathematical development. The editorial acknowledgement is not an eligibility determination. The author should ensure that the Managing Editor has accurate information about the scope of that assistance. The [dated policy correction](../P010-2026-10-29-submission-snapshot-and-policy-audit.md) documents the distinction. **The archived submitted PDF is unchanged.**
 
 ## File integrity
 
