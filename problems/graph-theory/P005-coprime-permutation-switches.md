@@ -2,9 +2,9 @@
 
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?  
-> **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
-> **Verified/known progress:** No universal-row/column shortcut; arithmetic structure is essential.  
-> **Finite evidence:** 3,459,600 states at n=14, one component.  
+> **Formulation:** candidate. **Novelty:** even-order square count known since 2007; switch-space factorization priority unverified.  
+> **Verified/known progress:** Proved even-order Cartesian-square decomposition of matching switch graphs and odd-order marked-pair formula; connectivity remains open.  
+> **Finite evidence:** Direct bitmask counting identities n≤15; exhaustive matching-switch connectivity through even n=22.  
 > **Symbolic prize:** A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -53,6 +53,28 @@ g++ -O3 -std=c++17 experiments/coprime_switch_components.cpp -o /tmp/coprime_swi
 ```
 
 **Limits:** verification is exhaustive only for $n\le14$. It is not an infinite proof.
+
+## Proved parity decomposition
+
+For even order $n=2m$, let $B_m$ be the bipartite coprime graph between even and odd vertices of $[2m]$, and $\mathcal R(B_m)$ its perfect-matching four-cycle switch graph. The [parity decomposition theorem](../../theorems/P005-parity-matching-decomposition.md) proves
+
+$$
+\mathcal C_{2m}\cong\mathcal R(B_m)\mathbin{\square}\mathcal R(B_m).
+$$
+
+Thus even-order P005 is connected exactly when $\mathcal R(B_m)$ is connected. The host graph $B_m$ is also the graph used in [P040](P040-coprime-matching-local-resilience.md), which studies local matching resilience rather than switches.
+
+For odd order $n=2m+1$, every coprime permutation has exactly one odd-to-odd assignment $u\mapsto v$. If $t(u)$ counts coprime bijections between the even vertices and the odd vertices excluding $u$, the same theorem gives the exact identity, writing $C(n)$ for the total number of coprime permutations of $[n]$:
+
+$$
+C(2m+1)=\sum_{\substack{u,v\ \mathrm{odd}\\\gcd(u,v)=1}}t(u)t(v).
+$$
+
+Its proof partitions the switch space into marked-pair fibers, each a product of two smaller matching switch graphs. The [independent enumeration](../../experiments/P005_parity_matching_decomposition.py) checks both counting identities against direct permutation counts for $2\le n\le15$. This is a structural reduction, **not** a connectivity proof; the even-order perfect-square counting formula is already recorded in [OEIS A009679](https://oeis.org/A009679) (2007), and must not be claimed as new. Historical novelty of the switch-graph and odd-order refinements remains unverified.
+
+## Extended finite switch evidence
+
+The parity reduction permits exhaustive switch connectivity verification for even orders through $n=22$, by enumerating only the perfect matchings of the even–odd coprimality graph. The [independent C++17 BFS](../../experiments/P005_even_bipartite_switch_bfs.cpp) reaches all $4\,051\,872$ matchings for $n=22$, compared with an independently computed subset-DP total. The [theorem note](../../theorems/P005-parity-matching-decomposition.md#extended-finite-connectivity-certificate) records the previous even orders and reproduction instructions. This is finite evidence, not a general connectivity proof.
 
 ## Why nontrivial?
 

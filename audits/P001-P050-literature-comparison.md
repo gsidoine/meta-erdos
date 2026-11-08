@@ -33,7 +33,7 @@ The table gives a starting reference for every permanent identifier, not a claim
 | P002 | [Dyer–Jerrum–Müller (2017)](https://doi.org/10.1145/2822322) | related literature | Known matching reconfiguration; arithmetic support changes move geometry |
 | P003 | [Greenfield & Greenfield (1998)](https://cs.uwaterloo.ca/journals/JIS/green.html) | related literature | Prime-sum pairing precedes edge-disjoint packing objective |
 | P004 | [Sidon/Golomb ruler equivalence](https://mathworld.wolfram.com/SidonSet.html) | related literature | Classical Sidon sets; fixed-cardinality exchange connectivity distinct |
-| P005 | [Pomerance (2022)](https://arxiv.org/abs/2203.03085) | related literature | Coprime permutation enumeration differs from switch connectivity |
+| P005 | [OEIS A009679 (Noe, 2007)](https://oeis.org/A009679); [Pomerance (2022)](https://arxiv.org/abs/2203.03085) | known counting predecessor; switch novelty unverified | The exact even-order square-count identity is documented prior art; the Cartesian-product isomorphism of switch graphs and its connectivity consequences require independent priority comparison |
 | P006 | [Sidon set bounds](https://mathworld.wolfram.com/SidonSet.html) | related literature | Sidon constructions precede prime-difference avoidance |
 | P007 | [Panma–Rochanakul (2021), Theorem 2.1](https://thaijmath.com/index.php/thaijmath/article/view/1264) | confirmed predecessor | Known coprime labeling subproblem; restrict to unresolved extension |
 | P008 | [Gupta–Lee–Li (2021)](https://doi.org/10.1137/1.9781611976465.7) | specification needed | Coprime percolation window must specify non-tautological correction |
