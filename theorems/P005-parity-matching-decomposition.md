@@ -1,6 +1,6 @@
 # P005 — Parity decomposition of coprime permutation switches
 
-**Status:** elementary exact structural theorem; historical priority unverified. The P005 connectivity problem is not resolved.
+**Status:** elementary exact structural theorem. Its perfect-square enumerative corollary is previously known; historical priority of the Cartesian-product switch-space formulation remains unverified. The P005 connectivity problem is not resolved.
 
 ## Setup
 
@@ -81,4 +81,4 @@ The identities are proved for all orders above; computation is an independent co
 
 ## Historical comparison
 
-Coprime permutations and their enumeration are studied by [Pomerance (2022)](https://arxiv.org/abs/2203.03085) and [Sah–Sawhney (2022)](https://doi.org/10.1112/mtk.12159). Four-cycle matching reconfiguration is classical; see [Ito et al. (2019)](https://doi.org/10.4230/LIPIcs.MFCS.2019.80). The parity factorization and its reformulation of the P005 switch graph are not claimed to be historically new without a theorem-level comparison.
+Coprime permutations and their enumeration are studied by [Pomerance (2022)](https://arxiv.org/abs/2203.03085) and [Sah–Sawhney (2022)](https://doi.org/10.1112/mtk.12159). Four-cycle matching reconfiguration is classical; see [Ito et al. (2019)](https://doi.org/10.4230/LIPIcs.MFCS.2019.80). **Known predecessor:** [OEIS A009679](https://oeis.org/A009679), with T. D. Noe's 2007 formula, explicitly records that $C(2n)$ is the square of the number of perfect matchings in the even–odd coprimality matrix. The perfect-square counting formula is therefore **not new**. The present graph isomorphism additionally identifies all four-cycle switches and the component/diameter relations, but historical novelty of that extension is unverified; the odd-order marked-pair formula likewise requires comparison with published permanent expansions.
