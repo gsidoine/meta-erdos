@@ -18,7 +18,11 @@ theorem prime_edge_difference_three (a b : ℕ)
     (ha : 0 < a) (hab : a < b)
     (hsum : Nat.Prime (a + b)) (hdiff : Nat.Prime (b - a))
     (ha3 : a % 3 ≠ 0) (hb3 : b % 3 ≠ 0) : b - a = 3 := by
-  have hmod : (a + b) % 3 = 0 ∨ (b - a) % 3 = 0 := by omega
+  have hsub : a + (b - a) = b := by omega
+  have ha_res : a % 3 = 1 ∨ a % 3 = 2 := by omega
+  have hb_res : b % 3 = 1 ∨ b % 3 = 2 := by omega
+  have hmod : (a + b) % 3 = 0 ∨ (b - a) % 3 = 0 := by
+    rcases ha_res with h1 | h2 <;> rcases hb_res with k1 | k2 <;> omega
   rcases hmod with hsum0 | hdiff0
   · have hsum3 : a + b = 3 := prime_eq_three_of_mod (a + b) hsum hsum0
     have hd2 : 2 ≤ b - a := hdiff.two_le
