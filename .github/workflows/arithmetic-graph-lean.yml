@@ -35,3 +35,4 @@ jobs:
           lake build ArithmeticGraphs
           lake env lean P030.lean
           lake env lean P033.lean
+          lake env lean P033Palette.lean
