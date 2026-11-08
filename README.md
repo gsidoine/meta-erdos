@@ -32,10 +32,10 @@ The catalogue contains all numbered entries in a single sequence. Mathematical f
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| Candidate | 37 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
+| Candidate | 36 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
 | Reframe | 8 (P007, P009, P012, P013, P025, P029, P032, P037) | A predecessor or insufficiently independent target requires a stronger mathematical formulation |
 | Needs specification | 2 (P008, P022) | A sharper quantified problem or nontrivial asymptotic target is required |
-| Proved internally | 1 (P010) | Exact theorem kernel-checked in Lean 4; journal review and historical priority remain separate |
+| Proved internally | 2 (P005, P010) | P005 has a complete elementary connectivity proof; P010 has a Lean 4 kernel-checked exact theorem; priority remains separate |
 | Known result | 1 (P048) | The statement is resolved by established mathematics; retained to preserve its permanent identifier |
 | Disproved | 1 (P030) | Congruence matching bound and explicit Hall counterexample; historical priority unverified |
 
@@ -86,7 +86,7 @@ This is the **single numbered catalogue of all 50 entries**. The canonical catal
 | [P002](problems/graph-theory/P002-prime-matching-reconfiguration.md) | Prime-sum matching reconfiguration | graph theory | candidate | not certified; targeted literature comparison only | A Coffee (symbolic) — A classification of four-cycle-switch components for all prime-sum perfect matchings. |
 | [P003](problems/graph-theory/P003-prime-matching-packing.md) | Edge-disjoint prime-sum matchings | graph theory | candidate | not certified; targeted literature comparison only | A Book (symbolic) — A proof of matching-packing equality for every order, or a counterexample. |
 | [P004](problems/number-theory/P004-sidon-exchange-connectivity.md) | Sidon exchange connectivity | additive combinatorics | candidate | not certified; targeted literature comparison only | A Research Prize (symbolic) — An asymptotic determination of the connectivity threshold for one-mark Sidon exchanges. |
-| [P005](problems/graph-theory/P005-coprime-permutation-switches.md) | Coprime permutation switches | graph theory | candidate | even-order square count known since 2007; switch-space factorization priority unverified | A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs. |
+| [P005](problems/graph-theory/P005-coprime-permutation-switches.md) | Coprime permutation switches | graph theory | proved internally | elementary universal-hub switch theorem; historical priority unverified; 2007 square-count formula known | A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs. |
 | [P006](problems/number-theory/P006-prime-avoiding-sidon-sets.md) | Sidon sets without prime differences | additive combinatorics | candidate | not certified; targeted literature comparison only | A Dinner (symbolic) — The sharp leading constant in the maximum size of a prime-difference-free Sidon set. |
 | [P007](problems/graph-theory/P007-coprime-difference-spectrum.md) | Coprime path difference spectrum | graph labeling | reframe | known subproblem; extension unverified | A Dinner (symbolic) — A proof or disproof of eventual attainment of the parity upper bound for coprime paths. |
 | [P008](problems/probability/P008-coprime-percolation-critical-window.md) | Arithmetic centering of coprime percolation | probability | needs specification | needs precise formulation | A Coffee (symbolic) — A specified non-tautological expansion of the arithmetic connectivity threshold with a proved error term. |
