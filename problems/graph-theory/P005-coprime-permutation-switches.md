@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?  
 > **Formulation:** candidate. **Novelty:** not certified; targeted literature comparison only.  
-> **Verified/known progress:** No universal-row/column shortcut; arithmetic structure is essential.  
-> **Finite evidence:** 3,459,600 states at n=14, one component.  
+> **Verified/known progress:** Proved even-order Cartesian-square decomposition of matching switch graphs and odd-order marked-pair formula; connectivity remains open.  
+> **Finite evidence:** Direct bitmask enumeration confirms both identities for all 2≤n≤15; prior switch BFS through n=14.  
 > **Symbolic prize:** A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -53,6 +53,24 @@ g++ -O3 -std=c++17 experiments/coprime_switch_components.cpp -o /tmp/coprime_swi
 ```
 
 **Limits:** verification is exhaustive only for $n\le14$. It is not an infinite proof.
+
+## Proved parity decomposition
+
+For even order $n=2m$, let $B_m$ be the bipartite coprime graph between even and odd vertices of $[2m]$, and $\mathcal R(B_m)$ its perfect-matching four-cycle switch graph. The [parity decomposition theorem](../../theorems/P005-parity-matching-decomposition.md) proves
+
+$
+\mathcal C_{2m}\cong\mathcal R(B_m)\mathbin{\square}\mathcal R(B_m).
+$
+
+Thus even-order P005 is connected exactly when $\mathcal R(B_m)$ is connected. The host graph $B_m$ is also the graph used in [P040](P040-coprime-matching-local-resilience.md), which studies local matching resilience rather than switches.
+
+For odd order $n=2m+1$, every coprime permutation has exactly one odd-to-odd assignment $u\mapsto v$. If $t(u)$ counts coprime bijections between the even vertices and the odd vertices excluding $u$, the same theorem gives the exact identity
+
+$
+C(2m+1)=\sum_{\substack{u,v\ \mathrm{odd}\\\gcd(u,v)=1}}t(u)t(v).
+$
+
+Its proof partitions the switch space into marked-pair fibers, each a product of two smaller matching switch graphs. The [independent enumeration](../../experiments/P005_parity_matching_decomposition.py) checks both counting identities against direct permutation counts for $2\le n\le15$. This is a structural reduction, **not** a connectivity proof; priority of the parity factorization relative to existing enumeration results remains unverified.
 
 ## Why nontrivial?
 
