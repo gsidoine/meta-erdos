@@ -70,7 +70,7 @@ $$
 C(2m+1)=\sum_{\substack{u,v\ \mathrm{odd}\\\gcd(u,v)=1}}t(u)t(v).
 $$
 
-Its proof partitions the switch space into marked-pair fibers, each a product of two smaller matching switch graphs. The [independent enumeration](../../experiments/P005_parity_matching_decomposition.py) checks both counting identities against direct permutation counts for $2\le n\le15$. This is a structural reduction, **not** a connectivity proof; priority of the parity factorization relative to existing enumeration results remains unverified.
+Its proof partitions the switch space into marked-pair fibers, each a product of two smaller matching switch graphs. The [independent enumeration](../../experiments/P005_parity_matching_decomposition.py) checks both counting identities against direct permutation counts for $2\le n\le15$. This is a structural reduction, **not** a connectivity proof; the even-order perfect-square counting formula is already recorded in [OEIS A009679](https://oeis.org/A009679) (2007), and must not be claimed as new. Historical novelty of the switch-graph and odd-order refinements remains unverified.
 
 ## Why nontrivial?
 
