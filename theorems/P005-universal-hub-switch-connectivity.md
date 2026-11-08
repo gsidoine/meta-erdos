@@ -33,7 +33,7 @@ For each $n\ge1$, let $\mathcal C_n$ be the graph of all permutations $\sigma$ o
 $$
 \boxed{
 \mathcal C_n\text{ is connected},\qquad
-\operatorname{diam}(\mathcal C_n)\le3(n-1).
+\mathrm{diam}(\mathcal C_n)\le3(n-1).
 }
 $$
 
@@ -43,7 +43,7 @@ $$
 N=(1)(2\ 3)(4\ 5)\cdots(2m\ 2m+1)
 $$
 
-is a perfect matching containing $(1,1)$, since consecutive integers are coprime. The lemma gives a path from any coprime permutation to $N$ of length at most $n-1+\lfloor(n-1)/2\rfloor=3m$. Hence $\operatorname{diam}(\mathcal C_n)\le6m=3(n-1)$.
+is a perfect matching containing $(1,1)$, since consecutive integers are coprime. The lemma gives a path from any coprime permutation to $N$ of length at most $n-1+\lfloor(n-1)/2\rfloor=3m$. Hence $\mathrm{diam}(\mathcal C_n)\le6m=3(n-1)$.
 
 For even $n=2m$, every coprime permutation maps the even positions bijectively to the odd values, and the odd positions bijectively to the even values. By the [parity product theorem](P005-parity-matching-decomposition.md), $\mathcal C_{2m}$ is the Cartesian square of the perfect-matching switch graph of the balanced bipartite coprimality graph $B_m$, with even rows and odd columns.
 
