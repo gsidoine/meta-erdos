@@ -1,38 +1,107 @@
 # P030 — Perfect matchings with prime sums and prime differences
 
 <!-- DOSSIER-SUMMARY -->
-> **Research question:** Does a perfect matching exist for every even n≥8 in the graph of integer pairs whose sum and absolute difference are both prime?  
-> **Formulation:** candidate. **Novelty:** not certified; prime sum/difference cycles have explicit earlier study.  
-> **Verified/known progress:** Every odd n is impossible by parity; exact finite matchings exist for every even n in [8,400], while n=2,4,6 fail.  
-> **Finite evidence:** Dependency-free exact bipartite matching checker for every even n≤400 and parity obstruction.  
-> **Symbolic prize:** A Coffee (symbolic) — A perfect double-prime matching for every even order at least eight, or an exceptional order.  
+> **Research question:** Does the prime-sum-and-difference graph have a perfect matching for every even n≥8? (Disproved.)  
+> **Formulation:** disproved. **Novelty:** internal disproof; historical priority unverified.  
+> **Verified/known progress:** Proved ν(D_n) ≤ floor(n/3)+π(2n−3)−2; Hall counterexample n=51,872.  
+> **Finite evidence:** Exact sieve Hall certificate n=51,872; independent prime-count bound n=240,158.  
+> **Symbolic prize:** —  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
 
-**Area:** additive number theory, combinatorial matchings, prime patterns. **Status:** candidate requiring historical review.
+**Area:** additive number theory, extremal graph theory. **Status:** disproved by an elementary congruence obstruction.
 
-## Precise graph
+## Definition and original conjecture
 
-Let D_n be the simple graph on vertices [n], where i≠j is an edge iff **both** i+j and |i−j| are prime. Let ν(D_n) denote its maximum matching number.
+Let \(D_n\) be the simple graph on \([n]=\{1,\ldots,n\}\) with an edge \(\{a,b\}\), \(a\ne b\), precisely when both \(a+b\) and \(|a-b|\) are prime. Write \(\nu(D_n)\) for its maximum matching size.
 
-**P030.** Is ν(D_n)=n/2 for every even n≥8? More strongly, can one prove a uniform lower bound on the number of such perfect matchings, or characterize edge expansion and robust perfect matching after deletion?
+The original conjecture was \(\nu(D_n)=n/2\) for every even \(n\ge8\). This conjecture is false. Every edge joins an odd integer to an even integer: the only possible even prime sum is \(2\), which requires \(a=b=1\).
 
-This is **an undirected pairing of the integers**, not a bipartite permutation between two copies (the latter is an easier/different constraint) and not a Hamiltonian ordering.
+## Theorem — Modular obstruction
 
-## Exact parity obstruction
+**Theorem.** For every \(n\ge4\),
 
-If i+j is prime, it could be 2 only for i=j=1, but distinct vertices are required; thus i+j is odd and i,j have opposite parity. The absolute difference is then automatically odd, though it still must be prime. Therefore D_n is bipartite between odd and even integers and **has no perfect matching for odd n**. For even n, the two parts have equal size.
+$$
+\boxed{\nu(D_n)\le\left\lfloor\frac n3\right\rfloor+\pi(2n-3)-2.}
+$$
 
-Exact maximum matchings show n=2,4,6 lack a perfect matching; every even n from 8 to 400 admits one. The [standard-library verifier](../../experiments/P030_double_prime_matchings.py) records the finite certificate; this is **not an infinite theorem**.
+Consequently,
 
-## Closest previously published mathematics
+$$
+\limsup_{n\to\infty}\frac{\nu(D_n)}n\le\frac13,
+$$
 
-- [OEIS A227050](https://oeis.org/A227050): counts **Hamiltonian circular orderings** of [2n] with both adjacent sums and differences prime. This is a **strong direct thematic predecessor**, but a Hamiltonian cycle is not the same as a perfect matching (it does, however, imply one by taking alternate edges). **Important consequence:** every n for which A227050(n)>0 is automatically a proved *finite positive instance* of the present pairing question. Do not claim such finite examples as new.
-- [OEIS A073364](https://oeis.org/A073364): permutations with prime sums alone; a different, much less constrained host.
-- [Prime Sum Graphs and the Induced Trees They Contain (2025)](https://doi.org/10.1007/s00373-025-02999-2): prime-sum graph structure without prime-difference constraint.
+and no sufficiently large even \(n\) admits a perfect matching of \(D_n\).
 
-**Priority hazard:** related Hamiltonicity results might imply matching existence for all sufficiently large even n. Review the literature behind A227050 before claiming this is an unresolved problem.
+**Proof.** Let \(\{a,b\}\) be an edge with \(a<b\). If neither endpoint is divisible by \(3\), there are two cases modulo \(3\).
 
-## First theoretical targets
+If \(a\equiv b\pmod3\), then \(3\mid(b-a)\); since \(b-a\) is prime, \(b-a=3\).
 
-Try a Hall-type expansion argument for the odd/even bipartition, accounting for primality of two correlated linear forms. Conversely look for an arithmetic congruence obstruction at some even n. Do not infer an asymptotic theorem from computed matchings.
+If \(a\not\equiv b\pmod3\), both are nonzero residues, so \(3\mid(a+b)\). Since \(a+b\) is prime, \(a+b=3\), forcing \(\{a,b\}=\{1,2\}\), for which \(b-a=1\) is not prime. This case is impossible.
+
+Thus every edge either meets a multiple of \(3\) or has difference \(3\). In any matching, at most \(\lfloor n/3\rfloor\) edges meet multiples of \(3\), as their endpoints divisible by \(3\) must be distinct.
+
+Every remaining edge has the form
+
+$$
+\left\{\frac{p-3}{2},\frac{p+3}{2}\right\},
+\qquad 5\le p\le 2n-3,\quad p\text{ prime}.
+$$
+
+There is at most one such edge for each of the \(\pi(2n-3)-2\) eligible primes. Adding the two bounds proves the inequality. The prime number theorem gives \(\pi(2n-3)=o(n)\), hence the asymptotic statement. A perfect matching of an even-order graph has \(n/2\) edges, greater than \(n/3+o(n)\) for all sufficiently large \(n\). \(\square\)
+
+## Explicit Hall obstruction
+
+Let \(n=51872\) and consider the odd vertices
+
+$$
+S=\{a\in[n]: a\equiv1\pmod2,\ 3\nmid a\}.
+$$
+
+Every neighbor of \(S\) is even. By the preceding residue argument, an even neighbor \(b\) belongs to the following explicitly computable superset \(T\) of \(N_{D_n}(S)\):
+
+$$
+\begin{aligned}
+T=\{b\in[n]:\, &2\mid b,\ \text{and at least one of}\\
+&3\mid b;\\
+&b\ge4\ \text{and } 2b-3\text{ is prime};\\
+&b+3\le n\ \text{and }2b+3\text{ is prime}\}.
+\end{aligned}
+$$
+
+Indeed, a neighbor \(b\) not divisible by \(3\) must satisfy \(a=b-3\) or \(a=b+3\), respectively giving the prime sum \(2b-3\) or \(2b+3\).
+
+The exact sieve in [the certificate program](../../experiments/P030_mod3_matching_obstruction.py) gives
+
+$$
+|S|=17291,\qquad |T|=17290.
+$$
+
+Therefore \(|N(S)|\le17290<|S|\), violating Hall's condition. In particular, \(D_{51872}\) has no perfect matching. This is a finite, reproducible integer certificate, not a claim that \(51872\) is the least counterexample.
+
+Independently, for \(n=240158\), \(\pi(480313)=40028\), so the theorem yields
+
+$$
+\nu(D_{240158})\le80052+40026=120078<120079=n/2.
+$$
+
+## Relation to Goldbach
+
+An edge \(\{a,b\}\), \(a<b\), supplies the representation
+
+$$
+2b=(b-a)+(b+a)
+$$
+
+as a sum of two primes. The converse requires the prime pair to have a positive smaller endpoint \(a\), which excludes an equal-prime representation. The graph thus encodes restricted Goldbach representations, but the original global perfect-matching conjecture cannot serve as a route to Goldbach: it is false for all sufficiently large even orders.
+
+## Verified finite cases
+
+The pre-existing [matching verifier](../../experiments/P030_double_prime_matchings.py) reports perfect matchings for every even \(n\) between \(8\) and \(400\), with failures at \(2,4,6\). These observations are consistent with the asymptotic obstruction; they do not establish an eventual positive statement.
+
+## Literature and priority
+
+- [OEIS A227050](https://oeis.org/A227050) records Hamiltonian circular arrangements with prime adjacent sums and differences. An even-order Hamiltonian cycle implies a perfect matching, so the obstruction also rules out such arrangements at sufficiently large even orders.
+- [Sykora, *On Neighbor-Property Cycles* (2014)](https://doi.org/10.3247/SL5Math14.002) is a direct predecessor on simultaneous prime-neighbor constraints.
+
+The congruence bound and finite Hall certificate are established here mathematically, but their historical originality has not been independently certified. The permanent identifier is retained for the disproved conjecture. The former prize condition is no longer an active open challenge; the historical symbolic designation is preserved in the archival reward records.

@@ -32,11 +32,12 @@ The catalogue contains all numbered entries in a single sequence. Mathematical f
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| Candidate | 38 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
+| Candidate | 37 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
 | Reframe | 8 (P007, P009, P012, P013, P025, P029, P032, P037) | A predecessor or insufficiently independent target requires a stronger mathematical formulation |
 | Needs specification | 2 (P008, P022) | A sharper quantified problem or nontrivial asymptotic target is required |
 | Proved internally | 1 (P010) | Exact theorem kernel-checked in Lean 4; journal review and historical priority remain separate |
 | Known result | 1 (P048) | The statement is resolved by established mathematics; retained to preserve its permanent identifier |
+| Disproved | 1 (P030) | Congruence matching bound and explicit Hall counterexample; historical priority unverified |
 
 Computational verification establishes only the stated finite cases. An internal proof is not a claim of verified historical novelty. The full collection is open to mathematical corrections and independent assessments.
 
@@ -110,7 +111,7 @@ This is the **single numbered catalogue of all 50 entries**. The canonical catal
 | [P027](problems/number-theory/P027-primitive-set-exchange-mixing.md) | Mixing of maximum primitive-set exchanges | multiplicative combinatorics | candidate | not certified; closely related to counting primitive sets and distributive-lattice walks | A Research Prize (symbolic) — A sharp full-chain mixing-time order with a matching upper bound, or a proof that the mixing scale exceeds every fixed multiple of n log n. |
 | [P028](problems/number-theory/P028-random-divisor-complex-mobius-deformation.md) | Möbius deformation from random divisibility complexes | analytic number theory | candidate | not certified; arithmetic Dirichlet convolution and order-complex Möbius theory are classical | A Dinner (symbolic) — A nondegenerate fluctuation law for the random Euler characteristic after explicit centering and scaling. |
 | [P029](problems/graph-theory/P029-prime-sum-permutation-xray-fibers.md) | Prime-supported permutation X-ray fiber reconfiguration | combinatorics | reframe | known exact anti-diagonal X-ray invariant; novelty of prime-restricted bounded Markov moves unverified | A Book (symbolic) — A universal bounded-size exchange theorem for nontrivial prime-sum X-ray fibers, or counterexamples with unbounded exchange size. |
-| [P030](problems/number-theory/P030-double-prime-perfect-matchings.md) | Double-prime perfect matchings on integer intervals | number theory | candidate | not certified; prime sum/difference cycles have explicit earlier study | A Coffee (symbolic) — A perfect double-prime matching for every even order at least eight, or an exceptional order. |
+| [P030](problems/number-theory/P030-double-prime-perfect-matchings.md) | Double-prime perfect matchings on integer intervals | number theory | disproved | internal disproof; historical priority unverified | — |
 | [P031](problems/number-theory/P031-coprime-sidon-extremum.md) | How large can a pairwise-coprime Sidon set be? | number theory | candidate | not certified; Sidon sets of primes and additive-multiplicative restrictions require a specialist search | A Book (symbolic) — A sharp asymptotic for the maximum size of a pairwise-coprime Sidon subset of an initial interval. |
 | [P032](problems/graph-theory/P032-prime-sum-bipartite-diameter.md) | Is the prime-sum bipartite diameter eventually seven? | graph theory | reframe | strong overlap: bounded prime differences and Erdős Problem 17; exact quantifiers not equivalent | A Dinner (symbolic) — A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures. |
 | [P033](problems/graph-theory/P033-prime-sum-three-palette.md) | Can three prime sums connect all integers? | graph theory | candidate | not certified; Chen–Fu–Guo (2021) established three-color Hamiltonian-prime-set phenomena for some orders, not this stated eventual connectivity theorem | A Research Prize (symbolic) — A proof that three prime sums always connect the graph on an initial interval, or a counterexample. |
