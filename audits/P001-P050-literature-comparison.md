@@ -58,7 +58,7 @@ The table gives a starting reference for every permanent identifier, not a claim
 | P027 | [Liu–Pach–Palincza (2021), maximum primitive sets](https://doi.org/10.1017/S0963548321000018) | related literature | Primitive-set enumeration and lattice walks precede constrained mixing |
 | P028 | [DLMF, Dirichlet convolution](https://dlmf.nist.gov/27.5) | related literature | Dirichlet convolution and Möbius topology precede random deformation |
 | P029 | [Bebeacua–Mansour–Postnikov–Severini (2005), X-rays](https://doi.org/10.1016/j.endm.2005.05.063) | strong overlap | Exact permutation anti-diagonal X-ray classical; restricted moves unclear |
-| P030 | [OEIS A227050, prime-sum-and-difference circular arrangements](https://oeis.org/A227050) | related literature | Prime sum/difference matching constructions precede double-prime constraints |
+| P030 | [OEIS A227050, prime-sum-and-difference circular arrangements](https://oeis.org/A227050) | related literature; internal disproof | The modular-3 matching bound disproves the global conjecture; priority of this obstruction requires checking against prime-neighbor cycle work |
 | P031 | [Bailleul–Riblet, Sidon subsets of arbitrary integer sets (2026)](https://arxiv.org/abs/2605.03181) | related literature | Sidon sets of primes give non-sharp lower bounds only |
 | P032 | [Erdős problem 17, prime difference coverage](https://www.erdosproblems.com/17) | strong overlap | Erdős #17 studies bounded prime differences; quantifiers differ |
 | P033 | [Chen–Fu–Guo, Hamiltonicity in Prime Sum Graphs](https://doi.org/10.1007/s00373-020-02241-1) | related literature | Prime sum graph and prime-color Hamiltonicity precede palette objective |
