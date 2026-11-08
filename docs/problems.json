@@ -127,12 +127,12 @@
       "title": "Coprime permutation switches",
       "area": "graph theory",
       "file": "problems/graph-theory/P005-coprime-permutation-switches.md",
-      "question": "Can all permutations satisfying gcd(i,σ(i))=1 be connected by valid two-position swaps?",
-      "status": "candidate",
-      "novelty": "even-order square count known since 2007; switch-space factorization priority unverified",
-      "result": "Proved even-order Cartesian-square decomposition of matching switch graphs and odd-order marked-pair formula; connectivity remains open",
-      "verification": "Direct bitmask counting identities n≤15; exhaustive matching-switch connectivity through even n=22",
-      "priority": "prove the even–odd bipartite matching switch graph is connected; analyze odd-order marked-pair fiber transitions",
+      "question": "Can all coprime permutations be connected by two-position switches? (Resolved; diameter at most 3(n−1).)",
+      "status": "proved internally",
+      "novelty": "elementary universal-hub switch theorem; historical priority unverified; 2007 square-count formula known",
+      "result": "Proved connectivity for every n and linear diameter ≤3(n−1) via universal-hub matching lemma and parity decomposition",
+      "verification": "Constructive explicit switch algorithm exhaustively checked for all coprime permutations n≤11; prior even-order BFS n≤22",
+      "priority": "independent priority audit and full Lean formalization of universal-hub lemma and parity reduction",
       "sources": [
         {
           "name": "Pomerance (2022)",
