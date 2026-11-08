@@ -58,17 +58,17 @@ g++ -O3 -std=c++17 experiments/coprime_switch_components.cpp -o /tmp/coprime_swi
 
 For even order $n=2m$, let $B_m$ be the bipartite coprime graph between even and odd vertices of $[2m]$, and $\mathcal R(B_m)$ its perfect-matching four-cycle switch graph. The [parity decomposition theorem](../../theorems/P005-parity-matching-decomposition.md) proves
 
-$
+$$
 \mathcal C_{2m}\cong\mathcal R(B_m)\mathbin{\square}\mathcal R(B_m).
-$
+$$
 
 Thus even-order P005 is connected exactly when $\mathcal R(B_m)$ is connected. The host graph $B_m$ is also the graph used in [P040](P040-coprime-matching-local-resilience.md), which studies local matching resilience rather than switches.
 
 For odd order $n=2m+1$, every coprime permutation has exactly one odd-to-odd assignment $u\mapsto v$. If $t(u)$ counts coprime bijections between the even vertices and the odd vertices excluding $u$, the same theorem gives the exact identity, writing $C(n)$ for the total number of coprime permutations of $[n]$:
 
-$
+$$
 C(2m+1)=\sum_{\substack{u,v\ \mathrm{odd}\\\gcd(u,v)=1}}t(u)t(v).
-$
+$$
 
 Its proof partitions the switch space into marked-pair fibers, each a product of two smaller matching switch graphs. The [independent enumeration](../../experiments/P005_parity_matching_decomposition.py) checks both counting identities against direct permutation counts for $2\le n\le15$. This is a structural reduction, **not** a connectivity proof; priority of the parity factorization relative to existing enumeration results remains unverified.
 
