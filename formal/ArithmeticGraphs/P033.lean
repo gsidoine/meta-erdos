@@ -39,6 +39,7 @@ theorem two_color_orbit {p q x z : ZMod m}
       rcases ih with hz | hreflect
       · exact Or.inr (by simpa only [hz] using hxy)
       · left
+        symm
         calc
           x = x + y - y := by abel
           _ = p - y := by rw [hxy]
