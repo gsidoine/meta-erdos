@@ -54,7 +54,7 @@ theorem hub_fixed_reduces_two
       calc
         σ x = z := rfl
         _ = σ z := heq.symm
-    exact hzx (σ.injective hσeq)
+    exact hzx (σ.injective hσeq).symm
   have hsub : WrongRows h τ ⊆ WrongRows h σ :=
     hprogress.2.subset
   have hxold : x ∈ WrongRows h σ :=
@@ -78,7 +78,7 @@ theorem hub_fixed_reduces_two
       (WrongRows h τ).card + 2 := by
     have hxne : x ∉ insert z (WrongRows h τ) := by
       simp [hxnew,hzx.symm]
-    simp [Finset.card_insert_of_not_mem, hxne,hznew]
+    rw [Finset.card_insert_of_notMem hxne, Finset.card_insert_of_notMem hznew]
   refine ⟨hτvalid, ?_⟩
   calc
     (WrongRows h τ).card + 2 =
