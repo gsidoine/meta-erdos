@@ -91,6 +91,80 @@ theorem triple_swap_other (σ : Equiv.Perm α)
       rowSwap_other _ h x w hwh hwx,
       rowSwap_other _ h y w hwh hwy]
 
+
+/-- When the hub is fixed, a three-swap move strictly reduces the finite
+    set of incorrect non-hub rows, without introducing new incorrect rows. -/
+theorem hub_fixed_reduces
+    (G : α → α → Prop) (h : α)
+    (hrow : ∀ v, G h v)
+    (hcol : ∀ i, G i h)
+    (hdiag : ∀ i, G i i)
+    (σ : Equiv.Perm α) (hvalid : Valid G σ)
+    (hh : σ h = h)
+    (x : α) (hxh : x ≠ h) (hxx : σ x ≠ x) :
+    let y := σ.symm x
+    let z := σ x
+    let σ₁ := RowSwap σ h y
+    let σ₂ := RowSwap σ₁ h x
+    let τ := RowSwap σ₂ h z
+    Valid G τ ∧ WrongRows h τ ⊂ WrongRows h σ := by
+  dsimp only
+  let y := σ.symm x
+  let z := σ x
+  let σ₁ := RowSwap σ h y
+  let σ₂ := RowSwap σ₁ h x
+  let τ := RowSwap σ₂ h z
+  have hthree := hub_three_steps G h hrow hcol hdiag σ hvalid hh x hxh hxx
+  have hτvalid : Valid G τ := hthree.2.2.1
+  have hτx : τ x = x := hthree.2.2.2.1
+  have hsy : σ y = x := by simp [y]
+  have hyx : y ≠ x := by
+    intro heq
+    have hfixed : σ x = x := by simpa [heq] using hsy
+    exact hxx hfixed
+  have hpreserved : ∀ w, w ≠ h → σ w = w → τ w = w := by
+    intro w hwh hwfixed
+    have hwy : w ≠ y := by
+      intro heq
+      rw [heq] at hwfixed
+      exact hyx (hwfixed.symm.trans hsy)
+    have hwx : w ≠ x := by
+      intro heq
+      rw [heq] at hwfixed
+      exact hxx hwfixed
+    have hwz : w ≠ z := by
+      intro heq
+      rw [heq] at hwfixed
+      have hσeq : σ x = σ z := by
+        calc
+          σ x = z := rfl
+          _ = σ z := hwfixed.symm
+      have hxz : x = z := σ.injective hσeq
+      exact hxx (by
+        calc
+          σ x = z := rfl
+          _ = x := hxz.symm)
+    have hτw : τ w = σ w :=
+      triple_swap_other σ h y x z w hwh hwy hwx hwz
+    rw [hτw, hwfixed]
+  have hsubset : WrongRows h τ ⊆ WrongRows h σ := by
+    intro w hwrongτ
+    rcases (mem_wrongRows h τ w).1 hwrongτ with ⟨hwh, hτwrong⟩
+    apply (mem_wrongRows h σ w).2
+    refine ⟨hwh, ?_⟩
+    intro hσfixed
+    exact hτwrong (hpreserved w hwh hσfixed)
+  have hxold : x ∈ WrongRows h σ :=
+    (mem_wrongRows h σ x).2 ⟨hxh, hxx⟩
+  have hxnew : x ∉ WrongRows h τ := by
+    intro hmem
+    exact (mem_wrongRows h τ x).1 hmem |>.2 hτx
+  refine ⟨hτvalid, ?_⟩
+  exact (Finset.ssubset_iff_of_subset hsubset).2
+    ⟨x, hxold, hxnew⟩
+
+#print axioms hub_fixed_reduces
+
 #print axioms eq_identity_of_wrongRows_empty
 #print axioms hub_wrong_reduces
 #print axioms triple_swap_other
