@@ -147,7 +147,8 @@ theorem universal_hub_length
           have hv₁ : Valid G σ₁ := hmove.1
           have hv₂ : Valid G σ₂ := hmove.2.1
           have hvτ : Valid G τ := hmove.2.2.1
-          have hcount :=
+          have hcount :
+              (WrongRows h τ).card + 2 ≤ (WrongRows h σ).card :=
             (hub_fixed_reduces_two G h hrow hcol hdiag σ hv hh x hxh hxx).2
           have hlt : (WrongRows h τ).card < d := by
             omega
@@ -167,7 +168,8 @@ theorem universal_hub_length
           have hmove := hub_wrong_reduces G h hrow hdiag σ hv hh
           have hvτ : Valid G τ := hmove.1
           have hlt : (WrongRows h τ).card < d := by
-            have hlt' := Finset.card_lt_card hmove.2
+            have hlt' : (WrongRows h τ).card < (WrongRows h σ).card :=
+              Finset.card_lt_card hmove.2
             omega
           obtain ⟨k,hpath,hbudget⟩ :=
             ih _ hlt τ rfl hvτ
