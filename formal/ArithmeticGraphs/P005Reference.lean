@@ -43,6 +43,7 @@ theorem refNat_involutive (n i : ℕ) (hi : i < n) :
         rw [hnew]
         have hnz : i - 1 ≠ 0 := by omega
         simp [refNat, hn, hnz, hp]
+        omega
   · have hne : n % 2 = 0 := by omega
     by_cases he : i % 2 = 0
     · have hp : (i + 1) % 2 = 1 := by omega
