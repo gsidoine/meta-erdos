@@ -38,3 +38,4 @@ jobs:
           lake env lean P033Palette.lean
           lake env lean P005Hub.lean
           lake env lean P005Reach.lean
+          lake env lean P005Connected.lean
