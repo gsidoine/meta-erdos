@@ -41,3 +41,4 @@ jobs:
           lake env lean P005Connected.lean
           lake env lean P005Diameter.lean
           lake env lean P005Reference.lean
+          lake env lean P005Transport.lean
