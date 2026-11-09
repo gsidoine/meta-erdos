@@ -56,6 +56,7 @@ theorem refNat_involutive (n i : ℕ) (hi : i < n) :
       have hnew : refNat n i = i - 1 := by simp [refNat, hn, ho]
       rw [hnew]
       simp [refNat, hn, hp]
+      omega
 
 def refIndex (n : ℕ) (i : Fin n) : Fin n :=
   ⟨refNat n i.val, refNat_lt n i.val i.isLt⟩
