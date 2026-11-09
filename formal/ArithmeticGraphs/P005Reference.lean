@@ -27,8 +27,9 @@ theorem refNat_lt (n i : ℕ) (hi : i < n) : refNat n i < n := by
 
 theorem refNat_involutive (n i : ℕ) (hi : i < n) :
     refNat n (refNat n i) = i := by
-  unfold refNat
-  split_ifs <;> omega
+  have hj : refNat n i < n := refNat_lt n i hi
+  unfold refNat at hj ⊢
+  split_ifs at hj ⊢ <;> omega
 
 def refIndex (n : ℕ) (i : Fin n) : Fin n :=
   ⟨refNat n i.val, refNat_lt n i.val i.isLt⟩
