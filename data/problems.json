@@ -1383,17 +1383,21 @@
       "question": "What is the asymptotic size of the largest connected component of the Farey graph induced by fractions with prime denominators?",
       "status": "candidate",
       "novelty": "unverified; Farey graphs and prime-denominator fractions have established prior art",
-      "result": "An exact component-count identity involving twin primes, a forest after removal of 1/2, and exact vertex and edge enumerations are internally proved",
-      "verification": "Reproducible component, triangle, and forest checks for N<=101",
-      "priority": "analyze maximal component size through Farey parent recursion and distribution of prime denominators",
+      "result": "Proved exact two-step central-layer formula and |L_N| ~ 2N loglog N/log N via Bombieri–Vinogradov, hence liminf C(N) log N/(N loglog N) ≥ 2; full largest-component order open",
+      "verification": "Exact two-step vertex enumeration and residue-class formula checked for N≤10,000 at selected sizes; prior forest and component identities N≤101",
+      "priority": "determine the full asymptotic order of the largest Farey prime-denominator component; compare the two-step layer against known Farey prime-distribution results",
       "sources": [
         {
-          "name": "Zaman (2008), Farey fractions with prime denominators",
-          "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/82971"
+          "name": "D. E. Welch (2008), Farey fractions with prime denominators",
+          "url": "https://doi.org/10.4064/aa134-1-7"
         },
         {
           "name": "Kushwaha and Sarma (2021), Farey-subgraphs and continued fractions",
           "url": "https://arxiv.org/abs/2106.14856"
+        },
+        {
+          "name": "Bombieri–Vinogradov theorem (Maynard, Counting primes)",
+          "url": "https://ems.press/content/book-chapter-files/33121"
         }
       ],
       "portfolio_tier": "B",
