@@ -9,4 +9,4 @@ require mathlib from git
 @[default_target]
 lean_lib ArithmeticGraphs where
   srcDir := "."
-  roots := #[`P030, `P033, `P033Palette, `P005Hub, `P005Reach]
+  roots := #[`P030, `P033, `P033Palette, `P005Hub, `P005Reach, `P005Connected]
