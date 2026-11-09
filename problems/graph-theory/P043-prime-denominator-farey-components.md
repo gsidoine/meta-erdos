@@ -17,17 +17,17 @@ For $N\ge2$, form the graph on reduced fractions $a/p$ with $1\le a<p\le N$ and 
 
 Let $Y=\lfloor N^{1/3}\rfloor$. Consider the fractions $b/q$, with $N/2<q\le N$ prime, that can be reached from $1/2$ in exactly two graph edges through an intermediate vertex of prime denominator $3\le p\le Y$. The [complete two-step theorem](../../theorems/P043-two-step-prime-denominator-growth.md) proves
 
-$
+$$
 \left|\mathcal L_N\right|
 =(2+o(1))\frac{N\log\log N}{\log N}.
-$
+$$
 
 In particular the largest connected component satisfies
 
-$
+$$
 \boxed{\liminf_{N\to\infty}
 \frac{C(N)\log N}{N\log\log N}\ge2.}
-$
+$$
 
 The proof first establishes an exact, collision-free count of the two-step vertices by congruences $q\equiv\pm2\pmod p$. The classical Bombieri–Vinogradov theorem and the prime harmonic-sum asymptotic then evaluate the count. The [independent finite verifier](../../experiments/P043_two_step_prime_layer.py) checks the exact formula and determinant incidences.
 
