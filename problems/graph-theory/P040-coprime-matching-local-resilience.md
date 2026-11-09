@@ -53,9 +53,9 @@ The [three-prime sharpness theorem](../../theorems/P040-fractional-sieve-variati
 
 **Five-prime sharpness.** The [exact five-prime Hall theorem](../../theorems/P040-five-prime-sharpness.md) extends the classification to
 
-$
+$$
 \boxed{\alpha(\{3,5,7,11,13\})=\frac5{12}.}
-$
+$$
 
 It covers arbitrary asymmetric fractional profiles. The proof reduces the problem to 7,581 upward-closed Boolean supports, checks all 15,586 admissible ordered support pairs with exact integer inequalities, and isolates 12 exceptional unordered pairs after a simpler preliminary bound. The [reproducible integer verifier](../../experiments/P040_five_prime_sharpness.py) uses no numerical optimization and verifies every case. This is a finite computer-assisted theorem, not a lower bound on the full graph resilience.
 
