@@ -1277,9 +1277,9 @@
       "question": "Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?",
       "status": "candidate",
       "novelty": "unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown",
-      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact finite-prime optimum 5/12 on {3,5,7,11}, via monotone-compression and exhaustive rational support certificate; full sieve infimum open",
-      "verification": "168 upward-closed four-prime supports, 27,889 ordered pairs checked exactly, four exceptions eliminated analytically; prime-prefix reduction, prior 2/3-prime classifications and Hall bounds",
-      "priority": "determine whether the five-prime prefix {3,5,7,11,13} improves 5/12 and whether finite-prime bounds determine graph resilience",
+      "result": "Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact fractional-sieve optimum 5/12 for the first five odd primes {3,5,7,11,13}, including asymmetric profiles, by integer Hall-support certificate; full sieve infimum open",
+      "verification": "Five-prime theorem: 7,581 upward-closed supports and 15,586 admissible ordered support pairs certified with integer arithmetic; existing four-prime exact certificate and Hall bounds",
+      "priority": "extend the sharpness classification beyond five odd primes and determine whether the finite-prime sieve limit controls the arithmetic matching resilience",
       "sources": [
         {
           "name": "Pomerance (2021), Coprime Matchings",
