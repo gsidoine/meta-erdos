@@ -27,9 +27,34 @@ theorem refNat_lt (n i : ℕ) (hi : i < n) : refNat n i < n := by
 
 theorem refNat_involutive (n i : ℕ) (hi : i < n) :
     refNat n (refNat n i) = i := by
-  have hj : refNat n i < n := refNat_lt n i hi
-  unfold refNat at hj ⊢
-  split_ifs at hj ⊢ <;> omega
+  by_cases hn : n % 2 = 1
+  · by_cases hz : i = 0
+    · simp [refNat, hn, hz]
+    · by_cases ho : i % 2 = 1
+      · have hp : (i + 1) % 2 = 0 := by omega
+        have hnew : refNat n i = i + 1 := by simp [refNat, hn, hz, ho]
+        rw [hnew]
+        have hnz : i + 1 ≠ 0 := by omega
+        simp [refNat, hn, hnz, hp]
+      · have he : i % 2 = 0 := by omega
+        have himin : 2 ≤ i := by omega
+        have hp : (i - 1) % 2 = 1 := by omega
+        have hnew : refNat n i = i - 1 := by simp [refNat, hn, hz, he]
+        rw [hnew]
+        have hnz : i - 1 ≠ 0 := by omega
+        simp [refNat, hn, hnz, hp]
+  · have hne : n % 2 = 0 := by omega
+    by_cases he : i % 2 = 0
+    · have hp : (i + 1) % 2 = 1 := by omega
+      have hnew : refNat n i = i + 1 := by simp [refNat, hn, he]
+      rw [hnew]
+      simp [refNat, hn, hp]
+    · have ho : i % 2 = 1 := by omega
+      have himin : 1 ≤ i := by omega
+      have hp : (i - 1) % 2 = 0 := by omega
+      have hnew : refNat n i = i - 1 := by simp [refNat, hn, ho]
+      rw [hnew]
+      simp [refNat, hn, hp]
 
 def refIndex (n : ℕ) (i : Fin n) : Fin n :=
   ⟨refNat n i.val, refNat_lt n i.val i.isLt⟩
