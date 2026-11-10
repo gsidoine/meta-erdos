@@ -99,7 +99,7 @@ theorem combineFactors_extracted (m : ℕ)
       have hp := coprime_evenIndex_image_oddIndex m σ hv i
       have he : (oddRowFactor m σ hv i).val =
           (σ (evenIndex m i)).val / 2 := by
-        simp [oddRowFactor, oddRowFactorMap]
+        rfl
       change 2*(oddRowFactor m σ hv i).val+1 =
         (σ (evenIndex m i)).val
       omega
@@ -109,7 +109,7 @@ theorem combineFactors_extracted (m : ℕ)
       have hp := coprime_oddIndex_image_evenIndex m σ hv i
       have he : (evenRowFactor m σ hv i).val =
           (σ (oddIndex m i)).val / 2 := by
-        simp [evenRowFactor, evenRowFactorMap]
+        rfl
       change 2*(evenRowFactor m σ hv i).val =
         (σ (oddIndex m i)).val
       omega
