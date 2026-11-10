@@ -1,6 +1,6 @@
 # P033 — A linear packing of six-cycles from three prime sums
 
-**Status:** internally proved exact combinatorial theorem. Structural consequence of the three-reflection setup; does not solve the all-n P033 question. **Historical novelty unverified**: affine-reflection identities and bounded-degree cycle packing are classical tools.
+**Status:** internally proved exact combinatorial theorem. Structural consequence of the three-reflection setup; does not itself imply the all-n result, which is now proved in the [effective universal theorem](P033-universal-three-prime-sum-connectivity.md). **Historical novelty unverified**: affine-reflection identities and bounded-degree cycle packing are classical tools.
 
 ## Exact six-cycle construction
 
@@ -81,7 +81,7 @@ of these prime triples **also connect the full graph**. Thus a positive proporti
 * Cycles are disjoint as **graph vertices** within one selected palette. The result does not say cycles belonging to different palettes are mutually disjoint.
 * This does not show Hamiltonicity or expansion: linear numbers of short cycles alone do not imply either property.
 * The packing coefficient is a safe explicit lower bound and is not asserted optimal.
-* It does not produce an effective threshold at which an admissible *prime triple* must exist, and does not settle $\kappa(n)\le3$ for every $n$.
+* This six-cycle theorem by itself supplies no prime-triple existence threshold. The independent [effective P033 theorem](P033-universal-three-prime-sum-connectivity.md) provides one and settles the all-n bound.
 * The parent asymptotic connected-palettes theorem still awaits independent specialist verification and the novelty of the present affine hexagon observation is **unverified**.
 
 ### Independent finite consistency check
