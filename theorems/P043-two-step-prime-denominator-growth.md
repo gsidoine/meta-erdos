@@ -1,6 +1,6 @@
 # P043 — A two-step prime-denominator Farey layer
 
-**Status:** unconditional asymptotic theorem. The proof combines elementary Farey adjacency with the classical Bombieri–Vinogradov theorem. The complete asymptotic order of the largest component and the historical novelty of the present two-step formulation are not established.
+**Status:** unconditional asymptotic theorem for a restricted layer; the complete distance-two layer is now evaluated in [the exact prime-factor theorem](P043-exact-distance-two-prime-factors.md). The proof combines elementary Farey adjacency with the classical Bombieri–Vinogradov theorem. The complete asymptotic order of the largest component and the historical novelty of the present two-step formulation are not established.
 
 Let $F_N$ have the reduced fractions $a/p$, $1\le a<p\le N$, with prime denominator $p$ as vertices, and edges when $|aq-bp|=1$. Let $C(N)$ be its largest connected-component size.
 
