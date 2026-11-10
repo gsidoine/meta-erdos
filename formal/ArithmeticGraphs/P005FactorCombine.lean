@@ -13,15 +13,15 @@ namespace P005
 
 /-- Exchange the two summands while applying a permutation
 to each factor. -/
-def sumSwapPerm {α β : Type*}
-    (f : Equiv.Perm α) (g : Equiv.Perm β) :
-    Sum β α ≃ Sum β α where
+def sumSwapPerm {α : Type*}
+    (f g : Equiv.Perm α) :
+    Equiv.Perm (Sum α α) where
   toFun
-    | .inl i => .inr (f i)
-    | .inr j => .inl (g j)
+    | .inl i => .inr (g i)
+    | .inr j => .inl (f j)
   invFun
-    | .inl j => .inr (g.symm j)
-    | .inr i => .inl (f.symm i)
+    | .inl j => .inr (f.symm j)
+    | .inr i => .inl (g.symm i)
   left_inv := by
     intro s
     cases s <;> simp
@@ -32,7 +32,7 @@ def sumSwapPerm {α β : Type*}
 /-- The original permutation reconstructed from its two parity factors. -/
 noncomputable def combineFactors (m : ℕ)
     (f g : Equiv.Perm (Fin m)) : Equiv.Perm (Fin (2*m)) :=
-  (parityEquiv m).symm |>.trans (sumSwapPerm f g) |>.trans (parityEquiv m)
+  ((parityEquiv m).symm.trans (sumSwapPerm f g)).trans (parityEquiv m)
 
 /-- Even-positive rows carry the first factor. -/
 theorem combineFactors_oddIndex (m : ℕ)
