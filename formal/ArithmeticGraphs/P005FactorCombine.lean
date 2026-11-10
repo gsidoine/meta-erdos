@@ -97,13 +97,21 @@ theorem combineFactors_extracted (m : ℕ)
       rw [parityEquiv_inl, combineFactors_evenIndex]
       apply Fin.ext
       have hp := coprime_evenIndex_image_oddIndex m σ hv i
-      dsimp [oddRowFactor, oddRowFactorMap, oddIndex]
+      have he : (oddRowFactor m σ hv i).val =
+          (σ (evenIndex m i)).val / 2 := by
+        simp [oddRowFactor, oddRowFactorMap]
+      change 2*(oddRowFactor m σ hv i).val+1 =
+        (σ (evenIndex m i)).val
       omega
   | inr i =>
       rw [parityEquiv_inr, combineFactors_oddIndex]
       apply Fin.ext
       have hp := coprime_oddIndex_image_evenIndex m σ hv i
-      dsimp [evenRowFactor, evenRowFactorMap, evenIndex]
+      have he : (evenRowFactor m σ hv i).val =
+          (σ (oddIndex m i)).val / 2 := by
+        simp [evenRowFactor, evenRowFactorMap]
+      change 2*(evenRowFactor m σ hv i).val =
+        (σ (oddIndex m i)).val
       omega
 
 #print axioms combineFactors_oddIndex
