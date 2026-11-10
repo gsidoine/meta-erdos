@@ -143,6 +143,23 @@ def IntervalChain : ℕ → List PrimeIntervalRow → Prop
       t.lo = start ∧ CertifiedRow t ∧
         IntervalChain (t.hi + 1) rest
 
+/-! Decidability is proved by structural recursion on the finite list.
+    The prime predicate itself has an effective decision procedure. -/
+instance decidableIntervalChain (start : ℕ)
+    (rows : List PrimeIntervalRow) :
+    Decidable (IntervalChain start rows) := by
+  induction rows generalizing start with
+  | nil =>
+      change Decidable True
+      infer_instance
+  | cons row remaining ih =>
+      change Decidable
+        (row.lo = start ∧ CertifiedRow row ∧
+         IntervalChain (row.hi + 1) remaining)
+      letI : Decidable (IntervalChain (row.hi+1) remaining) :=
+        ih (row.hi+1)
+      infer_instance
+
 def intervalEnd : ℕ → List PrimeIntervalRow → ℕ
   | start, [] => start
   | _, t :: rest => intervalEnd (t.hi + 1) rest
