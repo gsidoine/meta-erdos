@@ -1383,7 +1383,7 @@
       "question": "What is the asymptotic size of the largest connected component of the Farey graph induced by fractions with prime denominators?",
       "status": "candidate",
       "novelty": "unverified; Farey graphs and prime-denominator fractions have established prior art",
-      "result": "Exact distance-two formula D₂(N)=2∑_{q≤N prime}[ω(q−2)+ω(q+2)−1_{q−2 prime}−1_{q+2 prime}]; proved D₂(N)~4N loglogN/logN via Bombieri–Vinogradov, hence liminf C(N)logN/(N loglogN)≥4; full C(N) asymptotic open",
+      "result": "Exact distance-two identity d₂(q)=2[ω(q²−4)−1_{q−2 prime}−1_{q+2 prime}]; D₂(N)~4N loglogN/logN and second moment O(N loglogN/logN), hence d₂(q)~4loglogq for almost all prime q; full C(N) asymptotic open",
       "verification": "Independent Farey determinant construction and shifted-prime-factor counts agree by denominator for N=5,11,29,101,500,2000,5000; existing forest and component identities",
       "priority": "determine the full component growth beyond the exact two-step layer; audit prior literature on prime-denominator Farey graph neighborhoods and shifted-prime additive structure",
       "sources": [
