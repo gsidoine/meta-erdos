@@ -121,7 +121,7 @@ An odd prime $p$ divides $q^2-4$ exactly when $q\equiv2$ or $-2$ modulo $p$. The
 
 $
 \sum_{\substack{3\le q\le N\\q\text{ prime}}}X_Y(q)
-=\operatorname{Li}(N)\mu_Y
+=\mathrm{Li}(N)\mu_Y
 +O_A\left(\frac{N}{(\log N)^A}\right)
 $
 
@@ -131,7 +131,7 @@ For distinct odd primes $p,r\le Y$, the Chinese remainder theorem gives exactly 
 
 $
 \sum_{\substack{3\le q\le N\\q\text{ prime}}}X_Y(q)^2
-=\operatorname{Li}(N)
+=\mathrm{Li}(N)
 \left[
 \mu_Y+
 8\sum_{\substack{3\le p<r\le Y\\p,r\text{ prime}}}
@@ -146,7 +146,7 @@ $
 \begin{aligned}
 \sum_{\substack{3\le q\le N\\q\text{ prime}}}
 (X_Y(q)-\mu_Y)^2
-&=\operatorname{Li}(N)
+&=\mathrm{Li}(N)
 \left[
 \mu_Y-4\sum_{3\le p\le Y}\frac1{(p-1)^2}
 \right]+o\left(\frac{N}{\log N}\right)\\
