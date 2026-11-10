@@ -77,7 +77,10 @@ theorem even_coprime_canonical_path (m : ℕ) (hm : 0 < m)
     have hc : Nat.Coprime (2*i.val+1) ((2*i.val+1)+1) :=
       (Nat.coprime_self_add_right).2
         (by simp : Nat.Coprime (2*i.val+1) 1)
-    simpa [EvenOddRel] using hc.symm
+    change Nat.Coprime (2*i.val+2) (2*i.val+1)
+    have hsucc : 2*i.val+2 = (2*i.val+1)+1 := by omega
+    rw [hsucc]
+    exact hc.symm
   have hl := lift_even_row_path m g hg hpf
   have hr := lift_odd_row_path m (1 : Equiv.Perm (Fin m)) hId hpg
   have hwhole := hubPathLen_trans (CoprimeRel (2*m)) hl hr
