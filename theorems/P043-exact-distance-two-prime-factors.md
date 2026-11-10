@@ -75,6 +75,95 @@ The prime harmonic sum is log log N+O(1), and Li(N)∼N/log N. Consequently each
 
 Every counted vertex lies in the component of 1/2, proving the lower bound for C(N).
 
+## Theorem — Concentration across prime denominators
+
+For each odd prime $q$, let $d_2(q)$ be the number of distance-two vertices of denominator $q$. The exact formula above and $\gcd(q-2,q+2)=1$ give the simpler identity
+
+$
+\boxed{
+d_2(q)=2\left[\omega(q^2-4)
+-\mathbf1_{\mathbb P}(q-2)-\mathbf1_{\mathbb P}(q+2)\right].
+}
+$
+
+There is an absolute constant $K$ such that, for all sufficiently large $N$,
+
+$
+\boxed{
+\sum_{\substack{3\le q\le N\\q\text{ prime}}}
+\left(d_2(q)-4\log\log N\right)^2
+\le K\,\frac{N\log\log N}{\log N}.
+}
+\tag{4}
+$
+
+In particular, for every fixed $\varepsilon>0$, the fraction of primes $q\le N$ for which
+
+$
+\left|d_2(q)-4\log\log N\right|>
+\varepsilon\log\log N
+$
+
+is $O_{\varepsilon}(1/\log\log N)$. Hence, for almost all prime denominators, the number of distance-two neighbors is $(4+o(1))\log\log q$. This is a concentration theorem, **not** an assertion of a Gaussian limit law.
+
+### Proof
+
+Fix $Y=N^{1/5}$ and, for odd prime $q\le N$, put
+
+$
+X_Y(q)=\sum_{\substack{3\le p\le Y\\p\text{ prime}}}
+\mathbf1_{\{p\mid q^2-4\}},
+\qquad
+\mu_Y=2\sum_{\substack{3\le p\le Y\\p\text{ prime}}}\frac1{p-1}.
+$
+
+An odd prime $p$ divides $q^2-4$ exactly when $q\equiv2$ or $-2$ modulo $p$. These are two distinct reduced residue classes, so the Bombieri–Vinogradov theorem implies
+
+$
+\sum_{\substack{3\le q\le N\\q\text{ prime}}}X_Y(q)
+=\operatorname{Li}(N)\mu_Y
++O_A\left(\frac{N}{(\log N)^A}\right)
+$
+
+for any fixed $A>0$.
+
+For distinct odd primes $p,r\le Y$, the Chinese remainder theorem gives exactly four reduced residue classes modulo $pr$ satisfying $q^2\equiv4\pmod{pr}$. Since $pr\le N^{2/5}$, the same Bombieri–Vinogradov bound, summed over all products $pr$, yields
+
+$
+\sum_{\substack{3\le q\le N\\q\text{ prime}}}X_Y(q)^2
+=\operatorname{Li}(N)
+\left[
+\mu_Y+
+8\sum_{\substack{3\le p<r\le Y\\p,r\text{ prime}}}
+\frac1{(p-1)(r-1)}
+\right]
++O_A\left(\frac{N}{(\log N)^A}\right).
+$
+
+Each product $pr$ appears for a unique unordered pair, so the modulus sum has no growing multiplicity. The prime number theorem (with its standard logarithmic-error form) and the preceding two moment estimates give
+
+$
+\begin{aligned}
+\sum_{\substack{3\le q\le N\\q\text{ prime}}}
+(X_Y(q)-\mu_Y)^2
+&=\operatorname{Li}(N)
+\left[
+\mu_Y-4\sum_{3\le p\le Y}\frac1{(p-1)^2}
+\right]+o\left(\frac{N}{\log N}\right)\\
+&\ll\frac{N\log\log N}{\log N}.
+\end{aligned}
+$
+
+Mertens' theorem gives $\mu_Y=2\log\log N+O(1)$. On the other hand, each $q^2-4<N^2$ has at most ten distinct prime factors exceeding $Y=N^{1/5}$, so
+
+$
+0\le\omega(q^2-4)-X_Y(q)\le10.
+$
+
+Both primality corrections in the exact formula for $d_2(q)$ are bounded by $1$. Therefore $d_2(q)=2X_Y(q)+O(1)$ uniformly in $q\le N$, and (4) follows by the elementary quadratic inequality $(u+v)^2\le2u^2+2v^2$.
+
+Chebyshev's inequality gives the stated exceptional-prime bound. Finally, primes $q<N^{1/2}$ have density zero among primes $q\le N$; for $q\ge N^{1/2}$, $\log\log q=\log\log N+O(1)$. This gives the pointwise-order assertion for almost all prime denominators. $\square$
+
 ## Scope and verification
 
 The independent program [P043_exact_distance_two.py](../experiments/P043_exact_distance_two.py) checks the full distance-two layer by Farey determinants and independently evaluates the shifted-prime-factor identity. Its finite checks are not used in the proof.
