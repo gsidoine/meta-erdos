@@ -175,6 +175,7 @@ theorem finite_prime_interval_certificate :
 
 /-- A kernel-checkable pilot for the largest prime label in the table,
     using Mathlib's arithmetic certificate tactic rather than native evaluation. -/
+set_option maxRecDepth 8192 in
 private theorem largest_label_prime_kernel : Nat.Prime 10034390381 := by
   norm_num
 
