@@ -1,6 +1,6 @@
 # P033 — Nearly half of short-interval prime triples connect the whole graph
 
-**Status:** internally proved quantitative strengthening of P033. Historical priority requires independent review. This theorem establishes an asymptotic, **not an explicit analytic threshold** or the full assertion for every integer n.
+**Status:** internally proved quantitative strengthening of P033. This result is an asymptotic, not an explicit threshold by itself. The separate [effective universal theorem](P033-universal-three-prime-sum-connectivity.md) now settles all-order three-prime connectivity using an explicit bound and exact certificate. Historical priority remains unverified.
 
 ## Statements
 
@@ -230,7 +230,7 @@ The accompanying [dependency-free verifier](../experiments/P033_prime_palette_de
 
 The existing exact P033 verifier covers the smaller cases n=3,…,120. Thus the repository obtains a reproducible complete finite verification of the original $\kappa(n)\le3$ statement for **every 3≤n≤1,000,000**. This is **not** a universal proof.
 
-The theorem gives existence in all sufficiently large n, and this finite verification covers a million values, but the analytic argument supplies **no explicit N₀**. Therefore it is logically invalid to claim that the finite interval and the eventual interval overlap. P033 remains a *candidate* for the full all-n assertion.
+This density argument alone gives no explicit threshold and its accompanying million-case verification cannot bridge an ineffective bound. The later [effective theorem](P033-universal-three-prime-sum-connectivity.md) independently provides the missing threshold and certificate, so P033's all-n connectivity statement is now resolved internally.
 
 ## Sources and originality boundary
 
