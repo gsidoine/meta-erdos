@@ -179,7 +179,7 @@ theorem oddRowFactor_valid
   have hval : 2*((σ (evenIndex m i)).val / 2)+1 =
       (σ (evenIndex m i)).val := by omega
   change Nat.Coprime (2*i.val+1) (2*((σ (evenIndex m i)).val/2)+2)
-  omega
+  convert hcop using 1 <;> omega
 
 #print axioms oddRowFactorMap_injective
 #print axioms oddRowFactor
