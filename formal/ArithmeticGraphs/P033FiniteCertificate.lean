@@ -173,13 +173,6 @@ theorem finite_prime_interval_certificate :
     IntervalChain 121 primeIntervals := by
   native_decide
 
-set_option maxRecDepth 8192
-
-/-- A kernel-checkable pilot for the largest prime label in the table,
-    using Mathlib's arithmetic certificate tactic rather than native evaluation. -/
-private theorem largest_label_prime_kernel : Nat.Prime 10034390381 := by
-  norm_num
-
 theorem finite_certificate_upper_end :
     10^10 < intervalEnd 121 primeIntervals := by
   native_decide
