@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** What is the asymptotic size of the largest connected component of the Farey graph induced by fractions with prime denominators?  
 > **Formulation:** candidate. **Novelty:** unverified; Farey graphs and prime-denominator fractions have established prior art.  
-> **Verified/known progress:** Proved exact two-step central-layer formula and |L_N| ~ 2N loglog N/log N via Bombieri–Vinogradov, hence liminf C(N) log N/(N loglog N) ≥ 2; full largest-component order open.  
-> **Finite evidence:** Exact two-step vertex enumeration and residue-class formula checked for N≤10,000 at selected sizes; prior forest and component identities N≤101.  
+> **Verified/known progress:** Exact distance-two formula D₂(N)=2∑_{q≤N prime}[ω(q−2)+ω(q+2)−1_{q−2 prime}−1_{q+2 prime}]; proved D₂(N)~4N loglogN/logN via Bombieri–Vinogradov, hence liminf C(N)logN/(N loglogN)≥4; full C(N) asymptotic open.  
+> **Finite evidence:** Independent Farey determinant construction and shifted-prime-factor counts agree by denominator for N=5,11,29,101,500,2000,5000; existing forest and component identities.  
 > **Symbolic prize:** A Coffee (symbolic) — A sharp asymptotic for the largest component of the prime-denominator Farey graph.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -12,6 +12,31 @@
 For $N\ge2$, form the graph on reduced fractions $a/p$ with $1\le a<p\le N$ and $p$ prime. Join $a/p$ to $b/q$ when $|aq-bp|=1$. Let $C(N)$ denote the largest connected-component size.
 
 **Question.** Determine the asymptotic order of $C(N)$.
+
+## Exact distance-two neighborhood theorem
+
+The [exact prime-factor theorem](../../theorems/P043-exact-distance-two-prime-factors.md) determines the entire set of vertices at graph distance exactly two from $1/2$. With $\omega(k)$ denoting the number of distinct prime factors of $k$,
+
+$
+D_2(N)=2\sum_{\substack{3\le q\le N\\q\text{ prime}}}
+\bigl[\omega(q-2)+\omega(q+2)-\mathbf1_{\mathbb P}(q-2)-\mathbf1_{\mathbb P}(q+2)\bigr].
+$
+
+Using the classical Bombieri–Vinogradov theorem and Mertens' prime harmonic-sum estimate,
+
+$
+\boxed{D_2(N)=(4+o(1))\frac{N\log\log N}{\log N}}
+$
+
+and consequently
+
+$
+\boxed{\liminf_{N\to\infty}\frac{C(N)\log N}{N\log\log N}\ge4.}
+$
+
+The [independent exact checker](../../experiments/P043_exact_distance_two.py) constructs all distance-two Farey incidences by determinants and matches the shifted-prime-factor count for each denominator. The finite computation is independent evidence for the **exact identity**, not for the asymptotic. The earlier restricted two-step theorem with coefficient $2$ remains correct but is superseded as a component lower bound.
+
+The full asymptotic order of the largest component remains open. The novelty of the precise graph-theoretic formula has not been certified.
 
 ## Proven asymptotic growth of the two-step central layer
 
