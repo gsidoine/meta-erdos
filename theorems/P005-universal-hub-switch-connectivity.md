@@ -1,6 +1,6 @@
 # P005 — Connectedness and linear diameter of coprime permutation switches
 
-**Status:** complete elementary proof. Historical priority of the resulting connectivity theorem and the general universal-hub lemma requires independent verification. The P005 conjecture is resolved mathematically; formal verification of the complete theorem is not claimed.
+**Status:** complete elementary proof and kernel-checked Lean 4.35.0 certificate for the all-order arithmetic connectivity and diameter theorem. Historical priority of the theorem and its universal-hub method remains unverified.
 
 ## Universal-hub matching lemma
 
@@ -54,6 +54,12 @@ $$
 $$
 
 The diameter is at most $6(m-1)=3n-6\le3(n-1)$. The case $n=1$ is immediate. $\square$
+
+## Formal verification
+
+The [Lean source P005All.lean](../formal/ArithmeticGraphs/P005All.lean) proves, for every positive integer $n$ and all valid coprime permutations $\sigma,\tau$ of $[n]$, the existence of a path of at most $3(n-1)$ legal switches from $\sigma$ to $\tau$. The formalization contains the explicit even-order parity decomposition and reconstruction, the lift of factor switches, and the quantitative path estimate. The accompanying [module index](../formal/ArithmeticGraphs/README.md) lists the complete dependency chain.
+
+The principal certificate P005.coprime_switch_diameter was compiled with Lean 4.35.0 / Mathlib 4.35.0. The proof's only axioms are the standard propext, Classical.choice, and Quot.sound; no sorryAx occurs. This checks the stated arithmetic conclusion but does not establish its historical novelty, optimality of the diameter bound, or any publication status.
 
 ## Constructive algorithm and independent checks
 
