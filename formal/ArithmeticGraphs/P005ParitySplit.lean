@@ -72,7 +72,7 @@ theorem parityMap_surjective (m : ℕ) :
     omega
 
 /-- The parity decomposition of any interval of even cardinality. -/
-def parityEquiv (m : ℕ) : Sum (Fin m) (Fin m) ≃ Fin (2*m) :=
+noncomputable def parityEquiv (m : ℕ) : Sum (Fin m) (Fin m) ≃ Fin (2*m) :=
   Equiv.ofBijective (parityMap m)
     ⟨parityMap_injective m, parityMap_surjective m⟩
 
