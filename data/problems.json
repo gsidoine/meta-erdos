@@ -1032,13 +1032,13 @@
       "title": "Can three prime sums connect all integers?",
       "area": "graph theory",
       "file": "problems/graph-theory/P033-prime-sum-three-palette.md",
-      "question": "Can the graph on [n] be made connected using edges with only three distinct prime sums, for every n≥3?",
-      "status": "candidate",
-      "novelty": "not certified; Chen–Fu–Guo (2021) established three-color Hamiltonian-prime-set phenomena for some orders, not this stated eventual connectivity theorem",
-      "result": "New quantified theorem: for any fixed 0<δ<1/5, asymptotically (3/4)C₂≈49.5121% of prime triples p<q<n<r in δ-relative intervals connect [n]. Sharper reflection criterion n≥5D; two colors characterized by twin primes; all-n remains unproved",
-      "verification": "Exact three-reflection sufficient condition tested on 77,795 artificial triples; prime-triple fractions checked through n=20,000; certified three-color witnesses for every 3≤n≤1,000,000 (existing n≤120 test and new n≥60 test)",
-      "priority": "theorem-building — quantitative prime palette density and million-case finite certification; still seek a uniform effective threshold or all-n constructive proof",
-      "portfolio_tier": "B",
+      "question": "Can three distinct prime edge sums connect every initial interval [n], n≥3? (Resolved internally.)",
+      "status": "proved internally",
+      "novelty": "historical priority unverified; universal all-n three-prime connectivity proved by an effective prime-progression sieve and an exact finite certificate; earlier Hamiltonian prime-set results are related but distinct",
+      "result": "Unconditional all-order theorem κ(n)≤3 (n≥3): explicit analytic bound n≥10^10 via Bennett–Martin–O’Bryant–Rechnitzer and Brun–Titchmarsh; exact small-n check n≤120 and 103 verified prime-triple interval certificates cover 121≤n≤10,034,390,380; κ(n)=2 exactly at the nearby twin-prime cases",
+      "verification": "Standard-library integer certificate: exhaustive 3≤n≤120, 103 contiguous prime-triple intervals through 10,034,390,380 with trial-division primality, and exact rational 0.8+0.12+0.02<1 analytic obstruction checks; all-n proof is partly computer-assisted, with novelty unverified",
+      "priority": "independent mathematical review of effective sieve constants, reflection lemma, and primality certificate; exhaustive priority comparison; short manuscript; Lean formalization is optional",
+      "portfolio_tier": "A",
       "sources": [
         {
           "name": "Chen–Fu–Guo, Hamiltonicity in Prime Sum Graphs",
@@ -1059,6 +1059,18 @@
         {
           "name": "Montgomery–Vaughan Brun–Titchmarsh inequality for short intervals (cited in JTNB)",
           "url": "https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1024.pdf"
+        },
+        {
+          "name": "Bennett–Martin–O’Bryant–Rechnitzer, Explicit Bounds for Primes in Arithmetic Progressions (2018), Thm 1.2",
+          "url": "https://personal.math.ubc.ca/~gerg/papers/downloads/EBPAP.pdf"
+        },
+        {
+          "name": "H. E. Richert, Lectures on Sieve Methods (1976), §8 Montgomery–Vaughan explicit Brun–Titchmarsh estimate",
+          "url": "https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr55.pdf"
+        },
+        {
+          "name": "Yue-Feng She (2026), Hamiltonicity in graphs defined by primes and primitive elements",
+          "url": "https://arxiv.org/abs/2609.19114"
         }
       ],
       "rewards": [
