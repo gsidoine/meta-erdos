@@ -17,22 +17,22 @@ For $N\ge2$, form the graph on reduced fractions $a/p$ with $1\le a<p\le N$ and 
 
 The [exact prime-factor theorem](../../theorems/P043-exact-distance-two-prime-factors.md) determines the entire set of vertices at graph distance exactly two from $1/2$. With $\omega(k)$ denoting the number of distinct prime factors of $k$,
 
-$
+$$
 D_2(N)=2\sum_{\substack{3\le q\le N\\q\text{ prime}}}
 \bigl[\omega(q-2)+\omega(q+2)-\mathbf1_{\mathbb P}(q-2)-\mathbf1_{\mathbb P}(q+2)\bigr].
-$
+$$
 
 Using the classical Bombieri–Vinogradov theorem and Mertens' prime harmonic-sum estimate,
 
-$
+$$
 \boxed{D_2(N)=(4+o(1))\frac{N\log\log N}{\log N}}
-$
+$$
 
 and consequently
 
-$
+$$
 \boxed{\liminf_{N\to\infty}\frac{C(N)\log N}{N\log\log N}\ge4.}
-$
+$$
 
 The [independent exact checker](../../experiments/P043_exact_distance_two.py) constructs all distance-two Farey incidences by determinants and matches the shifted-prime-factor count for each denominator. The finite computation is independent evidence for the **exact identity**, not for the asymptotic. The earlier restricted two-step theorem with coefficient $2$ remains correct but is superseded as a component lower bound.
 
