@@ -45,3 +45,4 @@ jobs:
           lake env lean P005Odd.lean
           lake env lean P005EvenFactors.lean
           lake env lean P005ParitySplit.lean
+          lake env lean P005ForcedParity.lean
