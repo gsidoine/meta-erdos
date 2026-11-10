@@ -24,7 +24,6 @@ theorem refPerm_oddIndex (m : ℕ) (i : Fin m) :
   have hp : (2*i.val+1)%2 = 1 := by omega
   change refNat (2*m) (2*i.val+1) = 2*i.val
   simp [refNat, hn, hp]
-  omega
 
 theorem combineFactors_reference (m : ℕ) :
     combineFactors m 1 1 = refPerm (2*m) := by
