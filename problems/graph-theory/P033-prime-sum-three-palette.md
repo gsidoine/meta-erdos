@@ -27,9 +27,9 @@ Each fixed sum color is a matching, so one color cannot connect three or more ve
 
 The [effective universal theorem](../../theorems/P033-universal-three-prime-sum-connectivity.md) establishes unconditionally that
 
-$
+$$
 \boxed{\kappa(n)\le3\qquad\text{for every integer }n\ge3.}
-$
+$$
 
 The proof has two parts. An explicit union bound on common prime divisors, using the published Bennett–Martin–O'Bryant–Rechnitzer prime-progression estimates and the Montgomery–Vaughan Brun–Titchmarsh inequality, proves existence of a suitable prime triple for **every $n\ge10^{10}$**. Below that threshold, a separate exact certificate checks all $n\le120$ directly and supplies 103 prime triples whose consecutive validity intervals cover every $121\le n\le10{,}034{,}390{,}380$. All 307 distinct prime labels are checked by trial division; the finite certificate and rational analytic error bounds are [reproducible](../../experiments/P033_effective_universal.py).
 
@@ -37,10 +37,10 @@ The full theorem is **computer-assisted** because the bounded range is certified
 
 Combining the result with the earlier exact two-color characterization yields, for every $n\ge3$,
 
-$
+$$
 \boxed{\kappa(n)=2\iff
 \text{some }p\in\{n-1,n,n+1\}\text{ has }p,p+2\text{ prime};}
-$
+$$
 
 otherwise $\kappa(n)=3$.
 
