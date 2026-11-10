@@ -158,6 +158,9 @@ instance decidableIntervalChain (start : ℕ)
          IntervalChain (row.hi + 1) remaining)
       letI : Decidable (IntervalChain (row.hi+1) remaining) :=
         ih (row.hi+1)
+      letI : Decidable (CertifiedRow row) := by
+        unfold CertifiedRow
+        infer_instance
       infer_instance
 
 def intervalEnd : ℕ → List PrimeIntervalRow → ℕ
