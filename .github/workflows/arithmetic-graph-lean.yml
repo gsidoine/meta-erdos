@@ -48,3 +48,4 @@ jobs:
           lake env lean P005ForcedParity.lean
           lake env lean P005FactorCombine.lean
           lake env lean P005FactorSwap.lean
+          lake env lean P005EvenReference.lean
