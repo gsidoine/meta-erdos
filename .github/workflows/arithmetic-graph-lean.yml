@@ -36,6 +36,7 @@ jobs:
           lake env lean P030.lean
           lake env lean P033.lean
           lake env lean P033Palette.lean
+          lake env lean P033FiniteCertificate.lean
           lake env lean P005Hub.lean
           lake env lean P005Reach.lean
           lake env lean P005Connected.lean
