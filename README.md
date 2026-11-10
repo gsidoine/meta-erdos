@@ -35,7 +35,7 @@ The catalogue contains all numbered entries in a single sequence. Mathematical f
 | Candidate | 36 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
 | Reframe | 8 (P007, P009, P012, P013, P025, P029, P032, P037) | A predecessor or insufficiently independent target requires a stronger mathematical formulation |
 | Needs specification | 2 (P008, P022) | A sharper quantified problem or nontrivial asymptotic target is required |
-| Proved internally | 2 (P005, P010) | P005 has a complete elementary connectivity proof; P010 has a Lean 4 kernel-checked exact theorem; priority remains separate |
+| Proved internally | 2 (P005, P010) | Both P005 (all-order switch connectivity and diameter) and P010 (exact coprime-adjacency minimum) have complete kernel-checked Lean statements; historical priority and journal review remain separate |
 | Known result | 1 (P048) | The statement is resolved by established mathematics; retained to preserve its permanent identifier |
 | Disproved | 1 (P030) | Congruence matching bound and explicit Hall counterexample; historical priority unverified |
 

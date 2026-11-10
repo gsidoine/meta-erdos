@@ -44,3 +44,10 @@ jobs:
           lake env lean P005Transport.lean
           lake env lean P005Odd.lean
           lake env lean P005EvenFactors.lean
+          lake env lean P005ParitySplit.lean
+          lake env lean P005ForcedParity.lean
+          lake env lean P005FactorCombine.lean
+          lake env lean P005FactorSwap.lean
+          lake env lean P005EvenReference.lean
+          lake env lean P005EvenPath.lean
+          lake env lean P005All.lean
