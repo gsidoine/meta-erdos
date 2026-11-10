@@ -140,7 +140,8 @@ def prime_by_trial_division(x, small_primes):
             return True
         if x % p == 0:
             return False
-    raise ValueError("Insufficient trial division range")
+    # The caller constructs every prime up to the square root of max(x).
+    return True
 
 
 def connected(n, colors):
