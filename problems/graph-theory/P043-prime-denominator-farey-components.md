@@ -3,7 +3,7 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** What is the asymptotic size of the largest connected component of the Farey graph induced by fractions with prime denominators?  
 > **Formulation:** candidate. **Novelty:** unverified; Farey graphs and prime-denominator fractions have established prior art.  
-> **Verified/known progress:** Exact distance-two formula D₂(N)=2∑_{q≤N prime}[ω(q−2)+ω(q+2)−1_{q−2 prime}−1_{q+2 prime}]; proved D₂(N)~4N loglogN/logN via Bombieri–Vinogradov, hence liminf C(N)logN/(N loglogN)≥4; full C(N) asymptotic open.  
+> **Verified/known progress:** Exact distance-two identity d₂(q)=2[ω(q²−4)−1_{q−2 prime}−1_{q+2 prime}]; D₂(N)~4N loglogN/logN and second moment O(N loglogN/logN), hence d₂(q)~4loglogq for almost all prime q; full C(N) asymptotic open.  
 > **Finite evidence:** Independent Farey determinant construction and shifted-prime-factor counts agree by denominator for N=5,11,29,101,500,2000,5000; existing forest and component identities.  
 > **Symbolic prize:** A Coffee (symbolic) — A sharp asymptotic for the largest component of the prime-denominator Farey graph.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
@@ -35,6 +35,8 @@ $$
 $$
 
 The [independent exact checker](../../experiments/P043_exact_distance_two.py) constructs all distance-two Farey incidences by determinants and matches the shifted-prime-factor count for each denominator. The finite computation is independent evidence for the **exact identity**, not for the asymptotic. The earlier restricted two-step theorem with coefficient $2$ remains correct but is superseded as a component lower bound.
+
+The exact formula also yields a second-moment estimate, proved in the same theorem note, showing that for almost all prime denominators $q$ the number $d_2(q)$ of distance-two vertices with denominator $q$ satisfies $d_2(q)=(4+o(1))\log\log q$. The proof uses two-modulus Bombieri–Vinogradov and Chebyshev's inequality; it does not establish a Gaussian limit law.
 
 The full asymptotic order of the largest component remains open. The novelty of the precise graph-theoretic formula has not been certified.
 
