@@ -1,6 +1,6 @@
 # P033 — Prime-label resilience and many disjoint connecting palettes
 
-**Status:** rigorous combinatorial corollaries *conditional on the correctness of the existing P033 prime-palette density theorem*. Internal proof complete; source priority unverified. These are asymptotic statements, **not** a proof of the all-n P033 conjecture, nor an effective bound on its exceptional set.
+**Status:** rigorous combinatorial corollaries *conditional on the correctness of the existing P033 prime-palette density theorem*. Internal proof complete; source priority unverified. These are asymptotic statements and do not themselves provide the all-n proof or an effective bound. The [later universal theorem](P033-universal-three-prime-sum-connectivity.md) supplies both independently.
 
 ## Setup
 
@@ -78,9 +78,9 @@ The selected hyperedges are vertex-disjoint as sets of *prime labels*. QED.
 * Every selected 3-prime palette individually spans a connected sum-edge graph on the same vertex set `[n]`. These are **not** edge-disjoint graph copies: different prime sums can generate graph edges that share endpoints, and the conclusion concerns disjoint *sum labels*, not disjoint graph vertices.
 * Numerically, the coefficients are `mathfrak C/2 ≈ 0.24756069` for deletion resilience and `mathfrak C/6 ≈ 0.08252023` for disjoint palettes, multiplied by `delta n/log n`.
 * Both constants are conservative counting bounds, not claims of optimality. The resilience and matching statements have no effective `n_0` because the parent density theorem has no quantitative error term.
-* Neither statement implies that **every** `n>=3` has a connecting three-prime palette. Finite verification through one million and a non-effective eventual theorem still leave a logical gap.
+* These resilience statements alone do not imply that every `n>=3` has a connecting three-prime palette. The gap has since been closed by the independent [effective theorem](P033-universal-three-prime-sum-connectivity.md).
 * Novelty is **unverified**: these deductions are standard hypergraph maximum-degree and greedy-matching arguments applied to the P033 density theorem. They should not be marketed as independently novel methods.
 
 ## Next gate
 
-Seek an explicitly computable lower bound on `E_n` alongside upper bounds on `Delta_n` for every `n>=N_0`. Together with certified finite verification through `N_0`, that would resolve the all-n conjecture. Any such attempt must use **unconditional effective** analytic estimates; bounds conditional on GRH do not suffice for an unconditional result.
+The all-n connectivity question is resolved by explicit analytic bounds and finite certification in the [effective theorem](P033-universal-three-prime-sum-connectivity.md). Remaining questions concern quantitative palette robustness, expansion, and Hamiltonian subgraphs under a fixed small set of prime sums.
