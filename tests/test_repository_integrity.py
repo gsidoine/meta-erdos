@@ -19,7 +19,7 @@ class IntegrationConsistencyTests(unittest.TestCase):
         self.assertEqual(ids[:30], [f"P{i:03d}" for i in range(1, 31)])
         self.assertEqual(ids, [f"P{i:03d}" for i in range(1, len(ids) + 1)])
         self.assertEqual(data, browser)
-        self.assertEqual([p["id"] for p in data["problems"] if p["status"] == "proved internally"], ["P005", "P010"])
+        self.assertEqual([p["id"] for p in data["problems"] if p["status"] == "proved internally"], ["P005", "P010", "P033"])
 
     def test_no_stale_public_documentation(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")

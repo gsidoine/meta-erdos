@@ -1,6 +1,6 @@
 # P033 — Cyclic step graphs and a sharper three-reflection criterion
 
-**Status:** internally proved deterministic strengthening of the P033 connectivity certificate. It does **not** resolve the universal all-n three-prime-sum conjecture, and its historic novelty is unverified. The main structural observation is elementary circulant-graph theory.
+**Status:** internally proved deterministic strengthening of the P033 connectivity certificate. This lemma alone does not guarantee the existence of suitable primes. The separate [effective universal theorem](P033-universal-three-prime-sum-connectivity.md) provides that existence and resolves the all-n question. Historical novelty is unverified.
 
 ## Lemma 1: the sharp universal length for two coprime steps
 
@@ -66,6 +66,6 @@ The original fixed-\`delta<1/5\` prime-palette asymptotic is **unchanged**: \`n>
 * The additional \`2b<=n\` condition in the general lemma must **not** be omitted without a separate boundary argument. It is automatic in the stated near-\`n\` corollary.
 * The improved certificate concerns a *specific* triple, not existence of primes satisfying it for every n.
 * A computational sweep over \`D<=20\` and \`5D-2<=n<=5D+1\` checked 6,674 eligible gcd-one synthetic odd-sum triples by full union-find connectivity, without counterexamples. This is a consistency test, not a proof.
-* **No effective global n0**, no all-n theorem, no certified literature novelty. The classical prime-sum graph literature includes [Chen–Fu–Guo (2021)](https://doi.org/10.1007/s00373-020-02241-1) and [Croot–Jin (2026)](https://doi.org/10.1007/s00373-025-02999-2).
+* This deterministic note alone establishes neither an effective global threshold nor the all-n result. Those are now obtained in the [effective theorem](P033-universal-three-prime-sum-connectivity.md). Historical novelty is unverified. The classical prime-sum graph literature includes [Chen–Fu–Guo (2021)](https://doi.org/10.1007/s00373-020-02241-1) and [Croot–Jin (2026)](https://doi.org/10.1007/s00373-025-02999-2).
 
-**Next step:** rather than extracting still smaller improvements to the interval constant, seek an unconditional *effective* count of suitable prime triples in a proportional window, with every error constant accounted for. A numerical cutoff is only established if the analytic range provably overlaps the existing finite verification range.
+**Continuation:** The effective existence problem was settled by combining explicit prime-progression bounds, a common-divisor union bound, and a finite prime-triple interval certificate; see the [complete proof](P033-universal-three-prime-sum-connectivity.md).

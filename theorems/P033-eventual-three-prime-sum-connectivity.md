@@ -1,6 +1,6 @@
 # P033 — Three prime-sum matchings connect all sufficiently large intervals
 
-**Status:** complete internal proof of the **eventual** theorem; the stronger statement for **every** $n\ge3$ remains open within this repository because the threshold is ineffective. The argument uses established PNT and Siegel–Walfisz results; historical priority of the assembled theorem is **not certified**.
+**Status:** complete internal proof of an earlier eventual theorem, preserved as an independent argument. The [effective all-order theorem](P033-universal-three-prime-sum-connectivity.md) now proves the statement for every $n\ge3$ by a separate sieve bound and finite certificate. This earlier proof uses PNT and Siegel–Walfisz and has an ineffective threshold. Historical priority is unverified.
 
 **Stronger continuation.** The [prime-palette density theorem](P033-prime-palette-density-and-reflection-criterion.md) improves the deterministic condition to $n\ge5D$ and proves that **asymptotically 49.5121%** of nearby three-prime palettes connect $[n]$. It uses fixed-modulus prime equidistribution and Brun–Titchmarsh rather than this note's growing-modulus Siegel–Walfisz argument. This earlier proof is preserved as an independent historical proof route.
 
@@ -164,7 +164,7 @@ This does **not** assume the twin prime conjecture. The error expression absorbs
 - **Proved (internally):** $\kappa(n)\le3$ for all sufficiently large $n$.
 - **Proved previously in P033:** $\kappa(n)=2$ if and only if there is a twin-prime pair $p,p+2$ with $p\in\{n-1,n,n+1\}$, for $n\ge3$.
 - **Exact finite checks:** The P033 palette enumerator verifies $\kappa(n)\le3$ for every $3\le n\le120$, but this cannot bridge the **ineffective** threshold from Siegel–Walfisz.
-- **Not proved:** $\kappa(n)\le3$ for every $n\ge3$, a uniform effective $n_0$, or three-color Hamiltonicity. The full question reduces to an unspecified finite exceptional set, not a numerical interval whose endpoint is known.
+- **Not proved by this earlier argument:** the all-order bound, an explicit effective threshold, or three-color Hamiltonicity. The first two are established separately in the [complete P033 theorem](P033-universal-three-prime-sum-connectivity.md); three-color Hamiltonicity is not claimed.
 
 The source [Chen–Fu–Guo, *Hamiltonicity in Prime Sum Graphs*](https://doi.org/10.1007/s00373-020-02241-1) defines *Hamiltonian prime sets* and proves particular three-color results for twin-prime situations and infinitely many graph orders. A three-color **connected** graph is weaker than a three-color Hamiltonian cycle. Their results are important prior art, but the theorem above does not follow directly from their stated results. Related prime-sum structure appears in [Croot–Jin (2026)](https://doi.org/10.1007/s00373-025-02999-2). This is a **targeted source comparison, not exhaustive novelty certification**.
 
