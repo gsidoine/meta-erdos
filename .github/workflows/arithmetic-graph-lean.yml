@@ -50,3 +50,4 @@ jobs:
           lake env lean P005FactorSwap.lean
           lake env lean P005EvenReference.lean
           lake env lean P005EvenPath.lean
+          lake env lean P005All.lean
