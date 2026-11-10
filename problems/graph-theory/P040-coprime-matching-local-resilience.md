@@ -3,8 +3,8 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Does the local matching resilience of the even–odd coprime graph converge, and is its value determined by finite-prime Hall obstructions?  
 > **Formulation:** candidate. **Novelty:** unverified; original half-resilience conjecture disproved by finite-prime Hall cuts; true sharp limit unknown.  
-> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact finite-prime optimum 5/12 on {3,5,7,11}, via monotone-compression and exhaustive rational support certificate; full sieve infimum open.  
-> **Finite evidence:** 168 upward-closed four-prime supports, 27,889 ordered pairs checked exactly, four exceptions eliminated analytically; prime-prefix reduction, prior 2/3-prime classifications and Hall bounds.  
+> **Verified/known progress:** Proved 16/π²−3/2 ≤ liminf rho_n ≤ limsup rho_n ≤ 5/12; exact fractional-sieve optimum 5/12 for the first five odd primes {3,5,7,11,13}, including asymmetric profiles, by integer Hall-support certificate; full sieve infimum open.  
+> **Finite evidence:** Five-prime theorem: 7,581 upward-closed supports and 15,586 admissible ordered support pairs certified with integer arithmetic; existing four-prime exact certificate and Hall bounds.  
 > **Symbolic prize:** A Research Prize (symbolic) — Existence and exact value of the limiting coprime-matching local resilience.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
 <!-- /DOSSIER-SUMMARY -->
@@ -49,6 +49,15 @@ $$
 The certificate uses the primes $3,5,7$, an exact half-mass fractional profile, and a perturbation with strictly more than half the mass on each side. Its conditional coprime-neighbor fractions and the purification argument appear in the supporting theorem and [exact verifier](../../experiments/P040_fractional_sieve_certificate.py).
 
 The [three-prime sharpness theorem](../../theorems/P040-fractional-sieve-variational.md) proves that $5/12$ is the **exact infimum for all fractional profile pairs $f,g$ on $P=\{3,5,7\}$**, including asymmetric pairs with $m_P(f)+m_P(g)>1$. The same theorem note gives a mass-preserving coordinate compression that reduces the general finite-prime variational search to increasing fractional profiles. Additional primes or non-finite-prime Hall cuts may still improve $5/12$; this is not an unrestricted resilience lower bound.
+
+
+**Five-prime sharpness.** The [exact five-prime Hall theorem](../../theorems/P040-five-prime-sharpness.md) extends the classification to
+
+$$
+\boxed{\alpha(\{3,5,7,11,13\})=\frac5{12}.}
+$$
+
+It covers arbitrary asymmetric fractional profiles. The proof reduces the problem to 7,581 upward-closed Boolean supports, checks all 15,586 admissible ordered support pairs with exact integer inequalities, and isolates 12 exceptional unordered pairs after a simpler preliminary bound. The [reproducible integer verifier](../../experiments/P040_five_prime_sharpness.py) uses no numerical optimization and verifies every case. This is a finite computer-assisted theorem, not a lower bound on the full graph resilience.
 
 **Exact small-prime classification.** The [two-prime threshold theorem](../../theorems/P040-two-prime-thresholds.md) determines the fractional Hall-cut infimum for all sets of at most two odd primes:
 
