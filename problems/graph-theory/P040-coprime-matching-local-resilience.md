@@ -91,10 +91,7 @@ $$
 The reduction uses increasing fractional profiles, justified by
 the existing monotone-compression theorem, and couples product
 measures by independent thinning. No additional number-theoretic
-assumptions or computer search are required. The next unresolved
-case is whether the four-prime prefix $\{3,5,7,11\}$ lowers the
-currently attained value $5/12$. A finite computation cannot
-certify the unrestricted limit.
+assumptions or computer search are required. The exact optimizations for the initial three, four, and five odd primes all attain $5/12$; the first prefix not evaluated by the cited exact theorems is $\{3,5,7,11,13,17\}$. No finite-prefix computation can certify the unrestricted limit.
 
 **The four-prime threshold.** An [exact finite certificate](../../theorems/P040-four-prime-sharpness.md)
 extends the three-prime optimum to
@@ -109,8 +106,7 @@ exceptions are excluded by a separate conditional-mass inequality.
 This is a **computer-assisted proof**, not finite statistical
 evidence and not a statement about unrestricted arithmetic Hall cuts.
 By the prime-prefix reduction, the same lower threshold holds for
-the optimal choice of at most four odd-prime coordinates. The
-five-prime prefix $\{3,5,7,11,13\}$ remains open.
+the optimal choice of at most four odd-prime coordinates. The [five-prime sharpness theorem](../../theorems/P040-five-prime-sharpness.md) extends this equality to $\{3,5,7,11,13\}$ using an exact integer certificate for asymmetric fractional profiles.
 
 **These bounds are not claimed optimal.** The limit of $\rho_n$ may be smaller or may fail to exist. In particular, convergence to the finite-prime variational infimum has not been established.
 
