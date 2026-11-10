@@ -65,7 +65,7 @@ For either reduced residue class −s modulo an odd prime p, the Bombieri–Vino
 $$
 \sum_{\substack{3\le p\le N^{1/3}\\p\text{ prime}}}
 \pi(N;p,-s)
-=\operatorname{Li}(N)
+=\mathrm{Li}(N)
 \sum_{\substack{3\le p\le N^{1/3}\\p\text{ prime}}}
 \frac1{p-1}
 +O_A\left(\frac{N}{(\log N)^A}\right).
