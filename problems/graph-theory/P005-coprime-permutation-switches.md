@@ -3,7 +3,7 @@
 <!-- DOSSIER-SUMMARY -->
 > **Research question:** Can all coprime permutations be connected by two-position switches? (Resolved; diameter at most 3(n−1).)  
 > **Formulation:** proved internally. **Novelty:** elementary universal-hub switch theorem; historical priority unverified; 2007 square-count formula known.  
-> **Verified/known progress:** Proved connectivity for every n and linear diameter ≤3(n−1) via universal-hub matching lemma and parity decomposition.  
+> **Verified/known progress:** Proved all-order connectivity and diameter at most 3(n−1); the exact arithmetic theorem is kernel-checked in Lean 4.35.0, including both parity cases.  
 > **Finite evidence:** Constructive explicit switch algorithm exhaustively checked for all coprime permutations n≤11; prior even-order BFS n≤22.  
 > **Symbolic prize:** A Research Prize (symbolic) — A necessary and sufficient criterion for connected coprime-permutation switch graphs.  
 > **Navigation:** [Full problem catalogue](../../README.md#problem-catalogue) · [Status and scope](../../README.md#status-and-scope) · [Literature and audits](../../README.md#literature-and-audits)
@@ -34,7 +34,7 @@ $$
 \mathrm{diam}(\mathcal C_n)\le3(n-1).
 $$
 
-The proof resolves each permutation cycle by using a universal matching row and a universal matching column as temporary buffers. For odd $n$, both are the integer $1$ and a reference coprime permutation fixes $1$; for even $n$, the parity product theorem reduces to two matching graphs with universal row $2$ and universal column $1$. It is a complete elementary proof, not just a finite verification. The [deterministic switch constructor](../../experiments/P005_canonical_switch_certificate.py) independently checks every intermediate swap for all coprime permutations with $n\le11$. The optimal diameter and the mixing time of the switch chain are not determined.
+The proof resolves each permutation cycle by using a universal matching row and a universal matching column as temporary buffers. For odd $n$, both are the integer $1$ and a reference coprime permutation fixes $1$; for even $n$, the parity product theorem reduces to two matching graphs with universal row $2$ and universal column $1$. It is a complete elementary proof, and its exact all-order conclusion is [kernel-checked in Lean 4.35.0](../../formal/ArithmeticGraphs/P005All.lean), with only the standard axioms propext, Classical.choice, and Quot.sound and no sorryAx. The [deterministic switch constructor](../../experiments/P005_canonical_switch_certificate.py) independently checks every intermediate swap for all coprime permutations with $n\le11$. The optimal diameter and the mixing time of the switch chain are not determined.
 
 ## Finite verification
 
@@ -99,7 +99,7 @@ Targeted searches did not expose a direct treatment of this exact arithmetic swi
 
 ## Further questions
 
-Determine the exact diameter and the mixing time of the coprime-permutation switch chain. Verify historical priority of the universal-hub argument against matching-reconfiguration literature. Formalize the complete connectivity theorem and diameter bound in Lean.
+Determine the exact diameter and the mixing time of the coprime-permutation switch chain. Verify historical priority of the universal-hub argument against matching-reconfiguration literature. Seek the exact diameter, quantitative mixing-time behavior, and strengthened reconfiguration properties.
 
 ## Related literature
 
