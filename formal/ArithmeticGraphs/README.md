@@ -32,6 +32,16 @@ The [independent mathematical proof](../../theorems/P005-universal-hub-switch-co
 
 The broader [P030](../../problems/number-theory/P030-double-prime-perfect-matchings.md) and [P033](../../problems/graph-theory/P033-prime-sum-three-palette.md) problems contain mathematical results beyond these Lean declarations.
 
+## P033 — Partial formalization of the universal three-prime theorem
+
+The [complete mathematical theorem](../../theorems/P033-universal-three-prime-sum-connectivity.md) states connectivity using three prime sum colors for every integer `n >= 3`. The following Lean modules provide **partial formalization** only:
+
+- [P033FiniteCertificate.lean](P033FiniteCertificate.lean) contains 103 explicit prime triples and proves `P033.certified_three_primes`: for **every** `121 <= n <= 10^10`, a prime triple satisfying the coprime half-difference and sharp interval bound exists. The finite primality and interval checks use `native_decide`; the resulting theorem therefore depends on Lean's **trusted native-evaluation axioms** in addition to standard foundations. It is not an axiom-free kernel reduction.
+- [P033ReflectionMoves.lean](P033ReflectionMoves.lean) proves that the two fundamental forward/backward reflection compositions give legal two-edge paths, including parity, endpoint and interval conditions.
+- [P033SieveBudget.lean](P033SieveBudget.lean) proves, using exact rational arithmetic, the three numerical sieve-error inequalities and the fact that their sum is strictly less than one.
+
+**Not formalized:** the full interval-step graph connectivity lemma; the corresponding all-vertex graph connectivity criterion; the small-order exhaustive verification for `3 <= n <= 120`; and the cited effective prime-distribution and Brun–Titchmarsh theorems and their applications for `n >= 10^10`. Consequently the present Lean modules do not prove `kappa(n) <= 3` for all `n >= 3`. The independent mathematical argument and Python certificate remain the basis of the repository's P033 result.
+
 ## Verification
 
 From the repository root, change into formal/ArithmeticGraphs, run lake update, retrieve the Mathlib cache with lake exe cache get, and run lake build ArithmeticGraphs. The final source can also be checked with lake env lean P005All.lean.
