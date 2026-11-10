@@ -70,12 +70,14 @@ $$
 
 because $1/2$ is adjacent to precisely two fractions of every other prime denominator, whereas any connected component has at most one more vertex than its edges. These bounds are not asserted sharp.
 
+The [two-step layer theorem](P043-two-step-prime-denominator-growth.md) improves the largest-component lower bound unconditionally to $C(N)\ge(2+o(1))N\log\log N/\log N$ using the Bombieri–Vinogradov theorem. The precise asymptotic order of $C(N)$ is still unresolved.
+
 The [exact verifier](../experiments/P043_prime_farey_components.py) independently constructs the graphs and checks the identities and the deletion-forest assertion for all $N\le101$. Finite component-size observations do not constitute an asymptotic theorem.
 
 ## References and priority
 
 - The classical Farey graph, Stern–Brocot parents, and triangle structure are established objects; see the [Farey graph overview](https://web.sas.upenn.edu/miguellopez/2021/07/11/farey/) and [Stern–Brocot background](https://oeis.org/stern_brocot.html).
-- W. D. Zaman, *Farey fractions with prime denominators*, *Acta Arithmetica* (2008), discusses prime-denominator arithmetic distribution ([primary paper](https://www.impan.pl/shop/en/publication/transaction/download/product/82971)).
+- D. E. Welch, *Farey fractions with prime denominators*, *Acta Arithmetica* **134** (2008), 93–99, https://doi.org/10.4064/aa134-1-7, studies approximation and distribution of prime-denominator fractions (rather than the component-size theorem).
 - Kushwaha and Sarma, [*Farey-subgraphs and Continued Fractions*](https://arxiv.org/abs/2106.14856), investigate a differently defined family of Farey subgraphs.
 
 The component formula is a direct combination of classical Farey parent structure and the elementary prime-sum observation. It does not establish the twin-prime conjecture. The absence of an identical theorem in targeted searches is not proof of its historical originality.
