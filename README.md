@@ -32,10 +32,10 @@ The catalogue contains all numbered entries in a single sequence. Mathematical f
 
 | Status | Entries | Meaning |
 |---|---:|---|
-| Candidate | 36 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
+| Candidate | 35 | Precisely defined open question with a substantive unresolved mathematical target; novelty is not certified |
 | Reframe | 8 (P007, P009, P012, P013, P025, P029, P032, P037) | A predecessor or insufficiently independent target requires a stronger mathematical formulation |
 | Needs specification | 2 (P008, P022) | A sharper quantified problem or nontrivial asymptotic target is required |
-| Proved internally | 2 (P005, P010) | Both P005 (all-order switch connectivity and diameter) and P010 (exact coprime-adjacency minimum) have complete kernel-checked Lean statements; historical priority and journal review remain separate |
+| Proved internally | 3 (P005, P010, P033) | P005 and P010 have complete Lean certificates; P033 has an effective all-order proof with an exact finite computer-assisted certificate. Historical priority and publication remain separate matters |
 | Known result | 1 (P048) | The statement is resolved by established mathematics; retained to preserve its permanent identifier |
 | Disproved | 1 (P030) | Congruence matching bound and explicit Hall counterexample; historical priority unverified |
 
@@ -114,7 +114,7 @@ This is the **single numbered catalogue of all 50 entries**. The canonical catal
 | [P030](problems/number-theory/P030-double-prime-perfect-matchings.md) | Double-prime perfect matchings on integer intervals | number theory | disproved | internal disproof; historical priority unverified | — |
 | [P031](problems/number-theory/P031-coprime-sidon-extremum.md) | How large can a pairwise-coprime Sidon set be? | number theory | candidate | not certified; Sidon sets of primes and additive-multiplicative restrictions require a specialist search | A Book (symbolic) — A sharp asymptotic for the maximum size of a pairwise-coprime Sidon subset of an initial interval. |
 | [P032](problems/graph-theory/P032-prime-sum-bipartite-diameter.md) | Is the prime-sum bipartite diameter eventually seven? | graph theory | reframe | strong overlap: bounded prime differences and Erdős Problem 17; exact quantifiers not equivalent | A Dinner (symbolic) — A proof of eventual diameter seven in prime-sum bipartite graphs, or infinitely many failures. |
-| [P033](problems/graph-theory/P033-prime-sum-three-palette.md) | Can three prime sums connect all integers? | graph theory | candidate | not certified; Chen–Fu–Guo (2021) established three-color Hamiltonian-prime-set phenomena for some orders, not this stated eventual connectivity theorem | A Research Prize (symbolic) — A proof that three prime sums always connect the graph on an initial interval, or a counterexample. |
+| [P033](problems/graph-theory/P033-prime-sum-three-palette.md) | Can three prime sums connect all integers? | graph theory | proved internally | historical priority unverified; all-n theorem via explicit sieve and exact finite interval certificate | A Research Prize (symbolic) — A proof that three prime sums always connect the graph on an initial interval, or a counterexample. |
 | [P034](problems/graph-theory/P034-four-prime-sum-biconnectivity.md) | Four prime sums without cut vertices | graph theory | candidate | unverified; prime-sum connectivity predecessor | A Coffee (symbolic) — A construction using four prime sums for every odd order at least seven, or an exceptional order. |
 | [P035](problems/number-theory/P035-primitive-sidon-coloring.md) | Sidon coloring by divisibility antichains | additive combinatorics | candidate | high overlap risk: Sidon–Ramsey coloring and primitive sets | A Research Prize (symbolic) — An asymptotically optimal Sidon and divisibility-antichain coloring, or a larger lower bound. |
 | [P036](problems/probability/P036-random-schur-hypergraph-two-core.md) | When does a random Schur hypergraph acquire a 2-core? | probability | candidate | unverified; Schur Ramsey thresholds are close but the peeling observable is different | A Dinner (symbolic) — The critical scale and limiting law for the first nonempty two-core in a random Schur hypergraph. |
